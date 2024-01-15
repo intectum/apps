@@ -1,0 +1,9 @@
+.u-color--light
+{
+  color: var(--color-light);
+}
+
+.u-color--primary
+{
+  color: var(--color-primary);
+}

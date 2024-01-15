@@ -1,0 +1,30 @@
+rules_version = '2';
+
+service cloud.firestore {
+  function isCurrentUser(request, userId) {
+    return request.auth != null && request.auth.uid == userId;
+  }
+
+  function currentUserIsFriend(database, request, userId) {
+    return request.auth != null && request.auth.uid in get(/databases/$(database)/documents/users/$(userId)/userPrivates/private).data.friendIds;
+  }
+
+  match /databases/{database}/documents {
+    match /heatMaps/{heatMapId} {
+      allow read: if true;
+    }
+    match /invitations/{invitationId} {
+      allow read: if isCurrentUser(request, resource.data.senderId) || isCurrentUser(request, resource.data.recipientId);
+      allow create: if isCurrentUser(request, request.resource.data.senderId);
+      allow delete: if isCurrentUser(request, resource.data.senderId) || isCurrentUser(request, resource.data.recipientId);
+    }
+    match /users/{userId} {
+      allow read: if isCurrentUser(request, userId) || currentUserIsFriend(database, request, userId);
+      allow write: if isCurrentUser(request, userId);
+    }
+    match /users/{userId}/userPrivates/{userPrivateId} {
+      allow read: if isCurrentUser(request, userId);
+      allow write: if isCurrentUser(request, userId);
+    }
+  }
+}

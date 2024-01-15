@@ -1,0 +1,9 @@
+input
+{
+  display: block;
+
+  width: 100%;
+  padding: var(--spacer-sm);
+
+  font-size: 1rem;
+}

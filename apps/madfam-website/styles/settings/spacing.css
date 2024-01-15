@@ -1,0 +1,6 @@
+:root
+{
+  --spacing: 16px;
+  --spacing-sm: calc(var(--spacing) * 0.5);
+  --spacing-lg: calc(var(--spacing) * 2);
+}

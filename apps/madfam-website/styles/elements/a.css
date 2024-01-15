@@ -1,0 +1,10 @@
+a
+{
+  color: var(--themes-current-bright);
+  text-decoration: none;
+}
+
+a:hover
+{
+  filter: brightness(85%);
+}

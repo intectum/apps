@@ -1,0 +1,6 @@
+figcaption
+{
+  padding-left: var(--spacer);
+
+  color: var(--color-grey);
+}

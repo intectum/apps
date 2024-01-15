@@ -1,0 +1,7 @@
+header
+{
+  padding: var(--spacer-lg);
+  background-color: var(--color-dark);
+  color: white;
+  stroke: var(--color-primary);
+}

@@ -1,0 +1,13 @@
+.o-container
+{
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+@media screen and (max-width: 1040px)
+{
+  .o-container
+  {
+    margin: 0 var(--spacer-lg);
+  }
+}

@@ -1,0 +1,7 @@
+.firebase/
+.idea/
+dist/
+node_modules/
+
+*.log
+.env*

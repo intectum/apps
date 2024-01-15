@@ -1,0 +1,23 @@
+.c-modal
+{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #0006;
+}
+
+.c-modal__window
+{
+  border-radius: var(--border-radius);
+  background-color: var(--color-light);
+  padding: var(--spacer);
+
+  color: var(--color-dark);
+}

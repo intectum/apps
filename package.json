@@ -1,0 +1,28 @@
+{
+  "name": "apps",
+  "workspaces": [
+    "packages/apps-core",
+    "packages/apps-firebase",
+    "packages/apps-mobile",
+    "packages/apps-web",
+    "packages/madfam-core",
+    "apps/intectum-website",
+    "apps/madfam-firebase",
+    "apps/madfam-mobile",
+    "apps/madfam-website",
+    "apps/oshonz-website"
+  ],
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.1",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.19.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.25.4",
+    "typescript": "5.0.4"
+  }
+}

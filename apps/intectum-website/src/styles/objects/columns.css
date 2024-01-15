@@ -1,0 +1,19 @@
+@media screen and (min-width: 992px)
+{
+  .o-columns-2
+  {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .o-columns-3
+  {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+}
+
+.o-columns--gutless
+{
+  margin: 0 calc(var(--spacer) * -1);
+}

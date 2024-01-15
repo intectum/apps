@@ -1,0 +1,10 @@
+.o-split
+{
+  display: flex;
+  align-items: center;
+}
+
+.o-split > :first-child
+{
+  flex: 1;
+}

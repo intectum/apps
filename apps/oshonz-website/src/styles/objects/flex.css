@@ -1,0 +1,17 @@
+.o-flex
+{
+  display: flex;
+}
+
+@media screen and (min-width: 800px)
+{
+  .o-flex-desktop
+  {
+    display: flex;
+  }
+}
+
+.o-flex--column
+{
+  flex-direction: column;
+}

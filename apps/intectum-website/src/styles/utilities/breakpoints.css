@@ -1,0 +1,23 @@
+@media screen and (max-width: 575px)
+{
+  .u-small
+  {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px)
+{
+  .u-medium
+  {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 991px)
+{
+  .u-large
+  {
+    display: none;
+  }
+}

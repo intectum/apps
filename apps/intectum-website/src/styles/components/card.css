@@ -1,0 +1,32 @@
+.c-card
+{
+  display: flex;
+  flex-direction: column;
+
+  border-radius: var(--border-radius);
+  background-color: var(--color-light);
+  padding: var(--spacer);
+
+  color: var(--color-dark);
+}
+
+.c-card__header-container {
+  position: relative;
+  height: 0;
+
+  margin: calc(var(--spacer) * -1) calc(var(--spacer) * -1) 0 calc(var(--spacer) * -1);
+  padding-top: 56%;
+}
+
+.c-card__header-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+
+  object-fit: cover;
+}

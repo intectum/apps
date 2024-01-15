@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "dev": "madfam-5c341",
+    "prod": "madfam-5e172"
+  }
+}

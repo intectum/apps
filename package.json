@@ -5,12 +5,12 @@
     "packages/apps-firebase",
     "packages/apps-mobile",
     "packages/apps-web",
-    "packages/madfam-core",
+    "packages/vaga-core",
     "apps/intectum-website",
-    "apps/madfam-firebase",
-    "apps/madfam-mobile",
-    "apps/madfam-website",
-    "apps/oshonz-website"
+    "apps/oshonz-website",
+    "apps/vaga-firebase",
+    "apps/vaga-mobile",
+    "apps/vaga-website"
   ],
   "scripts": {
     "lint": "eslint ."

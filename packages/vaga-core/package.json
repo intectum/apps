@@ -1,0 +1,10 @@
+{
+  "name": "vaga-core",
+  "main": "src/index.ts",
+  "dependencies": {
+    "country-list": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/country-list": "^2.1.4"
+  }
+}

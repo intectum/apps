@@ -1,0 +1,11 @@
+{
+  "name": "vaga-website",
+  "scripts": {
+    "build": "webpack && cp index.html ../vaga-firebase/dist/website && cp -r styles ../vaga-firebase/dist/website"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

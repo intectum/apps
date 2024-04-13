@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "dev": "vaga-dev-01",
+    "prod": "vaga-prod"
+  }
+}

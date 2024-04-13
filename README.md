@@ -8,14 +8,14 @@ This monorepo uses npm workspaces. The following is a list of all the workspaces
 
 - apps
   - intectum-website: the intectum website
-  - madfam-*: components of the MadFam project
   - oshonz-website: the osho.nz website
+  - vaga-*: components of the Vaga project
 - packages
   - apps-core: core functions
   - apps-firebase: common firebase functions
   - apps-mobile: common react native components, hooks etc.
   - apps-web: common web functions
-  - madfam-core: common functions for the MadFam project
+  - vaga-core: common functions for the Vaga project
 
 ## Firebase
 

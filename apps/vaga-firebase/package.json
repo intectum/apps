@@ -1,0 +1,25 @@
+{
+  "name": "vaga-firebase",
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist/functions",
+    "build:watch": "ncc build src/index.ts -o dist/functions --watch",
+    "export": "firebase --project dev emulators:export emulator-data",
+    "serve": "npm run build && firebase --project dev emulators:start --import emulator-data",
+    "shell": "npm run build && firebase --project dev functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase --project dev deploy --only firestore,functions,hosting",
+    "deploy-prod": "firebase --project prod deploy --only firestore,functions",
+    "logs": "firebase --project dev functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "dist/functions/index.js",
+  "dependencies": {
+    "googleapis": "^129.0.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.7"
+  }
+}

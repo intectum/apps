@@ -1,5 +1,34 @@
 [
   {
+    "name": "POPUP",
+    "description":
+    [
+      "A web-app for hosting virtual events, performances and exhibitions.",
+      "I worked on the front-end for this web-app."
+    ],
+    "clientSlug": "dotdot",
+    "links":
+    {
+      "website": "https://popup.ing"
+    },
+    "tagSlugs":
+    [
+      "css",
+      "git",
+      "html",
+      "nodejs",
+      "react",
+      "typescript",
+      "web-app"
+    ],
+    "dates":
+    {
+      "startedAt": "2024-02",
+      "endedAt": "2024-05"
+    },
+    "mediaUrl": "/images/projects/popup.svg"
+  },
+  {
     "name": "Octana",
     "description":
     [
@@ -8,7 +37,8 @@
     ],
     "clientSlug": "octana",
     "endClient": "Multiple Clients",
-    "links": {
+    "links":
+    {
       "octana website": "https://octana.io"
     },
     "tagSlugs":
@@ -37,7 +67,8 @@
     ],
     "clientSlug": "dotdot",
     "endClient": "Auckland Live",
-    "links": {
+    "links":
+    {
       "article": "https://dotdot.studio/project/digital-buskers"
     },
     "tagSlugs":
@@ -149,7 +180,8 @@
     ],
     "clientSlug": "apolinar",
     "endClient": "Up Education",
-    "links": {
+    "links":
+    {
       "octana website": "https://octana.io"
     },
     "tagSlugs":

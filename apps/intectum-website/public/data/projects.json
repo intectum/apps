@@ -320,6 +320,60 @@
     "mediaUrl": "/images/projects/tally-my-post.jpg"
   },
   {
+    "name": "astrum",
+    "description":
+    [
+      "astrum is a tech demo based I created on some of Sebastian Lague's 'Coding Adventures' videos with additional features of my own",
+      "I created this tech demo in parallel with my engine called ludo"
+    ],
+    "links":
+    {
+      "code": "https://github.com/gyan-intectum-nz/games/tree/main/astrum"
+    },
+    "tagSlugs":
+    [
+      "c++",
+      "game",
+      "git"
+    ],
+    "dates":
+    {
+      "startedAt": "2022",
+      "endedAt": "current",
+      "yearOnly": true,
+      "offAndOn": true
+    },
+    "mediaUrl": "/images/projects/astrum.png"
+  },
+  {
+    "name": "ludo",
+    "description":
+    [
+      "ludo has the ambitious goal of being a simple game engine.",
+      "It uses a procedural code style and is designed to allow for data oriented scripts although I admit I am not very experienced in data oriented design yet.",
+      "It also provides some abstract API declarations for various subsystems e.g. graphics, physics, input etc.",
+      "I created this engine in parallel with my tech demo called astrum"
+    ],
+    "links":
+    {
+      "code": "https://github.com/gyan-intectum-nz/games"
+    },
+    "tagSlugs":
+    [
+      "c++",
+      "game",
+      "git"
+    ],
+    "dates":
+    {
+      "startedAt": "2022",
+      "endedAt": "current",
+      "yearOnly": true,
+      "offAndOn": true
+    },
+    "mediaUrl": "/images/projects/ludo.jpg"
+  },
+  {
     "name": "AT Journey Planner",
     "description":
     [
@@ -377,32 +431,6 @@
       "endedAt": "2021-04"
     },
     "mediaUrl": "/images/projects/at-mobile.png"
-  },
-  {
-    "name": "simplicitas",
-    "description":
-    [
-      "simplicitas has the ambitious goal of being a simple game engine.",
-      "It uses a procedural code style and is designed to allow for data oriented scripts although I admit I am not very experienced in data oriented design yet.",
-      "It also provides some abstract API declarations for various subsystems e.g. graphics, physics, input etc.",
-      "At its core it is as simple as: run a collection of functions every frame."
-    ],
-    "links":
-    {
-      "code": "https://bitbucket.org/account/user/intectum/projects/SIM-2"
-    },
-    "tagSlugs":
-    [
-      "c++",
-      "game",
-      "git"
-    ],
-    "dates":
-    {
-      "startedAt": "2020-11",
-      "endedAt": "2021-02"
-    },
-    "mediaUrl": "/images/projects/simplicitas.jpg"
   },
   {
     "name": "F&P Delivery",
@@ -751,7 +779,7 @@
     ],
     "links":
     {
-      "code": "https://bitbucket.org/intectum/intectum-website",
+      "code": "https://github.com/gyan-intectum-nz/apps/tree/main/apps/intectum-website",
       "website": "http://intectum.nz"
     },
     "tagSlugs":
@@ -767,8 +795,9 @@
     ],
     "dates":
     {
-      "startedAt": "2019-05",
-      "endedAt": "2023-09",
+      "startedAt": "2019",
+      "endedAt": "current",
+      "yearOnly": true,
       "offAndOn": true
     },
     "mediaUrl": "/images/logo.png"
@@ -1165,37 +1194,6 @@
     "mediaUrl": "/images/projects/flow-chart.jpg"
   },
   {
-    "name": "OSHO Information Center, Auckland Website",
-    "description":
-    [
-      "A website advertising OSHO in Auckland. It is built using React.",
-      "I built and administer this website."
-    ],
-    "links":
-    {
-      "code": "https://bitbucket.org/intectum/osho-nz-website",
-      "website": "http://osho.nz"
-    },
-    "tagSlugs":
-    [
-      "css",
-      "git",
-      "html",
-      "nodejs",
-      "react",
-      "sass",
-      "typescript",
-      "website"
-    ],
-    "dates":
-    {
-      "startedAt": "2015-03",
-      "endedAt": "2019-09",
-      "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/osho-nz.png"
-  },
-  {
     "name": "Taggify",
     "description":
     [
@@ -1220,6 +1218,38 @@
       "endedAt": "2015-05"
     },
     "mediaUrl": "/images/projects/camera.jpg"
+  },
+  {
+    "name": "OSHO Information Center, Auckland Website",
+    "description":
+    [
+      "A website advertising OSHO in Auckland. It is built using React.",
+      "I built and administer this website."
+    ],
+    "links":
+    {
+      "code": "https://github.com/gyan-intectum-nz/apps/tree/main/apps/oshonz-website",
+      "website": "http://osho.nz"
+    },
+    "tagSlugs":
+    [
+      "css",
+      "git",
+      "html",
+      "nodejs",
+      "react",
+      "sass",
+      "typescript",
+      "website"
+    ],
+    "dates":
+    {
+      "startedAt": "2015",
+      "endedAt": "current",
+      "yearOnly": true,
+      "offAndOn": true
+    },
+    "mediaUrl": "/images/projects/osho-nz.png"
   },
   {
     "name": "ArtRage Touch",

@@ -5,7 +5,7 @@
   border: none;
   border-radius: var(--border-radius);
   background-color: transparent;
-  padding: var(--spacer);
+  padding: var(--spacer-sm) var(--spacer);
 
   font-size: 20px;
 

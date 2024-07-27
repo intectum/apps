@@ -1,43 +1,102 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Home: FC = () =>
-{
-  const quotes =
-  [
-    <blockquote>
-      <p>Simplicity is not an ideal, you cannot impose simplicity on yourself. That’s why I never say that people like Mahatma Gandhi are simple. They are not, they cannot be. Simplicity is their ideal, they are trying to attain it. Simplicity is a goal far away in the future, distant, and they are striving, they are straining, they are in great effort. How can you create simplicity out of effort? Simplicity simply means that which is. Out of effort you are trying to improve upon existence.</p>
-      <figcaption>Osho in <cite title="Source Title">The Secret, Talk #10</cite></figcaption>
-    </blockquote>,
-    <blockquote>
-      <p>Simplicity is not a requirement but a by-product of innocence. It comes just like your shadow. Don’t try to be simple. If you try to be simple, the very effort destroys simplicity. You cannot cultivate simplicity; a cultivated simplicity is superficial. Simplicity has to follow you like a shadow. You need not bother about it. You need not look back again and again to see whether the shadow is following you or not. The shadow is bound to follow you.</p>
-      <figcaption>Osho in <cite title="Source Title">The White Lotus, Talk #6</cite></figcaption>
-    </blockquote>,
-    <blockquote>
-      <p>Simplicity means to just be yourself, whosoever you are, in tremendous acceptance, with no goal, with no ideal. All ideals are crap; scrap all of them.</p>
-      <figcaption>Osho in <cite title="Source Title">The Secret, Talk #10</cite></figcaption>
-    </blockquote>,
-    <blockquote>
-      <p>Elegant simplicity... It was not a practiced simplicity. It was not a cultivated simplicity. It was elegant, it was natural. The ego had disappeared. That’s why there was simplicity. You can practice simplicity, but then it is just a decoration of the ego.</p>
-      <p>There are two kinds of simplicity. One simplicity: the so-called mahatma, the saint, who practices it. It is a very calculated move, a calculated gesture. It is very cunning. It is not simplicity, it is a facade. Then there is another kind of simplicity: elegant, graceful, spontaneous, uncultivated, natural like that of a child, unselfconscious. Hence elegant, hence graceful.</p>
-      <figcaption>Osho in <cite title="Source Title">Zen, The Path of Paradox, Vol. 3, Talk #9</cite></figcaption>
-    </blockquote>
-  ];
+import { getClients, getTags } from '../common/data';
+import { Client, cvUrl, Tag } from '../common/types';
+import ClientModal from '../components/ClientModal';
 
-  const quote = quotes[Math.floor(Math.random() * quotes.length)];
+const Freelance: FC = () =>
+{
+  const [ client, setClient ] = useState<Client>();
+  const [ clients, setClients ] = useState<Client[]>();
+  const [ tags, setTags ] = useState<Tag[]>();
+
+  useEffect(() =>
+  {
+    getClients().then(setClients);
+    getTags().then(setTags);
+  }, []);
+
+  const activeClients = clients?.filter(client => client.active).sort((a, b) => a.name.localeCompare(b.name));
+  const experienceTags = tags?.filter(tag => tag.active && tag.type === 'experience').sort((a, b) => a.name.localeCompare(b.name));
+  const toolTags = tags?.filter(tag => tag.active && tag.type === 'tool').sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <div className="o-container">
-      <h1 className="u-color--primary">intectum</h1>
-      {quote}
-      <div className="u-text-center">
-        <Link className="c-button c-button--primary u-m--sm" to="/freelance">freelance senior developer</Link>
-        {/* <Link className="c-button c-button--primary u-m--sm" to="/software">open source software</Link>
-        <Link className="c-button c-button--primary u-m--sm" to="/hardware">woodworking & hardware</Link> */}
-        <Link className="c-button c-button--primary u-m--sm" to="/projects">project history</Link>
+    <>
+      <div className="o-container">
+        <section className="u-my--lg">
+          <h1><span className="u-color--primary">freelance</span> senior developer</h1>
+          <h2 className="u-color--primary">Hello! My name is Gyan (aka Gary Buyn)</h2>
+          <p>I am a senior developer with over 17 years experience. <span className="u-medium">I enjoy to work on a wide variety of projects with minimal friction. Projects that are outside the box and challenging are my favorite. Please throw something at me that I can't do yet. I'm excited by games, AR/VR and the intersection of software and hardware e.g. embedded etc.</span></p>
+          <p>I am available for short-term remote contracts.</p>
+          <div className="u-text-center">
+            <a href={cvUrl} target="_blank" rel="noreferrer" className="c-button c-button--primary u-m--sm">Full CV</a>
+            <a href="mailto:gyan@intectum.nz" className="c-button c-button--primary u-m--sm">gyan@intectum.nz</a>
+            <a href="tel:+64226754763" className="c-button c-button--primary u-m--sm">+64 22 675 4763 (New Zealand)</a>
+          </div>
+        </section>
+        <div className="u-p" />
+        <section className="o-columns-3 u-my--lg">
+          <div className="u-m">
+            <div className="u-text-center">
+              <img src="/images/code.png" alt="Code" />
+            </div>
+            <h3 className="u-color--primary">I have a passion for high quality code that is as simple as possible.</h3>
+            <p className="u-large">In my experience the number one cause of bugs and hard to maintain software is complexity. Writing simpler code that does the same job makes it easier for other developers to understand, reduces the chance for bugs, makes it easier to change later on and often even improves performance.</p>
+          </div>
+          <div className="u-m">
+            <div className="u-text-center">
+              <img src="/images/learn.png" alt="Learn" />
+            </div>
+            <h3 className="u-color--primary">I learn new tech and concepts very quickly.</h3>
+            <p className="u-large">I often jump into existing code-bases which almost inevitably use something that I have no previous experience with. I approach the new code-base task by task, determining how much needs to be learned to effectively complete the task at hand without attempting to learn everything. This means that I can join a project and be effective straight away.</p>
+          </div>
+          <div className="u-m">
+            <div className="u-text-center">
+              <img src="/images/details.png" alt="Details" />
+            </div>
+            <h3 className="u-color--primary">I pay a lot of attention to the details.</h3>
+            <p className="u-large">Although I do not attempt to learn everything before performing a single task in a project, I will learn what I need to know to perform that task to a high standard. Not just to get it done but to get it done well. I always try to find the canonical method and use the strengths of the project, languages and technologies. I will also look for weaknesses in the project and suggest improvements.</p>
+          </div>
+        </section>
+        <div className="u-p" />
+        <section className="u-my--lg">
+          <h2>Experience</h2>
+          <div className="o-grid">
+            {experienceTags?.map(tag =>
+              <Link key={tag.slug} className="u-text-center u-m" to={`/projects?tag=${tag.slug}`}>
+                <img className="c-icon" src={tag.iconUrl} alt={tag.name} />
+                <h4>{tag.name}</h4>
+              </Link>
+            )}
+          </div>
+        </section>
+        <div className="u-p" />
+        <section className="u-my--lg">
+          <h2>Clients</h2>
+          <div className="o-grid">
+            {activeClients?.map(client =>
+              <button key={client.slug} className="c-button" onClick={() => setClient(client)}>
+                <img className="c-icon" src={client.iconUrl} alt={client.name} />
+              </button>
+            )}
+          </div>
+        </section>
+        <div className="u-p" />
+        <section className="u-my--lg">
+          <h2>Tools of the Trade</h2>
+          <div className="o-grid">
+            {toolTags?.map(tag =>
+              <Link key={tag.slug} className="u-m" to={`/projects?tag=${tag.slug}`}>
+                <img className="icon" src={tag.iconUrl} alt={tag.name} />
+              </Link>
+            )}
+          </div>
+        </section>
       </div>
-    </div>
+      {client && <ClientModal client={client} onDismiss={() => setClient(undefined)} />}
+    </>
   );
 };
 
-export default Home;
+export default Freelance;

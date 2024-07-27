@@ -83,18 +83,14 @@ const Projects: FC = () =>
         <h1><span className="u-color--primary">project</span> history</h1>
         <p>Here I have collected some of the projects I have worked on.</p>
         <form className="u-my" onSubmit={submit}>
-          <label htmlFor="query">Search with free-text</label>
           <input
-            id="query"
             type="search"
-            name="query"
             className="u-my"
             placeholder="What are you looking for?"
             value={queryInput}
             onChange={event => onQueryChange(event.target.value)}
           />
         </form>
-        <p>Or filter by tags</p>
         <div className="o-grid u-my">
           {allTags?.sort((a, b) => a.name.localeCompare(b.name)).map(tag =>
             <button

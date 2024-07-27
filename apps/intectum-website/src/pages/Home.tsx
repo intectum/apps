@@ -32,7 +32,6 @@ const Freelance: FC = () =>
           <div className="u-text-center">
             <a href={cvUrl} target="_blank" rel="noreferrer" className="c-button c-button--primary u-m--sm">Full CV</a>
             <a href="mailto:gyan@intectum.nz" className="c-button c-button--primary u-m--sm">gyan@intectum.nz</a>
-            <a href="tel:+64226754763" className="c-button c-button--primary u-m--sm">+64 22 675 4763 (New Zealand)</a>
           </div>
         </section>
         <div className="u-p" />

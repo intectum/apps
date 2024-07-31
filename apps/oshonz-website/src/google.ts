@@ -6,7 +6,7 @@ export const loadGapi = (): Promise<void> => new Promise(resolve => gapi.load('c
 
 export async function getEvents(from: moment.Moment, to: moment.Moment): Promise<CalendarEvent[]>
 {
-  gapi.client.setApiKey('AIzaSyCzrT2Q6uG7f3mhRhHL_vE2djaiTSzN-2c');
+  gapi.client.setApiKey('AIzaSyAUA8Yzmix-e1uM_VqtAzTJHZm7d-_1qUA');
   await gapi.client.load('calendar', 'v3');
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -27,7 +27,6 @@ const Freelance: FC = () =>
         <section className="u-my--lg">
           <h1><span className="u-color--primary">freelance</span> senior developer</h1>
           <h2 className="u-color--primary">Hello! My name is Gyan (aka Gary Buyn)</h2>
-          <p>I am a senior developer with over 17 years experience. <span className="u-medium">I enjoy to work on a wide variety of projects with minimal friction. Projects that are outside the box and challenging are my favorite. Please throw something at me that I can't do yet. I'm excited by games, AR/VR and the intersection of software and hardware e.g. embedded etc.</span></p>
           <div className="u-text-center">
             <a href={cvUrl} target="_blank" rel="noreferrer" className="c-button c-button--primary u-m--sm">Full CV</a>
             <a href="mailto:gyan@intectum.nz" className="c-button c-button--primary u-m--sm">gyan@intectum.nz</a>

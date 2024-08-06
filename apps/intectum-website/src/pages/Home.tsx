@@ -89,9 +89,9 @@ const Freelance: FC = () =>
         <section className="u-my--lg">
           <h2>Vetted Engineer at</h2>
           <div className="o-grid">
-            <Link className="u-text-center u-m" to="">
+            <a href="https://arc.dev/@premgyan" target="_blank" rel="noreferrer" className="u-text-center u-m">
               <img className="c-icon" src="images/arc-dev.svg" alt="arc()"/>
-            </Link>
+            </a>
           </div>
         </section>
         <div className="u-p"/>

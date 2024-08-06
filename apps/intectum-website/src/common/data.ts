@@ -35,19 +35,19 @@ export const getProjects = async (tags?: Tag[], query?: string) =>
     if (query)
     {
       const projectIncludes =
-        project.name.toLowerCase().includes(query) ||
-        project.description.some(paragraph => paragraph.toLowerCase().includes(query)) ||
-        (project.endClient && project.endClient.toLowerCase().includes(query)) ||
-        project.tags.some(tag => tag.name.toLowerCase().includes(query));
+        project.name.toLowerCase().includes(query.toLowerCase()) ||
+        project.description.some(paragraph => paragraph.toLowerCase().includes(query.toLowerCase())) ||
+        (project.endClient && project.endClient.toLowerCase().includes(query.toLowerCase())) ||
+        project.tags.some(tag => tag.name.toLowerCase().includes(query.toLowerCase()));
 
       if (project.client)
       {
         const clientIncludes =
           !project.client ||
-          project.client.name.toLowerCase().includes(query) ||
-          project.client.description.some(paragraph => paragraph.toLowerCase().includes(query)) ||
-          (project.client.reference && project.client.reference.toLowerCase().includes(query)) ||
-          project.client.position.toLowerCase().includes(query);
+          project.client.name.toLowerCase().includes(query.toLowerCase()) ||
+          project.client.description.some(paragraph => paragraph.toLowerCase().includes(query.toLowerCase())) ||
+          (project.client.reference && project.client.reference.toLowerCase().includes(query.toLowerCase())) ||
+          project.client.position.toLowerCase().includes(query.toLowerCase());
 
         if (!projectIncludes && !clientIncludes)
         {

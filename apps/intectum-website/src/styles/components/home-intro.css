@@ -1,0 +1,57 @@
+.c-home-intro
+{
+  height: 200lvh;
+}
+
+.c-home-intro__body
+{
+  position: sticky;
+  top: 0;
+  height: 100lvh;
+}
+
+.c-home-intro__call-me
+{
+  animation-name: c-home-intro__call-me;
+}
+
+@keyframes c-home-intro__call-me
+{
+  0%
+  {
+    transform: translateX(-100lvw);
+  }
+
+  30%
+  {
+    transform: translateX(-100lvw);
+  }
+
+  50%
+  {
+    transform: translateX(0);
+  }
+}
+
+.c-home-intro__hello
+{
+  animation-name: c-home-intro__hello;
+}
+
+@keyframes c-home-intro__hello
+{
+  30%
+  {
+    opacity: 1;
+  }
+
+  50%
+  {
+    opacity: 0.2;
+  }
+
+  100%
+  {
+    opacity: 0.2;
+  }
+}

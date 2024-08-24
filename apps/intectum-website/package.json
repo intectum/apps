@@ -1,25 +1,15 @@
 {
   "name": "intectum-website",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "deploy": "firebase deploy --only hosting",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "firebase deploy --only hosting"
+  },
+  "dependencies": {
+    "matter-js": "^0.20.0"
   },
   "devDependencies": {
-    "react-scripts": "5.0.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@types/matter-js": "^0.19.7"
   }
 }

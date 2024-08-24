@@ -1,8 +1,9 @@
 import { FC, PropsWithChildren } from 'react';
 import { PressableProps, ViewStyle } from 'react-native';
 
+import { Size, Themeable } from 'apps-core';
+
 import { styles } from '../styles';
-import { Size, Themeable } from '../types';
 import Container from './Container';
 import Circle from './Circle';
 import Pressable from './Pressable';

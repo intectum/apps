@@ -10,9 +10,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.1",
-    "@fortawesome/free-brands-svg-icons": "^6.5.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@react-native-async-storage/async-storage": "*",
     "@react-native-firebase/analytics": "*",
     "@react-native-firebase/app": "*",

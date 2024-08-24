@@ -87,8 +87,8 @@ const App: FunctionComponent = () =>
 
           <h3>This week's meditations</h3>
 
-          <div className="o-flex-desktop">
-            <div className="o-flex-item--1">
+          <div className="u-flex-desktop">
+            <div className="u-flex-item--1">
               {!events &&
                 <>Loading...</>
               }
@@ -106,7 +106,7 @@ const App: FunctionComponent = () =>
               )}
             </div>
 
-            <div className="o-flex-item--1">
+            <div className="u-flex-item--1">
               <div className="o-aspect--wide">
                 <div id="map" className="c-map"/>
               </div>

@@ -1,0 +1,20 @@
+.c-home-simple
+{
+  height: 100lvh;
+}
+
+@media screen and (max-width: 575px)
+{
+  .c-home-simple
+  {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 576px)
+{
+  .c-home-simple
+  {
+    font-size: 24px;
+  }
+}

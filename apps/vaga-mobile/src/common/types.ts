@@ -1,6 +1,6 @@
 import { ParamListBase } from '@react-navigation/native';
 
-import { Themeable } from 'apps-mobile';
+import { Themeable } from 'apps-core';
 
 export interface Notification extends Themeable
 {

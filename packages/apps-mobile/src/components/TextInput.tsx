@@ -1,9 +1,10 @@
 import { FC, ReactNode } from 'react';
 import { StyleProp, TextInput as ReactNativeTextInput, TextInputProps, TextStyle, View, ViewStyle } from 'react-native';
 
+import { Size, Themeable } from 'apps-core';
+
 import { fontSizes, lineHeights, styles } from '../styles';
 import { useThemes } from '../themes';
-import { Size, Themeable } from '../types';
 
 export interface Props extends Themeable, TextInputProps
 {

@@ -1,11 +1,10 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import { LayoutRectangle, TextStyle, View, ViewStyle } from 'react-native';
 
-import { afterDate, DateOnly, formatDateRange, sameDate, today } from 'apps-core';
+import { afterDate, DateOnly, formatDateRange, sameDate, Size, Themeable, today } from 'apps-core';
 
 import { spacing, styles } from '../styles';
 import { useThemes } from '../themes';
-import { Size, Themeable } from '../types';
 import Button from './Button';
 import Calendar from './Calendar';
 import Icon from './Icon';

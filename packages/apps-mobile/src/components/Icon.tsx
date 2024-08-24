@@ -2,8 +2,9 @@ import { FontAwesomeIcon, FontAwesomeIconStyle, Props as FontAwesomeIconProps } 
 import { FC } from 'react';
 import { ViewStyle } from 'react-native';
 
+import { Themeable } from 'apps-core';
+
 import { useThemes } from '../themes';
-import { Themeable } from '../types';
 
 export type Props = Themeable & FontAwesomeIconProps;
 

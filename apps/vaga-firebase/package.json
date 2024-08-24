@@ -12,7 +12,7 @@
     "logs": "firebase --project dev functions:log"
   },
   "engines": {
-    "node": "18"
+    "node": ">=18"
   },
   "main": "dist/functions/index.js",
   "dependencies": {

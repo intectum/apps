@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { ActivityIndicator as ReactNativeActivityIndicator, ActivityIndicatorProps } from 'react-native';
 
-import { useThemes } from '..//themes';
-import { Themeable } from '..//types';
+import { Themeable } from 'apps-core';
+
+import { useThemes } from '../themes';
 
 export type Props = Themeable & ActivityIndicatorProps;
 

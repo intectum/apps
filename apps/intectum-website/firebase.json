@@ -1,9 +1,13 @@
 {
   "hosting": {
-    "public": "build",
+    "public": "out",
     "rewrites": [
       {
-        "source": "**",
+        "source": "/projects",
+        "destination": "/projects.html"
+      },
+      {
+        "source": "/",
         "destination": "/index.html"
       }
     ]

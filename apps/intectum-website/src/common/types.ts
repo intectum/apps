@@ -1,44 +1,56 @@
-export const cvUrl = 'https://docs.google.com/document/d/15zjwNuKiEQEht9gHmLw94-1vkTog9jSKBGfKJvu7vJc/edit?usp=drive_link';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-export interface Client {
+export const cvUrl = 'https://docs.google.com/document/d/15zjwNuKiEQEht9gHmLw94-1vkTog9jSKBGfKJvu7vJc';
+
+export type Client =
+{
   slug: string;
   name: string;
   active: boolean;
-  description: string[];
-  link: string;
+  description?: string;
+  link: Link;
   reference: string;
   position: string;
   employmentType: EmploymentType;
   dates: DateRange[];
   iconUrl: string;
-}
+};
 
-export interface DateRange {
+export type DateRange =
+{
   startedAt: string;
   endedAt: string;
   offAndOn?: boolean;
   yearOnly?: boolean;
-}
+};
 
 export type EmploymentType = 'contractor' | 'employee';
 
-export interface Project {
+export type Link =
+{
+  url: string;
+  icon?: IconProp;
+  title?: string;
+};
+
+export type Project =
+{
   name: string;
-  description: string[];
-  links: { [key: string]: string };
+  description?: string;
+  links: Link[];
   client?: Client;
   endClient: string;
-  tags: Tag[];
+  skills: Skill[];
   dates: DateRange;
-  mediaUrl: string;
-}
+  imageUrl: string;
+};
 
-export interface Tag {
+export type Skill =
+{
   slug: string;
   name: string;
-  active: boolean;
-  type: TagType;
-  iconUrl: string;
-}
+  category: SkillCategory;
+  proficiency: number;
+};
 
-export type TagType = 'experience' | 'tool';
+export type SkillCategory = 'back' | 'front' | 'lang' | 'other';

@@ -1,0 +1,44 @@
+.c-button
+{
+  display: inline-block;
+
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  padding: var(--spacer-sm) var(--spacer);
+
+  font-size: 1rem;
+  color: var(--color-light);
+
+  cursor: pointer;
+  transition: filter 0.25s ease;
+}
+
+.c-button:hover
+{
+  filter: brightness(75%);
+}
+
+.c-button--minimal
+{
+  padding: 0;
+}
+
+.c-button--circle
+{
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+}
+
+.c-button--small
+{
+  padding: var(--spacer-sm);
+}
+
+.c-button--primary
+{
+  background-color: var(--color-primary);
+
+  color: var(--color-dark);
+}

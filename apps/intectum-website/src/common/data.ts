@@ -1,51 +1,46 @@
-import { Client, Project, Tag } from './types';
+import { Client, Project, Skill } from './types';
 
-const cache = new Map<string, unknown>();
+export const getClients = () => get<Client>(`${process.env.API_BASE_URL ?? ''}/data/clients.json`);
 
-export const getClients = () => get<Client>('/data/clients.json');
-
-export const getProjects = async (tags?: Tag[], query?: string) =>
+export const getProjects = async (clientSlug?: string, query?: string) =>
 {
-  const projects = await get<Project>('/data/projects.json');
+  const projects = await get<Project>(`${process.env.API_BASE_URL ?? ''}/data/projects.json`);
 
   const allClients = await getClients();
-  const allTags = await getTags();
+  const allSkills = await getSkills();
 
   for (const project of projects)
   {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const clientSlug = (project as any).clientSlug as string | undefined;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const tagSlugs = (project as any).tagSlugs as string[];
+    const skillSlugs = (project as any).skillSlugs as string[];
 
     project.client = allClients.find(client => client.slug === clientSlug);
-    project.tags = allTags.filter(tag => tagSlugs.includes(tag.slug));
+    project.skills = allSkills.filter(skill => skillSlugs.includes(skill.slug));
   }
 
   return projects.filter(project =>
   {
-    if (tags?.length)
+    if (clientSlug && project.client?.slug !== clientSlug)
     {
-      if (!tags.some(tag => project.tags.some(projectTag => projectTag.slug === tag.slug)))
-      {
-        return false;
-      }
+      return false;
     }
 
     if (query)
     {
       const projectIncludes =
         project.name.toLowerCase().includes(query.toLowerCase()) ||
-        project.description.some(paragraph => paragraph.toLowerCase().includes(query.toLowerCase())) ||
+        project.description?.toLowerCase().includes(query.toLowerCase()) ||
         (project.endClient && project.endClient.toLowerCase().includes(query.toLowerCase())) ||
-        project.tags.some(tag => tag.name.toLowerCase().includes(query.toLowerCase()));
+        project.skills.some(skill => skill.name.toLowerCase().includes(query.toLowerCase()));
 
       if (project.client)
       {
         const clientIncludes =
           !project.client ||
           project.client.name.toLowerCase().includes(query.toLowerCase()) ||
-          project.client.description.some(paragraph => paragraph.toLowerCase().includes(query.toLowerCase())) ||
+          project.client.description?.toLowerCase().includes(query.toLowerCase()) ||
           (project.client.reference && project.client.reference.toLowerCase().includes(query.toLowerCase())) ||
           project.client.position.toLowerCase().includes(query.toLowerCase());
 
@@ -67,15 +62,10 @@ export const getProjects = async (tags?: Tag[], query?: string) =>
   });
 };
 
-export const getTags = () => get<Tag>('/data/tags.json');
+export const getSkills = () => get<Skill>(`${process.env.API_BASE_URL ?? ''}/data/skills.json`);
 
 export const get = async <T>(path: string) =>
 {
-  if (!cache.has(path))
-  {
-    const response = await fetch(path);
-    cache.set(path, await response.json());
-  }
-
-  return cache.get(path) as T[];
+  const response = await fetch(path);
+  return await response.json() as T[];
 };

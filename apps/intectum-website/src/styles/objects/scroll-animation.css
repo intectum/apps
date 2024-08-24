@@ -1,0 +1,6 @@
+.o-scroll-animation
+{
+  animation-delay: calc(var(--scroll-animation-time) * -1s);
+  animation-duration: 1s;
+  animation-play-state: paused;
+}

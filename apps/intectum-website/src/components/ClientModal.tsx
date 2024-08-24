@@ -1,9 +1,11 @@
+import Link from 'next/link';
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 
+import { Icon, Modal } from 'apps-web';
+
+import '../common/fontawesome'; // TODO refine, this is only needed once in any client component?
 import { formatMonthYear } from '../common/dates';
 import { Client, cvUrl } from '../common/types';
-import Modal from './Modal';
 
 interface Props
 {
@@ -14,29 +16,42 @@ interface Props
 const ClientModal: FC<Props> = ({ client, onDismiss }) =>
 {
   return (
-    <Modal onDismiss={onDismiss}>
-      <>
-        <div className="o-split">
-          <h4>{client.position} @ {client.name}</h4>
-          <button type="button" className="c-button" onClick={onDismiss}>
-            &times;
-          </button>
+    <Modal className="u-flex u-flex--column u-flex--spaced u-p" onDismiss={onDismiss}>
+      <div className="u-flex u-flex--column u-flex--centered u-flex--spaced">
+        <img className="c-client-modal__client-image" src={client.iconUrl} alt={client.name}/>
+        <div className="u-flex u-flex--spaced">
+          <Link href={`/projects?client=${client.slug}`} title="Projects">
+            <Icon icon="folder-open" />
+          </Link>
+          <a
+            href={client.link.url}
+            title={client.link.title ?? 'Website'}
+            target="_blank"
+            referrerPolicy="no-referrer"
+          >
+            <Icon icon={client.link.icon ?? 'arrow-up-right-from-square'} />
+          </a>
         </div>
-        {client.description.map(paragraph => <p className="u-medium">{paragraph}</p>)}
-        {client.employmentType === 'contractor' && <h5>Contracts</h5>}
-        {client.employmentType === 'employee' && <h5>Employments</h5>}
-        <div className="o-grid">
-          {client.dates.map(dates => <div className="c-tag u-m--xs">{formatMonthYear(dates.startedAt)} - {formatMonthYear(dates.endedAt)}</div>)}
-        </div>
-        {client.reference &&
-          <>
-            <h5>Reference</h5>
-            <p>{client.reference}. See <a href={cvUrl} target="_blank" rel="noreferrer">my full CV</a> for contact details.</p>
-          </>
-        }
-        <Link className="c-button c-button--primary u-m--sm" to={`/projects?q=${client.name}`}>projects</Link>
-        <a href={client.link} target="_blank" rel="noreferrer" className="c-button c-button--primary u-m--sm">website</a>
-      </>
+        <div className="u-text-large">{client.position}</div>
+      </div>
+      {client.description && <div className="u-medium">{client.description}</div>}
+      {client.employmentType === 'contractor' && <h5>Contracts</h5>}
+      {client.employmentType === 'employee' && <h5>Employments</h5>}
+      <div className="o-grid">
+        {client.dates.map(dates =>
+          <div className="c-tag u-m--xs">
+            {formatMonthYear(dates.startedAt)} - {formatMonthYear(dates.endedAt)}
+          </div>
+        )}
+      </div>
+      {client.reference &&
+        <>
+          <h5>Reference</h5>
+          <p>
+            {client.reference}. See <a href={cvUrl} target="_blank" rel="noreferrer">my full CV</a> for contact details.
+          </p>
+        </>
+      }
     </Modal>
   );
 };

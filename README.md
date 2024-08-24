@@ -21,6 +21,10 @@ This monorepo uses npm workspaces. The following is a list of all the workspaces
 
 The easiest way I found to build Firebase projects within the monorepo that are ready for deployment was to use `ncc` instead of the default `tsc`.
 
+## Next.js
+
+The packages used by Next.js apps need to be added to the Next.js config (`next.config.mjs`) by adding the following line: `transpilePackages: [ 'apps-core', 'apps-web' ]`
+
 ## React
 
 While most of React's dependencies are added to `apps-web`, `react-scripts` is added directly to the app project using it. This is for two reasons:

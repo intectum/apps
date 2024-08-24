@@ -1,0 +1,106 @@
+.c-home-clients
+{
+  height: 200lvh;
+}
+
+.c-home-clients__body
+{
+  position: sticky;
+  top: 0;
+  height: 100lvh;
+}
+
+@media screen and (max-width: 575px)
+{
+  .c-home-clients__body
+  {
+    flex-direction: column;
+  }
+}
+
+.c-home-clients__outer
+{
+  position: relative;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+  background-color: var(--color-grey);
+
+  animation-name: scale-in;
+}
+
+@media screen and (max-width: 575px)
+{
+  .c-home-clients__outer
+  {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 576px)
+{
+  .c-home-clients__detail,
+  .c-home-clients__outer
+  {
+    flex: 1;
+  }
+}
+
+.c-home-clients__inner
+{
+  position: absolute;
+  width: 33%;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+  background-color: var(--color-light);
+
+  animation-name: scale-in;
+}
+
+.c-home-clients__client
+{
+  --client-angle: calc(360deg / var(--client-count) * var(--client-index));
+  --client-translation-time: min(max((var(--scroll-animation-time) - 0.35 - var(--client-index) * 0.01) * 10, 0), 1);
+  --client-translation: calc(33% * var(--client-translation-time));
+
+  position: absolute;
+  left: calc(50% - cos(var(--client-angle)) * var(--client-translation));
+  top: calc(50% - sin(var(--client-angle)) * var(--client-translation));
+  transform: translate(-50%, -50%);
+  width: calc(100% / var(--client-count) * 1.5);
+  aspect-ratio: 1;
+
+  animation-name: scale-in;
+}
+
+.c-home-clients__client-image
+{
+  width: 100%;
+  height: 100%;
+
+  transition: scale 0.5s;
+}
+
+.c-home-clients__client-image:hover
+{
+  scale: 1.05;
+}
+
+@keyframes scale-in
+{
+  0%
+  {
+    scale: 0;
+  }
+
+  25%
+  {
+    scale: 0;
+  }
+
+  35%
+  {
+    scale: 1;
+  }
+}

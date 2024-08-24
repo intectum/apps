@@ -1,11 +1,12 @@
 import { FC, PropsWithChildren, useEffect, useState } from 'react';
 import { Animated, View, ViewStyle } from 'react-native';
 
+import { Themeable } from 'apps-core';
+
 import { useDimensions } from '../dimensions';
 import { useVerticalPanSnapper } from '../pan-snapper';
 import { rounding, spacing, styles } from '../styles';
 import { useThemes } from '../themes';
-import { Themeable } from '../types';
 import Container from './Container';
 
 export interface Props extends Themeable

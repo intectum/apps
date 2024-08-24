@@ -1,6 +1,7 @@
-@import 'settings/index.css';
-@import 'tools/index.css';
+@import url(https://fonts.googleapis.com/css?family=Montserrat|PT+Serif&display=swap);
+
+@import 'apps-web/src/styles/index.css';
+
 @import 'elements/index.css';
 @import 'objects/index.css';
 @import 'components/index.css';
-@import 'utilities/index.css';

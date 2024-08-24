@@ -1,340 +1,275 @@
 [
   {
     "name": "POPUP",
-    "description":
-    [
-      "A web-app for hosting virtual events, performances and exhibitions.",
-      "I worked on the front-end for this web-app."
-    ],
+    "description": "Bringing creativity, serendipity and connection to virtual gatherings and events.",
+    "imageUrl": "/images/projects/popup.svg",
     "clientSlug": "dotdot",
     "links":
-    {
-      "website": "https://popup.ing"
-    },
-    "tagSlugs":
     [
-      "css",
-      "git",
-      "html",
-      "nodejs",
+      {
+        "url": "https://popup.ing"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
       "react",
-      "typescript",
-      "web-app"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2024-02",
       "endedAt": "2024-05"
-    },
-    "mediaUrl": "/images/projects/popup.svg"
+    }
   },
   {
-    "name": "Octana",
-    "description":
-    [
-      "Octana: The easiest way to create beautiful websites on Contentful.",
-      "I worked on multiple implementations of Octana."
-    ],
+    "name": "Octana Implementations",
+    "description": "The easiest way to create beautiful websites on Contentful.",
+    "imageUrl": "/images/projects/octana.svg",
     "clientSlug": "octana",
     "endClient": "Multiple Clients",
     "links":
-    {
-      "octana website": "https://octana.io"
-    },
-    "tagSlugs":
     [
-      "git",
-      "html",
-      "nodejs",
+      {
+        "url": "https://octana.io"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
+      "next-js",
       "react",
-      "sass",
-      "typescript",
-      "website"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2023-08",
       "endedAt": "2023-11"
-    },
-    "mediaUrl": "/images/projects/octana.svg"
+    }
   },
   {
-    "name": "Digital Busker",
-    "description":
-    [
-      "A web-app that could be used to trigger a digital busker to appear on a big screen in Aotea square, Auckland. Users could also send emojis to the screen and donate to the artists via the app.",
-      "I worked on both the front and back-end. The back-end included WebSockets used to mediate communication between the web-app and the Unity app that was driving the screen."
-    ],
+    "name": "Digital Buskers",
+    "description": "Digital Buskers is a participatory screen-based experience reigniting these unexpected and engaging moments with the arts in the public space. Passersby are invited to turn a crank located close to the screen to open the curtain and then experience one of the performances, each set in a virtual world that enhances the artist’s universe. When the experience ends, the curtain closes until someone turns the crank again.",
+    "imageUrl": "/images/projects/digital-buskers.jpg",
     "clientSlug": "dotdot",
     "endClient": "Auckland Live",
     "links":
-    {
-      "article": "https://dotdot.studio/project/digital-buskers"
-    },
-    "tagSlugs":
     [
-      "css",
-      "git",
-      "html",
-      "nodejs",
+      {
+        "url": "https://dotdot.studio/project/digital-buskers"
+      }
+    ],
+    "skillSlugs":
+    [
+      "express-js",
+      "html-css",
       "react",
-      "restful-api",
-      "typescript",
-      "web-app"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2023-04",
       "endedAt": "2023-05"
-    },
-    "mediaUrl": "/images/projects/digital-busker.jpg"
+    }
   },
   {
     "name": "Persona",
-    "description":
-    [
-      "A chat-bot system with multiple chat-bots, each with a different 'persona'. The chat-bots were powered by ChatGPT and other Azure services.",
-      "I worked on both the front and back-end."
-    ],
+    "description": "An interactive AI powered chatbot experience that lets conference attendees talk to group of characters living in a speculative future in the 2030s. The experience follows Wanyi, a fashion designer in Shanghai, China alongside her friends and work colleagues.",
+    "imageUrl": "/images/projects/persona.png",
     "clientSlug": "dotdot",
     "endClient": "EY",
-    "links": {},
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "https://dotdot.studio/project/persona"
+      }
+    ],
+    "skillSlugs":
     [
       "c-sharp",
-      "git",
+      "express-js",
       "javascript",
-      "nodejs",
-      "restful-api",
-      "unity",
-      "web-app"
+      "unity"
     ],
     "dates":
     {
       "startedAt": "2023-03",
       "endedAt": "2023-05"
-    },
-    "mediaUrl": "/images/projects/persona.png"
+    }
   },
   {
-    "name": "Rotorua Lakefront",
-    "description":
-    [
-      "A web-app that guides you on lakefront trails in Rotorua and provides information/media about points of interest when you reach them.",
-      "I created the front-end for this web-app."
-    ],
+    "name": "Te Ara Pūrākau",
+    "description": "Te Ara Pūrākau: A Pathway of Stories is a geolocated storytelling experience for the Lake of Rotorua.",
+    "imageUrl": "/images/projects/a-pathway-of-stories.jpg",
     "clientSlug": "dotdot",
     "endClient": "Rotorua Council",
-    "links": {},
-    "tagSlugs":
+    "links":
     [
-      "css",
-      "git",
-      "html",
-      "nodejs",
+      {
+        "url": "https://dotdot.studio/project/a-pathway-of-stories"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
       "react",
-      "typescript",
-      "web-app"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2023-03",
       "endedAt": "2023-05"
-    },
-    "mediaUrl": "/images/projects/rotorua-lakefront.jpg"
+    }
   },
   {
     "name": "Stash",
-    "description":
-    [
-      "An AR treasure hunt where people can redeem prizes for cryptocurrency.",
-      "I created this prototype."
-    ],
+    "description": "An AR treasure hunt where people can redeem prizes for cryptocurrency.",
+    "imageUrl": "/images/projects/stash.jpg",
     "clientSlug": "dotdot",
     "endClient": "Cash App",
-    "links": {},
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "ar-vr",
-      "css",
-      "git",
-      "html",
-      "nodejs",
+      "html-css",
       "react",
-      "typescript",
-      "web-app"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2023-03",
       "endedAt": "2023-02"
-    },
-    "mediaUrl": "/images/projects/stash.jpg"
+    }
   },
   {
-    "name": "Octana",
-    "description":
-    [
-      "Octana: The easiest way to create beautiful websites on Contentful.",
-      "I worked on an implementation of Octana."
-    ],
+    "name": "Octana Implementation",
+    "description": "The easiest way to create beautiful websites on Contentful.",
+    "imageUrl": "/images/projects/octana.svg",
     "clientSlug": "apolinar",
     "endClient": "Up Education",
     "links":
-    {
-      "octana website": "https://octana.io"
-    },
-    "tagSlugs":
     [
-      "git",
-      "html",
-      "nodejs",
+      {
+        "url": "https://octana.io"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
+      "next-js",
       "react",
-      "sass",
-      "typescript",
-      "website"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2022-12",
       "endedAt": "2023-01"
-    },
-    "mediaUrl": "/images/projects/octana.svg"
+    }
   },
   {
     "name": "F&P Surefit",
-    "description":
-    [
-      "An ordering solution for medical masks.",
-      "I worked on both the front and back-end."
-    ],
+    "description": "An ordering solution for medical masks.",
+    "imageUrl": "/images/projects/fp-delivery.jpg",
     "clientSlug": "apolinar",
     "endClient": "Fisher & Paykel Healthcare",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "c-sharp",
-      "dot-net-core",
-      "git",
-      "html",
+      "html-css",
       "javascript",
-      "nodejs",
       "react",
-      "restful-api",
-      "sass",
-      "web-app"
+      "web-api"
     ],
     "dates":
     {
       "startedAt": "2022-10",
       "endedAt": "2022-11"
-    },
-    "mediaUrl": "/images/projects/fp-delivery.jpg"
+    }
   },
   {
     "name": "Flags for Ukraine",
-    "description":
-    [
-      "A simple website that provides a version of your flag in the colours of the Ukraine flag that you can use to show your support for Ukraine.",
-      "I created the front-end for this website."
-    ],
+    "description": "Provides a version of your flag in the colours of the Ukraine flag that you can use to show your support for Ukraine.",
+    "imageUrl": "/images/projects/united-for-ukraine.jpg",
     "clientSlug": "colenso-bbdo",
-    "links":
-    {
-      "website": "https://www.flagsforukraine.com"
-    },
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "git",
-      "html",
-      "nodejs",
+      "html-css",
+      "next-js",
       "react",
-      "sass",
-      "typescript",
-      "website"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2022-04",
       "endedAt": "2022-04"
-    },
-    "mediaUrl": "/images/projects/united-for-ukraine.jpg"
+    }
   },
   {
     "name": "Personalised Mistake Report",
-    "description":
-    [
-      "A simple tool that uses data to predict your likeliness to make mistakes.",
-      "I created the front-end for this web-app."
-    ],
+    "description": "Predicts your likeliness to make mistakes.",
+    "imageUrl": "/images/projects/mistake-report.jpg",
     "clientSlug": "colenso-bbdo",
     "endClient": "State Insurance",
     "links":
-    {
-      "website": "https://mistakereport.state.co.nz"
-    },
-    "tagSlugs":
     [
-      "git",
-      "html",
-      "nodejs",
+      {
+        "url": "https://mistakereport.state.co.nz"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
+      "next-js",
       "react",
-      "sass",
-      "typescript",
-      "web-app"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2022-03",
       "endedAt": "2022-03"
-    },
-    "mediaUrl": "/images/projects/mistake-report.jpg"
+    }
   },
   {
     "name": "Tally My Post",
-    "description":
-    [
-      "A web-app that would identify items in a photo and use them to estimate the value of your belongings.",
-      "I created the initial front-end for this web-app."
-    ],
+    "description": "Identifies items in a photo and estimates the value of your belongings.",
+    "imageUrl": "/images/projects/tally-my-post.jpg",
     "clientSlug": "colenso-bbdo",
     "endClient": "State Insurance",
     "links":
-    {
-      "website": "https://tallymypost.state.co.nz"
-    },
-    "tagSlugs":
     [
-      "git",
-      "html",
-      "nodejs",
+      {
+        "url": "https://tallymypost.state.co.nz"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
+      "next-js",
       "react",
-      "sass",
-      "typescript",
-      "web-app"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2022-02",
       "endedAt": "2022-02"
-    },
-    "mediaUrl": "/images/projects/tally-my-post.jpg"
+    }
   },
   {
     "name": "astrum",
-    "description":
-    [
-      "astrum is a tech demo based I created on some of Sebastian Lague's 'Coding Adventures' videos with additional features of my own",
-      "I created this tech demo in parallel with my engine called ludo"
-    ],
+    "description": "A tech demo based on some of Sebastian Lague's 'Coding Adventures' videos with additional features of my own. It uses my 'ludo' game engine",
+    "imageUrl": "/images/projects/astrum.png",
     "links":
-    {
-      "code": "https://github.com/gyan-intectum-nz/games/tree/main/astrum"
-    },
-    "tagSlugs":
     [
-      "c++",
-      "game",
-      "git"
+      {
+        "url": "https://github.com/intectum/games/tree/main/astrum",
+        "icon": [ "fab", "github" ],
+        "title": "GitHub"
+      }
+    ],
+    "skillSlugs":
+    [
+      "c++"
     ],
     "dates":
     {
@@ -342,27 +277,24 @@
       "endedAt": "current",
       "yearOnly": true,
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/astrum.png"
+    }
   },
   {
     "name": "ludo",
-    "description":
-    [
-      "ludo has the ambitious goal of being a simple game engine.",
-      "It uses a procedural code style and is designed to allow for data oriented scripts although I admit I am not very experienced in data oriented design yet.",
-      "It also provides some abstract API declarations for various subsystems e.g. graphics, physics, input etc.",
-      "I created this engine in parallel with my tech demo called astrum"
-    ],
+    "description": "A simple, procedural, performant and data-oriented game engine",
+    "imageUrl": "/images/projects/ludo.jpg",
     "links":
-    {
-      "code": "https://github.com/gyan-intectum-nz/games"
-    },
-    "tagSlugs":
+    [
+      {
+        "url": "https://github.com/intectum/games",
+        "icon": [ "fab", "github" ],
+        "title": "GitHub"
+      }
+    ],
+    "skillSlugs":
     [
       "c++",
-      "game",
-      "git"
+      "opengl"
     ],
     "dates":
     {
@@ -370,58 +302,53 @@
       "endedAt": "current",
       "yearOnly": true,
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/ludo.jpg"
+    }
   },
   {
     "name": "AT Journey Planner",
-    "description":
-    [
-      "A web-app for planning journeys using buses, ferries, trains etc. around Auckland.",
-      "I performed maintenance on the app and added new features."
-    ],
+    "description": "Plans journeys using buses, ferries, trains etc. around Auckland.",
+    "imageUrl": "/images/projects/at-journey-planner.jpg",
     "clientSlug": "propellerhead",
     "endClient": "Auckland Transport",
     "links":
-    {
-      "website": "https://at.govt.nz/bus-train-ferry/journey-planner"
-    },
-    "tagSlugs":
     [
-      "git",
-      "html",
+      {
+        "url": "https://at.govt.nz/bus-train-ferry/journey-planner"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
       "javascript",
-      "nodejs",
-      "react",
-      "sass",
-      "web-app"
+      "react"
     ],
     "dates":
     {
       "startedAt": "2021-07",
       "endedAt": "2021-06"
-    },
-    "mediaUrl": "/images/projects/at-journey-planner.jpg"
+    }
   },
   {
     "name": "AT Mobile",
-    "description":
-    [
-      "A mobile app for planning journeys using buses, ferries, trains etc. around Auckland and seeing live departures of those services from a given stop.",
-      "I performed maintenance on the app and added new features."
-    ],
+    "description": "Plans journeys using buses, ferries, trains etc. around Auckland and shows live departures of those services from a given stop.",
+    "imageUrl": "/images/projects/at-mobile.jpg",
     "clientSlug": "propellerhead",
     "endClient": "Auckland Transport",
     "links":
-    {
-      "android": "https://play.google.com/store/apps/details?id=nz.govt.at.atmobile",
-      "ios": "https://apps.apple.com/nz/app/at-mobile/id1207704356"
-    },
-    "tagSlugs":
     [
-      "git",
-      "mobile-app",
-      "nodejs",
+      {
+        "url": "https://apps.apple.com/nz/app/at-mobile/id1207704356",
+        "icon": [ "fab", "app-store-ios" ],
+        "title": "App Store"
+      },
+      {
+        "url": "https://play.google.com/store/apps/details?id=nz.govt.at.atmobile",
+        "icon": [ "fab", "google-play" ],
+        "title": "Google Play"
+      }
+    ],
+    "skillSlugs":
+    [
       "react-native",
       "typescript"
     ],
@@ -429,369 +356,312 @@
     {
       "startedAt": "2021-08",
       "endedAt": "2021-04"
-    },
-    "mediaUrl": "/images/projects/at-mobile.png"
+    }
   },
   {
     "name": "F&P Delivery",
-    "description":
-    [
-      "An ordering solution for medical masks.",
-      "I worked on both the front and back-end."
-    ],
+    "description": "An ordering solution for medical masks.",
+    "imageUrl": "/images/projects/fp-delivery.jpg",
     "clientSlug": "apolinar",
     "endClient": "Fisher & Paykel Healthcare",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "c-sharp",
-      "dot-net-core",
-      "git",
-      "html",
+      "html-css",
       "javascript",
-      "nodejs",
       "react",
-      "restful-api",
-      "sass",
-      "web-app"
+      "web-api"
     ],
     "dates":
     {
       "startedAt": "2021-03",
       "endedAt": "2021-03"
-    },
-    "mediaUrl": "/images/projects/fp-delivery.jpg"
+    }
   },
   {
     "name": "Match Emoji",
-    "description":
+    "description": "A candy-crush clone with embedded messages to check in with how you are feeling.",
+    "imageUrl": "/images/projects/match-emoji.png",
+    "clientSlug": "mitch-olson",
+    "links":
     [
-      "A candy-crush clone with embedded messages to check in with how you are feeling.",
-      "I adapted a generic candy-crush style code-base and added the dynamic messaging features."
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34691753"
+      }
     ],
-    "clientSlug": "mitch-olsen",
-    "tagSlugs":
+    "skillSlugs":
     [
       "c-sharp",
-      "game",
-      "git",
       "unity"
     ],
     "dates":
     {
       "startedAt": "2020-12",
       "endedAt": "2021-03"
-    },
-    "mediaUrl": "/images/projects/match-emoji.png"
+    }
   },
   {
     "name": "Driving Range Game",
-    "description":
-    [
-      "A simple driving range game embedded into a React app as part of a virtual conference experience.",
-      "I worked on the gameplay mechanics including basic custom physics and projection of the ball into a 3D space to match a pre-rendered background."
-    ],
+    "description": "A driving range game embedded into a virtual conference experience.",
+    "imageUrl": "/images/projects/driving-range.jpg",
     "clientSlug": "ghost-street",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "game",
-      "git",
-      "html",
-      "nodejs",
+      "html-css",
       "react",
-      "sass",
       "typescript"
     ],
     "dates":
     {
       "startedAt": "2020-09",
       "endedAt": "2020-10"
-    },
-    "mediaUrl": "/images/projects/driving-range.jpg"
+    }
   },
   {
     "name": "Fixed Milk Price",
-    "description":
-    [
-      "A kind of marketplace for negotiating fixed milk price contracts between farmers and Open Country Dairy.",
-      "I worked on both the front and back-end."
-    ],
+    "description": "A marketplace for negotiating fixed milk price contracts between farmers and Open Country Dairy.",
+    "imageUrl": "/images/projects/fixed-milk-price.jpg",
     "clientSlug": "apolinar",
     "endClient": "Open Country Dairy",
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "https://www.apolinargroup.com/impact-stories/open-country"
+      }
+    ],
+    "skillSlugs":
     [
       "angular",
       "c-sharp",
-      "dot-net-core",
-      "git",
-      "html",
-      "nodejs",
-      "restful-api",
-      "sass",
+      "html-css",
       "typescript",
-      "web-app"
+      "web-api"
     ],
     "dates":
     {
       "startedAt": "2020-03",
       "endedAt": "2021-03",
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/fixed-milk-price.jpg"
+    }
   },
   {
     "name": "Websites",
-    "description":
-    [
-      "Multiple websites. They are built using Kentico.",
-      "I did some maintenance on the corporate website and built the front end of a couple of small, basic sites."
-    ],
-    "links":
-    {
-      "corporate website": "https://www.apolinargroup.com",
-      "join our bubble website": "https://joinourbubble.org"
-    },
+    "description": "Multiple Kentico websites including Apolinar's own website.",
+    "imageUrl": "/images/projects/apolinar.svg",
     "clientSlug": "apolinar",
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "https://www.apolinargroup.com"
+      }
+    ],
+    "skillSlugs":
     [
       "angular",
-      "git",
-      "html",
+      "html-css",
       "javascript",
-      "nodejs",
-      "sass",
-      "typescript",
-      "website"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2020-04",
       "endedAt": "2020-08"
-    },
-    "mediaUrl": "/images/projects/apolinar.svg"
+    }
   },
   {
-    "name": "Website & donation portal",
-    "description":
-    [
-      "A corporate website built on Kentico and a donation portal build on Angular.",
-      "I performed maintenance on the front-end."
-    ],
-    "links":
-    {
-      "website": "https://www.worldvision.org.nz",
-      "donation portal": "https://my.worldvision.org.nz/donate"
-    },
+    "name": "Donation Portal",
+    "description": "A portal for donating to children in need.",
+    "imageUrl": "/images/projects/world-vision.jpg",
     "clientSlug": "apolinar",
     "endClient": "World Vision New Zealand",
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "https://my.worldvision.org.nz/donate"
+      }
+    ],
+    "skillSlugs":
     [
       "angular",
-      "git",
-      "html",
+      "html-css",
       "javascript",
-      "nodejs",
-      "sass",
-      "typescript",
-      "website"
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2019-12",
       "endedAt": "2020-09",
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/world-vision.jpg"
+    }
   },
   {
-    "name": "Customer portal",
-    "description":
-    [
-      "A customer portal for ordering their products.",
-      "I worked mostly on the front-end."
-    ],
+    "name": "Customer Portal",
+    "description": "A customer portal for ordering their products.",
+    "imageUrl": "/images/projects/iplex-pipelines.jpg",
     "clientSlug": "apolinar",
     "endClient": "iPlex Pipelines",
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "https://www.apolinargroup.com/impact-stories/iplex"
+      }
+    ],
+    "skillSlugs":
     [
       "angular",
       "c-sharp",
-      "dot-net-core",
-      "git",
-      "html",
-      "nodejs",
-      "restful-api",
-      "sass",
+      "html-css",
       "typescript",
-      "web-app"
+      "web-api"
     ],
     "dates":
     {
       "startedAt": "2019-10",
       "endedAt": "2020-06",
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/iplex-pipelines.jpg"
+    }
   },
   {
     "name": "Websites",
-    "description":
-    [
-      "Multiple websites. They are built using Kentico.",
-      "I performed maintenance mostly focused on the front-end and revamped the menus."
-    ],
-    "links":
-    {
-      "website": "https://www.fphcare.com"
-    },
+    "description": "Multiple Kentico websites",
+    "imageUrl": "/images/projects/fisher-and-paykel-healthcare.jpg",
     "clientSlug": "apolinar",
     "endClient": "Fisher & Paykel Healthcare",
-    "tagSlugs":
+    "links":
     [
-      "git",
-      "html",
-      "javascript",
-      "sass"
+      {
+        "url": "https://www.fphcare.com"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
+      "javascript"
     ],
     "dates":
     {
       "startedAt": "2019-10",
       "endedAt": "2020-08",
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/fisher-and-paykel-healthcare.jpg"
+    }
   },
   {
     "name": "Apples & Pears Website",
-    "description":
-    [
-      "A website. It is built using Nunjucks and InuitCSS.",
-      "I created the initial front-end for this website."
-    ],
+    "description": "A website.",
+    "imageUrl": "/images/projects/apples-and-pears.jpg",
     "clientSlug": "cucumber",
-    "endClient": "Southern Cross Travel Insurance",
-    "tagSlugs":
+    "endClient": "Apples & Pears",
+    "links":
     [
-      "c-sharp",
-      "css",
-      "git",
-      "html",
-      "nodejs",
-      "javascript",
-      "sass",
-      "website"
+      {
+        "url": "https://www.applesandpears.nz"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
+      "javascript"
     ],
     "dates":
     {
       "startedAt": "2019-08",
       "endedAt": "2019-08"
-    },
-    "mediaUrl": "/images/projects/apples-and-pears.jpg"
+    }
   },
   {
     "name": "Cucumber Website",
-    "description":
-    [
-      "A website. It is built using Umbraco.",
-      "I made additions to this website."
-    ],
+    "description": "An Umbraco website.",
+    "imageUrl": "/images/projects/digital-services.jpg",
     "clientSlug": "cucumber",
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "https://www.cucumber.co.nz"
+      }
+    ],
+    "skillSlugs":
     [
       "c-sharp",
-      "css",
-      "git",
-      "html",
-      "nodejs",
-      "javascript",
-      "sass",
-      "website"
+      "html-css",
+      "javascript"
     ],
     "dates":
     {
       "startedAt": "2019-07",
       "endedAt": "2019-08"
-    },
-    "mediaUrl": "/images/projects/digital-services.jpg"
+    }
   },
   {
     "name": "Southern Cross Travel Insurance Website",
-    "description":
-    [
-      "A website with quoting and claiming functionality. It is built using SiteCore and React.",
-      "I worked on the front-end."
-    ],
+    "description": "A website with quoting and claiming functionality.",
+    "imageUrl": "/images/projects/travel-insurance.jpg",
     "clientSlug": "cucumber",
     "endClient": "Southern Cross Travel Insurance",
-    "tagSlugs":
+    "links":
     [
-      "css",
-      "git",
-      "html",
-      "nodejs",
+      {
+        "url": "https://www.scti.co.nz"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
       "javascript",
-      "react",
-      "sass",
-      "website"
+      "react"
     ],
     "dates":
     {
       "startedAt": "2019-07",
       "endedAt": "2019-07"
-    },
-    "mediaUrl": "/images/projects/travel-insurance.jpg"
+    }
   },
   {
     "name": "PGG Wrightson Websites",
-    "description":
-    [
-      "Multiple websites. They are built using SiteCore.",
-      "I performed maintenance mostly focused on the front-end."
-    ],
-    "links":
-    {
-      "corporate website": "http://pggwrightson.co.nz"
-    },
+    "description": "Multiple SiteCore websites.",
+    "imageUrl": "/images/projects/pgg-wrightson.jpg",
     "clientSlug": "cucumber",
     "endClient": "PGG Wrightson",
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "http://pggwrightson.co.nz"
+      }
+    ],
+    "skillSlugs":
     [
       "c-sharp",
-      "css",
-      "git",
-      "html",
-      "nodejs",
-      "javascript",
-      "sass",
-      "website"
+      "html-css",
+      "javascript"
     ],
     "dates":
     {
       "startedAt": "2019-06",
       "endedAt": "2019-08"
-    },
-    "mediaUrl": "/images/projects/pgg-wrightson.jpg"
+    }
   },
   {
     "name": "intectum Website",
-    "description":
-    [
-      "A website for my 'intectum' brand. It is built using React."
-    ],
+    "description": "A website for my 'intectum' brand.",
+    "imageUrl": "/images/projects/intectum.jpg",
     "links":
-    {
-      "code": "https://github.com/gyan-intectum-nz/apps/tree/main/apps/intectum-website",
-      "website": "http://intectum.nz"
-    },
-    "tagSlugs":
     [
-      "angular",
-      "css",
-      "git",
-      "html",
-      "nodejs",
-      "sass",
-      "typescript",
-      "website"
+      {
+        "url": "https://intectum.nz"
+      },
+      {
+        "url": "https://github.com/intectum/apps/tree/main/apps/intectum-website",
+        "icon": [ "fab", "github" ],
+        "title": "GitHub"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
+      "next-js",
+      "react",
+      "typescript"
     ],
     "dates":
     {
@@ -799,53 +669,44 @@
       "endedAt": "current",
       "yearOnly": true,
       "offAndOn": true
-    },
-    "mediaUrl": "/images/logo.png"
+    }
   },
   {
     "name": "myBNC",
-    "description":
-    [
-      "A suite of tools to assist in trading cryptocurrency. It is built using Angular 7, Bootstrap and Web API. It does not actually perform trades but provides portfolio management, news feeds etc.",
-      "I built the majority of the client and server-side of this project during my time there (although the server-side I worked on was just a proxy to a lot of the more complex logic of the system)."
-    ],
-    "links":
-    {
-      "website": "https://mybnc.com/"
-    },
+    "description": "A suite of tools to assist in trading cryptocurrency. It does not actually perform trades but provides portfolio management, news feeds etc.",
+    "imageUrl": "/images/projects/mybnc.png",
     "clientSlug": "marker",
     "endClient": "Brave New Coin",
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "https://mybnc.com/"
+      }
+    ],
+    "skillSlugs":
     [
       "angular",
       "c-sharp",
-      "dot-net-core",
-      "git",
-      "html",
-      "nodejs",
-      "restful-api",
+      "html-css",
       "typescript",
-      "web-app"
+      "web-api"
     ],
     "dates":
     {
       "startedAt": "2018-03",
       "endedAt": "2018-11",
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/mybnc.png"
+    }
   },
   {
     "name": "MyPark",
-    "description":
-    [
-      "A kind of Uber for car parking where an app assigns car parks to users."
-    ],
+    "description": "An Uber for car parking where an app assigns car parks to users.",
+    "imageUrl": "/images/projects/my-park.jpg",
     "clientSlug": "red-fox",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "c-sharp",
-      "mobile-app",
       "javascript",
       "unity"
     ],
@@ -853,44 +714,38 @@
     {
       "startedAt": "2017-09",
       "endedAt": "2017-10"
-    },
-    "mediaUrl": "/images/projects/my-park.jpg"
+    }
   },
   {
     "name": "Nakomo Kingdom TD",
-    "description":
-    [
-      "Inspired by <a href=\"http://www.kingdomthegame.com/\">Kingdom: New Lands</a>, this game is currently being developed to target Steam.",
-      "I have been the primary developer on the project so far."
-    ],
-    "links":
-    {
-      "website": "http://red-foxgamestudio.com/nakomo-kingdom-td/"
-    },
+    "description": "A pixelart, platform, Tower Defence game for Steam. It is set in Edo-era Japan, based on the Nakomo JRPG and Comic IP.",
+    "imageUrl": "/images/projects/nakomo-kingdom-td.png",
     "clientSlug": "red-fox",
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "http://redfoxgamestudio.com/nakomo-kingdom-td"
+      }
+    ],
+    "skillSlugs":
     [
       "c-sharp",
-      "game",
       "unity"
     ],
     "dates":
     {
       "startedAt": "2017-09",
       "endedAt": "2017-10"
-    },
-    "mediaUrl": "/images/projects/nakomo-kingdom-td.png"
+    }
   },
   {
     "name": "Chat Bot",
-    "description":
-    [
-      "A prototype of an api.ai chat bot used to perform simple interactions with your ASB bank accounts.",
-      "I created this prototype."
-    ],
+    "description": "A prototype of an api.ai chat bot used to perform simple interactions with your ASB bank accounts.",
+    "imageUrl": "/images/projects/chat-bot.jpg",
     "clientSlug": "rush",
     "endClient": "ASB",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "python"
     ],
@@ -898,123 +753,108 @@
     {
       "startedAt": "2017-05",
       "endedAt": "2017-05"
-    },
-    "mediaUrl": "/images/projects/chat-bot.jpg"
+    }
   },
   {
-    "name": "[Prototype]",
-    "description":
-    [
-      "I can't say much about this one but it was a mobile app created using Ionic 2/Angular 2 which communicated with a simple Express.js server.",
-      "I created the first iteration of this prototype."
-    ],
+    "name": "Food Box Prototype",
+    "description": "A prototype for a food box like 'Hello Fresh' that had flexibility to order individual items.",
+    "imageUrl": "/images/projects/prototype.jpg",
     "clientSlug": "rush",
     "endClient": "Fonterra",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "angular",
       "aws",
-      "css",
-      "git",
-      "html",
-      "nodejs",
-      "restful-api",
-      "typescript",
-      "mobile-app"
+      "express-js",
+      "html-css",
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2017-03",
       "endedAt": "2017-05"
-    },
-    "mediaUrl": "/images/projects/prototype.jpg"
+    }
   },
   {
     "name": "ASB: Touch, pause... donate!",
-    "description":
-    [
-      "A 3D printed rugby ball that allows Starship donations via paywave.",
-      "I worked mostly on the native Android app that coordinated the payment, visuals and LEDs. I also programmed the LED sequence in the Arduino board that was hidden inside."
-    ],
+    "description": "A 3D printed rugby ball that allows Starship donations via paywave.",
+    "imageUrl": "/images/projects/asb-touch-pause-donate.jpg",
     "clientSlug": "rush",
     "endClient": "ASB",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "android",
-      "arduino",
-      "embedded",
-      "git",
       "java"
     ],
     "dates":
     {
       "startedAt": "2017-03",
       "endedAt": "2017-03"
-    },
-    "mediaUrl": "/images/projects/asb-touch-pause-donate.jpg"
+    }
   },
   {
     "name": "AR App for Music Festival",
-    "description":
-    [
-      "An app that adds AR visuals like fireworks to an event."
-    ],
+    "description": "Adds AR visuals like fireworks to an event.",
+    "imageUrl": "/images/projects/fireworks.jpg",
     "clientSlug": "rush",
     "endClient": "Vodafone",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "ar-vr",
       "c-sharp",
-      "git",
       "unity"
     ],
     "dates":
     {
       "startedAt": "2016-10",
       "endedAt": "2016-10"
-    },
-    "mediaUrl": "/images/projects/fireworks.jpg"
+    }
   },
   {
     "name": "Virtual Catalog",
-    "description":
-    [
-      "A virtual catalog with page turning animations and 'hot zones' where users can click on the page to see more information about a product (for example). It was build using AngularJS.",
-      "I was the sole developer of this."
-    ],
+    "description": "A virtual catalog with page turning animations and 'hot zones' where users can click on the page to see more information about a product (for example).",
+    "imageUrl": "/images/projects/catalog.jpg",
     "clientSlug": "rush",
     "endClient": "VMG",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "angular",
-      "css",
-      "git",
-      "html",
+      "html-css",
       "javascript"
     ],
     "dates":
     {
       "startedAt": "2016-09",
       "endedAt": "2016-10"
-    },
-    "mediaUrl": "/images/projects/catalog.jpg"
+    }
   },
   {
     "name": "Solitaire Classic",
-    "description":
-    [
-      "A standard solitaire game for Android and iOS with daily challenges and leaderboards.",
-      "I was the primary developer through a lot of it's development."
-    ],
-    "links":
-    {
-      "website": "http://red-foxgamestudio.com/solitaireclassic/"
-    },
+    "description": "Designed to be a beautiful and rock solid version of the classic and very popular Klondike Solitaire.",
+    "imageUrl": "/images/projects/solitaire-classic.jpg",
     "clientSlug": "red-fox",
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "http://redfoxgamestudio.com/solitaireclassic"
+      },
+      {
+        "url": "https://itunes.apple.com/us/app/solitaire-classic-noads/id1139755239",
+        "icon": [ "fab", "app-store-ios" ],
+        "title": "App Store"
+      },
+      {
+        "url": "https://play.google.com/store/apps/details?id=com.owairakasoft.solitairefree",
+        "icon": [ "fab", "google-play" ],
+        "title": "Google Play"
+      }
+    ],
+    "skillSlugs":
     [
       "c-sharp",
-      "game",
       "javascript",
       "unity"
     ],
@@ -1023,81 +863,70 @@
       "startedAt": "2016-11",
       "endedAt": "2017-08",
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/solitaire-classic.jpg"
+    }
   },
   {
     "name": "Heineken LIVE",
-    "description":
-    [
-      "An app that uses GPS and iBeacon to find your next watering hole and then rewards you.",
-      "I worked mostly on the CMS website (AngularJS) and server-side Web API but I also spent some time on the native Android app."
-    ],
+    "description": "Uses GPS and iBeacon to find your next watering hole and then rewards you.",
+    "imageUrl": "/images/projects/heineken-live.jpg",
     "links":
-    {
-      "ios": "https://itunes.apple.com/nz/app/heineken-live/id1120505067?mt=8"
-    },
+    [
+      {
+        "url": "https://itunes.apple.com/nz/app/heineken-live/id1120505067",
+        "icon": [ "fab", "app-store-ios" ],
+        "title": "App Store"
+      }
+    ],
     "clientSlug": "rush",
     "endClient": "Heineken",
-    "tagSlugs":
+    "skillSlugs":
     [
       "android",
       "angular",
       "azure",
       "c-sharp",
-      "git",
       "javascript",
-      "mobile-app",
-      "restful-api",
-      "web-app"
+      "web-api"
     ],
     "dates":
     {
       "startedAt": "2016-05",
       "endedAt": "2016-07"
-    },
-    "mediaUrl": "/images/projects/heineken-live.jpg"
+    }
   },
   {
     "name": "TVNZ Mastermind",
-    "description":
-    [
-      "A companion quiz game to go with the TV show of the same name.",
-      "For most of the project's life I was a sole developer creating both a server-side in Web API and the app using Ionic which was deployed to both Android and iOS."
-    ],
+    "description": "A companion quiz game to go with the TV show of the same name.",
+    "imageUrl": "/images/projects/tvnz-mastermind.jpg",
     "links":
-    {
-      "article": "https://stoppress.co.nz/news/tvnz-mastermind"
-    },
+    [
+      {
+        "url": "https://stoppress.co.nz/news/tvnz-mastermind"
+      }
+    ],
     "clientSlug": "rush",
     "endClient": "TVNZ",
-    "tagSlugs":
+    "skillSlugs":
     [
       "angular",
       "azure",
       "c-sharp",
-      "git",
       "javascript",
-      "mobile-app",
-      "restful-api"
+      "web-api"
     ],
     "dates":
     {
       "startedAt": "2016-03",
       "endedAt": "2016-05"
-    },
-    "mediaUrl": "/images/projects/tvnz-mastermind.jpg"
+    }
   },
   {
     "name": "Dynamic Photo Mosaic",
-    "description":
-    [
-      "An animated mosaic of photos populated by photos taken with an iOS app. Two implementations of the mosaic were created: One in Unity3D and another in HTML. A simple Apache/PHP server was used to host the photos.",
-      "I was the sole developer of this system."
-    ],
+    "description": "An animated mosaic of photos populated by photos taken with an iOS app.",
+    "imageUrl": "/images/projects/mosaic.jpg",
     "clientSlug": "rush",
-    "endClient": "?",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "c-sharp",
       "ios",
@@ -1112,75 +941,60 @@
     {
       "startedAt": "2016-03",
       "endedAt": "2016-03"
-    },
-    "mediaUrl": "/images/projects/mosaic.jpg"
+    }
   },
   {
     "name": "OSHO Evening Meeting",
-    "description":
-    [
-      "The OSHO Evening Meeting from Pune, India made available online for people around the world to join. It is a video encoding and delivery system providing DASH and HLS video streaming. The admin portal is an Angular 6 app with Angular Material. Express.js is used server-side.",
-      "I was the sole developer of the backend system and I have done work to integrate it into existing front ends."
-    ],
+    "description": "The OSHO Evening Meeting from Pune, India made available online for people around the world to join. It is a video encoding and delivery system providing DASH and HLS video streaming.",
+    "imageUrl": "/images/projects/osho-evening-meeting.png",
     "clientSlug": "osho-international",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "angular",
       "aws",
-      "css",
-      "restful-api",
       "docker",
-      "git",
-      "html",
-      "sass",
-      "typescript",
-      "web-app"
+      "express-js",
+      "html-css",
+      "typescript"
     ],
     "dates":
     {
       "startedAt": "2016-01",
       "endedAt": "2019-01",
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/osho-evening-meeting.png"
+    }
   },
   {
     "name": "Image Generator and Magento Importer",
-    "description":
-    [
-      "A tool for generating images based on some templates and systematically importing them into Magento in bulk. Originally built as a Python CLI script, this was later ported to an ASP.Net MVC web app so that it could be used by non-technical people.",
-      "I was the sole developer of this tool."
-    ],
+    "description": "A tool for generating images based on some templates and systematically importing them into Magento in bulk. Originally built as a Python CLI script, this was later ported to ASP.Net MVC so that it could be used by non-technical people.",
+    "imageUrl": "/images/projects/pictures.jpg",
     "clientSlug": "osho-international",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "c-sharp",
-      "git",
-      "python",
-      "web-app"
+      "python"
     ],
     "dates":
     {
       "startedAt": "2016-02",
       "endedAt": "2014-11",
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/pictures.jpg"
+    }
   },
   {
     "name": "Sonata Workflow Engine",
-    "description":
-    [
-      "A workflow engine for Sonata.",
-      "In the few months that I was there I became it's most knowledgeable developer (apart from it's original developer who was not coding anymore) and began to improve it's architecture.",
-      "Before I left I was asked to document the software architecture of the workflow engine and present it to other developers."
-    ],
+    "description": "A workflow engine for Sonata.",
+    "imageUrl": "/images/projects/flow-chart.jpg",
     "links":
-    {
-      "website": "http://bravurasolutions.com/solutions/products/wealth-and-life-administration-systems/sonata"
-    },
+    [
+      {
+        "url": "http://bravurasolutions.com/solutions/products/wealth-and-life-administration-systems/sonata"
+      }
+    ],
     "clientSlug": "bravura",
-    "tagSlugs":
+    "skillSlugs":
     [
       "enterprise",
       "git",
@@ -1190,57 +1004,49 @@
     {
       "startedAt": "2015-08",
       "endedAt": "2015-12"
-    },
-    "mediaUrl": "/images/projects/flow-chart.jpg"
+    }
   },
   {
     "name": "Taggify",
-    "description":
-    [
-      "An app for 'tagging' a location with a photo. Once a location has been 'tagged', the photo can be seen within an AR view.",
-      "I worked mostly on the Android app which included using some low-level video processing APIs as Android did not have built-in video compression at the time. For performance the data for each frame was passed to native C code which then manipulated the raw bytes. I also worked on the iOS app which did it all for us!"
-    ],
+    "description": "Tags a location with a photo which can be seen within an AR view.",
+    "imageUrl": "/images/projects/camera.jpg",
     "clientSlug": "rush",
     "endClient": "Yellow Pages",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
       "android",
       "c",
-      "git",
       "ios",
       "java",
-      "mobile-app",
       "objective-c"
     ],
     "dates":
     {
       "startedAt": "2015-02",
       "endedAt": "2015-05"
-    },
-    "mediaUrl": "/images/projects/camera.jpg"
+    }
   },
   {
     "name": "OSHO Information Center, Auckland Website",
-    "description":
-    [
-      "A website advertising OSHO in Auckland. It is built using React.",
-      "I built and administer this website."
-    ],
+    "description": "Advertises OSHO in Auckland.",
+    "imageUrl": "/images/projects/osho-nz.png",
     "links":
-    {
-      "code": "https://github.com/gyan-intectum-nz/apps/tree/main/apps/oshonz-website",
-      "website": "http://osho.nz"
-    },
-    "tagSlugs":
     [
-      "css",
-      "git",
-      "html",
-      "nodejs",
+      {
+        "url": "https://osho.nz"
+      },
+      {
+        "url": "https://github.com/intectum/apps/tree/main/apps/oshonz-website",
+        "icon": [ "fab", "github" ],
+        "title": "GitHub"
+      }
+    ],
+    "skillSlugs":
+    [
+      "html-css",
       "react",
-      "sass",
-      "typescript",
-      "website"
+      "typescript"
     ],
     "dates":
     {
@@ -1248,120 +1054,100 @@
       "endedAt": "current",
       "yearOnly": true,
       "offAndOn": true
-    },
-    "mediaUrl": "/images/projects/osho-nz.png"
+    }
   },
   {
     "name": "ArtRage Touch",
-    "description":
-    [
-      "A digital artist’s studio with a full range of familiar tools that look and work like the real things. It’s a canvas for thick, expressive oils and delicate watercolors, a sketchpad with a full set of pencils, and a sheet of paper with a stack of wax crayons all in one.",
-      "I worked on the port/adaptation of this application to Windows 8."
-    ],
-    "links":
-    {
-      "windows": "http://apps.microsoft.com/windows/en-nz/app/artrage-touch/ad40b9b5-7ccd-446f-b6fd-04aa9cce02ea"
-    },
+    "description": "A digital artist’s studio with a full range of familiar tools that look and work like the real things. It’s a canvas for thick, expressive oils and delicate watercolors, a sketchpad with a full set of pencils, and a sheet of paper with a stack of wax crayons all in one.",
+    "imageUrl": "/images/projects/artrage-touch.jpg",
     "clientSlug": "rush",
     "endClient": "Ambient Designs",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "c++",
-      "git"
+      "c++"
     ],
     "dates":
     {
       "startedAt": "2014-10",
       "endedAt": "2014-10"
-    },
-    "mediaUrl": "/images/projects/artrage-touch.jpg"
+    }
   },
   {
     "name": "Battle Panic",
-    "description":
-    [
-      "A simple real-time strategy game.",
-      "I worked on the port/adaptation of this game to Android."
-    ],
+    "description": "Those insolent orcs have ravaged our lands for the last time. Assemble your forces and attack!",
+    "imageUrl": "/images/projects/battle-panic.jpg",
     "clientSlug": "rush",
     "endClient": "Ninja Kiwi",
-    "tagSlugs":
+    "links":
     [
-      "c++",
-      "game",
-      "git"
+      {
+        "url": "https://ninjakiwi.com/Games/Mobile/Battle-Panic-Mobile.html"
+      }
+    ],
+    "skillSlugs":
+    [
+      "c++"
     ],
     "dates":
     {
       "startedAt": "2014-09",
       "endedAt": "2014-07"
-    },
-    "mediaUrl": "/images/projects/battle-panic.jpg"
+    }
   },
   {
     "name": "Check-in App",
-    "description":
-    [
-      "An app for checking guests into events at AUT."
-    ],
+    "description": "Checks in guests at AUT events.",
+    "imageUrl": "/images/projects/check-in.jpg",
     "clientSlug": "rush",
     "endClient": "AUT",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "git",
       "ios",
-      "mobile-app",
       "objective-c"
     ],
     "dates":
     {
       "startedAt": "2014-07",
       "endedAt": "2014-09"
-    },
-    "mediaUrl": "/images/projects/check-in.jpg"
+    }
   },
   {
     "name": "Disney Words of Wonder",
-    "description":
-    [
-      "A word-search game.",
-      "I worked on the Windows 8 and Windows Phone versions of this game in C++ based on the Flash Android and iOS versions."
-    ],
-    "links":
-    {
-      "windows": "http://apps.microsoft.com/windows/en-nz/app/words-of-wonder/794e8866-6062-4dd6-86f4-f7acb5e43b4c",
-      "windows-phone": "http://www.windowsphone.com/en-us/store/app/words-of-wonder/473ae2cd-c5b4-4d6e-814e-458d82e3a5d3"
-    },
+    "description": "A word search game.",
+    "imageUrl": "/images/projects/words-of-wonder.jpg",
     "clientSlug": "rush",
     "endClient": "Disney",
-    "tagSlugs":
+    "links":
     [
-      "c++",
-      "game",
-      "git"
+      {
+        "url": "https://disney.fandom.com/wiki/Words_of_Wonder"
+      }
+    ],
+    "skillSlugs":
+    [
+      "c++"
     ],
     "dates":
     {
       "startedAt": "2014-05",
       "endedAt": "2014-07"
-    },
-    "mediaUrl": "https://www.youtube.com/embed/fBkerY825H4"
+    }
   },
   {
     "name": "Disney Hidden Worlds",
-    "description":
-    [
-      "A hidden object game.",
-      "I worked on the Windows 8 and Windows Phone versions of this game in C++ based on the Flash Android and iOS versions."
-    ],
-    "links":
-    {
-      "windows": "http://apps.microsoft.com/windows/en-nz/app/disney-hidden-worlds/a16336c5-1eef-4cd5-8402-46f816565200",
-      "windows-phone": "http://www.windowsphone.com/en-us/store/app/disney-hidden-worlds/39b40e68-d74c-4723-9701-c2bb44682a00"
-    },
+    "description": "A hidden object game, in which you select hidden objects in various scenes from Disney movies to progress through the game.",
+    "imageUrl": "/images/projects/hidden-worlds.jpg",
     "clientSlug": "rush",
     "endClient": "Disney",
-    "tagSlugs":
+    "links":
+    [
+      {
+        "url": "https://disney.fandom.com/wiki/Hidden_Worlds"
+      }
+    ],
+    "skillSlugs":
     [
       "c++",
       "game",
@@ -1371,82 +1157,60 @@
     {
       "startedAt": "2014-05",
       "endedAt": "2014-02"
-    },
-    "mediaUrl": "https://www.youtube.com/embed/qYp_GpQSOsI"
+    }
   },
   {
     "name": "Jelly Car 3",
-    "description":
-    [
-      "A physics-based puzzle game.",
-      "I worked on the port of this game to Windows 8 and Windows Phone. This involved the implementation of an OpenGL => DirectX translation layer (which was already started but needed to be extended for this game). I was one of a two-man developer team that achieved this in just a few weeks."
-    ],
-    "links":
-    {
-      "windows": "http://apps.microsoft.com/windows/en-nz/app/jellycar-3/e3aaaa50-398e-4956-b287-926aaad50587",
-      "windows-phone": "http://www.windowsphone.com/en-us/store/app/jellycar-3-wp/63f893e8-f2da-4241-a797-75c71ea3e5c8"
-    },
+    "description": "A physics-based puzzle game.",
+    "imageUrl": "/images/projects/jelly-car-3.jpg",
     "clientSlug": "rush",
     "endClient": "Disney",
-    "tagSlugs":
+    "links":
     [
-      "c++",
-      "game",
-      "git"
+      {
+        "url": "https://jellycar.fandom.com/wiki/JellyCar_3"
+      }
+    ],
+    "skillSlugs":
+    [
+      "c++"
     ],
     "dates":
     {
       "startedAt": "2014-02",
       "endedAt": "2014-02"
-    },
-    "mediaUrl": "https://www.youtube.com/embed/f8iTy12E5bs"
+    }
   },
   {
     "name": "Monteith's MeatPack Hunt",
-    "description":
-    [
-      "An AR hunting game for Android and iOS.",
-      "To be fair I only played a very small role in this one."
-    ],
-    "links":
-    {
-      "android": "https://play.google.com/store/apps/details?id=nz.co.monteiths.meatpackhunt&hl=en"
-    },
+    "description": "Gives you the opportunity to “hunt” duck, venison, lamb and beef, everywhere from your local bar to their office, with the chance to win what you hunt.",
+    "imageUrl": "/images/projects/monteiths-meat-pack-hunt.jpg",
     "clientSlug": "rush",
     "endClient": "Monteith's",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "ar-vr",
       "c-sharp",
-      "game",
-      "git",
       "unity"
     ],
     "dates":
     {
       "startedAt": "2014-02",
       "endedAt": "2014-02"
-    },
-    "mediaUrl": "https://www.youtube.com/embed/wKGvWgLrt30"
+    }
   },
   {
     "name": "Sonata Web",
-    "description":
-    [
-      "The web portal for Sonata.",
-      "I worked on two of their web based enterprise solutions, Sonata Web and eTalis. Both used technology stacks that I had almost no experience with but by the end of my time there I was the authority on most of them in the office where I worked due to my quick ability to learn.",
-      "I also often worked on technical roadmap tasks designed to improve the robustness and maintainability of the software. These tasks were often related to the merging the two products Sonata Web and eTalis and taking the best approaches from both into the final result.",
-      "Before I left I was asked to perform training of employees wishing to move to development of web-based products which used a lot of different technologies and patterns from the desktop applications they had worked on previously."
-    ],
-    "links":
-    {
-      "website": "http://bravurasolutions.com/solutions/products/wealth-and-life-administration-systems/sonata"
-    },
+    "description": "The web portal for Sonata.",
     "clientSlug": "bravura",
-    "tagSlugs":
+    "links":
     [
-      "enterprise",
-      "git",
+      {
+        "url": "http://bravurasolutions.com/solutions/products/wealth-and-life-administration-systems/sonata"
+      }
+    ],
+    "skillSlugs":
+    [
       "java"
     ],
     "dates":
@@ -1454,19 +1218,16 @@
       "startedAt": "2011-02",
       "endedAt": "2012-08"
     },
-    "mediaUrl": "/images/projects/investment.jpg"
+    "imageUrl": "/images/projects/investment.jpg"
   },
   {
     "name": "Maximo 5.2 to Maximo 7.1 Upgrade",
-    "description":
-    [
-      "Trained IT personnel in the different areas of Maximo so they can make an informed decision about their usage of it. Advised them on the initial setup."
-    ],
+    "description": "Trained IT personnel in the different areas of Maximo so they can make an informed decision about their usage of it. Advised them on the initial setup.",
     "clientSlug": "matrikon",
     "endClient": "Canadian Hydro",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "enterprise",
       "java"
     ],
     "dates":
@@ -1474,19 +1235,16 @@
       "startedAt": "2009",
       "yearOnly": true
     },
-    "mediaUrl": "/images/projects/maximo.png"
+    "imageUrl": "/images/projects/maximo.png"
   },
   {
     "name": "Integration Between Maximo 6 and Mapics (inventory)",
-    "description":
-    [
-      "Tested and completed implementation of the integration."
-    ],
+    "description": "Tested and completed implementation of the integration.",
     "clientSlug": "matrikon",
     "endClient": "Subzero",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "enterprise",
       "java"
     ],
     "dates":
@@ -1494,19 +1252,16 @@
       "startedAt": "2009",
       "yearOnly": true
     },
-    "mediaUrl": "/images/projects/maximo.png"
+    "imageUrl": "/images/projects/maximo.png"
   },
   {
     "name": "Maximo 4.11, FM1 to Maximo 6 Upgrade / Migration",
-    "description":
-    [
-      "Developed migration scripts and performed migrations for several sites from Maximo 5.2 and several sites from another legacy system, FM1. Developed small bug fixes and change requests."
-    ],
+    "description": "Developed migration scripts and performed migrations for several sites from Maximo 5.2 and several sites from another legacy system, FM1. Developed small bug fixes and change requests.",
     "clientSlug": "matrikon",
     "endClient": "Alberta Health Services",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "enterprise",
       "java"
     ],
     "dates":
@@ -1514,21 +1269,16 @@
       "startedAt": "2009",
       "yearOnly": true
     },
-    "mediaUrl": "/images/projects/maximo.png"
+    "imageUrl": "/images/projects/maximo.png"
   },
   {
     "name": "Maximo 7.1 TAMIT and TSRM Implementation",
-    "description":
-    [
-      "A military satellite communications project for the UAE. In this instance the Service Management flavour of Maximo was being used for the ordering of certain communications required for military deployments.",
-      "I advised on the best practices and solutions that could be used to implement this functionality as well as developing and testing those solutions.",
-      "During this time I delegated work to up to two other developers. Although I was offered an extension to my contract by various parties I was not satisfied with the location of the work and so sought work elsewhere."
-    ],
+    "description": "A military satellite communications project for the UAE. In this instance the Service Management flavour of Maximo was being used for the ordering of certain communications required for military deployments.",
     "clientSlug": "quadratek",
     "endClient": "EADS Astrium",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "enterprise",
       "java"
     ],
     "dates":
@@ -1536,23 +1286,16 @@
       "startedAt": "2008-11",
       "endedAt": "2009-01"
     },
-    "mediaUrl": "/images/projects/maximo.png"
+    "imageUrl": "/images/projects/maximo.png"
   },
   {
     "name": "Maximo 4.11 to Maximo 6 Upgrade",
-    "description":
-    [
-      "Developed small bug fixes and change requests. Partially designed and developed custom External Labor Timesheets solution. Re-designed and developed Schedule Builder application. Worked unsupervised on site, liaised with client to define requirements and delegated work to two other developers."
-    ],
-    "links":
-    {
-      "reference": "https://drive.google.com/open?id=0B54v-1wOoeUGSXdhVHJmOHVkc0U"
-    },
+    "description": "Developed small bug fixes and change requests. Partially designed and developed custom External Labor Timesheets solution. Re-designed and developed Schedule Builder application. Worked unsupervised on site, liaised with client to define requirements and delegated work to two other developers.",
     "clientSlug": "matrikon",
     "endClient": "Santos",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "enterprise",
       "java"
     ],
     "dates":
@@ -1561,19 +1304,16 @@
       "endedAt": "2008",
       "yearOnly": true
     },
-    "mediaUrl": "/images/projects/maximo.png"
+    "imageUrl": "/images/projects/maximo.png"
   },
   {
     "name": "Maximo 6 Implementation",
-    "description":
-    [
-      "Developed custom Procurement solution. Worked unsupervised on site, liaised with client to define requirements."
-    ],
+    "description": "Developed custom Procurement solution. Worked unsupervised on site, liaised with client to define requirements.",
     "clientSlug": "matrikon",
     "endClient": "Leighton Contractors",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "enterprise",
       "java"
     ],
     "dates":
@@ -1581,19 +1321,16 @@
       "startedAt": "2007",
       "yearOnly": true
     },
-    "mediaUrl": "/images/projects/maximo.png"
+    "imageUrl": "/images/projects/maximo.png"
   },
   {
     "name": "Maximo 5.2 Support",
-    "description":
-    [
-      "Developed small bug fixes and change requests. Designed and developed a custom Audit Management application. Worked on site, liaised with client to confirm requirements."
-    ],
+    "description": "Developed small bug fixes and change requests. Designed and developed a custom Audit Management application. Worked on site, liaised with client to confirm requirements.",
     "clientSlug": "matrikon",
     "endClient": "WEL Networks",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "enterprise",
       "java"
     ],
     "dates":
@@ -1601,19 +1338,16 @@
       "startedAt": "2006",
       "yearOnly": true
     },
-    "mediaUrl": "/images/projects/maximo.png"
+    "imageUrl": "/images/projects/maximo.png"
   },
   {
     "name": "Maximo 5.2 Support",
-    "description":
-    [
-      "Developed small bug fixes and change requests. Worked on site, liaised with client to confirm requirements."
-    ],
+    "description": "Developed small bug fixes and change requests. Worked on site, liaised with client to confirm requirements.",
     "clientSlug": "matrikon",
     "endClient": "Mighty River Power",
-    "tagSlugs":
+    "links": [],
+    "skillSlugs":
     [
-      "enterprise",
       "java"
     ],
     "dates":
@@ -1622,6 +1356,6 @@
       "endedAt": "2006",
       "yearOnly": true
     },
-    "mediaUrl": "/images/projects/maximo.png"
+    "imageUrl": "/images/projects/maximo.png"
   }
 ]

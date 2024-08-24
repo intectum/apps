@@ -3,11 +3,11 @@
     "slug": "apolinar",
     "name": "Apolinar",
     "active": true,
-    "description":
-    [
-      "Apolinar create enterprise-quality digital products that fundamentally support, strengthen or enhance their clients’ product and service offerings."
-    ],
-    "link": "https://www.apolinargroup.com",
+    "description": "Apolinar exists to advance the Human Experience (HX) of technology.",
+    "link":
+    {
+      "url": "https://www.apolinargroup.com"
+    },
     "reference": "Lance Hambling (Head of Web and API Dev)",
     "position" : "Senior Developer",
     "employmentType": "contractor",
@@ -32,12 +32,11 @@
     "slug": "bravura",
     "name": "Bravura Solutions",
     "active": false,
-    "description":
-    [
-      "Bravura Solutions deliver solutions across multiple business lines, including products for wealth management and life insurance administration, eBusiness, funds administration and related technologies.",
-      "During my time there I worked on various aspects of their Sonata product."
-    ],
-    "link": "http://www.bravurasolutions.com",
+    "description": "Bravura Solutions deliver solutions across multiple business lines, including products for wealth management and life insurance administration, eBusiness, funds administration and related technologies.",
+    "link":
+    {
+      "url": "http://www.bravurasolutions.com"
+    },
     "reference": "David Keeley (Technical Program Manager)",
     "position" : "Senior Developer",
     "employmentType": "employee",
@@ -57,8 +56,10 @@
     "slug": "colenso-bbdo",
     "name": "Colenso BBDO",
     "active": true,
-    "description": [],
-    "link": "https://www.colensobbdo.co.nz",
+    "link":
+    {
+      "url": "https://www.colensobbdo.co.nz"
+    },
     "position" : "Senior Developer",
     "employmentType": "contractor",
     "dates":
@@ -74,11 +75,11 @@
     "slug": "cucumber",
     "name": "Cucumber",
     "active": true,
-    "description":
-    [
-      "Cucumber design and build digital technology to enable people and enhance business efficiency."
-    ],
-    "link": "https://www.cucumber.co.nz",
+    "description": "Software Engineering, Digital Talent Solutions and Strategic Consulting services that make industry-leading solutions possible.",
+    "link":
+    {
+      "url": "https://www.cucumber.co.nz"
+    },
     "position" : "Senior Front End Developer",
     "employmentType": "contractor",
     "dates":
@@ -94,11 +95,11 @@
     "slug": "dotdot",
     "name": "DOTDOT",
     "active": true,
-    "description":
-    [
-      "DOTDOT is an award-winning creative studio focused on generating impact through social and immersive experiences."
-    ],
-    "link": "https://dotdot.studio",
+    "description": "DOTDOT is an award-winning creative studio focused on generating impact through social and immersive experiences.",
+    "link":
+    {
+      "url": "https://dotdot.studio"
+    },
     "position" : "Senior Developer",
     "employmentType": "contractor",
     "dates":
@@ -118,11 +119,11 @@
     "slug": "ghost-street",
     "name": "Ghost Street",
     "active": true,
-    "description":
-    [
-      "An award-winning interactive studio based in Auckland, NZ. Their digital specialists create smart, great-looking digital products that bring people and brands closer together."
-    ],
-    "link": "https://ghoststreet.co.nz",
+    "description": "We create simple and powerful digital products, for companies seeking to make a difference.",
+    "link":
+    {
+      "url": "https://ghost.st"
+    },
     "position" : "Game Developer",
     "employmentType": "contractor",
     "dates":
@@ -138,11 +139,11 @@
     "slug": "marker",
     "name": "Marker",
     "active": true,
-    "description":
-    [
-      "Marker create enterprise-quality digital products that fundamentally support, strengthen or enhance their clients’ product and service offerings."
-    ],
-    "link": "http://markerdigital.io",
+    "description": "Marker create enterprise-quality digital products that fundamentally support, strengthen or enhance their clients’ product and service offerings.",
+    "link":
+    {
+      "url": "http://markerdigital.io"
+    },
     "reference": "Lance Hambling (Head of Web and API Dev)",
     "position" : "Senior Developer",
     "employmentType": "contractor",
@@ -163,12 +164,11 @@
     "slug": "matrikon",
     "name": "Matrikon",
     "active": false,
-    "description":
-    [
-      "Matrikon provided services for Maximo including implementations, upgrades and support.",
-      "At times I was responsible for teaching and delegating work to up to three other developers. When I left I was the senior Maximo developer in the Canadian HQ office."
-    ],
-    "link": "http://www.matrikon.com",
+    "description": "Matrikon provided services for Maximo including implementations, upgrades and support.",
+    "link":
+    {
+      "url": "http://www.matrikon.com"
+    },
     "position" : "Software Engineer, Technical Consultant",
     "employmentType": "employee",
     "dates":
@@ -184,14 +184,14 @@
     ]
   },
   {
-    "slug": "mitch-olsen",
-    "name": "Mitch Olsen",
+    "slug": "mitch-olson",
+    "name": "Mitch Olson",
     "active": true,
-    "description":
-    [
-      "Mitch Olsen's purpose is supporting organisations to better understand and leverage the power of behavioural science and digital technology to make a positive difference in the lives of New Zealanders."
-    ],
-    "link": "https://www.mitcholson.co.nz",
+    "description": "Behavioural engineer, systems designer, philosopher and entrepreneur.",
+    "link":
+    {
+      "url": "https://www.mitcholson.co.nz"
+    },
     "position" : "Game Developer",
     "employmentType": "contractor",
     "dates":
@@ -201,17 +201,17 @@
         "endedAt": "2021-03"
       }
     ],
-    "iconUrl": "/images/clients/mitch-olsen.png"
+    "iconUrl": "/images/clients/mitch-olson.png"
   },
   {
     "slug": "octana",
     "name": "Octana",
     "active": true,
-    "description":
-    [
-      "The easiest way to create beautiful websites on Contentful."
-    ],
-    "link": "https://octana.io",
+    "description": "The easiest way to create beautiful websites on Contentful.",
+    "link":
+    {
+      "url": "https://octana.io"
+    },
     "reference": "Lance Hambling (Head of Web and API Dev)",
     "position" : "Senior Developer",
     "employmentType": "contractor",
@@ -228,12 +228,11 @@
     "slug": "osho-international",
     "name": "OSHO International",
     "active": true,
-    "description":
-    [
-      "A foundation dedicated to Osho.",
-      "I participate in the ‘work as meditation’ program at the meditation resort in Pune, India."
-    ],
-    "link": "http://osho.com",
+    "description": "A foundation dedicated to Osho. I participate in the ‘work as meditation’ program at the meditation resort in Pune, India.",
+    "link":
+    {
+      "url": "http://osho.com"
+    },
     "position" : "Volunteer",
     "employmentType": "contractor",
     "dates":
@@ -265,11 +264,11 @@
     "slug": "propellerhead",
     "name": "Propellerhead",
     "active": true,
-    "description":
-    [
-      "Propellerhead are dedicated to the powerful ideas that make the world a better place for our clients, their users, and our community."
-    ],
-    "link": "https://www.propellerhead.co.nz",
+    "description": "We are dedicated to creating future-focused technology solutions that propel people, businesses, the economy and the world forward.",
+    "link":
+    {
+      "url": "https://www.propellerhead.co.nz"
+    },
     "position" : "Senior Developer",
     "employmentType": "contractor",
     "dates":
@@ -285,11 +284,11 @@
     "slug": "quadratek",
     "name": "Quadratek",
     "active": false,
-    "description":
-    [
-      "Quadratek provides complimentary and cohesive end-to-end technology solutions and products, reducing complexity, and improving the reliability of your IT Estate with Consulting, Infrastructure, People and Support."
-    ],
-    "link": "http://quadratek.net",
+    "description": "Quadratek provides complimentary and cohesive end-to-end technology solutions and products, reducing complexity, and improving the reliability of your IT Estate with Consulting, Infrastructure, People and Support.",
+    "link":
+    {
+      "url": "http://quadratek.net"
+    },
     "position" : "Subject Matter Expert, Software Engineer",
     "employmentType": "contractor",
     "dates":
@@ -304,12 +303,11 @@
     "slug": "red-fox",
     "name": "Red Fox Game Studio",
     "active": true,
-    "description":
-    [
-      "A game development startup founded by one of my lecturers at Media Design School. Their vision is \"one million smiles per day\".",
-      "I have worked as the primary developer for some of Red Fox's titles."
-    ],
-    "link": "http://redfoxgamestudio.com",
+    "description": "A game development startup founded by one of my lecturers at Media Design School. Their vision is 'one million smiles per day'.",
+    "link":
+    {
+      "url": "http://redfoxgamestudio.com"
+    },
     "reference": "Stephen McIntyre (Founder and CEO)",
     "position" : "Senior Game Developer",
     "employmentType": "contractor",
@@ -332,14 +330,13 @@
   },
   {
     "slug": "rush",
-    "name": "Rush",
+    "name": "RUSH",
     "active": true,
-    "description":
-    [
-      "Rush Digital take on the jobs that are too tough for your average development studio. They create games, apps and bespoke systems for leading brands.",
-      "During my time at Rush Digital I worked on a wide range of projects. During many of those engagements they were confident enough in my abilities that they gave me whole projects for high profile clients like Fonterra and TVNZ that I then developed on my own with a high level of independence."
-    ],
-    "link": "http://rush.co.nz/",
+    "description": "We’re RUSH, a design and technology company making better digital experiences.",
+    "link":
+    {
+      "url": "http://rush.co.nz/"
+    },
     "reference": "Danushka Abeysuriya (Founder and CTO)",
     "position" : "Senior Developer",
     "employmentType": "contractor",

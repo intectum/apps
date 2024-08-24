@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { Modal as ReactNativeModal, ModalProps, ViewStyle } from 'react-native';
 
+import { Themeable } from 'apps-core';
+
 import { styles } from '../styles';
 import { useThemes } from '../themes';
-import { Themeable } from '../types';
 import Container from './Container';
 import Pressable from './Pressable';
 

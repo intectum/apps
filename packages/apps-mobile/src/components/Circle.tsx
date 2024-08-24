@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { ImageStyle, View, ViewProps, ViewStyle } from 'react-native';
 
+import { Size, Themeable } from 'apps-core';
+
 import { styles } from '../styles';
 import { useThemes } from '../themes';
-import { Size, Themeable } from '../types';
 import Container from './Container';
 
 export interface Props extends Themeable, ViewProps

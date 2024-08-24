@@ -1,10 +1,6 @@
 import { TextStyle, ViewStyle } from 'react-native';
 
-import { Shade, Theme, ThemeName } from 'apps-core';
-
 export type Length<T> = ((value: T) => number) | number;
-
-export type Size = 'small' | 'medium' | 'large';
 
 export interface Styles
 {
@@ -32,12 +28,6 @@ export interface Styles
   paddingShort: ViewStyle;
   centerText: TextStyle;
   bold: TextStyle;
-}
-
-export interface Themeable
-{
-  theme?: Theme | ThemeName;
-  shade?: Shade;
 }
 
 export interface SectionListData<T>

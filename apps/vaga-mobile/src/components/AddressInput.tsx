@@ -1,17 +1,16 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import { FlatList, StyleProp, TextStyle, View, ViewStyle } from 'react-native';
 
+import { Size, Themeable } from 'apps-core';
 import {
   Button,
   fontSizes,
   Icon,
   Modal,
   Pressable,
-  Size,
   styles,
   Text,
   TextInput,
-  Themeable,
   useThemes
 } from 'apps-mobile';
 import { Address, autocomplete, formatAddress, geocode, PlacesAutocompletePrediction } from 'vaga-core';

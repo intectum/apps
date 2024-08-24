@@ -1,6 +1,9 @@
-import { Size, Styles } from './types';
 import { Insets, ViewStyle } from 'react-native';
 import { DimensionValue } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+
+import { Size } from 'apps-core';
+
+import { Styles } from './types';
 
 const fontSizeBase = 16;
 const roundingBase = 8;

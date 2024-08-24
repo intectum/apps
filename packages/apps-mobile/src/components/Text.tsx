@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { Text as ReactNativeText, TextProps, TextStyle } from 'react-native';
 
+import { Size, Themeable } from 'apps-core';
+
 import { fontSizes, lineHeights } from '../styles';
 import { useThemes } from '../themes';
-import { Size, Themeable } from '../types';
 
 export interface Props extends Themeable, TextProps
 {

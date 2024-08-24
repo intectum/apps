@@ -1,0 +1,72 @@
+.c-home-skills
+{
+  height: 100lvh;
+}
+
+@media screen and (max-width: 575px)
+{
+  .c-home-skills
+  {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 575px)
+{
+  .c-home-skills__matrix
+  {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 576px)
+{
+  .c-home-skills__detail,
+  .c-home-skills__matrix
+  {
+    flex: 1;
+  }
+}
+
+.c-home-skills__skill
+{
+  position: relative;
+  height: 28px;
+  width: 100%;
+}
+
+.c-home-skills__skill-name
+{
+  width: 110px;
+
+  background-color: var(--color-grey);
+  padding: var(--spacer-xs);
+}
+
+.c-home-skills__skill-bar
+{
+  height: 100%;
+
+  background-color: var(--color-light);
+}
+
+.c-home-skills__skill-bar-filled
+{
+  width: 0;
+  height: 100%;
+
+  background-color: var(--color-primary);
+}
+
+.c-home-skills__skill-bar-filled--animated
+{
+  animation: grow-in 1s forwards;
+}
+
+@keyframes grow-in
+{
+  100%
+  {
+    width: calc(var(--skill-proficiency) / 5 * 100%);
+  }
+}

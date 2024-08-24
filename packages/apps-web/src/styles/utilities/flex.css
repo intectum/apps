@@ -1,0 +1,35 @@
+.u-flex
+{
+  display: flex;
+}
+
+.u-flex--column
+{
+  flex-direction: column;
+}
+
+.u-flex--centered
+{
+  justify-content: center;
+  align-items: center;
+}
+
+.u-flex--space-between
+{
+  justify-content: space-between;
+}
+
+.u-flex--spaced
+{
+  gap: var(--spacer);
+}
+
+.u-flex--wrap
+{
+  flex-wrap: wrap;
+}
+
+.u-flex-item--1
+{
+  flex: 1;
+}

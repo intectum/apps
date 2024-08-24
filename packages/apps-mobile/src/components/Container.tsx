@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { View, ViewProps, ViewStyle } from 'react-native';
 
+import { Themeable } from 'apps-core';
+
 import { ThemeContext, useThemes } from '../themes';
-import { Themeable } from '../types';
 import SafeAreaView from './SafeAreaView';
 
 export interface Props extends Themeable, ViewProps

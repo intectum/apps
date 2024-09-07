@@ -19,12 +19,11 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) =>
           <Link href="/projects" className="u-color--light">projects</Link>
         </nav>
       </header>
-      <img src="/images/logo.png" alt="intectum" className="c-background"/>
+      <img src="/images/logo.png" alt="intectum" className="c-background" />
       <div className="o-container">
         {children}
       </div>
     </body>
-  </html>
-;
+  </html>;
 
 export default RootLayout;

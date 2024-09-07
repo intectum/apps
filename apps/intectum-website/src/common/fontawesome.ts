@@ -17,8 +17,6 @@ import {
   faEnvelope,
   faFilePdf,
   faFolderOpen,
-  faGamepad,
-  faGears,
   faPhone,
   faUserTie,
   faXmark
@@ -35,8 +33,6 @@ library.add(
   faEnvelope,
   faFilePdf,
   faFolderOpen,
-  faGamepad,
-  faGears,
   faGithub,
   faGooglePlay,
   faLinkedinIn,

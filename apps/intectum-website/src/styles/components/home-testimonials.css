@@ -1,0 +1,17 @@
+.c-home-testimonials
+{
+  height: 100lvh;
+}
+
+.c-home-testimonials__body
+{
+  width: 75%;
+}
+
+@media screen and (max-width: 575px)
+{
+  .c-home-testimonials__body
+  {
+    width: 100%;
+  }
+}

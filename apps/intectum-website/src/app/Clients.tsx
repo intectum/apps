@@ -41,6 +41,7 @@ const Clients: FC<Props> = ({ clients }) =>
           </div>
           <div className="c-home-clients__detail u-flex u-flex--column u-flex--spaced u-text-center u-m">
             <h2>Clients</h2>
+            {/* <div className="u-text-large">Trusted by my clients, many of whom I have partnered with on multiple contracts</div> */}
             <blockquote>
               Loved working with Gyan. He is a great software engineer with a deep knowledge spanning multiple verticals
               across the space. Level-headed and pragmatic he takes on any challenge with confidence and a smile.

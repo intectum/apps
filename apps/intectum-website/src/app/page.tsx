@@ -25,9 +25,17 @@ const Home: NextPage = async () =>
       <ScrollAnimationContainer>
         <Clients clients={clients} />
       </ScrollAnimationContainer>
+      {/*
+      <Testimonials />
+      */}
       <ScrollAnimationContainer>
         <Projects projects={projects} />
       </ScrollAnimationContainer>
+      {/*
+      <ScrollAnimationContainer>
+        <Showcases showcases={projects.filter(project => project.name === 'astrum' || project.name === 'ludo')} />
+      </ScrollAnimationContainer>
+      */}
       <Contact />
     </>
   );

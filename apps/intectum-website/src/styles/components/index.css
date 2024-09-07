@@ -1,4 +1,5 @@
 @import 'background.css';
+@import 'carousel.css';
 @import 'client-modal.css';
 @import 'home-clients.css';
 @import 'home-contact.css';
@@ -6,7 +7,9 @@
 @import 'home-projects.css';
 @import 'home-showcase.css';
 @import 'home-simple.css';
+@import 'home-showcases.css';
 @import 'home-skills.css';
+@import 'home-testimonials.css';
 @import 'home-title.css';
 @import 'project-modal.css';
 @import 'project-grid.css';

@@ -1,0 +1,69 @@
+.c-carousel
+{
+  position: relative;
+  width: 100%;
+}
+
+.c-carousel__track
+{
+  position: relative;
+  left: calc(var(--carousel-current-slide-index) * -100%);
+
+  transition: left .5s;
+}
+
+.c-carousel__blur
+{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  backdrop-filter: blur(5px);
+}
+
+.c-carousel__blur--left
+{
+  left: -100%;
+
+  mask: linear-gradient(to left, transparent, black 32px);
+}
+
+.c-carousel__blur--right
+{
+  right: -100%;
+
+  mask: linear-gradient(to right, transparent, black 32px);
+}
+
+.c-carousel__shift
+{
+  position: absolute;
+  top: 50%;
+}
+
+.c-carousel__shift--previous
+{
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.c-carousel__shift--next
+{
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.c-carousel__jump
+{
+  width: 16px;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+  background-color: var(--color-grey);
+}
+
+.c-carousel__jump--active
+{
+  background-color: var(--color-light);
+}

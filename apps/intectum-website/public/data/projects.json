@@ -257,7 +257,7 @@
   },
   {
     "name": "astrum",
-    "description": "A tech demo based on some of Sebastian Lague's 'Coding Adventures' videos with additional features of my own. It uses my 'ludo' game engine",
+    "description": "Inspired by Sebastian Lague’s Coding Adventures; this is a navigable, procedurally generated 3D solar system with orbital mechanics. It uses my 'ludo' game engine.",
     "imageUrl": "/images/projects/astrum.png",
     "links":
     [
@@ -281,7 +281,7 @@
   },
   {
     "name": "ludo",
-    "description": "A simple, procedural, performant and data-oriented game engine",
+    "description": "A simple, procedural, performant and data-oriented game engine.",
     "imageUrl": "/images/projects/ludo.jpg",
     "links":
     [

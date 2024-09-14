@@ -1,7 +1,11 @@
 import { Metadata } from 'next';
 import { FC, PropsWithChildren } from 'react';
 
+import { Panel } from 'apps-web';
+
+import { main } from '../common/themes';
 import '../styles/index.css';
+import Header from './Header';
 
 export const metadata: Metadata =
 {
@@ -10,12 +14,13 @@ export const metadata: Metadata =
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) =>
   <html lang="en">
-    <body className="u-pt--xl">
-      <header className="u-flex u-flex--centered u-flex--space-between u-p">
-        Trusty Paws
-        <button type="button" className="c-button c-button--primary">Book</button>
-      </header>
-      {children}
+    <body>
+      <Panel theme={main}>
+        <Header/>
+        <div className="u-pt--xl">
+          {children}
+        </div>
+      </Panel>
     </body>
   </html>;
 

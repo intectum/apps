@@ -152,7 +152,7 @@ const CalendarDay: FC<Props> = memo(({ date, selected, selectedAsRanges, onPress
     <View>
       <View style={backgroundStyle} />
       <Button shade={isSelected ? 'front' : (isRangeMiddle ? 'medium' : undefined)} circle onPress={() => onPress?.(date)}>
-        <Text shade={isToday ? 'bright' : undefined}>
+        <Text shade={isToday ? 'accent' : undefined}>
           {date.day}
         </Text>
       </Button>

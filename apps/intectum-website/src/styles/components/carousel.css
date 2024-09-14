@@ -57,13 +57,6 @@
 .c-carousel__jump
 {
   width: 16px;
-  aspect-ratio: 1;
 
-  border-radius: 50%;
-  background-color: var(--color-grey);
-}
-
-.c-carousel__jump--active
-{
-  background-color: var(--color-light);
+  padding: 0;
 }

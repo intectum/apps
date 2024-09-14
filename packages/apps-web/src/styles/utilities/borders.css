@@ -1,0 +1,4 @@
+.u-borders--rounded
+{
+  border-radius: var(--border-radius);
+}

@@ -3,7 +3,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { FC, useEffect } from 'react';
 import { Image, View, ViewStyle } from 'react-native';
 
-import { Button, Container, spacing, styles, Text, usePersistentState, useThemes } from 'apps-mobile';
+import { Button, Panel, spacing, styles, Text, usePersistentState, useThemes } from 'apps-mobile';
 
 import { authorizeWithGoogle } from '../common/firebase/functions';
 import { RootStackParamList } from '../common/types';
@@ -47,19 +47,19 @@ const ConnectCalendar: FC<NativeStackScreenProps<RootStackParamList, 'ConnectCal
 
   return (
     <Screen deepLinkUrlWhitelist={[ 'vaga://google-authorized' ]}>
-      <Container safeAreaType="full" style={{ ...styles.centerContent, ...styles.flex1, ...styles.padding }}>
+      <Panel safeAreaType="full" style={{ ...styles.centerContent, ...styles.flex1, ...styles.padding }}>
         <Text size="large" style={{ ...styles.marginBottom, ...styles.centerText }}>Google Calendar</Text>
         <Text style={{ ...styles.marginBottom, ...styles.centerText }}>Automatically add travel plans from your calendar</Text>
         <View style={imageStyle}>
           <Image source={require('../images/google-calendar.png')} />
         </View>
-        <Button shade="bright" style={styles.marginBottom} onPress={connect}>
+        <Button shade="accent" style={styles.marginBottom} onPress={connect}>
           <Text>Connect</Text>
         </Button>
         <Button onPress={continueOnboarding}>
           <Text>Skip</Text>
         </Button>
-      </Container>
+      </Panel>
     </Screen>
   );
 };

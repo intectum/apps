@@ -8,6 +8,7 @@
     "packages/vaga-core",
     "apps/intectum-website",
     "apps/oshonz-website",
+    "apps/trusty-paws-website",
     "apps/vaga-firebase",
     "apps/vaga-mobile",
     "apps/vaga-website"

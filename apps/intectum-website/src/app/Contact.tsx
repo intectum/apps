@@ -1,3 +1,5 @@
+import { faGithub, faLinkedinIn, faStackExchange, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faFilePdf, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FC } from 'react';
 
 import { Icon } from 'apps-web';
@@ -16,7 +18,7 @@ const Contact: FC = () =>
           referrerPolicy="no-referrer"
           title="Phone (UK)"
         >
-          <Icon icon="phone"/>
+          <Icon icon={faPhone} />
         </a>
         <a
           className="u-p"
@@ -25,7 +27,7 @@ const Contact: FC = () =>
           referrerPolicy="no-referrer"
           title="WhatsApp"
         >
-          <Icon icon={[ 'fab', 'whatsapp' ]}/>
+          <Icon icon={faWhatsapp} />
         </a>
         <a
           className="u-p"
@@ -34,7 +36,7 @@ const Contact: FC = () =>
           referrerPolicy="no-referrer"
           title="Email"
         >
-          <Icon icon="envelope"/>
+          <Icon icon={faEnvelope} />
         </a>
       </div>
       <div className="u-flex u-flex--centered u-flex--spaced">
@@ -45,7 +47,7 @@ const Contact: FC = () =>
           referrerPolicy="no-referrer"
           title="LinkedIn"
         >
-          <Icon icon={[ 'fab', 'linkedin-in' ]}/>
+          <Icon icon={faLinkedinIn} />
         </a>
         <a
           className="u-p"
@@ -54,7 +56,7 @@ const Contact: FC = () =>
           referrerPolicy="no-referrer"
           title="GitHub"
         >
-          <Icon icon={[ 'fab', 'github' ]}/>
+          <Icon icon={faGithub} />
         </a>
         <a
           className="u-p"
@@ -63,7 +65,7 @@ const Contact: FC = () =>
           referrerPolicy="no-referrer"
           title="Stack Exchange"
         >
-          <Icon icon={[ 'fab', 'stack-exchange' ]}/>
+          <Icon icon={faStackExchange} />
         </a>
       </div>
     </div>
@@ -74,7 +76,7 @@ const Contact: FC = () =>
       referrerPolicy="no-referrer"
       title="arc() Profile"
     >
-      <img className="c-home-contact__certification u-mr--sm" src="/images/arc-dot-dev.jpg" alt="arc()"/>
+      <img className="c-home-contact__certification u-mr--sm" src="/images/arc-dot-dev.jpg" alt="arc()" />
       Certified Remote Developer
     </a>
     <a
@@ -84,7 +86,7 @@ const Contact: FC = () =>
       referrerPolicy="no-referrer"
       title="Curriculum Vitae Download"
     >
-      <Icon className="u-mr--sm" icon="file-pdf"/>
+      <Icon className="u-mr--sm" icon={faFilePdf} />
       Curriculum Vitae
     </a>
   </div>;

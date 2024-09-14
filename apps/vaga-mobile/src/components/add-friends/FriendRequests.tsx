@@ -78,7 +78,7 @@ const FriendRequests: FC<Props> = ({ onUpdate }) =>
               <Icon icon="x" />
             </Button>
             <Button
-              shade="bright"
+              shade="accent"
               circle
               onPress={() => accept(item)}
             >

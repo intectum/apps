@@ -60,7 +60,7 @@ const QrCode: FC<ModalProps> = modalProps =>
             {invitationId && <QRCode value={toInvitationUrl(invitationId)} />}
           </View>
           <Button
-            shade="bright"
+            shade="accent"
             onPress={() => setShowScanner(true)}
           >
             <Icon icon="camera" style={styles.marginRightSmall} />

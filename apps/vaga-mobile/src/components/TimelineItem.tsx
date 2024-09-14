@@ -74,7 +74,7 @@ const TimelineItem: FC<Props> = memo(({ info, highlightIndex, renderItem }) =>
         {info.item.itemIndex !== 0 && <View style={lineTopStyle} />}
         <View style={styles.marginBottom} />
         <Circle
-          shade={info.item.itemIndex === highlightIndex ? 'bright' : 'front'}
+          shade={info.item.itemIndex === highlightIndex ? 'accent' : 'front'}
           size="small"
           style={styles.marginBottom}
         />

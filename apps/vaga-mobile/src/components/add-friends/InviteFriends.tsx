@@ -28,11 +28,11 @@ const InviteFriends: FC = () =>
             light: '',
             medium: '',
             dark: '#000000',
-            bright: '#25d366',
+            accent: '#25d366',
             front: '',
             back: ''
           }}
-          shade="bright"
+          shade="accent"
           style={styles.marginBottomSmall}
           onPress={() => invitationId && Linking.openURL(`whatsapp://send?text=${encodeURIComponent(getMessage(invitationId))}`)}
         >
@@ -41,7 +41,7 @@ const InviteFriends: FC = () =>
         </Button>
       }
       <Button
-        shade={!whatsappAvailable ? 'bright' : undefined}
+        shade={!whatsappAvailable ? 'accent' : undefined}
         onPress={() => invitationId && Share.share({ message: getMessage(invitationId) })}
       >
         <Icon icon="share-nodes" style={styles.marginRightSmall} />

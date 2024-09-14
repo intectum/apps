@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState } from 'react';
 
-import { classes } from 'apps-web';
+import { Button, Panel, useThemes } from 'apps-web';
 
 import { Skill, SkillCategory } from '../common/types';
 
@@ -13,6 +13,8 @@ type Props =
 
 const Skills: FC<Props> = ({ skills }) =>
 {
+  const themes = useThemes();
+
   const [ category, setCategory ] = useState<SkillCategory>('lang');
 
   const goodEnoughSkills = skills.filter(skill => skill.proficiency > 1);
@@ -56,47 +58,49 @@ const Skills: FC<Props> = ({ skills }) =>
       </div>
       <div className="c-home-skills__matrix u-flex u-flex--column u-flex--centered u-flex--spaced u-m">
         <div className="u-flex u-flex--centered u-flex--spaced u-flex--wrap">
-          <button
-            type="button"
-            className={classes([ 'c-button', category === 'lang' && 'c-button c-button--primary' ])}
+          <Button
+            shade={category === 'lang' ? 'accent' : undefined}
             onClick={() => setCategory('lang')}
           >
             Languages
-          </button>
-          <button
-            type="button"
-            className={classes([ 'c-button', category === 'front' && 'c-button c-button--primary' ])}
+          </Button>
+          <Button
+            shade={category === 'front' ? 'accent' : undefined}
             onClick={() => setCategory('front')}
           >
             Front End
-          </button>
-          <button
-            type="button"
-            className={classes([ 'c-button', category === 'back' && 'c-button c-button--primary' ])}
+          </Button>
+          <Button
+            shade={category === 'back' ? 'accent' : undefined}
             onClick={() => setCategory('back')}
           >
             Back End
-          </button>
-          <button
-            type="button"
-            className={classes([ 'c-button', category === 'other' && 'c-button--primary' ])}
+          </Button>
+          <Button
+            shade={category === 'other' ? 'accent' : undefined}
             onClick={() => setCategory('other')}
           >
             Other
-          </button>
+          </Button>
         </div>
         {skillsInCategory.map(skill =>
           <div
             key={skill.slug}
             className="c-home-skills__skill u-flex"
           >
-            <div className="c-home-skills__skill-name">{skill.name}</div>
+            <Panel shade="front" className="c-home-skills__skill-name u-p--xs">{skill.name}</Panel>
             <div
               className="c-home-skills__skill-bar u-flex-item--1"
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              style={{ ['--skill-proficiency' as any]: skill.proficiency }}
+              style={{
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                ['--skill-proficiency' as any]: skill.proficiency,
+                backgroundColor: themes.current.medium
+              }}
             >
-              <div className="c-home-skills__skill-bar-filled"/>
+              <div
+                className="c-home-skills__skill-bar-filled"
+                style={{ backgroundColor: themes.current.accent }}
+              />
             </div>
           </div>
         )}

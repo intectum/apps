@@ -1,9 +1,10 @@
+'use client';
+
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import { FC } from 'react';
 
 import { Size, Themeable } from 'apps-core';
-
-import { useThemes } from '../themes';
+import { useThemes } from 'apps-web';
 
 export interface Props extends Themeable, Omit<FontAwesomeIconProps, 'size'>
 {
@@ -12,14 +13,18 @@ export interface Props extends Themeable, Omit<FontAwesomeIconProps, 'size'>
 
 const Icon: FC<Props> = ({ theme, shade, size, style, ...fontAwesomeIconProps }) =>
 {
-  //useThemes(theme);
+  const themes = useThemes(theme);
 
-  /*const style: FontAwesomeIconStyle =
-  {
-    color: themes.current[shade ?? 'front']
-  }; TODO*/
-
-  return <FontAwesomeIcon style={{ ...style, height: size === 'large' ? 48 : 24 }} {...fontAwesomeIconProps} />;
+  return (
+    <FontAwesomeIcon
+      style={{
+        height: size === 'large' ? 48 : 24,
+        color: themes.current[shade ?? 'front'],
+        ...style
+      }}
+      {...fontAwesomeIconProps}
+    />
+  );
 };
 
 export default Icon;

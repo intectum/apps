@@ -1,7 +1,4 @@
 body
 {
-  background-color: var(--color-dark);
-
   font-family: Montserrat, sans-serif;
-  color: var(--color-light);
 }

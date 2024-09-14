@@ -2,7 +2,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FC, PropsWithChildren } from 'react';
 import { View, ViewStyle } from 'react-native';
 
-import { BackButton, Button, Container, Icon, styles } from 'apps-mobile';
+import { BackButton, Button, Icon, Panel, styles } from 'apps-mobile';
 
 interface Props
 {
@@ -26,7 +26,7 @@ const Header: FC<PropsWithChildren<Props>> = ({ action, actionIcon, children }) 
   };
 
   return (
-    <Container safeAreaType="top" style={containerStyle}>
+    <Panel safeAreaType="top" style={containerStyle}>
       <BackButton style={styles.marginRightSmall} />
       <View style={childrenStyle}>
         {children}
@@ -36,7 +36,7 @@ const Header: FC<PropsWithChildren<Props>> = ({ action, actionIcon, children }) 
           <Icon icon={actionIcon ?? 'ellipsis-vertical'} />
         </Button>
       }
-    </Container>
+    </Panel>
   );
 };
 

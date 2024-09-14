@@ -1,9 +1,9 @@
+import { faArrowUpRightFromSquare, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { FC } from 'react';
 
 import { Icon, Modal } from 'apps-web';
 
-import '../common/fontawesome'; // TODO refine, this is only needed once in any client component?
 import { formatMonthYear } from '../common/dates';
 import { Client, cvUrl } from '../common/types';
 
@@ -21,7 +21,7 @@ const ClientModal: FC<Props> = ({ client, onDismiss }) =>
         <img className="c-client-modal__client-image" src={client.iconUrl} alt={client.name}/>
         <div className="u-flex u-flex--spaced">
           <Link href={`/projects?client=${client.slug}`} title="Projects">
-            <Icon icon="folder-open" />
+            <Icon icon={faFolderOpen} />
           </Link>
           <a
             href={client.link.url}
@@ -29,7 +29,7 @@ const ClientModal: FC<Props> = ({ client, onDismiss }) =>
             target="_blank"
             referrerPolicy="no-referrer"
           >
-            <Icon icon={client.link.icon ?? 'arrow-up-right-from-square'} />
+            <Icon icon={faArrowUpRightFromSquare} />
           </a>
         </div>
         <div className="u-text-large">{client.position}</div>
@@ -39,7 +39,7 @@ const ClientModal: FC<Props> = ({ client, onDismiss }) =>
       {client.employmentType === 'employee' && <h5>Employments</h5>}
       <div className="o-grid">
         {client.dates.map(dates =>
-          <div className="c-tag u-m--xs">
+          <div key={dates.startedAt} className="c-tag u-m--xs">
             {formatMonthYear(dates.startedAt)} - {formatMonthYear(dates.endedAt)}
           </div>
         )}

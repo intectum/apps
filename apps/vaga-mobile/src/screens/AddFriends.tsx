@@ -7,8 +7,8 @@ import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import {
   ActivityIndicator,
   Button,
-  Container,
   Icon,
+  Panel,
   styles,
   Text,
   usePersistentState,
@@ -91,7 +91,7 @@ const AddFriends: FC<NativeStackScreenProps<RootStackParamList, 'AddFriends'>> =
   {
     return (
       <Screen deepLinkUrlWhitelist={[]}>
-        <Container safeAreaType="full" style={{ ...styles.flex1, ...styles.padding }}>
+        <Panel safeAreaType="full" style={{ ...styles.flex1, ...styles.padding }}>
           {onboardingStep === 0 && !currentUser.phoneNumber && <AddPhoneNumber onSkip={() => setOnboardingStep(1)} />}
           {onboardingStep === 1 &&
             <>
@@ -107,7 +107,7 @@ const AddFriends: FC<NativeStackScreenProps<RootStackParamList, 'AddFriends'>> =
               <FriendRequests onUpdate={setFriendRequestCount} />
               {contactPermissionGranted && <NonFriendsInContacts onUpdate={setNonFriendsInContactsCount} />}
               {(!friendRequestsEmpty || !nonFriendsInContactsEmpty) &&
-                <Button shade="bright" onPress={() => setOnboardingStep(2)}>
+                <Button shade="accent" onPress={() => setOnboardingStep(2)}>
                   <Text>Continue</Text>
                 </Button>
               }
@@ -125,7 +125,7 @@ const AddFriends: FC<NativeStackScreenProps<RootStackParamList, 'AddFriends'>> =
               </Button>
             </View>
           }
-        </Container>
+        </Panel>
       </Screen>
     );
   }
@@ -135,7 +135,7 @@ const AddFriends: FC<NativeStackScreenProps<RootStackParamList, 'AddFriends'>> =
       <Header action={() => setShowQrCode(true)} actionIcon="qrcode">
         <Text size="large">Add friends</Text>
       </Header>
-      <Container safeAreaType="bottom" style={{ ...styles.flex1, ...styles.padding }}>
+      <Panel safeAreaType="bottom" style={{ ...styles.flex1, ...styles.padding }}>
         <View style={styles.marginBottom}>
           <InviteFriends />
         </View>
@@ -153,7 +153,7 @@ const AddFriends: FC<NativeStackScreenProps<RootStackParamList, 'AddFriends'>> =
           </View>
         }
         {contactPermissionGranted && <NonFriendsInContacts />}
-      </Container>
+      </Panel>
       <QrCode
         visible={showQrCode}
         onRequestClose={() => setShowQrCode(false)}

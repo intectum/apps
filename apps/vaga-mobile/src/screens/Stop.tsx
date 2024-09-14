@@ -17,9 +17,9 @@ import {
   BackButton,
   Button,
   Circle,
-  Container,
   fontSizes,
   Icon,
+  Panel,
   SafeAreaView,
   styles,
   Text,
@@ -75,10 +75,10 @@ const Stop: FC<NativeStackScreenProps<RootStackParamList, 'Stop'>> = ({ route, n
   {
     return (
       <Screen>
-        <Container style={{ ...styles.centerContent, ...styles.flex1 }}>
+        <Panel style={{ ...styles.centerContent, ...styles.flex1 }}>
           <Text style={styles.marginBottom}>Oops! Stop not found...</Text>
           <BackButton />
-        </Container>
+        </Panel>
       </Screen>
     );
   }
@@ -133,11 +133,11 @@ const Stop: FC<NativeStackScreenProps<RootStackParamList, 'Stop'>> = ({ route, n
       >
         {stop.address.location &&
           <Marker coordinate={stop.address.location}>
-            <Icon shade="bright" icon="map-pin" />
+            <Icon shade="accent" icon="map-pin" />
           </Marker>
         }
       </Map>
-      <Container safeAreaType="bottom" style={styles.flex1}>
+      <Panel safeAreaType="bottom" style={styles.flex1}>
         <View style={styles.margin}>
           <View style={{ ...styles.row, ...styles.marginBottom }}>
             <Flag isoCode={stop.address.country} style={styles.marginRightSmall} />
@@ -192,7 +192,7 @@ const Stop: FC<NativeStackScreenProps<RootStackParamList, 'Stop'>> = ({ route, n
             </Pressable>
           }
         />
-      </Container>
+      </Panel>
       <SafeAreaView style={styles.overlayTopLeft}>
         <BackButton />
       </SafeAreaView>

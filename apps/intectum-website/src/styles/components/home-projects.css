@@ -27,8 +27,6 @@
   aspect-ratio: 5 / 4;
 
   animation-name: c-home-projects__catalog;
-
-  color: var(--color-dark);
 }
 
 @keyframes c-home-projects__catalog
@@ -147,8 +145,6 @@
   inset: 0;
   overflow: clip;
 
-  background-color: var(--color-light);
-
   display: flex;
 }
 
@@ -202,7 +198,6 @@
 {
   overflow: clip;
 
-  border-radius: 0;
   background-position: center;
   background-size: 150% auto;
 

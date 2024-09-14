@@ -1,17 +1,32 @@
-import { adaptThemes, createThemes, Shade, Theme, ThemeName, Themes } from 'apps-core';
+'use client';
 
-export const useThemes = (current?: Theme | ThemeName, back?: Shade) =>
+import { createContext, CSSProperties, useContext } from 'react';
+
+import { adaptThemes, createThemes, Shade, shades, Theme, ThemeName, Themes } from 'apps-core';
+
+export const ThemeContext = createContext<Themes | undefined>(undefined);
+
+export const useThemes = (current?: Theme | ThemeName, back?: Shade, accent?: string | ThemeName) =>
 {
   const darkMode = !window.matchMedia?.('(prefers-color-scheme: light)').matches;
-  const lightThemes = adaptThemes(createThemes(darkMode), current, back);
+  const themes = useContext(ThemeContext);
 
-  for (const themeName of Object.keys(lightThemes) as [keyof Themes])
+  return adaptThemes(themes ?? createThemes(darkMode), current, back, accent);
+};
+
+export const useThemeStyle = (themes: Themes): CSSProperties =>
+{
+  const parentThemes = useContext(ThemeContext);
+  const themeStyle: CSSProperties = {};
+
+  for (const shade of shades)
   {
-    document.documentElement.style.setProperty(`--themes-${themeName}-light`, lightThemes[themeName].light);
-    document.documentElement.style.setProperty(`--themes-${themeName}-medium`, lightThemes[themeName].medium);
-    document.documentElement.style.setProperty(`--themes-${themeName}-dark`, lightThemes[themeName].dark);
-    document.documentElement.style.setProperty(`--themes-${themeName}-bright`, lightThemes[themeName].bright);
-    document.documentElement.style.setProperty(`--themes-${themeName}-front`, lightThemes[themeName].front);
-    document.documentElement.style.setProperty(`--themes-${themeName}-back`, lightThemes[themeName].back);
+    if (!parentThemes || themes.current[shade] !== parentThemes.current[shade])
+    {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (themeStyle as any)[`--theme-${shade}`] = themes.current[shade];
+    }
   }
+
+  return themeStyle;
 };

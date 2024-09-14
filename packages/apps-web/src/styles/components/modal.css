@@ -27,10 +27,6 @@
   width: 50%;
   max-width: 600px;
 
-  background-color: var(--color-light);
-
-  color: var(--color-dark);
-
   animation: c-modal__window 0.5s forwards;
 }
 
@@ -60,8 +56,4 @@
   position: absolute;
   right: var(--spacer);
   top: var(--spacer);
-
-  background-color: var(--color-light);
-
-  color: var(--color-dark);
 }

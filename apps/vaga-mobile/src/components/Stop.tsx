@@ -90,7 +90,7 @@ const Stop: FC<Props> = ({ stop, add, onSave, ...modalProps }) =>
       }
       <View style={styles.rowEnd}>
         <Button
-          shade="bright"
+          shade="accent"
           onPress={async event =>
           {
             const newIndex = await save();

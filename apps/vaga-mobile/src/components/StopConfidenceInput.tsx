@@ -36,7 +36,7 @@ const StopConfidenceInput: FC<PropsWithChildren<Props>> = ({ user, stopIndex, so
       <>
         <Text size="small" style={styles.marginBottomSmall}>Confirm this stop?</Text>
         <View style={styles.row}>
-          <Button shade="bright" circle style={styles.marginRight} onPress={() => updateConfidence(1)}>
+          <Button shade="accent" circle style={styles.marginRight} onPress={() => updateConfidence(1)}>
             <Icon icon="check" />
           </Button>
           {children}
@@ -49,7 +49,7 @@ const StopConfidenceInput: FC<PropsWithChildren<Props>> = ({ user, stopIndex, so
     <>
       <Text size="small" style={styles.marginBottomSmall}>How confident are you about this plan?</Text>
       <View style={styles.row}>
-        <Button shade="bright" circle style={styles.marginRight} onPress={() => updateConfidence(1)}>
+        <Button shade="accent" circle style={styles.marginRight} onPress={() => updateConfidence(1)}>
           <Emoji name="slightly_smiling_face" />
         </Button>
         <Button circle style={styles.marginRight} onPress={() => updateConfidence(0.5)}>

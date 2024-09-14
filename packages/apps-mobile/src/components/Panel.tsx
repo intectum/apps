@@ -11,7 +11,7 @@ export interface Props extends Themeable, ViewProps
   safeAreaType?: 'full' | 'top' | 'middle' | 'bottom';
 }
 
-const Container: FC<Props> = ({ theme, shade, safeAreaType, style: propStyle, ...viewProps }) =>
+const Panel: FC<Props> = ({ theme, shade, safeAreaType, style: propStyle, ...viewProps }) =>
 {
   const themes = useThemes(theme, shade);
 
@@ -30,4 +30,4 @@ const Container: FC<Props> = ({ theme, shade, safeAreaType, style: propStyle, ..
   );
 };
 
-export default Container;
+export default Panel;

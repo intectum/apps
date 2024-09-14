@@ -11,7 +11,7 @@ const ActivityIndicator: FC<Props> = ({ theme, shade, ...activityIndicatorProps 
 {
   const themes = useThemes(theme);
 
-  return <ReactNativeActivityIndicator size="large" color={themes.current[shade ?? 'bright']} {...activityIndicatorProps} />;
+  return <ReactNativeActivityIndicator size="large" color={themes.current[shade ?? 'accent']} {...activityIndicatorProps} />;
 };
 
 export default ActivityIndicator;

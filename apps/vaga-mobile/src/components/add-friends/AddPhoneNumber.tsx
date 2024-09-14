@@ -41,7 +41,7 @@ const AddPhoneNumber: FC<Props> = ({ onSkip }) =>
       <Icon icon="user-group" size={96} style={styles.marginBottom} />
       <Text style={{ ...styles.marginBottom, ...styles.centerText }}>Enter your phone number</Text>
       <TextInput
-        shade="bright"
+        shade="accent"
         size="large"
         autoFocus
         keyboardType="phone-pad"
@@ -53,7 +53,7 @@ const AddPhoneNumber: FC<Props> = ({ onSkip }) =>
       />
       <Text shade="medium" size="small" style={styles.marginBottom}>We'll need permission to read your contacts</Text>
       <Button
-        shade="bright"
+        shade="accent"
         disabled={!phoneResult.isValid}
         style={styles.marginBottom}
         onPress={updatePhoneNumber}

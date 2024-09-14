@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from 'react';
 import { View, ViewStyle } from 'react-native';
 import { checkMultiple, PERMISSIONS, request, RESULTS } from 'react-native-permissions';
 
-import { Button, Container, Icon, Modal, Pressable, styles, Text, useThemes } from 'apps-mobile';
+import { Button, Icon, Modal, Panel, Pressable, styles, Text, useThemes } from 'apps-mobile';
 
 import { updateLocation } from '../common/location';
 import native from '../common/native';
@@ -118,49 +118,49 @@ const Permissions: FC<NativeStackScreenProps<RootStackParamList, 'Permissions'>>
 
   return (
     <Screen deepLinkUrlWhitelist={[]}>
-      <Container safeAreaType="full" style={{ ...styles.centerContent, ...styles.flex1, ...styles.padding }}>
+      <Panel safeAreaType="full" style={{ ...styles.centerContent, ...styles.flex1, ...styles.padding }}>
         <Text size="large" style={{ ...styles.marginBottom, ...styles.centerText }}>Permissions</Text>
         <Text style={{ ...styles.marginBottom, ...styles.centerText }}>Unlock all the features of Vagabond</Text>
         <View style={permissionsStyle}>
           <Pressable style={styles.marginBottom} onPress={requestLocationPermission}>
-            <Container shade={locationGranted ? 'front' : undefined} style={getPermissionContainerStyle(!!locationGranted)}>
+            <Panel shade={locationGranted ? 'front' : undefined} style={getPermissionContainerStyle(!!locationGranted)}>
               <Icon icon="location-pin" size={48} style={styles.marginRight} />
               <View style={styles.flex1}>
                 <Text size="large" style={styles.marginBottomSmall}>Location</Text>
                 <Text>Let your friends know which city you are in</Text>
               </View>
-            </Container>
+            </Panel>
           </Pressable>
           <Pressable style={styles.marginBottom} onPress={() => !backgroundLocationGranted && setShowBackgroundLocation(true)}>
-            <Container shade={backgroundLocationGranted ? 'front' : undefined} style={getPermissionContainerStyle(!!backgroundLocationGranted)}>
+            <Panel shade={backgroundLocationGranted ? 'front' : undefined} style={getPermissionContainerStyle(!!backgroundLocationGranted)}>
               <Icon icon="location-dot" size={48} style={styles.marginRight} />
               <View style={styles.flex1}>
                 <Text size="large" style={styles.marginBottomSmall}>Background location</Text>
                 <Text style={styles.marginBottomSmall}>Automatically update your location</Text>
               </View>
-            </Container>
+            </Panel>
           </Pressable>
           <Pressable style={styles.marginBottom} onPress={requestNotificationsPermission}>
-            <Container shade={notificationsGranted ? 'front' : undefined} style={getPermissionContainerStyle(!!notificationsGranted)}>
+            <Panel shade={notificationsGranted ? 'front' : undefined} style={getPermissionContainerStyle(!!notificationsGranted)}>
               <Icon icon="bell" size={48} style={styles.marginRight} />
               <View style={styles.flex1}>
                 <Text size="large" style={styles.marginBottomSmall}>Notifications</Text>
                 <Text>Get notified when a friend is nearby or they want to sync up with you</Text>
               </View>
-            </Container>
+            </Panel>
           </Pressable>
           <Pressable style={styles.marginBottom} onPress={requestContactsPermission}>
-            <Container shade={contactsGranted ? 'front' : undefined} style={getPermissionContainerStyle(!!contactsGranted)}>
+            <Panel shade={contactsGranted ? 'front' : undefined} style={getPermissionContainerStyle(!!contactsGranted)}>
               <Icon icon="user-group" size={48} style={styles.marginRight} />
               <View style={styles.flex1}>
                 <Text size="large" style={styles.marginBottomSmall}>Contacts</Text>
                 <Text>Find friends already using Vagabond</Text>
               </View>
-            </Container>
+            </Panel>
           </Pressable>
         </View>
         <Button
-          shade="bright"
+          shade="accent"
           disabled={backgroundLocationGranted === undefined || contactsGranted === undefined || locationGranted === undefined || notificationsGranted === undefined}
           style={styles.marginBottom}
           onPress={continueOnboarding}
@@ -170,7 +170,7 @@ const Permissions: FC<NativeStackScreenProps<RootStackParamList, 'Permissions'>>
         <Button onPress={continueOnboarding}>
           <Text>Skip</Text>
         </Button>
-      </Container>
+      </Panel>
       <Modal
         transparent
         visible={showBackgroundLocation}
@@ -180,7 +180,7 @@ const Permissions: FC<NativeStackScreenProps<RootStackParamList, 'Permissions'>>
         <Text style={styles.marginBottom}>Please select "Allow all the time" in your settings</Text>
         <View style={styles.rowEnd}>
           <Button
-            shade="bright"
+            shade="accent"
             onPress={async () =>
             {
               await requestBackgroundLocationPermission();

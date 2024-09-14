@@ -9,10 +9,10 @@ import { addMonths, firstOfMonth, toDateTime, today, WithoutId } from 'apps-core
 import {
   BackButton,
   Circle,
-  Container,
   fontSizes,
   getDocuments,
   Icon,
+  Panel,
   SafeAreaView,
   spacing,
   styles,
@@ -102,14 +102,14 @@ const HeatMap: FC<NativeStackScreenProps<RootStackParamList, 'HeatMap'>> = () =>
               radius={50}
               opacity={1}
               gradient={{
-                colors: [ 'transparent', themes.current.bright, themes.monochrome.front ],
+                colors: [ 'transparent', themes.current.accent, themes.monochrome.front ],
                 startPoints: [ 0, 0.5, 1 ],
                 colorMapSize: 256
               }}
             />
           }
         </Map>
-        <Container safeAreaType="bottom" style={styles.flex1}>
+        <Panel safeAreaType="bottom" style={styles.flex1}>
           <View style={{ ...styles.row, ...styles.margin }}>
             <Switch
               style={styles.marginRightSmall}
@@ -137,7 +137,7 @@ const HeatMap: FC<NativeStackScreenProps<RootStackParamList, 'HeatMap'>> = () =>
             }
             onItemPress={item => setIndex(item.itemIndex)}
           />
-        </Container>
+        </Panel>
       </VerticalSplit>
       <SafeAreaView style={styles.overlayTopLeft}>
         <BackButton />

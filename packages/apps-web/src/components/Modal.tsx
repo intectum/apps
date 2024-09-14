@@ -1,7 +1,10 @@
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 
 import { classes } from '../classes';
+import Button from './Button';
 import Icon from './Icon';
+import Panel from './Panel';
 
 export interface Props extends HTMLAttributes<HTMLDivElement>
 {
@@ -9,17 +12,13 @@ export interface Props extends HTMLAttributes<HTMLDivElement>
 }
 
 const Modal: FC<PropsWithChildren<Props>> = ({ children, onDismiss, className, ...divProps }) =>
-{
-  return (
-    <div className="c-modal" onClick={onDismiss}>
-      <div className={classes([ 'c-modal__window', className ])} onClick={event => event.stopPropagation()} {...divProps}>
-        <button type="button" className="c-modal__close c-button c-button--circle" onClick={onDismiss}>
-          <Icon icon="xmark"/>
-        </button>
-        {children}
-      </div>
-    </div>
-  );
-};
+  <div className="c-modal" onClick={onDismiss}>
+    <Panel shade="front" className={classes([ 'c-modal__window', className ])} onClick={event => event.stopPropagation()} {...divProps}>
+      <Button circle className="c-modal__close" onClick={onDismiss}>
+        <Icon icon={faXmark} />
+      </Button>
+      {children}
+    </Panel>
+  </div>;
 
 export default Modal;

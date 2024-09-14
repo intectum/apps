@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat|PT+Serif&display=swap);
+@import '@fortawesome/fontawesome-svg-core/styles.css';
 
 @import 'apps-web/src/styles/index.css';
 

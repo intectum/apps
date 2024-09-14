@@ -265,6 +265,11 @@
         "url": "https://github.com/intectum/games/tree/main/astrum",
         "icon": [ "fab", "github" ],
         "title": "GitHub"
+      },
+      {
+        "url": "https://drive.google.com/file/d/1zCxflBzjQXAofT8Xf_SzOInT2qLeq-41",
+        "icon": "video",
+        "title": "Video"
       }
     ],
     "skillSlugs":

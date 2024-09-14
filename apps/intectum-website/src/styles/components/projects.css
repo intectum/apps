@@ -1,4 +1,6 @@
 .c-projects
 {
-  margin: 56px 0;
+  min-height: 100vh;
+
+  padding: 56px 0;
 }

@@ -105,7 +105,7 @@ const NonFriendsInContacts: FC<Props> = ({ onUpdate }) =>
           <View style={{ ...styles.row, ...styles.marginBottom }}>
             <UserCard user={item} style={styles.flex1} />
             <Button
-              shade="bright"
+              shade="accent"
               circle
               onPress={() => invite(item)}
               disabled={invited(item)}

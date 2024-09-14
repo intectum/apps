@@ -104,7 +104,7 @@ export const NotificationProvider: FC<PropsWithChildren<Props>> = ({ forwardInit
         <View style={styles.rowEnd}>
           {showOkay &&
             <Button
-              shade="bright"
+              shade="accent"
               onPress={() => setNotification(undefined)}
             >
               <Text>Okay</Text>
@@ -126,7 +126,7 @@ export const NotificationProvider: FC<PropsWithChildren<Props>> = ({ forwardInit
                 <Text>Deny</Text>
               </Button>
               <Button
-                shade="bright"
+                shade="accent"
                 disabled={thinking}
                 onPress={async () =>
                 {
@@ -142,7 +142,7 @@ export const NotificationProvider: FC<PropsWithChildren<Props>> = ({ forwardInit
           }
           {userId &&
             <Button
-              shade="bright"
+              shade="accent"
               onPress={() =>
               {
                 openProfile();

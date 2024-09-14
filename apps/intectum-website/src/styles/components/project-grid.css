@@ -20,28 +20,13 @@
 
 .c-project-grid__preview
 {
-  width: 100%;
   aspect-ratio: 16 / 9;
   overflow: clip;
 
   opacity: 0;
-  object-fit: cover;
-
-  border: none;
-  background-color: var(--color-light);
-  padding: 0;
-
-  cursor: pointer;
 
   animation: c-project-grid__preview 0.5s forwards;
   animation-delay: calc(var(--project-index) * 0.02s);
-
-  transition: filter 0.5s;
-}
-
-.c-project-grid__preview:hover
-{
-  filter: brightness(75%);
 }
 
 .c-project-grid__preview > *

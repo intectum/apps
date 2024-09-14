@@ -88,7 +88,7 @@ const SettingsMenu: FC = () =>
             <Text>No</Text>
           </Button>
           <Button
-            shade="bright"
+            shade="accent"
             onPress={async () =>
             {
               await native.signOut();
@@ -126,7 +126,7 @@ const SettingsMenu: FC = () =>
             <Text>No</Text>
           </Button>
           <Button
-            shade="bright"
+            shade="accent"
             disabled={closeAccountText.toLowerCase() !== 'delete me'}
             onPress={async () =>
             {

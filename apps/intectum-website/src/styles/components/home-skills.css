@@ -38,24 +38,17 @@
 .c-home-skills__skill-name
 {
   width: 110px;
-
-  background-color: var(--color-grey);
-  padding: var(--spacer-xs);
 }
 
 .c-home-skills__skill-bar
 {
   height: 100%;
-
-  background-color: var(--color-light);
 }
 
 .c-home-skills__skill-bar-filled
 {
   width: 0;
   height: 100%;
-
-  background-color: var(--color-primary);
 }
 
 .c-home-skills__skill-bar-filled--animated

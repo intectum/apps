@@ -3,7 +3,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { FC, useContext, useEffect } from 'react';
 import { FlatList, View, ViewStyle } from 'react-native';
 
-import { Button, Container, Icon, Pressable, styles, Text, useThemes } from 'apps-mobile';
+import { Button, Icon, Panel, Pressable, styles, Text, useThemes } from 'apps-mobile';
 
 import { CurrentUserContext } from '../common/current-user';
 import { RootStackParamList } from '../common/types';
@@ -38,12 +38,12 @@ const Friends: FC<NativeStackScreenProps<RootStackParamList, 'Friends'>> = ({ na
       <Header action={() => navigation.push('AddFriends', { onboarding: false })} actionIcon="user-plus">
         <Text size="large">Friends</Text>
       </Header>
-      <Container safeAreaType="bottom" style={styles.flex1}>
+      <Panel safeAreaType="bottom" style={styles.flex1}>
         {!friends.length &&
           <View style={dashedOutlineStyle}>
             <View style={{ ...styles.centerContent, ...styles.flex1 }}>
               <Icon icon="user-group" size={96} style={styles.marginBottom} />
-              <Button shade="bright" onPress={() => navigation.push('AddFriends', { onboarding: false })}>
+              <Button shade="accent" onPress={() => navigation.push('AddFriends', { onboarding: false })}>
                 <Text>Add friends</Text>
               </Button>
             </View>
@@ -60,7 +60,7 @@ const Friends: FC<NativeStackScreenProps<RootStackParamList, 'Friends'>> = ({ na
             }
           />
         }
-      </Container>
+      </Panel>
     </Screen>
   );
 };

@@ -48,7 +48,7 @@ const FriendMenu: FC<Props> = ({ user }) =>
             <Text>No</Text>
           </Button>
           <Button
-            shade="bright"
+            shade="accent"
             onPress={async () =>
             {
               await unfriend(user.id);

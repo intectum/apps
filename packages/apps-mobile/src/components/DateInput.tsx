@@ -11,8 +11,8 @@ import Icon from './Icon';
 import Pressable from './Pressable';
 import Text from './Text';
 import SlideDown from './SlideDown';
-import Container from './Container';
 import Modal from './Modal';
+import Panel from './Panel';
 
 export interface Props extends Themeable
 {
@@ -111,7 +111,7 @@ const DateInput: FC<Props> = ({ theme, shade, size, range, inline, value, onChan
           <Text>Today</Text>
         </Button>
         <Button
-          shade="bright"
+          shade="accent"
           style={styles.flex1}
           onPress={() =>
           {
@@ -156,9 +156,9 @@ const DateInput: FC<Props> = ({ theme, shade, size, range, inline, value, onChan
           visible={showCalendar}
           onRequestClose={() => setShowCalendar(false)}
         >
-          <Container style={calendarContainerStyle}>
+          <Panel style={calendarContainerStyle}>
             {calendar}
-          </Container>
+          </Panel>
         </SlideDown>
       }
     </>

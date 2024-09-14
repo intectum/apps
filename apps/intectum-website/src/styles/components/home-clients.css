@@ -21,10 +21,6 @@
 .c-home-clients__outer
 {
   position: relative;
-  aspect-ratio: 1;
-
-  border-radius: 50%;
-  background-color: var(--color-grey);
 
   animation-name: scale-in;
 }
@@ -50,10 +46,6 @@
 {
   position: absolute;
   width: 33%;
-  aspect-ratio: 1;
-
-  border-radius: 50%;
-  background-color: var(--color-light);
 
   animation-name: scale-in;
 }

@@ -1,8 +1,14 @@
 'use client';
 
+import { config, library } from '@fortawesome/fontawesome-svg-core';
+import { faAppStoreIos, faGithub, faGooglePlay } from '@fortawesome/free-brands-svg-icons';
+import { faArrowUpRightFromSquare, faUserTie, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { FC, useState } from 'react';
 
-import { Icon, Modal } from 'apps-web';
+config.autoAddCss = false;
+library.add(faAppStoreIos, faArrowUpRightFromSquare, faGithub, faGooglePlay, faVideo);
+
+import { Button, Icon, Modal } from 'apps-web';
 
 import { Client, Project } from '../common/types';
 import ClientModal from '../components/ClientModal';
@@ -29,14 +35,15 @@ const ProjectModal: FC<Props> = ({ project, onDismiss }) =>
           <h3>{project.name}</h3>
           <div className="u-flex u-flex--spaced">
             {project.client &&
-              <button
-                type="button"
-                className="c-button c-button--minimal u-color--primary"
+              <Button
+                clear
+                square
+                className="u-p--none"
                 onClick={() => setClient(project.client)}
                 title="Client"
               >
-                <Icon icon="user-tie" />
-              </button>
+                <Icon icon={faUserTie} />
+              </Button>
             }
             {project.links.map(link =>
               <a

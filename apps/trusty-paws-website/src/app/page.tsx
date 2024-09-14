@@ -1,8 +1,12 @@
 import { NextPage } from 'next';
 
-const Home: NextPage = async () =>
+import { Panel } from 'apps-web';
+
+import { alt } from '../common/themes';
+
+const Home: NextPage = () =>
   <>
-    <section className="u-color-bg--dark u-py--xl">
+    <Panel theme={alt} className="u-py--xl">
       <div className="o-container u-flex u-flex--spaced">
         <div className="u-flex u-flex--column u-flex--centered u-flex--spaced u-flex-item--1">
           <h1>Providing Trusted Pet Sitting Services in London</h1>
@@ -13,14 +17,14 @@ const Home: NextPage = async () =>
           </div>
         </div>
         <div className="u-flex-item--1">
-          <img src="https://placehold.co/600" alt="TODO"/>
+          <img src="https://placehold.co/600" alt="TODO" />
         </div>
       </div>
-    </section>
-    <section className="u-py--xl">
+    </Panel>
+    <div className="u-py--xl">
       <div className="o-container u-flex u-flex--spaced">
         <div className="u-flex-item--1">
-          <img src="https://placehold.co/600" alt="TODO"/>
+          <img src="https://placehold.co/600" alt="TODO" />
         </div>
         <div className="u-flex u-flex--column u-flex--centered u-flex--spaced u-flex-item--1">
           <h2>Benefits (trust)</h2>
@@ -36,8 +40,8 @@ const Home: NextPage = async () =>
           </ul>
         </div>
       </div>
-    </section>
-    <section className="u-py--xl">
+    </div>
+    <div className="u-py--xl">
       <div className="o-container u-flex u-flex--column u-flex--spaced">
         <h2>How it works</h2>
         <div>
@@ -96,8 +100,8 @@ const Home: NextPage = async () =>
           </div>
         </div>
       </div>
-    </section>
-    <section className="u-color-bg--dark u-py--xl">
+    </div>
+    <Panel theme={alt} className="u-py--xl">
       <div className="o-container u-flex u-flex--column u-flex--spaced">
         <h2>Medium length section heading goes here</h2>
         <div>
@@ -107,8 +111,8 @@ const Home: NextPage = async () =>
         </div>
         <button type="button" className="c-button c-button--primary">Do it!</button>
       </div>
-    </section>
-    <section className="u-py--xl">
+    </Panel>
+    <div className="u-py--xl">
       <div className="o-container u-flex u-flex--column u-text-center">
         <h2 className="u-pb--xl">Providing Trusted Pet Sitting Services in Greater London</h2>
         <div className="u-flex u-flex--spaced">
@@ -130,8 +134,8 @@ const Home: NextPage = async () =>
           </div>
         </div>
       </div>
-    </section>
-    <section className="u-color-bg--dark u-py--xl">
+    </div>
+    <Panel theme={alt} className="u-py--xl">
       <div className="o-container u-flex u-flex--column u-text-center">
         <h2 className="u-pb--xl">Customer Testimonials</h2>
         <div className="u-flex u-flex--spaced">
@@ -158,8 +162,8 @@ const Home: NextPage = async () =>
           </div>
         </div>
       </div>
-    </section>
-    <section className="u-py--xl">
+    </Panel>
+    <div className="u-py--xl">
       <div className="o-container u-flex u-flex--column u-flex--spaced">
         <h2 className="u-text-center">Contact Us</h2>
         <label>Name</label>
@@ -180,7 +184,7 @@ const Home: NextPage = async () =>
         <textarea rows={10} />
         <button type="button" className="c-button c-button--primary">Send</button>
       </div>
-    </section>
+    </div>
   </>;
 
 export default Home;

@@ -5,7 +5,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { FC, useContext, useEffect } from 'react';
 import { View, ViewStyle } from 'react-native';
 
-import { ActivityIndicator, Button, Container, styles, Text, usePersistentState } from 'apps-mobile';
+import { ActivityIndicator, Button, Panel, styles, Text, usePersistentState } from 'apps-mobile';
 
 import { CurrentUserContext, useCurrentUserId } from '../common/current-user';
 import native from '../common/native';
@@ -41,19 +41,19 @@ const Intro: FC<NativeStackScreenProps<RootStackParamList, 'Intro'>> = ({ naviga
 
   return (
     <Screen deepLinkUrlWhitelist={[]}>
-      <Container safeAreaType="full" style={{ ...styles.centerContent, ...styles.flex1, ...styles.padding }}>
+      <Panel safeAreaType="full" style={{ ...styles.centerContent, ...styles.flex1, ...styles.padding }}>
         <Text size="large" style={{ ...styles.marginBottom, ...styles.centerText }}>Welcome to Vagabond</Text>
         <Text style={{ ...styles.marginBottom, ...styles.centerText }}>Discover where your friends are</Text>
         <FontAwesomeIcon icon={faHandSpock} size={96} style={styles.marginBottom} />
         <View style={fixedHeightStyle}>
           {!currentUserId &&
-            <Button shade="bright" onPress={() => native.signIn()}>
+            <Button shade="accent" onPress={() => native.signIn()}>
               <Text>Get started</Text>
             </Button>
           }
           {currentUserId && <ActivityIndicator />}
         </View>
-      </Container>
+      </Panel>
     </Screen>
   );
 };

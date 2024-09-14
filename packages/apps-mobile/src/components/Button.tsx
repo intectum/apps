@@ -4,8 +4,8 @@ import { PressableProps, ViewStyle } from 'react-native';
 import { Size, Themeable } from 'apps-core';
 
 import { styles } from '../styles';
-import Container from './Container';
 import Circle from './Circle';
+import Panel from './Panel';
 import Pressable from './Pressable';
 
 export interface Props extends Themeable, PressableProps
@@ -31,7 +31,7 @@ const Button: FC<PropsWithChildren<Props>> = ({ theme, shade, circle, square, ch
   const containerPressableStyle: ViewStyle =
   {
     ...styles.centerContent,
-    ...styles.row,
+    ...styles.row, // TODO needed?
     ...styles.paddingShort
   };
 
@@ -51,11 +51,11 @@ const Button: FC<PropsWithChildren<Props>> = ({ theme, shade, circle, square, ch
   }
 
   return (
-    <Container theme={theme} shade={finalShade} style={{ ...containerStyle, ...viewStyle }}>
+    <Panel theme={theme} shade={finalShade} style={{ ...containerStyle, ...viewStyle }}>
       <Pressable style={containerPressableStyle} {...pressableProps}>
         {children}
       </Pressable>
-    </Container>
+    </Panel>
   );
 };
 

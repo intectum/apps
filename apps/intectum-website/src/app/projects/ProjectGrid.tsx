@@ -3,6 +3,8 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FC, FormEvent, useEffect, useRef, useState } from 'react';
 
+import { Button } from 'apps-web';
+
 import { getProjects } from '../../common/data';
 import { Project } from '../../common/types';
 import ProjectModal from '../../components/ProjectModal';
@@ -66,9 +68,11 @@ const ProjectGrid: FC = () =>
       </form>
       <div className="c-project-grid__grid">
         {projects?.map((project, index) =>
-          <button
+          <Button
             key={`${project.name}-${project.dates.startedAt}`}
-            className="c-project-grid__preview u-flex"
+            square
+            shade="front"
+            className="c-project-grid__preview u-flex u-p--none"
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             style={{ ['--project-index' as any]: index }}
             onClick={() => setProject(project)}
@@ -78,7 +82,7 @@ const ProjectGrid: FC = () =>
               src={project.imageUrl}
               alt={project.name}
             />
-          </button>
+          </Button>
         )}
       </div>
       {project && <ProjectModal project={project} onDismiss={() => setProject(undefined)}/>}

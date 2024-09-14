@@ -195,7 +195,7 @@ const Home: FC<NativeStackScreenProps<RootStackParamList, 'Home'>> = ({ navigati
         <Button circle style={styles.marginBottom} onPress={() => navigation.push('Friends')}>
           <Icon icon="user-group" />
         </Button>
-        <Button shade="bright" circle="large" onPress={() => setEditStop({ address: { country: '' }, arrivedAt: today(), confidence: 1 })}>
+        <Button shade="accent" circle="large" onPress={() => setEditStop({ address: { country: '' }, arrivedAt: today(), confidence: 1 })}>
           <Icon icon="plus" />
         </Button>
       </SafeAreaView>

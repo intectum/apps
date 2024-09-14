@@ -5,7 +5,7 @@ import { Themeable } from 'apps-core';
 
 import { styles } from '../styles';
 import { useThemes } from '../themes';
-import Container from './Container';
+import Panel from './Panel';
 import Pressable from './Pressable';
 
 export type Props = Themeable & ModalProps;
@@ -34,9 +34,9 @@ const Modal: FC<Props> = ({ theme, shade, children, ...modalProps }) =>
       {...modalProps}
     >
       {!modalProps.transparent &&
-        <Container theme={theme} shade={shade} style={styles.flex1}>
+        <Panel theme={theme} shade={shade} style={styles.flex1}>
           {children}
-        </Container>
+        </Panel>
       }
       {modalProps.transparent &&
         <Pressable
@@ -44,9 +44,9 @@ const Modal: FC<Props> = ({ theme, shade, children, ...modalProps }) =>
           style={backdropStyle}
           onPress={event => event.currentTarget === event.target && modalProps.onRequestClose?.(event)}
         >
-          <Container theme={theme} shade={shade} style={containerStyle}>
+          <Panel theme={theme} shade={shade} style={containerStyle}>
             {children}
-          </Container>
+          </Panel>
         </Pressable>
       }
     </ReactNativeModal>

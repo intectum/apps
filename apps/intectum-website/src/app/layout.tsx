@@ -2,27 +2,36 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { FC, PropsWithChildren } from 'react';
 
-import '../common/fontawesome';
+import { Panel } from 'apps-web';
+
 import '../styles/index.css';
 
 export const metadata: Metadata =
 {
-  title: 'intectum'
+  title: 'intectum',
+  description: 'Senior developer with 17 years of experience'
 };
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) =>
   <html lang="en">
+    <head>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|PT+Serif&display=swap"/>
+    </head>
     <body>
-      <header className="u-flex u-p">
-        <nav className="u-flex u-flex--centered u-flex--spaced">
-          <Link href="/" className="u-text-large">intectum</Link>
-          <Link href="/projects" className="u-color--light">projects</Link>
-        </nav>
-      </header>
-      <img src="/images/logo.png" alt="intectum" className="c-background" />
-      <div className="o-container">
-        {children}
-      </div>
+      <Panel theme="stone" accent="water">
+        <header>
+          <Panel className="u-flex u-p">
+            <nav className="u-flex u-flex--centered u-flex--spaced">
+              <Link href="/" className="u-text-large">intectum</Link>
+              <Link href="/projects">projects</Link>
+            </nav>
+          </Panel>
+        </header>
+        <img src="/images/logo.png" alt="intectum" className="c-background" />
+        <main className="o-container">
+          {children}
+        </main>
+      </Panel>
     </body>
   </html>;
 

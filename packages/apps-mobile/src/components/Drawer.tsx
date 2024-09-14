@@ -7,7 +7,7 @@ import { useDimensions } from '../dimensions';
 import { useVerticalPanSnapper } from '../pan-snapper';
 import { rounding, spacing, styles } from '../styles';
 import { useThemes } from '../themes';
-import Container from './Container';
+import Panel from './Panel';
 
 export interface Props extends Themeable
 {
@@ -82,12 +82,12 @@ const Drawer: FC<PropsWithChildren<Props>> = ({ theme, shade, snapOffsets, initi
 
   return (
     <Animated.View style={style}>
-      <Container theme={theme} shade={shade} style={containerStyle}>
+      <Panel theme={theme} shade={shade} style={containerStyle}>
         <View style={{ ...styles.centerContent, ...styles.padding }} {...panResponder.panHandlers}>
           <View style={handleStyle} />
         </View>
         {children}
-      </Container>
+      </Panel>
     </Animated.View>
   );
 };

@@ -1,8 +1,9 @@
 'use client';
 
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { HTMLAttributes, FC, ReactNode, useEffect, useRef, useState } from 'react';
 
-import { classes, Icon } from 'apps-web';
+import { Button, Icon } from 'apps-web';
 
 type Props =
 {
@@ -58,26 +59,29 @@ const Carousel: FC<Props> = ({ children, ...divProps }) =>
       </div>
       <div className="c-carousel__blur c-carousel__blur--left" />
       <div className="c-carousel__blur c-carousel__blur--right" />
-      <button
-        type="button"
-        className="c-carousel__shift c-carousel__shift--previous c-button c-button--circle"
+      <Button
+        circle
+        shade="front"
+        className="c-carousel__shift c-carousel__shift--previous"
         onClick={() => setCurrentIndex(currentIndex ? currentIndex - 1 : children.length - 1)}
       >
-        <Icon icon="angle-left" />
-      </button>
-      <button
-        type="button"
-        className="c-carousel__shift c-carousel__shift--next c-button c-button--circle"
+        <Icon icon={faAngleLeft} />
+      </Button>
+      <Button
+        circle
+        shade="front"
+        className="c-carousel__shift c-carousel__shift--next"
         onClick={() => setCurrentIndex((currentIndex + 1) % children.length)}
       >
-        <Icon icon="angle-right" />
-      </button>
+        <Icon icon={faAngleRight} />
+      </Button>
       <div className="u-flex u-flex--centered u-flex--spaced u-m">
         {Array.from(Array(children.length)).map((_, index) =>
-          <button
+          <Button
             key={index}
-            type="button"
-            className={classes([ 'c-carousel__jump', index === currentIndex && 'c-carousel__jump--active', 'c-button', 'c-button--minimal' ])}
+            circle
+            shade={index === currentIndex ? 'front' : 'medium'}
+            className="c-carousel__jump"
             onClick={() => setCurrentIndex(index)}
           />
         )}

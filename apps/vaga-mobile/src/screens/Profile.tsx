@@ -10,10 +10,10 @@ import {
   BackButton,
   Button,
   Circle,
-  Container,
+  fontSizes,
   Icon,
   lineHeights,
-  fontSizes,
+  Panel,
   SafeAreaView,
   spacing,
   styles,
@@ -93,9 +93,9 @@ const Profile: FC<NativeStackScreenProps<RootStackParamList, 'Profile'>> = ({ ro
   {
     return (
       <Screen forwardInitialNotification>
-        <Container style={{ ...styles.centerContent, ...styles.flex1 }}>
+        <Panel style={{ ...styles.centerContent, ...styles.flex1 }}>
           <ActivityIndicator />
-        </Container>
+        </Panel>
       </Screen>
     );
   }
@@ -210,7 +210,7 @@ const Profile: FC<NativeStackScreenProps<RootStackParamList, 'Profile'>> = ({ ro
                 }
                 geodesic
                 strokeWidth={2}
-                strokeColor={themes.current.bright}
+                strokeColor={themes.current.accent}
               />
             </>
           }
@@ -228,7 +228,7 @@ const Profile: FC<NativeStackScreenProps<RootStackParamList, 'Profile'>> = ({ ro
               <Marker key={addressKey} coordinate={address.location}>
                 <Icon
                   icon="map-pin"
-                  style={{ color: currentStopAtAddress ? themes.current.bright : themes.stone.front }}
+                  style={{ color: currentStopAtAddress ? themes.current.accent : themes.stone.front }}
                 />
               </Marker>
             );
@@ -243,20 +243,20 @@ const Profile: FC<NativeStackScreenProps<RootStackParamList, 'Profile'>> = ({ ro
               }}
             >
               <Animated.View style={addStopStyle}>
-                <Container style={{ ...styles.row, ...styles.roundedSmall, ...styles.paddingSmall }}>
-                  <Circle shade="bright" size="small" style={styles.marginRightSmall}>
+                <Panel style={{ ...styles.row, ...styles.roundedSmall, ...styles.paddingSmall }}>
+                  <Circle shade="accent" size="small" style={styles.marginRightSmall}>
                     <Icon icon="plus" size={fontSizes.small} />
                   </Circle>
                   <Text size="small">{formatAddress(newStopAddress)}</Text>
-                </Container>
+                </Panel>
                 <View style={styles.centerContent}>
-                  <Icon shade="bright" icon="caret-down" style={addStopPointerStyle} />
+                  <Icon shade="accent" icon="caret-down" style={addStopPointerStyle} />
                 </View>
               </Animated.View>
             </Marker>
           }
         </Map>
-        <Container safeAreaType="bottom" style={styles.flex1}>
+        <Panel safeAreaType="bottom" style={styles.flex1}>
           <View style={styles.centerContent}>
             <UserCircle
               shade="front"
@@ -277,7 +277,7 @@ const Profile: FC<NativeStackScreenProps<RootStackParamList, 'Profile'>> = ({ ro
               style={styles.flex1}
             />
           </View>
-        </Container>
+        </Panel>
       </VerticalSplit>
       <SafeAreaView style={styles.overlayTopLeft}>
         <BackButton />
@@ -294,7 +294,7 @@ const Profile: FC<NativeStackScreenProps<RootStackParamList, 'Profile'>> = ({ ro
           </SafeAreaView>
           <SafeAreaView style={styles.overlayBottomRight}>
             <Button
-              shade="bright"
+              shade="accent"
               circle="large"
               onPress={() =>
               {

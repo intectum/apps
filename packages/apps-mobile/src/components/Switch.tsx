@@ -12,7 +12,7 @@ const Switch: FC<Props> = switchProps =>
   return (
     <ReactNativeSwitch
       trackColor={{ false: themes.current.front, true: themes.current.front }}
-      thumbColor={switchProps.value ? themes.current.bright : themes.current.medium}
+      thumbColor={switchProps.value ? themes.current.accent : themes.current.medium}
       {...switchProps}
     />
   );

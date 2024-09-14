@@ -5,7 +5,7 @@ import { Size, Themeable } from 'apps-core';
 
 import { styles } from '../styles';
 import { useThemes } from '../themes';
-import Container from './Container';
+import Panel from './Panel';
 
 export interface Props extends Themeable, ViewProps
 {
@@ -38,16 +38,16 @@ const Circle: FC<Props> = ({ theme, shade, size, highlight, children, style: pro
     ...baseStyle,
     position: 'absolute',
     borderWidth: size === 'small' ? 2 : 4,
-    borderColor: themes.current.bright
+    borderColor: themes.current.accent
   };
 
   const viewStyle = (propStyle ?? {}) as ViewStyle;
 
   return (
-    <Container theme={theme} shade={shade} {...viewProps} style={{ ...containerStyle, ...viewStyle }}>
+    <Panel theme={theme} shade={shade} {...viewProps} style={{ ...containerStyle, ...viewStyle }}>
       {children}
       {highlight && <View style={highlightStyle} />}
-    </Container>
+    </Panel>
   );
 };
 

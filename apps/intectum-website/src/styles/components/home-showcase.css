@@ -30,7 +30,6 @@
   position: absolute;
   width: 33%;
 
-  background-color: var(--color-grey);
   padding: calc(var(--spacer) + 6.25lvh) var(--spacer-lg) var(--spacer-lg) var(--spacer);
 
   mask-image: url(/images/showcase-info-1-mask.svg);
@@ -93,7 +92,6 @@
   bottom: 0;
   width: 33%;
 
-  background-color: var(--color-grey);
   padding: var(--spacer-lg) var(--spacer) calc(var(--spacer) + 6.25lvh) var(--spacer-lg);
 
   mask-image: url(/images/showcase-info-2-mask.svg);

@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { FC, ReactNode, useState } from 'react';
 
+import { Button, Panel } from 'apps-web';
+
 import { Project } from '../common/types';
 import ProjectModal from '../components/ProjectModal';
 
@@ -21,21 +23,21 @@ const Projects: FC<Props> = ({ projects }) =>
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       style={{ ['--page-index' as any]: index }}
     >
-      <div className="c-home-projects__page-side c-home-projects__page-side--front">
+      <Panel shade="front" className="c-home-projects__page-side c-home-projects__page-side--front">
         {children[0]}
-      </div>
-      <div className="o-scroll-animation c-home-projects__page-side c-home-projects__page-side--back">
+      </Panel>
+      <Panel shade="front" className="o-scroll-animation c-home-projects__page-side c-home-projects__page-side--back">
         {children[1]}
-      </div>
+      </Panel>
     </div>;
 
   const Grid: FC<Props> = ({ projects }) =>
     <div className="c-home-projects__grid u-flex-item--1">
       {projects.map(project =>
-        <button
+        <Button
+          square
           key={`${project.name}-${project.dates.startedAt}`}
-          type="button"
-          className="c-home-projects__grid-item c-button u-p--none"
+          className="c-home-projects__grid-item u-p--none"
           style={{ backgroundImage: `url(${project.imageUrl})` }}
           onClick={() => setProject(project)}
         />

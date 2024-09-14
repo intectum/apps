@@ -2,7 +2,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FC, PropsWithChildren, useRef, useState } from 'react';
 import { LayoutRectangle, View, ViewStyle } from 'react-native';
 
-import { Button, Container, fontSizes, Icon, SlideDown, styles } from 'apps-mobile';
+import { Button, fontSizes, Icon, Panel, SlideDown, styles } from 'apps-mobile';
 
 export interface Props
 {
@@ -40,7 +40,7 @@ const Menu: FC<PropsWithChildren<Props>> = ({ icon, children }) =>
         visible={open}
         onRequestClose={() => setOpen(false)}
       >
-        <Container style={containerStyle}>
+        <Panel style={containerStyle}>
           <View style={styles.rowEnd}>
             <Button circle onPress={() => setOpen(false)}>
               <Icon icon="x" size={fontSizes.medium} />
@@ -49,7 +49,7 @@ const Menu: FC<PropsWithChildren<Props>> = ({ icon, children }) =>
           <View style={styles.marginBottom}>
             {children}
           </View>
-        </Container>
+        </Panel>
       </SlideDown>
     </>
   );

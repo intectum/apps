@@ -1,31 +1,15 @@
 {
   "name": "oshonz-website",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "deploy": "firebase deploy --only hosting",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
-    "gapi": "^0.0.3",
-    "moment-timezone": "^0.5.43"
+    "@googlemaps/js-api-loader": "^1.16.8"
   },
   "devDependencies": {
-    "@types/gapi": "^0.0.47",
-    "@types/google.maps": "^3.53.5",
-    "react-scripts": "5.0.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@types/google.maps": "^3.58.0"
   }
 }

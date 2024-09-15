@@ -1,15 +1,27 @@
-export async function getQuotes(): Promise<string[]>
+import { getEvents, getGeocodingLibrary } from '../common/google';
+
+export const getGeocodedEvents = async (timeMin?: string, timeMax?: string) =>
 {
-  const response = await fetch('quotes.json');
-  if (!response.ok)
+  const geocoding = await getGeocodingLibrary();
+  const events = await getEvents('info@osho.nz', 50, 'startTime', true, timeMin, timeMax);
+
+  const geocodePromises: Promise<void>[] = [];
+  for (const event of events)
   {
-    return [];
+    geocodePromises.push((async () =>
+    {
+      event.location = (await new geocoding.Geocoder().geocode({ address: event.address })).results[0]?.geometry.location.toJSON();
+    })());
   }
 
-  return await response.json();
-}
+  await Promise.all(geocodePromises);
 
-export function getInstructionUrl(summary: string): string | undefined
+  return events;
+};
+
+export const getShortAddress = (address: string) => address ? address.substring(0, address.indexOf(',')) : undefined;
+
+export const getInstructionUrl = (summary: string) =>
 {
   if (summary.toLowerCase().indexOf('chakra breath') !== -1)
   {
@@ -49,6 +61,4 @@ export function getInstructionUrl(summary: string): string | undefined
   }
 
   return undefined;
-}
-
-export const getShortLocation = (location: string): string | undefined => location ? location.substring(0, location.indexOf(',')) : undefined;
+};

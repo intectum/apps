@@ -25,13 +25,6 @@ The easiest way I found to build Firebase projects within the monorepo that are 
 
 The packages used by Next.js apps need to be added to the Next.js config (`next.config.mjs`) by adding the following line: `transpilePackages: [ 'apps-core', 'apps-web' ]`
 
-## React
-
-While most of React's dependencies are added to `apps-web`, `react-scripts` is added directly to the app project using it. This is for two reasons:
-
-1. If it is not added there, NPM will not find the executable
-2. It depends on a different version of Jest than React Native and so needs to be provided with Jest in its own local `node_modules` folder
-
 ## React Native
 
 A few modifications were needed to get React Native working within the monorepo:

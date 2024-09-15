@@ -16,7 +16,7 @@ interface Props
 const ClientModal: FC<Props> = ({ client, onDismiss }) =>
 {
   return (
-    <Modal className="u-flex u-flex--column u-flex--spaced u-p" onDismiss={onDismiss}>
+    <Modal shade="front" className="u-flex u-flex--column u-flex--spaced u-p" onDismiss={onDismiss}>
       <div className="u-flex u-flex--column u-flex--centered u-flex--spaced">
         <img className="c-client-modal__client-image" src={client.iconUrl} alt={client.name}/>
         <div className="u-flex u-flex--spaced">

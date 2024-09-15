@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, CSSProperties, useContext } from 'react';
+import { createContext, CSSProperties, useContext, useEffect, useState } from 'react';
 
 import { adaptThemes, createThemes, Shade, shades, Theme, ThemeName, Themes } from 'apps-core';
 
@@ -8,7 +8,14 @@ export const ThemeContext = createContext<Themes | undefined>(undefined);
 
 export const useThemes = (current?: Theme | ThemeName, back?: Shade, accent?: string | ThemeName) =>
 {
-  const darkMode = !window.matchMedia?.('(prefers-color-scheme: light)').matches;
+  const [ mounted, setMounted ] = useState(false);
+
+  useEffect(() =>
+  {
+    setMounted(true);
+  }, []);
+
+  const darkMode = mounted ? !window.matchMedia?.('(prefers-color-scheme: light)').matches : false;
   const themes = useContext(ThemeContext);
 
   return adaptThemes(themes ?? createThemes(darkMode), current, back, accent);

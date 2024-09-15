@@ -1,7 +1,7 @@
 blockquote
 {
-  margin-left: var(--spacer-lg);
-  border-left: solid 3px var(--color-primary);
-  padding-left: var(--spacer-lg);
+  border-left: 3px solid var(--theme-accent);
   font-size: 18px;
+  margin-left: var(--spacer);
+  padding-left: var(--spacer);
 }

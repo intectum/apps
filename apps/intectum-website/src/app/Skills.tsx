@@ -51,13 +51,13 @@ const Skills: FC<Props> = ({ skills }) =>
   }, [ category ]);
 
   return (
-    <div className="c-home-skills u-flex u-flex--centered">
-      <div className="c-home-skills__detail u-flex u-flex--column u-flex--spaced u-text-center u-m">
+    <div className="c-home-skills u-fr u-center">
+      <div className="o-column c-home-skills__detail u-text-center u-m">
         <h2>Toolbox</h2>
         <div className="u-text-large">I have a passion for high quality code that is as simple as possible, learn new tech and concepts very quickly and pay a lot of attention to the details</div>
       </div>
-      <div className="c-home-skills__matrix u-flex u-flex--column u-flex--centered u-flex--spaced u-m">
-        <div className="u-flex u-flex--centered u-flex--spaced u-flex--wrap">
+      <div className="o-column c-home-skills__matrix u-center u-m">
+        <div className="o-row u-center u-wrap">
           <Button
             shade={category === 'lang' ? 'accent' : undefined}
             onClick={() => setCategory('lang')}
@@ -86,11 +86,11 @@ const Skills: FC<Props> = ({ skills }) =>
         {skillsInCategory.map(skill =>
           <div
             key={skill.slug}
-            className="c-home-skills__skill u-flex"
+            className="c-home-skills__skill u-fr"
           >
             <Panel shade="front" className="c-home-skills__skill-name u-p--xs">{skill.name}</Panel>
             <div
-              className="c-home-skills__skill-bar u-flex-item--1"
+              className="c-home-skills__skill-bar u-f1"
               style={{
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 ['--skill-proficiency' as any]: skill.proficiency,

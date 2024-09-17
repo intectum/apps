@@ -6,7 +6,7 @@ import Events from './Events';
 import Quote from './Quote';
 
 const Home: NextPage = () =>
-  <div className="o-page u-flex u-flex--column u-flex--spaced">
+  <div className="o-page o-column">
     <header>
       <Panel shade="front">
         <div className="o-container u-py">
@@ -17,12 +17,12 @@ const Home: NextPage = () =>
       </Panel>
     </header>
 
-    <main className="o-container u-flex u-flex--column u-flex--spaced u-flex-item--1">
+    <main className="o-container o-column u-f1">
       <section>
         <Quote />
       </section>
 
-      <section className="u-flex u-flex--column u-flex--spaced">
+      <section className="o-column">
         <h2>OSHO Active Meditations</h2>
 
         <p>Everyone is welcome to come and experience OSHO's active meditations! They are designed to help modern people enter into meditation. To learn more, see <a href="https://www.osho.com/meditation/osho-active-meditations/why-active-meditations" target="_blank" rel="noopener noreferrer">Why active meditations?</a> We host meditations at a few locations so make sure you come to the right one :P</p>
@@ -34,7 +34,7 @@ const Home: NextPage = () =>
         <Events />
       </section>
 
-      <section className="u-flex u-flex--column u-flex--spaced">
+      <section className="o-column">
         <h2>Got questions? Want to join the mailing list?</h2>
 
         <p>Don't hesitate to contact Gyan at <a href="mailto:info@osho.nz">info@osho.nz</a>. For more information about Osho, you can also go to <a href="http://www.osho.com" target="_blank" rel="noopener noreferrer">www.osho.com</a>.</p>

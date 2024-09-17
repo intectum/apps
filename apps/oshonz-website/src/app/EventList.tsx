@@ -24,16 +24,16 @@ const EventList: FC<Props> = ({ events }) =>
 
   return (
     <>
-      <div className="u-flex u-flex--column u-flex--spaced">
+      <div className="o-column">
         {!events.length && 'Oops! There\'s nothing here yet. Please check again later or join the mailing list (below) to get notified.'}
         {events.map(event =>
           <Panel
             key={event.id}
             shade="front"
-            className="u-flex u-flex--column u-flex--spaced u-borders--rounded u-p"
+            className="o-column u-rounded u-p"
           >
             <div>
-              <h3 className="u-flex u-flex--column u-flex--spaced">
+              <h3 className="o-column">
                 {event.description.includes('CANCELLED') &&
                   <div className="u-color--danger">Sorry this meditation has been CANCELLED</div>
                 }
@@ -51,10 +51,10 @@ const EventList: FC<Props> = ({ events }) =>
 
       {event &&
         <Modal
-          className="u-flex u-flex--column u-flex--spaced u-borders--rounded u-p"
+          className="o-column u-rounded u-p"
           onDismiss={() => setEvent(undefined)}
         >
-          <h3 className="u-flex u-flex--column u-flex--spaced">
+          <h3 className="o-column">
             {event.description.includes('CANCELLED') &&
               <div className="u-color--danger">Sorry this meditation has been CANCELLED</div>
             }

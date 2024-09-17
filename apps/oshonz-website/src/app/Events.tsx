@@ -26,11 +26,11 @@ const Events: FC = () =>
   }
 
   return (
-    <div className="c-events u-flex u-flex--spaced">
-      <div className="u-flex-item--1">
+    <div className="o-row c-events">
+      <div className="u-f1">
         <EventList events={events} />
       </div>
-      <div className="u-flex-item--1">
+      <div className="u-f1">
         <EventMap events={events} />
       </div>
     </div>

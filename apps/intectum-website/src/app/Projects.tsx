@@ -32,7 +32,7 @@ const Projects: FC<Props> = ({ projects }) =>
     </div>;
 
   const Grid: FC<Props> = ({ projects }) =>
-    <div className="c-home-projects__grid u-flex-item--1">
+    <div className="c-home-projects__grid u-f1">
       {projects.map(project =>
         <Button
           square
@@ -47,8 +47,8 @@ const Projects: FC<Props> = ({ projects }) =>
   return (
     <>
       <div className="c-home-projects">
-        <div className="c-home-projects__body u-flex u-flex--centered">
-          <div className="c-home-projects__detail u-flex u-flex--column u-flex--spaced u-text-center u-m">
+        <div className="c-home-projects__body u-fr u-center">
+          <div className="o-column c-home-projects__detail u-text-center u-m">
             <h2>Projects</h2>
             <div className="u-text-large">60+ and counting</div>
             <div>See all of them <Link href="/projects">here</Link></div>
@@ -59,7 +59,7 @@ const Projects: FC<Props> = ({ projects }) =>
             style={{ ['--page-count' as any]: 3 }}
           >
             <Page index={0}>
-              <div className="u-flex u-flex--centered u-flex-item--1">
+              <div className="u-fr u-center u-f1">
                 <h3>Catalog</h3>
               </div>
               <Grid projects={projects.slice(0, 10)}/>
@@ -70,7 +70,7 @@ const Projects: FC<Props> = ({ projects }) =>
             </Page>
             <Page index={2}>
               <Grid projects={projects.slice(30, 40)}/>
-              <div className="u-flex u-flex--centered u-flex-item--1">
+              <div className="u-fr u-center u-f1">
                 <div>to be continued...</div>
               </div>
             </Page>

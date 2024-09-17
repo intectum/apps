@@ -16,10 +16,10 @@ interface Props
 const ClientModal: FC<Props> = ({ client, onDismiss }) =>
 {
   return (
-    <Modal shade="front" className="u-flex u-flex--column u-flex--spaced u-p" onDismiss={onDismiss}>
-      <div className="u-flex u-flex--column u-flex--centered u-flex--spaced">
+    <Modal shade="front" className="o-column u-p" onDismiss={onDismiss}>
+      <div className="o-column u-center">
         <img className="c-client-modal__client-image" src={client.iconUrl} alt={client.name}/>
-        <div className="u-flex u-flex--spaced">
+        <div className="o-row">
           <Link href={`/projects?client=${client.slug}`} title="Projects">
             <Icon icon={faFolderOpen} />
           </Link>

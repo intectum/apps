@@ -7,8 +7,8 @@ import { alt } from '../common/themes';
 const Home: NextPage = () =>
   <>
     <Panel theme={alt} className="u-py--xl">
-      <div className="o-container u-flex u-flex--spaced">
-        <div className="u-flex u-flex--column u-flex--centered u-flex--spaced u-flex-item--1">
+      <div className="o-container o-row">
+        <div className="o-column u-center u-f1">
           <h1>Providing Trusted Pet Sitting Services in London</h1>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -16,17 +16,17 @@ const Home: NextPage = () =>
             ea commodo consequat.
           </div>
         </div>
-        <div className="u-flex-item--1">
+        <div className="u-f1">
           <img src="https://placehold.co/600" alt="TODO" />
         </div>
       </div>
     </Panel>
     <div className="u-py--xl">
-      <div className="o-container u-flex u-flex--spaced">
-        <div className="u-flex-item--1">
+      <div className="o-container o-row">
+        <div className="u-f1">
           <img src="https://placehold.co/600" alt="TODO" />
         </div>
-        <div className="u-flex u-flex--column u-flex--centered u-flex--spaced u-flex-item--1">
+        <div className="o-column u-center u-f1">
           <h2>Benefits (trust)</h2>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -42,7 +42,7 @@ const Home: NextPage = () =>
       </div>
     </div>
     <div className="u-py--xl">
-      <div className="o-container u-flex u-flex--column u-flex--spaced">
+      <div className="o-container o-column">
         <h2>How it works</h2>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -102,7 +102,7 @@ const Home: NextPage = () =>
       </div>
     </div>
     <Panel theme={alt} className="u-py--xl">
-      <div className="o-container u-flex u-flex--column u-flex--spaced">
+      <div className="o-container o-column">
         <h2>Medium length section heading goes here</h2>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -113,21 +113,21 @@ const Home: NextPage = () =>
       </div>
     </Panel>
     <div className="u-py--xl">
-      <div className="o-container u-flex u-flex--column u-text-center">
+      <div className="o-container u-fc u-text-center">
         <h2 className="u-pb--xl">Providing Trusted Pet Sitting Services in Greater London</h2>
-        <div className="u-flex u-flex--spaced">
-          <div className="u-flex u-flex--column u-flex--spaced">
+        <div className="o-row">
+          <div className="o-column">
             <h3>Flexible and personalised pet sitting solutions</h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
           </div>
-          <div className="u-flex u-flex--column u-flex--spaced">
+          <div className="o-column">
             <h3>A home that is so clean, you won't even be able to tell that someone had stayed there when you
               return</h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
           </div>
-          <div className="u-flex u-flex--column u-flex--spaced">
+          <div className="o-column">
             <h3>Turn your garden into a landscaped masterpiece</h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
@@ -136,24 +136,24 @@ const Home: NextPage = () =>
       </div>
     </div>
     <Panel theme={alt} className="u-py--xl">
-      <div className="o-container u-flex u-flex--column u-text-center">
+      <div className="o-container u-fc u-text-center">
         <h2 className="u-pb--xl">Customer Testimonials</h2>
-        <div className="u-flex u-flex--spaced">
-          <div className="u-flex u-flex--column u-flex--spaced">
+        <div className="o-row">
+          <div className="o-column">
             <blockquote>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
             </blockquote>
             <div>- Joe Bloggs</div>
           </div>
-          <div className="u-flex u-flex--column u-flex--spaced">
+          <div className="o-column">
             <blockquote>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
             </blockquote>
             <div>- Joe Bloggs</div>
           </div>
-          <div className="u-flex u-flex--column u-flex--spaced">
+          <div className="o-column">
             <blockquote>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
@@ -164,18 +164,18 @@ const Home: NextPage = () =>
       </div>
     </Panel>
     <div className="u-py--xl">
-      <div className="o-container u-flex u-flex--column u-flex--spaced">
+      <div className="o-container o-column">
         <h2 className="u-text-center">Contact Us</h2>
         <label>Name</label>
         <input />
         <label>Email</label>
         <input type="email" />
-        <div className="u-flex u-flex--spaced">
-          <div className="u-flex u-flex--column u-flex--spaced u-flex-item--1">
+        <div className="o-row">
+          <div className="o-column u-f1">
             <label>Start date</label>
             <input type="date" />
           </div>
-          <div className="u-flex u-flex--column u-flex--spaced u-flex-item--1">
+          <div className="o-column u-f1">
             <label>End date</label>
             <input type="date" />
           </div>

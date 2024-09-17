@@ -75,7 +75,7 @@ const Carousel: FC<Props> = ({ children, ...divProps }) =>
       >
         <Icon icon={faAngleRight} />
       </Button>
-      <div className="u-flex u-flex--centered u-flex--spaced u-m">
+      <div className="o-row u-center u-m">
         {Array.from(Array(children.length)).map((_, index) =>
           <Button
             key={index}

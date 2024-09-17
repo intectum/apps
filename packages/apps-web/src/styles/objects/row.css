@@ -1,0 +1,6 @@
+.o-row
+{
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacer);
+}

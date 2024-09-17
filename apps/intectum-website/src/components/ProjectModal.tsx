@@ -31,9 +31,9 @@ const ProjectModal: FC<Props> = ({ project, onDismiss }) =>
           src={project.imageUrl}
           alt={project.name}
         />
-        <div className="u-flex u-flex--column u-flex--spaced u-p">
+        <div className="o-column u-p">
           <h3>{project.name}</h3>
-          <div className="u-flex u-flex--spaced">
+          <div className="o-row">
             {project.client &&
               <Button
                 clear
@@ -58,7 +58,7 @@ const ProjectModal: FC<Props> = ({ project, onDismiss }) =>
             )}
           </div>
           {project.description && <div className="u-small">{project.description}</div>}
-          <div className="u-flex u-flex--spaced u-flex--wrap">
+          <div className="o-row u-wrap">
             {project.skills.map(skill => <div key={skill.slug} className="c-skill">{skill.name}</div>)}
           </div>
         </div>

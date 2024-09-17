@@ -27,7 +27,7 @@ const Button: FC<PropsWithChildren<Props>> = ({ theme, shade, clear, circle, squ
           'c-button',
           circle && 'c-circle',
           typeof circle === 'string' && `c-circle--${circle}`,
-          !circle && !square && 'u-borders--rounded',
+          !circle && !square && 'u-rounded',
           className
         ])}
         style={{

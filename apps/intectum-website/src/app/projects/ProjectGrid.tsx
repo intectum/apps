@@ -72,13 +72,13 @@ const ProjectGrid: FC = () =>
             key={`${project.name}-${project.dates.startedAt}`}
             square
             shade="front"
-            className="c-project-grid__preview u-flex u-p--none"
+            className="c-project-grid__preview u-fr u-p--none"
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             style={{ ['--project-index' as any]: index }}
             onClick={() => setProject(project)}
           >
             <img
-              className="u-flex-item--1"
+              className="u-f1"
               src={project.imageUrl}
               alt={project.name}
             />

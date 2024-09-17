@@ -8,7 +8,7 @@ import { alt } from '../common/themes';
 
 const Header: FC = () =>
   <header>
-    <Panel theme={alt} className="u-flex u-flex--centered u-flex--space-between u-p">
+    <Panel theme={alt} className="u-fr u-align--center u-justify--space-between u-p">
       Trusty Paws
       <Button shade="front" onClick={() => console.log('book')}>Book</Button>
     </Panel>

@@ -20,8 +20,8 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) =>
     <body>
       <Panel theme="stone" accent="water">
         <header>
-          <Panel className="u-flex u-p">
-            <nav className="u-flex u-flex--centered u-flex--spaced">
+          <Panel className="u-fr u-p">
+            <nav className="o-row u-center">
               <Link href="/" className="u-text-large">intectum</Link>
               <Link href="/projects">projects</Link>
             </nav>

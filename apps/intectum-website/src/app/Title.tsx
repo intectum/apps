@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { Icon } from 'apps-web';
 
 const Title: FC = () =>
-  <div className="c-home-title u-flex u-flex--column u-flex--centered u-text-center">
+  <div className="c-home-title u-fc u-center u-text-center">
     <div className="c-home-title__welcome u-text-large">Welcome to</div>
     <h1 className="c-home-title__intectum">
       {Array.from('intectum').map((char, index) =>

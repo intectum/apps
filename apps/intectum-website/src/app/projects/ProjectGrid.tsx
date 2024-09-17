@@ -70,8 +70,8 @@ const ProjectGrid: FC = () =>
         {projects?.map((project, index) =>
           <Button
             key={`${project.name}-${project.dates.startedAt}`}
+            invert
             square
-            shade="front"
             className="c-project-grid__preview u-fr u-p--none"
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             style={{ ['--project-index' as any]: index }}

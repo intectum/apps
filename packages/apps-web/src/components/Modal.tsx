@@ -13,12 +13,12 @@ export type Props = Themeable & HTMLAttributes<HTMLDivElement> &
   onDismiss?: () => void;
 };
 
-const Modal: FC<PropsWithChildren<Props>> = ({ theme, shade, accent, children, onDismiss, className, ...divProps }) =>
+const Modal: FC<PropsWithChildren<Props>> = ({ theme, shade, invert, children, onDismiss, className, ...divProps }) =>
   <div className="c-modal" onClick={onDismiss}>
     <Panel
       theme={theme}
       shade={shade}
-      accent={accent}
+      invert={invert}
       className={classes([ 'c-modal__window', className ])}
       onClick={event => event.stopPropagation()}
       {...divProps}

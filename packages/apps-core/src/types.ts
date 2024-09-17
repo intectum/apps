@@ -13,31 +13,25 @@ export interface Document
 
 export type OptionalId<T> = WithoutId<T> & { id?: string };
 
-export const shades = [ 'light', 'medium', 'dark', 'accent', 'front', 'back' ];
+export const shades = [ 'light', 'medium', 'dark', 'accent' ] as const;
 export type Shade = typeof shades[number];
 
-export const sizes = [ 'small', 'medium', 'large' ];
+export const sizes = [ 'small', 'medium', 'large' ] as const;
 export type Size = typeof sizes[number];
-
-export const themeNames = [ 'earth', 'fire', 'grass', 'monochrome', 'stone', 'water' ];
-export type ThemeName = typeof themeNames[number];
 
 export type Theme = Record<Shade, string>;
 
+export type AppliedTheme = Theme &
+{
+  front: string;
+  back: string;
+};
+
 export interface Themeable
 {
-  theme?: Theme | ThemeName;
-  shade?: Shade;
-  accent?: string | ThemeName;
+  theme?: string;
+  shade?: Shade | 'unset';
+  invert?: boolean;
 }
-
-export type Themes =
-  {
-    current: Theme;
-  }
-  &
-  {
-    [key in ThemeName]: Theme;
-  };
 
 export type WithoutId<T> = Omit<T, 'id'>;

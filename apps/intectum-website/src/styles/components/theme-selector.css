@@ -1,0 +1,50 @@
+.c-theme-selector
+{
+  position: relative;
+}
+
+.c-theme-selector__primary
+{
+  position: absolute;
+
+  mask-image: url(/images/theme-primary-mask.svg);
+  mask-size: 100% 100%;
+}
+
+.c-theme-selector__accent
+{
+  position: absolute;
+
+  mask-image: url(/images/theme-accent-mask.svg);
+  mask-size: 100% 100%;
+}
+
+.c-theme-selector__backdrop
+{
+  position: fixed;
+  inset: 0;
+}
+
+.c-theme-selector__dropdown
+{
+  position: absolute;
+  right: 24px;
+  top: calc(100% + var(--spacer));
+
+  animation: c-theme-selector__dropdown 0.5s;
+}
+
+@keyframes c-theme-selector__dropdown
+{
+  0%
+  {
+    opacity: 0;
+    scale: 0.95;
+  }
+
+  100%
+  {
+    opacity: 1;
+    scale: 1;
+  }
+}

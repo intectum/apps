@@ -10,6 +10,8 @@
 
   border: 4px solid var(--theme-front);
   border-radius: 50%;
+
+  transition: border 0.5s;
 }
 
 .c-home-contact__certification

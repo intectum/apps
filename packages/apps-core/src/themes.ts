@@ -1,90 +1,66 @@
 import { hsv } from 'color-convert';
 
-import { Shade, ThemeName, Theme, Themes, themeNames } from './types';
+import { AppliedTheme, Shade, Theme } from './types';
 
-export const createThemes = (darkMode?: boolean): Themes =>
-{
-  const themes: { [key in ThemeName]: Theme } =
-  {
-    earth: createThemeFromHue(25, darkMode),
-    fire: createThemeFromHue(0, darkMode),
-    grass: createThemeFromHue(125, darkMode),
-    monochrome: createTheme('#ffffff', 'transparent', '#000000', 'transparent', darkMode),
-    stone: createTheme('#cccccc', '#888888', '#333333', '#ffffff', darkMode),
-    water: createThemeFromHue(200, darkMode)
-  };
-
-  return { ...themes, current: themes.earth };
-};
-
-export const createTheme = (light: string, medium: string, dark: string, accent: string, darkMode?: boolean): Theme =>
+export const createThemeFromHue = (hue: number) =>
   ({
-    light,
-    medium,
-    dark,
-    accent,
-    front: darkMode ? light : dark,
-    back: darkMode ? dark : light
+    light: `#${hsv.hex([ hue, 33, 80 ])}`,
+    medium: `#${hsv.hex([ hue, 33, 53 ])}`,
+    dark: `#${hsv.hex([ hue, 33, 20 ])}`,
+    accent: `#${hsv.hex([ hue, 66, 53 ])}`
   });
 
-export const createThemeFromHue = (hue: number, darkMode?: boolean) =>
-  createTheme(
-    `#${hsv.hex([ hue, 25, 75 ])}`,
-    `#${hsv.hex([ hue, 50, 50 ])}`,
-    `#${hsv.hex([ hue, 75, 25 ])}`,
-    `#${hsv.hex([ hue, 75, 75 ])}`,
-    darkMode
-  );
-
-export const adaptThemes = (source: Themes, current?: Theme | ThemeName, back?: Shade, accent?: string | ThemeName): Themes =>
+export const themes: Record<string, Theme> =
 {
-  if (!current && !back && !accent)
-  {
-    // TODO deep copy?
-    return source;
-  }
-
-  const adaptedThemes: { [key in ThemeName]: Theme } =
-  {
-    earth: adaptTheme(source.earth, back),
-    fire: adaptTheme(source.fire, back),
-    grass: adaptTheme(source.grass, back),
-    monochrome: adaptTheme(source.monochrome, back),
-    stone: adaptTheme(source.stone, back),
-    water: adaptTheme(source.water, back)
-  };
-
-  const newCurrent = typeof current === 'string' ? adaptedThemes[current] : (current ?? source.current);
-  const accentColor = themeNames.some(themeName => themeName === accent) ? adaptedThemes[accent as ThemeName].accent : accent;
-
-  return { ...adaptedThemes, current: adaptTheme(newCurrent, back, accentColor) };
+  earth: createThemeFromHue(25),
+  fire: createThemeFromHue(0),
+  grass: createThemeFromHue(125),
+  monochrome: { light: '#ffffff', medium: 'transparent', dark: '#000000', accent: 'transparent' },
+  stone: { light: '#cccccc', medium: '#888888', dark: '#333333', accent: '#ffffff' },
+  water: createThemeFromHue(200)
 };
 
-export const adaptTheme = (theme: Theme, back?: Shade, accentColor?: string): Theme =>
+export const getAppliedTheme = (theme?: string, shade?: Shade | 'unset', darkMode?: boolean): AppliedTheme =>
 {
-  const adaptedTheme: Theme = { ...theme };
-
-  if (back)
+  if (!theme)
   {
-    adaptedTheme.back = theme[back];
-    if ([ 'accent', 'light' ].includes(back))
-    {
-      adaptedTheme.front = theme.dark;
-    }
-    else if (back === 'dark')
-    {
-      adaptedTheme.front = theme.light;
-    }
-    else if (back === 'front')
-    {
-      adaptedTheme.front = theme.back;
-    }
+    theme = 'stone';
   }
 
-  if (accentColor)
+  if (!themes[theme])
   {
-    adaptedTheme.accent = accentColor;
+    console.log(`theme ${theme} not found, defaulting to 'stone'`);
+    theme = 'stone';
   }
 
-  return adaptedTheme;
+  const themeObject = themes[theme];
+
+  let front = darkMode ? themeObject.light : themeObject.dark;
+  let back = darkMode ? themeObject.dark : themeObject.light;
+
+  if (shade === 'light')
+  {
+    front = themeObject.dark;
+    back = themeObject.light;
+  }
+  else if (shade === 'medium')
+  {
+    back = themeObject.medium;
+  }
+  else if (shade === 'dark')
+  {
+    front = themeObject.light;
+    back = themeObject.dark;
+  }
+  else if (shade === 'accent')
+  {
+    front = themeObject.dark;
+    back = themeObject.accent;
+  }
+
+  return {
+    ...themeObject,
+    front,
+    back
+  };
 };

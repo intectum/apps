@@ -39,7 +39,7 @@ const Clients: FC<Props> = ({ clients }) =>
                 <img className="c-home-clients__client-image" src={client.iconUrl} alt={client.name} loading="lazy" />
               </Button>
             )}
-            <Circle shade="front" className="o-scroll-animation c-home-clients__inner"/>
+            <Circle shade="unset" invert className="o-scroll-animation c-home-clients__inner" />
           </Circle>
           <div className="o-column c-home-clients__detail u-text-center u-m">
             <h2>Clients</h2>

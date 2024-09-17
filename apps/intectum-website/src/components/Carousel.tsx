@@ -60,16 +60,16 @@ const Carousel: FC<Props> = ({ children, ...divProps }) =>
       <div className="c-carousel__blur c-carousel__blur--left" />
       <div className="c-carousel__blur c-carousel__blur--right" />
       <Button
+        invert
         circle
-        shade="front"
         className="c-carousel__shift c-carousel__shift--previous"
         onClick={() => setCurrentIndex(currentIndex ? currentIndex - 1 : children.length - 1)}
       >
         <Icon icon={faAngleLeft} />
       </Button>
       <Button
+        invert
         circle
-        shade="front"
         className="c-carousel__shift c-carousel__shift--next"
         onClick={() => setCurrentIndex((currentIndex + 1) % children.length)}
       >
@@ -79,8 +79,9 @@ const Carousel: FC<Props> = ({ children, ...divProps }) =>
         {Array.from(Array(children.length)).map((_, index) =>
           <Button
             key={index}
+            shade={index !== currentIndex ? 'medium' : undefined}
+            invert={index === currentIndex}
             circle
-            shade={index === currentIndex ? 'front' : 'medium'}
             className="c-carousel__jump"
             onClick={() => setCurrentIndex(index)}
           />

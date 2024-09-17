@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState } from 'react';
 
-import { Button, Panel, useThemes } from 'apps-web';
+import { Button, Panel } from 'apps-web';
 
 import { Skill, SkillCategory } from '../common/types';
 
@@ -13,8 +13,6 @@ type Props =
 
 const Skills: FC<Props> = ({ skills }) =>
 {
-  const themes = useThemes();
-
   const [ category, setCategory ] = useState<SkillCategory>('lang');
 
   const goodEnoughSkills = skills.filter(skill => skill.proficiency > 1);
@@ -88,23 +86,20 @@ const Skills: FC<Props> = ({ skills }) =>
             key={skill.slug}
             className="c-home-skills__skill u-fr"
           >
-            <Panel shade="front" className="c-home-skills__skill-name u-p--xs">{skill.name}</Panel>
-            <div
+            <Panel invert className="c-home-skills__skill-name u-p--xs">{skill.name}</Panel>
+            <Panel
+              shade="medium"
               className="c-home-skills__skill-bar u-f1"
               style={{
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                ['--skill-proficiency' as any]: skill.proficiency,
-                backgroundColor: themes.current.medium
+                ['--skill-proficiency' as any]: skill.proficiency
               }}
             >
-              <div
-                className="c-home-skills__skill-bar-filled"
-                style={{ backgroundColor: themes.current.accent }}
-              />
-            </div>
+              <Panel shade="accent" className="c-home-skills__skill-bar-filled" />
+            </Panel>
           </div>
         )}
-        {Array.from(Array(maxSkillCount - skillsInCategory.length)).map(index =>
+        {Array.from(Array(maxSkillCount - skillsInCategory.length)).map((_, index) =>
           <div key={`padding-${index}`} className="c-home-skills__skill" />
         )}
       </div>

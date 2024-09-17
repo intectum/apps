@@ -23,10 +23,10 @@ const Projects: FC<Props> = ({ projects }) =>
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       style={{ ['--page-index' as any]: index }}
     >
-      <Panel shade="front" className="c-home-projects__page-side c-home-projects__page-side--front">
+      <Panel invert className="c-home-projects__page-side c-home-projects__page-side--front">
         {children[0]}
       </Panel>
-      <Panel shade="front" className="o-scroll-animation c-home-projects__page-side c-home-projects__page-side--back">
+      <Panel invert className="o-scroll-animation c-home-projects__page-side c-home-projects__page-side--back">
         {children[1]}
       </Panel>
     </div>;

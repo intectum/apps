@@ -9,7 +9,7 @@
 
   color: var(--theme-front);
 
-  transition: filter 0.25s ease;
+  transition: background-color 0.5s, color 0.5s, filter 0.25s ease;
 }
 
 .c-button:hover

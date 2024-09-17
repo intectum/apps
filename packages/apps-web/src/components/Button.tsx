@@ -1,11 +1,11 @@
 'use client';
 
-import { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react';
+import { ButtonHTMLAttributes, FC, PropsWithChildren, useContext } from 'react';
 
 import { Size, Themeable } from 'apps-core';
 
 import { classes } from '../classes';
-import { ThemeContext, useThemes, useThemeStyle } from '../themes';
+import { ThemeContext, useThemeStyle } from '../themes';
 
 export type Props =
 {
@@ -14,13 +14,20 @@ export type Props =
   square?: boolean;
 } & Themeable & ButtonHTMLAttributes<HTMLButtonElement>
 
-const Button: FC<PropsWithChildren<Props>> = ({ theme, shade, clear, circle, square, children, className, style, ...buttonProps }) =>
+const Button: FC<PropsWithChildren<Props>> = ({ theme, shade, invert, clear, circle, square, children, className, style, ...buttonProps }) =>
 {
-  const themes = useThemes(theme, buttonProps.disabled ? 'medium' : shade);
-  const themeStyle = useThemeStyle(themes);
+  const themeContext = useContext(ThemeContext);
+  const themeStyle = useThemeStyle(theme, shade, invert);
 
   return (
-    <ThemeContext.Provider value={themes}>
+    <ThemeContext.Provider
+      value={{
+        theme: theme ?? themeContext.theme,
+        shade: shade === 'unset' ? undefined : shade ?? themeContext.shade,
+        darkMode: invert ? !themeContext.darkMode : themeContext.darkMode,
+        setDarkMode: themeContext.setDarkMode
+      }}
+    >
       <button
         type="button"
         className={classes([

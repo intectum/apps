@@ -15,6 +15,27 @@
   position: fixed;
 
   font-size: 192px;
+
+  animation-name: c-home-title__intectum;
+}
+
+@keyframes c-home-title__intectum
+{
+  50%
+  {
+    color: var(--theme-accent);
+  }
+
+  75%
+  {
+    opacity: 1;
+  }
+
+  100%
+  {
+    color: var(--theme-front);
+    opacity: 0;
+  }
 }
 
 @media screen and (max-width: 991px)
@@ -48,28 +69,9 @@
   display: inline-block;
 }
 
-@keyframes c-home-title__intectum__char
-{
-  50%
-  {
-    color: var(--theme-accent);
-  }
-
-  75%
-  {
-    opacity: 1;
-  }
-
-  100%
-  {
-    color: var(--theme-front);
-    opacity: 0;
-  }
-}
-
 .c-home-title__intectum__char-0
 {
-  animation-name: c-home-title__intectum__char, c-home-title__intectum__char-0;
+  animation-name: c-home-title__intectum__char-0;
 }
 
 @keyframes c-home-title__intectum__char-0
@@ -87,7 +89,7 @@
 
 .c-home-title__intectum__char-1
 {
-  animation-name: c-home-title__intectum__char, c-home-title__intectum__char-1;
+  animation-name: c-home-title__intectum__char-1;
 }
 
 @keyframes c-home-title__intectum__char-1
@@ -105,7 +107,7 @@
 
 .c-home-title__intectum__char-2
 {
-  animation-name: c-home-title__intectum__char, c-home-title__intectum__char-2;
+  animation-name: c-home-title__intectum__char-2;
 }
 
 @keyframes c-home-title__intectum__char-2
@@ -123,7 +125,7 @@
 
 .c-home-title__intectum__char-3
 {
-  animation-name: c-home-title__intectum__char, c-home-title__intectum__char-3;
+  animation-name: c-home-title__intectum__char-3;
 }
 
 @keyframes c-home-title__intectum__char-3
@@ -141,7 +143,7 @@
 
 .c-home-title__intectum__char-4
 {
-  animation-name: c-home-title__intectum__char, c-home-title__intectum__char-4;
+  animation-name: c-home-title__intectum__char-4;
 }
 
 @keyframes c-home-title__intectum__char-4
@@ -159,7 +161,7 @@
 
 .c-home-title__intectum__char-5
 {
-  animation-name: c-home-title__intectum__char, c-home-title__intectum__char-5;
+  animation-name: c-home-title__intectum__char-5;
 }
 
 @keyframes c-home-title__intectum__char-5
@@ -177,7 +179,7 @@
 
 .c-home-title__intectum__char-6
 {
-  animation-name: c-home-title__intectum__char, c-home-title__intectum__char-6;
+  animation-name: c-home-title__intectum__char-6;
 }
 
 @keyframes c-home-title__intectum__char-6
@@ -195,7 +197,7 @@
 
 .c-home-title__intectum__char-7
 {
-  animation-name: c-home-title__intectum__char, c-home-title__intectum__char-7;
+  animation-name: c-home-title__intectum__char-7;
 }
 
 @keyframes c-home-title__intectum__char-7

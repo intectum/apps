@@ -2,6 +2,8 @@ a
 {
   text-decoration: none;
   color: var(--theme-accent);
+
+  transition: color 0.5s;
 }
 
 a:hover

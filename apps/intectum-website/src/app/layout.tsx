@@ -4,6 +4,8 @@ import { FC, PropsWithChildren } from 'react';
 
 import { Panel } from 'apps-web';
 
+import { MainThemeContextProvider } from '../common/themes';
+import ThemeSelector from '../components/ThemeSelector';
 import '../styles/index.css';
 
 export const metadata: Metadata =
@@ -15,23 +17,26 @@ export const metadata: Metadata =
 const RootLayout: FC<PropsWithChildren> = ({ children }) =>
   <html lang="en">
     <head>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|PT+Serif&display=swap"/>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|PT+Serif&display=swap" />
     </head>
     <body>
-      <Panel theme="stone" accent="water">
-        <header>
-          <Panel className="u-fr u-p">
-            <nav className="o-row u-center">
-              <Link href="/" className="u-text-large">intectum</Link>
-              <Link href="/projects">projects</Link>
-            </nav>
-          </Panel>
-        </header>
-        <img src="/images/logo.png" alt="intectum" className="c-background" />
-        <main className="o-container">
-          {children}
-        </main>
-      </Panel>
+      <MainThemeContextProvider>
+        <Panel>
+          <header>
+            <Panel className="u-fr u-justify--space-between u-align--center u-p">
+              <nav className="o-row u-align--center">
+                <Link href="/" className="u-text-large">intectum</Link>
+                <Link href="/projects">projects</Link>
+              </nav>
+              <ThemeSelector />
+            </Panel>
+          </header>
+          <img src="/images/logo.png" alt="intectum" className="c-background" />
+          <main className="o-container">
+            {children}
+          </main>
+        </Panel>
+      </MainThemeContextProvider>
     </body>
   </html>;
 

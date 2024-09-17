@@ -25,7 +25,7 @@ const ProjectModal: FC<Props> = ({ project, onDismiss }) =>
 
   return (
     <>
-      <Modal shade="front" onDismiss={onDismiss}>
+      <Modal invert onDismiss={onDismiss}>
         <img
           className="c-project-modal__header"
           src={project.imageUrl}

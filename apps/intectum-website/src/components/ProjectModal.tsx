@@ -57,7 +57,7 @@ const ProjectModal: FC<Props> = ({ project, onDismiss }) =>
               </a>
             )}
           </div>
-          {project.description && <div className="u-small">{project.description}</div>}
+          {project.description && <div>{project.description}</div>}
           <div className="o-row u-wrap">
             {project.skills.map(skill => <div key={skill.slug} className="c-skill">{skill.name}</div>)}
           </div>

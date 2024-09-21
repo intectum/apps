@@ -7,9 +7,9 @@
     "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
-    "matter-js": "^0.20.0"
+    "victor": "^1.1.0"
   },
   "devDependencies": {
-    "@types/matter-js": "^0.19.7"
+    "@types/victor": "^1.1.5"
   }
 }

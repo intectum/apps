@@ -23,14 +23,14 @@ import {
   User
 } from 'vaga-core';
 
-import { CurrentUserContext } from '../common/current-user.tsx';
-import { RootStackParamList } from '../common/types.ts';
-import Flag from './Flag.tsx';
-import Timeline from './Timeline.tsx';
-import StopModal from './Stop.tsx';
-import StopConfidence from './StopConfidence.tsx';
-import StopConfidenceInput from './StopConfidenceInput.tsx';
-import UserCircleList from './UserCircleList.tsx';
+import { CurrentUserContext } from '../common/current-user';
+import { RootStackParamList } from '../common/types';
+import Flag from './Flag';
+import Timeline from './Timeline';
+import StopModal from './Stop';
+import StopConfidence from './StopConfidence';
+import StopConfidenceInput from './StopConfidenceInput';
+import UserCircleList from './UserCircleList';
 
 interface Props
 {

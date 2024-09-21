@@ -1,23 +1,39 @@
+@media screen and (min-width: 768px)
+{
+  .u-small-down
+  {
+    display: none !important;
+  }
+}
+
 @media screen and (max-width: 575px)
 {
-  .u-small
+  .u-small-up
   {
-    display: none;
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 992px)
+{
+  .u-medium-down
+  {
+    display: none !important;
   }
 }
 
 @media screen and (max-width: 767px)
 {
-  .u-medium
+  .u-medium-up
   {
-    display: none;
+    display: none !important;
   }
 }
 
 @media screen and (max-width: 991px)
 {
-  .u-large
+  .u-large-up
   {
-    display: none;
+    display: none !important;
   }
 }

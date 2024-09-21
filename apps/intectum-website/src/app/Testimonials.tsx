@@ -21,7 +21,7 @@ const Testimonials: FC = () =>
   ];
 
   return (
-    <div className="o-column c-home-testimonials u-center">
+    <div className="o-container o-column c-home-testimonials u-center">
       <h2>Testimonials</h2>
       <div className="c-home-testimonials__body">
         <Carousel>

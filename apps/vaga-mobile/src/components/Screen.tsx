@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
 
-import { useDeepLinking } from '../common/deep-linking.ts';
+import { useDeepLinking } from '../common/deep-linking';
 import { NotificationProvider } from '../common/notifications';
 
 interface Props

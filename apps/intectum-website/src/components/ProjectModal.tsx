@@ -30,6 +30,7 @@ const ProjectModal: FC<Props> = ({ project, onDismiss }) =>
           className="c-project-modal__header"
           src={project.imageUrl}
           alt={project.name}
+          loading="lazy"
         />
         <div className="o-column u-p">
           <h3>{project.name}</h3>

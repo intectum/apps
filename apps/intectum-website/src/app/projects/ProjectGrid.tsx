@@ -81,6 +81,7 @@ const ProjectGrid: FC = () =>
               className="u-f1"
               src={project.imageUrl}
               alt={project.name}
+              loading="lazy"
             />
           </Button>
         )}

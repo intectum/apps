@@ -5,8 +5,13 @@ import { FC } from 'react';
 import { Icon } from 'apps-web';
 
 const Contact: FC = () =>
-  <div className="o-column c-home-contact u-center u-text-center">
-    <img className="c-home-contact__profile" src="/images/profile.jpg" alt="Me"/>
+  <div className="o-container o-column c-home-contact u-center u-text-center">
+    <img
+      className="c-home-contact__profile"
+      src="/images/profile.jpg"
+      alt="Me"
+      loading="lazy"
+    />
     <div>Senior developer with 17 years of experience</div>
     <div className="u-text-large">Let's get in touch</div>
     <div className="o-row u-center u-wrap">
@@ -76,7 +81,12 @@ const Contact: FC = () =>
       referrerPolicy="no-referrer"
       title="arc() Profile"
     >
-      <img className="c-home-contact__certification u-mr--sm" src="/images/arc-dot-dev.jpg" alt="arc()" />
+      <img
+        className="c-home-contact__certification u-mr--sm"
+        src="/images/arc-dot-dev.jpg"
+        alt="arc()"
+        loading="lazy"
+      />
       Certified Remote Developer
     </a>
     <a

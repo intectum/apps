@@ -31,8 +31,13 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) =>
               <ThemeSelector />
             </Panel>
           </header>
-          <img src="/images/logo.png" alt="intectum" className="c-background" />
-          <main className="o-container">
+          <img
+            src="/images/logo.png"
+            alt="intectum"
+            className="c-background"
+            loading="lazy"
+          />
+          <main>
             {children}
           </main>
         </Panel>

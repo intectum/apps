@@ -20,7 +20,7 @@ const Clients: FC<Props> = ({ clients }) =>
 
   return (
     <>
-      <div className="c-home-clients">
+      <div className="o-container c-home-clients">
         <div className="o-row c-home-clients__body u-center u-m">
           <Circle shade="medium" className="o-scroll-animation c-home-clients__outer u-fr u-center u-m">
             {activeClients.map((client, index) =>
@@ -36,7 +36,12 @@ const Clients: FC<Props> = ({ clients }) =>
                   ['--client-count' as any]: activeClients.length
                 }}
               >
-                <img className="c-home-clients__client-image" src={client.iconUrl} alt={client.name} loading="lazy" />
+                <img
+                  className="c-home-clients__client-image"
+                  src={client.iconUrl}
+                  alt={client.name}
+                  loading="lazy"
+                />
               </Button>
             )}
             <Circle shade="unset" invert className="o-scroll-animation c-home-clients__inner" />

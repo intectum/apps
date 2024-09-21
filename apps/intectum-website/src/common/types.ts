@@ -1,6 +1,16 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import Victor from 'victor';
 
 export const cvUrl = 'https://docs.google.com/document/d/15zjwNuKiEQEht9gHmLw94-1vkTog9jSKBGfKJvu7vJc';
+
+export type Boid =
+{
+  position: Victor;
+  velocity: Victor;
+  sprinting: boolean;
+  sprintDuration: number;
+  sprintCompletedTime: number;
+};
 
 export type Client =
 {

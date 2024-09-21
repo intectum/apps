@@ -34,7 +34,7 @@ const ClientModal: FC<Props> = ({ client, onDismiss }) =>
         </div>
         <div className="u-text-large">{client.position}</div>
       </div>
-      {client.description && <div className="u-medium">{client.description}</div>}
+      {client.description && <div className="u-medium-up">{client.description}</div>}
       {client.employmentType === 'contractor' && <h5>Contracts</h5>}
       {client.employmentType === 'employee' && <h5>Employments</h5>}
       <div className="o-grid">

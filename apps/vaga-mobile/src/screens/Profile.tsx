@@ -43,8 +43,8 @@ import Map from '../components/Map';
 import Screen from '../components/Screen';
 import SettingsMenu from '../components/profile/SettingsMenu';
 import StopModal from '../components/Stop';
-import UserCircle from '../components/UserCircle.tsx';
-import UserTimeline from '../components/UserTimeline.tsx';
+import UserCircle from '../components/UserCircle';
+import UserTimeline from '../components/UserTimeline';
 import FriendMenu from '../components/profile/FriendMenu';
 
 const Profile: FC<NativeStackScreenProps<RootStackParamList, 'Profile'>> = ({ route }) =>

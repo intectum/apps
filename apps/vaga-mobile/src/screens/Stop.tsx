@@ -45,7 +45,7 @@ import Screen from '../components/Screen';
 import StopModal from '../components/Stop';
 import StopConfidence from '../components/StopConfidence';
 import StopConfidenceInput from '../components/StopConfidenceInput';
-import UserCard from '../components/UserCard.tsx';
+import UserCard from '../components/UserCard';
 
 const Stop: FC<NativeStackScreenProps<RootStackParamList, 'Stop'>> = ({ route, navigation }) =>
 {

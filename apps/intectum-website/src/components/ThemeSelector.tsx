@@ -27,11 +27,11 @@ const ThemeSelector: FC = () =>
   return (
     <>
       <div className="o-row c-theme-selector u-align--center">
-        <Button circle className="c-button--minimal" onClick={() => setOpen(!open)}>
+        <Button circle className="c-button--minimal" onClick={() => setOpen(!open)} title="Modify theme">
           <Circle shade="medium" size="small" className="c-theme-selector__primary" />
           <Circle shade="accent" size="small" className="c-theme-selector__accent" />
         </Button>
-        <Button circle className="c-button--minimal" onClick={() => setDarkMode(!darkMode)}>
+        <Button circle className="c-button--minimal" onClick={() => setDarkMode(!darkMode)} title={darkMode ? 'Light mode' : 'Dark mode'}>
           <Icon icon={darkMode ? faMoon : faSun}/>
         </Button>
         {open &&
@@ -45,8 +45,9 @@ const ThemeSelector: FC = () =>
                     circle
                     className="c-button--minimal"
                     onClick={() => setPrimary(themeName)}
+                    title={`Primary color: ${themeName}`}
                   >
-                    <Circle theme={themeName} shade="medium" className="c-theme-selector__primary"/>
+                    <Circle theme={themeName} shade="medium" className="c-theme-selector__primary" />
                   </Button>
                 )}
               </div>
@@ -57,8 +58,9 @@ const ThemeSelector: FC = () =>
                     circle
                     className="c-button--minimal"
                     onClick={() => setAccent(themeName)}
+                    title={`Accent color: ${themeName}`}
                   >
-                    <Circle theme={themeName} shade="accent" className="c-theme-selector__accent"/>
+                    <Circle theme={themeName} shade="accent" className="c-theme-selector__accent" />
                   </Button>
                 )}
               </div>

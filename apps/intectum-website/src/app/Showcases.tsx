@@ -11,7 +11,7 @@ type Props =
 };
 
 const Showcases: FC<Props> = ({ showcases }) =>
-  <div className="o-column c-home-showcases u-center">
+  <div className="o-container o-column c-home-showcases u-center">
     <h2>Showcases</h2>
     <Carousel>
       {showcases.map((showcase, index) =>
@@ -29,7 +29,7 @@ const Showcases: FC<Props> = ({ showcases }) =>
                 More...
               </div>
             </Panel>
-            <Panel shade="medium" className="o-column o-scroll-animation c-home-showcase__body__info-2 u-large">
+            <Panel shade="medium" className="o-column o-scroll-animation c-home-showcase__body__info-2 u-large-up">
               <h4>Highlights</h4>
               <ul>
                 <li>OpenGL/GLFW renderer.</li>

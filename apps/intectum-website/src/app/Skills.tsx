@@ -49,7 +49,7 @@ const Skills: FC<Props> = ({ skills }) =>
   }, [ category ]);
 
   return (
-    <div className="c-home-skills u-fr u-center">
+    <div className="o-container c-home-skills u-fr u-center">
       <div className="o-column c-home-skills__detail u-text-center u-m">
         <h2>Toolbox</h2>
         <div className="u-text-large">I have a passion for high quality code that is as simple as possible, learn new tech and concepts very quickly and pay a lot of attention to the details</div>

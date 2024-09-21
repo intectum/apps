@@ -46,12 +46,12 @@ const Projects: FC<Props> = ({ projects }) =>
 
   return (
     <>
-      <div className="c-home-projects">
+      <div className="o-container c-home-projects">
         <div className="c-home-projects__body u-fr u-center">
           <div className="o-column c-home-projects__detail u-text-center u-m">
             <h2>Projects</h2>
             <div className="u-text-large">60+ and counting</div>
-            <div>See all of them <Link href="/projects">here</Link></div>
+            <div>See all of them <Link href="/projects" title="All projects">here</Link></div>
           </div>
           <div
             className="o-scroll-animation c-home-projects__catalog u-m"

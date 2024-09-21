@@ -2,6 +2,7 @@ import { NextPage } from 'next';
 
 import { getClients, getProjects, getSkills } from '../common/data';
 import ScrollAnimationContainer from '../components/ScrollAnimationContainer';
+import Boids from './Boids';
 import Clients from './Clients';
 import Contact from './Contact';
 import Intro from './Intro';
@@ -37,6 +38,9 @@ const Home: NextPage = async () =>
       </ScrollAnimationContainer>
       */}
       <Contact />
+      <ScrollAnimationContainer>
+        <Boids />
+      </ScrollAnimationContainer>
     </>
   );
 };

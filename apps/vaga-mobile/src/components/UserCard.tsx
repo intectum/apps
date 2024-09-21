@@ -4,8 +4,8 @@ import { View, ViewProps, ViewStyle } from 'react-native';
 import { styles, Text } from 'apps-mobile';
 import { User as UserType } from 'vaga-core';
 
-import { CurrentUserContext } from '../common/current-user.tsx';
-import UserCircle from './UserCircle.tsx';
+import { CurrentUserContext } from '../common/current-user';
+import UserCircle from './UserCircle';
 
 interface Props extends ViewProps
 {

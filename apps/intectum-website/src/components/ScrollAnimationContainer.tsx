@@ -26,7 +26,7 @@ const ScrollAnimationContainer: FC<HTMLAttributes<HTMLDivElement>> = props =>
 
     document.addEventListener('scroll', animate);
     return () => document.removeEventListener('scroll', animate);
-  }, [ ref.current ]);
+  }, []);
 
   return <div ref={ref} style={{ visibility: 'hidden' }} {...props} />;
 };

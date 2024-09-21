@@ -9,7 +9,7 @@ import { CurrentUserContext } from '../common/current-user';
 import { RootStackParamList } from '../common/types';
 import Header from '../components/Header';
 import Screen from '../components/Screen';
-import UserCard from '../components/UserCard.tsx';
+import UserCard from '../components/UserCard';
 
 const Friends: FC<NativeStackScreenProps<RootStackParamList, 'Friends'>> = ({ navigation }) =>
 {

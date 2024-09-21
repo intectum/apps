@@ -7,7 +7,7 @@ import { Invitation, User } from 'vaga-core';
 
 import { CurrentUserContext } from '../../common/current-user';
 import { acceptInvitation, findUsersByInvitation } from '../../common/firebase/functions';
-import UserCard from '../UserCard.tsx';
+import UserCard from '../UserCard';
 
 interface Props
 {

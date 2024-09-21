@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import ProjectGrid from './ProjectGrid';
 
 const Projects: NextPage = () =>
-  <div className="c-projects">
+  <div className="o-container c-projects">
     <h1 className="u-text-center">projects</h1>
     <Suspense>
       <ProjectGrid />

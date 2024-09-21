@@ -35,8 +35,8 @@ import Flag from '../components/Flag';
 import Map from '../components/Map';
 import Screen from '../components/Screen';
 import StopModal from '../components/Stop';
-import UserCard from '../components/UserCard.tsx';
-import UserCircle from '../components/UserCircle.tsx';
+import UserCard from '../components/UserCard';
+import UserCircle from '../components/UserCircle';
 
 const Home: FC<NativeStackScreenProps<RootStackParamList, 'Home'>> = ({ navigation }) =>
 {

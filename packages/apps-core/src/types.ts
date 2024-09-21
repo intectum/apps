@@ -1,15 +1,14 @@
-
-export interface DateOnly
+export type DateOnly =
 {
   year: number;
   month: number;
   day: number;
-}
+};
 
-export interface Document
+export type Document =
 {
   id: string;
-}
+};
 
 export type OptionalId<T> = WithoutId<T> & { id?: string };
 
@@ -27,11 +26,11 @@ export type AppliedTheme = Theme &
   back: string;
 };
 
-export interface Themeable
+export type Themeable =
 {
   theme?: string;
   shade?: Shade | 'unset';
   invert?: boolean;
-}
+};
 
 export type WithoutId<T> = Omit<T, 'id'>;

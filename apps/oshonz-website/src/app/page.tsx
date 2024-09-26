@@ -8,7 +8,7 @@ import Quote from './Quote';
 const Home: NextPage = () =>
   <div className="o-page o-column">
     <header>
-      <Panel shade="front">
+      <Panel theme="stone" invert>
         <div className="o-container u-py">
           <img src="/logo.png" alt="OSHO" />
           <h1>Information Center</h1>
@@ -42,7 +42,7 @@ const Home: NextPage = () =>
     </main>
 
     <footer>
-      <Panel shade="front" accent="#aaa">
+      <Panel theme="stone" invert>
         <div className="o-container u-py">
           <div>
             <small>

@@ -24,18 +24,22 @@ export const ThemeContext = createContext<ThemeContextType>({
 export type ThemeContextProviderProps =
 {
   theme: string;
+  ignoreDarkMode?: boolean;
 };
 
-export const ThemeContextProvider: FC<PropsWithChildren<ThemeContextProviderProps>> = ({ theme, children }) =>
+export const ThemeContextProvider: FC<PropsWithChildren<ThemeContextProviderProps>> = ({ theme, ignoreDarkMode, children }) =>
 {
   const [ darkMode, setDarkMode ] = useState(false);
   const [ mounted, setMounted ] = useState(false);
 
   useEffect(() =>
   {
-    setDarkMode(!window.matchMedia?.('(prefers-color-scheme: light)').matches);
+    if (!ignoreDarkMode)
+    {
+      setDarkMode(!window.matchMedia?.('(prefers-color-scheme: light)').matches);
+    }
     setMounted(true);
-  }, []);
+  }, [ ignoreDarkMode ]);
 
   return (
     <ThemeContext.Provider
@@ -62,7 +66,7 @@ export const useThemeStyle = (theme?: string, shade?: Shade | 'unset', invert?: 
     invert ? !themeContext.darkMode : themeContext.darkMode
   );
 
-  if (themeContext.root)
+  if (themeContext.root || theme)
   {
     for (const shade of shades)
     {
@@ -71,10 +75,11 @@ export const useThemeStyle = (theme?: string, shade?: Shade | 'unset', invert?: 
     }
   }
 
-  if (themeContext.root || shade || invert)
+  if (themeContext.root || theme || shade || invert)
   {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (themeStyle as any)['--theme-front'] = themeObject.front;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (themeStyle as any)['--theme-back'] = themeObject.back;
   }
 

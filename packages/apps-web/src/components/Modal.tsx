@@ -23,7 +23,7 @@ const Modal: FC<PropsWithChildren<Props>> = ({ theme, shade, invert, children, o
       onClick={event => event.stopPropagation()}
       {...divProps}
     >
-      <Button circle className="c-modal__close" onClick={onDismiss}>
+      <Button circle className="c-modal__close" title="Close" onClick={onDismiss}>
         <Icon icon={faXmark} />
       </Button>
       {children}

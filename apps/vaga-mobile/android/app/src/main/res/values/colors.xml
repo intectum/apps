@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="stone_dark">#333</color>
-    <color name="stone_medium">#888</color>
+    <color name="stone_medium">#757575</color>
     <color name="stone_light">#ccc</color>
     <color name="stone_accent">#eee</color>
 

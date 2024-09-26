@@ -1,14 +1,12 @@
 import { NextPage } from 'next';
 
-import { Panel } from 'apps-web';
-
-import { alt } from '../common/themes';
+import { Button, Panel } from 'apps-web';
 
 const Home: NextPage = () =>
   <>
-    <Panel theme={alt} className="u-py--xl">
+    <Panel theme="alt" className="u-py--xl">
       <div className="o-container o-row">
-        <div className="o-column u-center u-f1">
+        <div className="o-column u-justify--center u-f1">
           <h1>Providing Trusted Pet Sitting Services in London</h1>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -26,7 +24,7 @@ const Home: NextPage = () =>
         <div className="u-f1">
           <img src="https://placehold.co/600" alt="TODO" />
         </div>
-        <div className="o-column u-center u-f1">
+        <div className="o-column u-justify--center u-f1">
           <h2>Benefits (trust)</h2>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -101,7 +99,7 @@ const Home: NextPage = () =>
         </div>
       </div>
     </div>
-    <Panel theme={alt} className="u-py--xl">
+    <Panel theme="alt" className="u-py--xl">
       <div className="o-container o-column">
         <h2>Medium length section heading goes here</h2>
         <div>
@@ -109,7 +107,9 @@ const Home: NextPage = () =>
           dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
           ea commodo consequat.
         </div>
-        <button type="button" className="c-button c-button--primary">Do it!</button>
+        <div className="u-fr u-justify--center">
+          <Button invert className="c-button c-button--primary">Do it!</Button>
+        </div>
       </div>
     </Panel>
     <div className="u-py--xl">
@@ -135,7 +135,7 @@ const Home: NextPage = () =>
         </div>
       </div>
     </div>
-    <Panel theme={alt} className="u-py--xl">
+    <Panel theme="alt" className="u-py--xl">
       <div className="o-container u-fc u-text-center">
         <h2 className="u-pb--xl">Customer Testimonials</h2>
         <div className="o-row">
@@ -167,22 +167,24 @@ const Home: NextPage = () =>
       <div className="o-container o-column">
         <h2 className="u-text-center">Contact Us</h2>
         <label>Name</label>
-        <input />
+        <input/>
         <label>Email</label>
-        <input type="email" />
+        <input type="email"/>
         <div className="o-row">
           <div className="o-column u-f1">
             <label>Start date</label>
-            <input type="date" />
+            <input type="date"/>
           </div>
           <div className="o-column u-f1">
             <label>End date</label>
-            <input type="date" />
+            <input type="date"/>
           </div>
         </div>
         <label>Message</label>
-        <textarea rows={10} />
-        <button type="button" className="c-button c-button--primary">Send</button>
+        <textarea rows={10}/>
+        <div className="u-fr u-justify--center">
+          <Button invert className="c-button c-button--primary">Send</Button>
+        </div>
       </div>
     </div>
   </>;

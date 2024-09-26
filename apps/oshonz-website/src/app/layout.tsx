@@ -3,6 +3,7 @@ import { FC, PropsWithChildren } from 'react';
 
 import { Panel } from 'apps-web';
 
+import { MainThemeContextProvider } from '../common/themes';
 import '../styles/index.css';
 
 export const metadata: Metadata =
@@ -18,18 +19,11 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) =>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" />
     </head>
     <body>
-      <Panel
-        theme={{
-          light: '#fff',
-          medium: '#999',
-          dark: '#333',
-          accent: '#0713fe',
-          front: '#333',
-          back: '#fff'
-        }}
-      >
-        {children}
-      </Panel>
+      <MainThemeContextProvider>
+        <Panel>
+          {children}
+        </Panel>
+      </MainThemeContextProvider>
     </body>
   </html>;
 

@@ -18,7 +18,7 @@ const ClientModal: FC<Props> = ({ client, onDismiss }) =>
   return (
     <Modal invert className="o-column u-p" onDismiss={onDismiss}>
       <div className="o-column u-center">
-        <img className="c-client-modal__client-image" src={client.iconUrl} alt={client.name}/>
+        <img className="c-client-modal__client-image" src={client.iconUrl} alt={client.name} />
         <div className="o-row">
           <Link href={`/projects?client=${client.slug}`} title="Projects">
             <Icon icon={faFolderOpen} />

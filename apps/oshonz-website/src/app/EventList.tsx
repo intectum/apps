@@ -29,7 +29,8 @@ const EventList: FC<Props> = ({ events }) =>
         {events.map(event =>
           <Panel
             key={event.id}
-            shade="front"
+            theme="stone"
+            invert
             className="o-column u-rounded u-p"
           >
             <div>
@@ -43,7 +44,13 @@ const EventList: FC<Props> = ({ events }) =>
               <div>{DateTime.fromISO(event.start).toFormat('EEEE, MMMM d @ h:mm a')}</div>
             </div>
             <div>
-              <Button shade="front" onClick={() => setEvent(event)}>Learn more</Button>
+              <Button
+                theme="main"
+                invert
+                onClick={() => setEvent(event)}
+              >
+                Learn more
+              </Button>
             </div>
           </Panel>
         )}

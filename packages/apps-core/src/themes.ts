@@ -16,7 +16,7 @@ export const themes: Record<string, Theme> =
   fire: createThemeFromHue(0),
   grass: createThemeFromHue(125),
   monochrome: { light: '#ffffff', medium: 'transparent', dark: '#000000', accent: 'transparent' },
-  stone: { light: '#cccccc', medium: '#888888', dark: '#333333', accent: '#ffffff' },
+  stone: { light: '#cccccc', medium: '#757575', dark: '#333333', accent: '#ffffff' },
   water: createThemeFromHue(200)
 };
 

@@ -1,10 +1,12 @@
 .c-background
 {
   position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  max-width: 80%;
+  inset: 0;
 
-  opacity: .05;
+  opacity: .025;
+}
+
+.c-background__logo
+{
+  font-size: min(125lvw, 125lvh) !important;
 }

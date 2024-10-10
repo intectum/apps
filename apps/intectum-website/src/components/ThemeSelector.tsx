@@ -1,34 +1,47 @@
 'use client';
 
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { FC, useContext, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
-import { themes } from 'apps-core';
-import { Button, Circle, Icon, Panel, ThemeContext } from 'apps-web';
-
-import { MainThemeContext } from '../common/themes';
+import { intectumThemes } from 'apps-core';
+import { Button, Circle, Icon, Panel } from 'apps-web';
 
 const ThemeSelector: FC = () =>
 {
-  const { darkMode, setDarkMode } = useContext(ThemeContext);
-  const [ _, setMainTheme ] = useContext(MainThemeContext);
-
+  const [ darkMode, setDarkMode ] = useState<boolean>();
   const [ open, setOpen ] = useState<boolean>();
   const [ primary, setPrimary ] = useState<string>('stone');
   const [ accent, setAccent ] = useState<string>('water');
 
   useEffect(() =>
   {
-    setMainTheme({ ...themes[primary], accent: themes[accent].accent });
-  }, [ primary, accent ]);
+    if (darkMode === undefined)
+    {
+      setDarkMode(!window.matchMedia?.('(prefers-color-scheme: light)').matches);
+    }
 
-  const themeNames = Object.keys(themes).filter(themeName => themeName !== 'main' && themeName !== 'monochrome');
+    if (darkMode)
+    {
+      document.body.classList.add('dark-mode');
+    }
+    else
+    {
+      document.body.classList.remove('dark-mode');
+    }
+
+    document.body.style.setProperty('--theme-main-back', darkMode ? intectumThemes[primary].front : intectumThemes[primary].back);
+    document.body.style.setProperty('--theme-main-middle', intectumThemes[primary].middle);
+    document.body.style.setProperty('--theme-main-front', darkMode ? intectumThemes[primary].back : intectumThemes[primary].front);
+    document.body.style.setProperty('--theme-main-accent', intectumThemes[accent].accent);
+  }, [ darkMode, primary, accent ]);
+
+  const themeNames = Object.keys(intectumThemes).filter(themeName => themeName !== 'monochrome');
 
   return (
     <>
       <div className="o-row c-theme-selector u-align--center">
         <Button circle className="c-button--minimal" onClick={() => setOpen(!open)} title="Modify theme">
-          <Circle shade="medium" size="small" className="c-theme-selector__primary" />
+          <Circle shade="middle" size="small" className="c-theme-selector__primary" />
           <Circle shade="accent" size="small" className="c-theme-selector__accent" />
         </Button>
         <Button circle className="c-button--minimal" onClick={() => setDarkMode(!darkMode)} title={darkMode ? 'Light mode' : 'Dark mode'}>
@@ -47,7 +60,7 @@ const ThemeSelector: FC = () =>
                     onClick={() => setPrimary(themeName)}
                     title={`Primary color: ${themeName}`}
                   >
-                    <Circle theme={themeName} shade="medium" className="c-theme-selector__primary" />
+                    <Circle theme={themeName} shade="middle" className="c-theme-selector__primary" />
                   </Button>
                 )}
               </div>

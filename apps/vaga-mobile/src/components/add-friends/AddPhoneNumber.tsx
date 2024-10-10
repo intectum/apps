@@ -51,7 +51,7 @@ const AddPhoneNumber: FC<Props> = ({ onSkip }) =>
         onChangeText={setPhoneNumber}
         onEndEditing={() => phoneResult.isValid && updatePhoneNumber()}
       />
-      <Text shade="medium" size="small" style={styles.marginBottom}>We'll need permission to read your contacts</Text>
+      <Text shade="middle" size="small" style={styles.marginBottom}>We'll need permission to read your contacts</Text>
       <Button
         shade="accent"
         disabled={!phoneResult.isValid}

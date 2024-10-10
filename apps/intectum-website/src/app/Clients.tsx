@@ -22,7 +22,7 @@ const Clients: FC<Props> = ({ clients }) =>
     <>
       <div className="o-container c-home-clients">
         <div className="o-row c-home-clients__body u-center u-m">
-          <Circle shade="medium" className="o-scroll-animation c-home-clients__outer u-fr u-center u-m">
+          <Circle shade="middle" className="o-scroll-animation c-home-clients__outer u-fr u-center u-m">
             {activeClients.map((client, index) =>
               <Button
                 key={client.slug}

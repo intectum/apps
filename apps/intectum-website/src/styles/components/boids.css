@@ -4,16 +4,13 @@
   height: calc(100lvh - 80px);
 
   overflow: clip;
+
+  cursor: url(/images/circle-light.svg), auto;
 }
 
-.c-boids--dark
+.dark-mode .c-boids
 {
   cursor: url(/images/circle-dark.svg), auto;
-}
-
-.c-boids--light
-{
-  cursor: url(/images/circle-light.svg), auto;
 }
 
 .c-boids__wave
@@ -22,9 +19,11 @@
   width: 100%;
   height: 57px;
 
-  background-color: var(--theme-accent);
+  background-color: var(--theme-main-accent);
 
   mask-image: url(/images/wave.svg);
+
+  transition: background-color 0.5s;
 }
 
 .c-boids__wave--1
@@ -74,18 +73,20 @@
 .c-boids__boid
 {
   position: absolute;
+
+  transition: color 0.5s;
 }
 
 .c-boids__boid--fish
 {
-  color: var(--theme-accent);
+  color: var(--theme-main-accent);
 }
 
 .c-boids__boid--shark
 {
   height: 192px !important;
 
-  color: var(--theme-medium);
+  color: var(--theme-main-middle);
 }
 
 .c-boids__warning

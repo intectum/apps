@@ -4,12 +4,10 @@ const themes: Record<string, Theme> =
 {
   main:
   {
-    back: '#fff',
-    middle: '#757575',
-    front: '#333',
-    accent: '#0713fe'
+    ...intectumThemes.stone,
+    accent: intectumThemes.water.accent
   },
-  stone: intectumThemes.stone
+  ...intectumThemes
 };
 
 export default themes;

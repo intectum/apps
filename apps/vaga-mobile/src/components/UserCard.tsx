@@ -24,7 +24,7 @@ const UserCard: FC<Props> = ({ user, subtitle, small, currentUserAsMe, style: pr
   return (
     <View {...viewProps} style={{ ...styles.row, ...viewStyle }}>
       <UserCircle
-        shade="front"
+        invert
         user={user}
         size={small ? 'small' : undefined}
         highlight={user.id === currentUser.id}
@@ -32,7 +32,7 @@ const UserCard: FC<Props> = ({ user, subtitle, small, currentUserAsMe, style: pr
       />
       <View style={styles.flex1}>
         <Text size={small ? undefined : 'large'} numberOfLines={1}>{currentUserAsMe && user.id === currentUser.id ? 'Me' : user.displayName}</Text>
-        {subtitle && <Text shade="medium" size="small">{subtitle}</Text>}
+        {subtitle && <Text shade="middle" size="small">{subtitle}</Text>}
       </View>
     </View>
   );

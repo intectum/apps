@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 
-import { Panel } from 'apps-web';
+import { Link, Panel } from 'apps-web';
 
 import Events from './Events';
 import Quote from './Quote';
@@ -25,7 +25,7 @@ const Home: NextPage = () =>
       <section className="o-column">
         <h2>OSHO Active Meditations</h2>
 
-        <p>Everyone is welcome to come and experience OSHO's active meditations! They are designed to help modern people enter into meditation. To learn more, see <a href="https://www.osho.com/meditation/osho-active-meditations/why-active-meditations" target="_blank" rel="noopener noreferrer">Why active meditations?</a> We host meditations at a few locations so make sure you come to the right one :P</p>
+        <p>Everyone is welcome to come and experience OSHO's active meditations! They are designed to help modern people enter into meditation. To learn more, see <Link href="https://www.osho.com/meditation/osho-active-meditations/why-active-meditations">Why active meditations?</Link> We host meditations at a few locations so make sure you come to the right one :P</p>
 
         <p><strong><em>Please arrive ten minutes before the meditation starts. It is best to join the mailing list (below) so that we can notify you if we have a cancellation.</em></strong></p>
 
@@ -37,7 +37,7 @@ const Home: NextPage = () =>
       <section className="o-column">
         <h2>Got questions? Want to join the mailing list?</h2>
 
-        <p>Don't hesitate to contact Gyan at <a href="mailto:info@osho.nz">info@osho.nz</a>. For more information about Osho, you can also go to <a href="http://www.osho.com" target="_blank" rel="noopener noreferrer">www.osho.com</a>.</p>
+        <p>Don't hesitate to contact Gyan at <Link href="mailto:info@osho.nz">info@osho.nz</Link>. For more information about Osho, you can also go to <Link href="https://www.osho.com">www.osho.com</Link>.</p>
       </section>
     </main>
 
@@ -46,12 +46,12 @@ const Home: NextPage = () =>
         <div className="o-container u-py">
           <div>
             <small>
-              OSHO is a registered trademark of Osho International Foundation, used with permission, <a href="http://www.osho.com/trademarks" target="_blank" rel="noreferrer">www.osho.com/trademarks</a>
+              OSHO is a registered trademark of Osho International Foundation, used with permission, <Link theme="stone" href="https://www.osho.com/trademarks">www.osho.com/trademarks</Link>
             </small>
           </div>
           <div>
             <small>
-              Some material used here (images and text excerpts) is Copyright &copy; OSHO International Foundation, <a href="http://www.osho.com/copyright" target="_blank" rel="noreferrer">www.osho.com/copyright</a>
+              Some material used here (images and text excerpts) is Copyright &copy; OSHO International Foundation, <Link theme="stone" href="https://www.osho.com/copyright">www.osho.com/copyright</Link>
             </small>
           </div>
         </div>

@@ -50,7 +50,7 @@ const UserCircleList: FC<Props> = ({ users, style: propStyle, ...viewProps }) =>
         return (
           <UserCircle
             key={user.id}
-            shade="front"
+            invert
             user={user}
             size="small"
             highlight={user.id === currentUser.id}

@@ -1,10 +1,10 @@
 'use client';
 
 import { faFish, faFishFins, faTriangleExclamation, faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
-import { FC, MouseEventHandler, useContext, useEffect, useRef, useState } from 'react';
+import { FC, MouseEventHandler, useEffect, useRef, useState } from 'react';
 import Victor from 'victor';
 
-import { Button, classes, Icon, Panel, ThemeContext } from 'apps-web';
+import { Button, classes, Icon, Panel } from 'apps-web';
 
 import { updateBoids } from '../common/boids';
 import { Boid } from '../common/types';
@@ -35,8 +35,6 @@ const sharkSprintDuration = 3;
 
 const Boids: FC = () =>
 {
-  const { darkMode } = useContext(ThemeContext);
-
   const ref = useRef<HTMLDivElement>(null);
   const boidData = useRef<BoidData>({
     fish: [],
@@ -261,7 +259,7 @@ const Boids: FC = () =>
       window.removeEventListener('resize', updateFishCount);
       document.removeEventListener('visibilitychange', pauseResume);
     };
-  }, [ darkMode, fishCount, sharkCount ]);
+  }, [ fishCount, sharkCount ]);
 
   const onMouseMove: MouseEventHandler = event =>
   {
@@ -299,7 +297,7 @@ const Boids: FC = () =>
   return (
     <div
       ref={ref}
-      className={classes([ 'c-boids', darkMode ? 'c-boids--dark' : 'c-boids--light' ])}
+      className="c-boids"
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       onClick={onClick}
@@ -318,7 +316,7 @@ const Boids: FC = () =>
       </Panel>
       <Panel invert className="c-boids__shark-lock u-fr u-align--center">
         <div className="u-ml u-mr--sm u-medium-up">DANGER: Do not unlock!</div>
-        <Button circle onClick={() => setSharkCount(1)} title="Do not unlock!">
+        <Button invert circle onClick={() => setSharkCount(1)} title="Do not unlock!">
           <Icon icon={sharkCount ? faLockOpen : faLock} />
         </Button>
       </Panel>

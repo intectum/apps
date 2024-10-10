@@ -1,6 +1,6 @@
 import { FC, Fragment } from 'react';
 
-import { classes, Panel } from 'apps-web';
+import { classes, Link, Panel } from 'apps-web';
 
 import { Project } from '../common/types';
 import Carousel from '../components/Carousel';
@@ -21,15 +21,15 @@ const Showcases: FC<Props> = ({ showcases }) =>
             className={classes([ 'c-home-showcase__body', !!(index % 2) && 'c-home-showcase__body--reversed' ])}
             style={{ backgroundImage: `url(${showcase.imageUrl})` }}
           >
-            <Panel shade="medium" className="o-column o-scroll-animation c-home-showcase__body__info-1">
+            <Panel shade="middle" className="o-column o-scroll-animation c-home-showcase__body__info-1">
               <div>
-                Inspired by <a href="https://www.youtube.com/playlist?list=PLFt_AvWsXl0ehjAfLFsp1PGaatzAwo0uK" target="_blank" referrerPolicy="no-referrer">Sebastian Lague’s Coding Adventures</a>; this is a navigable, procedurally generated 3D solar system with orbital mechanics. It uses my 'ludo' game engine.
+                Inspired by <Link href="https://www.youtube.com/playlist?list=PLFt_AvWsXl0ehjAfLFsp1PGaatzAwo0uK">Sebastian Lague’s Coding Adventures</Link>; this is a navigable, procedurally generated 3D solar system with orbital mechanics. It uses my 'ludo' game engine.
               </div>
               <div>
                 More...
               </div>
             </Panel>
-            <Panel shade="medium" className="o-column o-scroll-animation c-home-showcase__body__info-2 u-large-up">
+            <Panel shade="middle" className="o-column o-scroll-animation c-home-showcase__body__info-2 u-large-up">
               <h4>Highlights</h4>
               <ul>
                 <li>OpenGL/GLFW renderer.</li>

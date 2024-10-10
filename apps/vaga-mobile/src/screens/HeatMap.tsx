@@ -129,7 +129,7 @@ const HeatMap: FC<NativeStackScreenProps<RootStackParamList, 'HeatMap'>> = () =>
                   {toDateTime(item.arrivedAt).toLocaleString({ month: 'long' })}
                 </Text>
                 {item.itemIndex === index &&
-                  <Circle shade="front" size="small">
+                  <Circle invert size="small">
                     <Icon icon="check" size={fontSizes.medium} />
                   </Circle>
                 }

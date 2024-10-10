@@ -23,7 +23,7 @@
 {
   50%
   {
-    color: var(--theme-accent);
+    color: var(--theme-main-accent);
   }
 
   75%
@@ -33,7 +33,7 @@
 
   100%
   {
-    color: var(--theme-front);
+    color: var(--theme-main-front);
     opacity: 0;
   }
 }

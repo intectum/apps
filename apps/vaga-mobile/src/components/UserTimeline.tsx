@@ -114,7 +114,7 @@ const UserTimeline: FC<Props> = ({ user, initialScrollIndex, style }) =>
               <Flag isoCode={item.address.country} style={styles.marginRightSmall} />
               <View style={{ ...styles.flex1, ...styles.marginRightSmall }}>
                 <Text numberOfLines={1} style={stopAddressStyle}>{formatAddress(item.address)}</Text>
-                <Text shade="medium" size="small">
+                <Text shade="middle" size="small">
                   {toDateTime(item.arrivedAt).toLocaleString({ day: 'numeric', month: 'long' })}
                 </Text>
               </View>

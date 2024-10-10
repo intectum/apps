@@ -152,7 +152,7 @@ const Home: FC<NativeStackScreenProps<RootStackParamList, 'Home'>> = ({ navigati
               }}
             >
               <UserCircle
-                shade="front"
+                invert
                 user={addressUsers.users.length === 1 ? addressUsers.users[0] : undefined}
                 highlight={currentUserAtAddress}
               >
@@ -185,7 +185,7 @@ const Home: FC<NativeStackScreenProps<RootStackParamList, 'Home'>> = ({ navigati
           android_ripple={undefined}
           onPress={() => navigation.push('Profile', { userId: currentUser.id })}
         >
-          <UserCircle shade="front" user={currentUser} />
+          <UserCircle invert user={currentUser} />
         </Pressable>
       </SafeAreaView>
       <SafeAreaView style={actionsStyle}>

@@ -112,7 +112,7 @@ const SettingsMenu: FC = () =>
         <Text style={{ ...styles.marginBottom, ...styles.bold }}>
           All of your data will be deleted
         </Text>
-        <Text shade="medium" size="small" style={styles.marginBottomSmall}>Type 'delete me' to confirm</Text>
+        <Text shade="middle" size="small" style={styles.marginBottomSmall}>Type 'delete me' to confirm</Text>
         <TextInput
           style={styles.marginBottom}
           value={closeAccountText}

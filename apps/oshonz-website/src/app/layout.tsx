@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 import { FC, PropsWithChildren } from 'react';
 
-import { Panel } from 'apps-web';
+import { ThemeStyle } from 'apps-web';
 
-import { MainThemeContextProvider } from '../common/themes';
+import themes from '../common/themes';
 import '../styles/index.css';
 
 export const metadata: Metadata =
@@ -16,14 +16,13 @@ export const metadata: Metadata =
 const RootLayout: FC<PropsWithChildren> = ({ children }) =>
   <html lang="en">
     <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" />
+      <ThemeStyle themes={themes} />
     </head>
     <body>
-      <MainThemeContextProvider>
-        <Panel>
-          {children}
-        </Panel>
-      </MainThemeContextProvider>
+      {children}
     </body>
   </html>;
 

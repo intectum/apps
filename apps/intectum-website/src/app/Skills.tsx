@@ -88,7 +88,7 @@ const Skills: FC<Props> = ({ skills }) =>
           >
             <Panel invert className="c-home-skills__skill-name u-p--xs">{skill.name}</Panel>
             <Panel
-              shade="medium"
+              shade="middle"
               className="c-home-skills__skill-bar u-f1"
               style={{
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any

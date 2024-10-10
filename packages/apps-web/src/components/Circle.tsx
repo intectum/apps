@@ -1,22 +1,25 @@
-import { FC, HTMLAttributes } from 'react';
+import { FC } from 'react';
 
-import { Size, Themeable } from 'apps-core';
+import { Size } from 'apps-core';
 
 import { classes } from '../classes';
-import Panel from './Panel';
+import Panel, { Props as PanelProps } from './Panel';
 
 export type Props =
 {
   size?: Size;
   highlight?: boolean;
-} & Themeable & HTMLAttributes<HTMLDivElement>;
+} & PanelProps;
 
-const Circle: FC<Props> = ({ theme, shade, size, highlight, children, className, ...divProps }) =>
+const Circle: FC<Props> = ({ theme = 'main', size, highlight, children, className, style, ...panelProps }) =>
   <Panel
     theme={theme}
-    shade={shade}
     className={classes([ 'c-circle', size && `c-circle--${size}`, className ])}
-    {...divProps}
+    style={{
+      borderColor: `var(--theme-${theme}-accent)`,
+      ...style
+    }}
+    {...panelProps}
   >
     {children}
     {highlight && <div className={classes([ 'c-circle__highlight', size && `c-circle__highlight--${size}` ])} />}

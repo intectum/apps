@@ -8,7 +8,7 @@ import { FC, useState } from 'react';
 config.autoAddCss = false;
 library.add(faAppStoreIos, faArrowUpRightFromSquare, faGithub, faGooglePlay, faVideo);
 
-import { Button, Icon, Modal } from 'apps-web';
+import { Button, Icon, Link, Modal } from 'apps-web';
 
 import { Client, Project } from '../common/types';
 import ClientModal from '../components/ClientModal';
@@ -47,15 +47,9 @@ const ProjectModal: FC<Props> = ({ project, onDismiss }) =>
               </Button>
             }
             {project.links.map(link =>
-              <a
-                key={link.url}
-                href={link.url}
-                title={link.title ?? 'Open'}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <Link key={link.url} href={link.url} title={link.title ?? 'Open'}>
                 <Icon icon={link.icon ?? 'arrow-up-right-from-square'} />
-              </a>
+              </Link>
             )}
           </div>
           {project.description && <div>{project.description}</div>}

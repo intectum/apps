@@ -259,7 +259,7 @@ const Profile: FC<NativeStackScreenProps<RootStackParamList, 'Profile'>> = ({ ro
         <Panel safeAreaType="bottom" style={styles.flex1}>
           <View style={styles.centerContent}>
             <UserCircle
-              shade="front"
+              invert
               size="large"
               user={user}
               highlight={user.id === currentUser.id}
@@ -267,7 +267,7 @@ const Profile: FC<NativeStackScreenProps<RootStackParamList, 'Profile'>> = ({ ro
             />
             <View style={styles.marginShort}>
               <Text size="large" numberOfLines={1} style={styles.centerText}>{user.displayName}</Text>
-              <Text shade="medium" numberOfLines={1} style={styles.centerText}>{formatAddress(currentStop?.address)}</Text>
+              <Text shade="middle" numberOfLines={1} style={styles.centerText}>{formatAddress(currentStop?.address)}</Text>
             </View>
           </View>
           <View style={styles.flex1}>

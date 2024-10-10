@@ -2,7 +2,7 @@ import { faGithub, faLinkedinIn, faStackExchange, faWhatsapp } from '@fortawesom
 import { faEnvelope, faFilePdf, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FC } from 'react';
 
-import { Icon } from 'apps-web';
+import { Icon, Link } from 'apps-web';
 
 const Contact: FC = () =>
   <div className="o-container o-column c-home-contact u-center u-text-center">
@@ -16,69 +16,55 @@ const Contact: FC = () =>
     <div className="u-text-large">Let's get in touch</div>
     <div className="o-row u-center u-wrap">
       <div className="o-row u-center">
-        <a
+        <Link
           className="u-p"
           href="tel://+447733626352"
-          target="_blank"
-          referrerPolicy="no-referrer"
           title="Phone (UK)"
         >
           <Icon icon={faPhone} />
-        </a>
-        <a
+        </Link>
+        <Link
           className="u-p"
           href="https://wa.me/64226754763"
-          target="_blank"
-          referrerPolicy="no-referrer"
           title="WhatsApp"
         >
           <Icon icon={faWhatsapp} />
-        </a>
-        <a
+        </Link>
+        <Link
           className="u-p"
           href="mailto:gyan@intectum.nz"
-          target="_blank"
-          referrerPolicy="no-referrer"
           title="Email"
         >
           <Icon icon={faEnvelope} />
-        </a>
+        </Link>
       </div>
       <div className="o-row u-center">
-        <a
+        <Link
           className="u-p"
           href="https://www.linkedin.com/in/intectum"
-          target="_blank"
-          referrerPolicy="no-referrer"
           title="LinkedIn"
         >
           <Icon icon={faLinkedinIn} />
-        </a>
-        <a
+        </Link>
+        <Link
           className="u-p"
           href="https://github.com/intectum"
-          target="_blank"
-          referrerPolicy="no-referrer"
           title="GitHub"
         >
           <Icon icon={faGithub} />
-        </a>
-        <a
+        </Link>
+        <Link
           className="u-p"
           href="https://stackexchange.com/users/389835/gyan"
-          target="_blank"
-          referrerPolicy="no-referrer"
           title="Stack Exchange"
         >
           <Icon icon={faStackExchange} />
-        </a>
+        </Link>
       </div>
     </div>
-    <a
+    <Link
       className="u-fr u-center"
       href="https://arc.dev/@premgyan"
-      target="_blank"
-      referrerPolicy="no-referrer"
       title="arc() Profile"
     >
       <img
@@ -88,17 +74,15 @@ const Contact: FC = () =>
         loading="lazy"
       />
       Certified Remote Developer
-    </a>
-    <a
+    </Link>
+    <Link
       className="u-fr u-center"
       href="https://docs.google.com/document/d/15zjwNuKiEQEht9gHmLw94-1vkTog9jSKBGfKJvu7vJc"
-      target="_blank"
-      referrerPolicy="no-referrer"
       title="Curriculum Vitae Download"
     >
       <Icon className="u-mr--sm" icon={faFilePdf} />
       Curriculum Vitae
-    </a>
+    </Link>
   </div>;
 
 export default Contact;

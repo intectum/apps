@@ -143,7 +143,7 @@ const Stop: FC<NativeStackScreenProps<RootStackParamList, 'Stop'>> = ({ route, n
             <Flag isoCode={stop.address.country} style={styles.marginRightSmall} />
             <View style={{ ...styles.flex1, ...styles.marginRightSmall }}>
               <Text size="large" numberOfLines={1}>{formatAddress(stop.address)}</Text>
-              <Text shade="medium">{formatDateRange(dateRange)}</Text>
+              <Text shade="middle">{formatDateRange(dateRange)}</Text>
             </View>
             {stop.confidence !== undefined && <StopConfidence user={user} stopIndex={route.params.index} />}
           </View>
@@ -158,7 +158,7 @@ const Stop: FC<NativeStackScreenProps<RootStackParamList, 'Stop'>> = ({ route, n
                   }
                   {source.type === 'location' &&
                     <Button
-                      shade="front"
+                      invert
                       circle
                       onPress={async () =>
                       {
@@ -173,7 +173,7 @@ const Stop: FC<NativeStackScreenProps<RootStackParamList, 'Stop'>> = ({ route, n
                       <Icon icon="location-dot" />
                     </Button>
                   }
-                  <Circle shade="front" size="small" style={linkStyle}>
+                  <Circle invert size="small" style={linkStyle}>
                     <Icon icon="link" size={fontSizes.medium} />
                   </Circle>
                 </View>

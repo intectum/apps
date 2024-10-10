@@ -86,7 +86,7 @@ const Calendar: FC<Props> = ({ selected, selectedAsRanges, onDayPress, style: pr
       <View style={daysOfWeekStyle}>
         {Array.from({ length: 7 }).map((_, index) =>
           <Circle key={index}>
-            <Text size="small" shade="medium">
+            <Text size="small" shade="middle">
               {DateTime.utc().set({ weekday: index as WeekdayNumbers }).toLocaleString({ weekday: 'short' })}
             </Text>
           </Circle>

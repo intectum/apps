@@ -79,7 +79,7 @@ const Carousel: FC<Props> = ({ children, ...divProps }) =>
         {Array.from(Array(children.length)).map((_, index) =>
           <Button
             key={index}
-            shade={index !== currentIndex ? 'medium' : undefined}
+            shade={index !== currentIndex ? 'middle' : undefined}
             invert={index === currentIndex}
             circle
             className="c-carousel__jump"

@@ -1,8 +1,0 @@
-.c-panel
-{
-  background-color: var(--theme-back);
-
-  color: var(--theme-front);
-
-  transition: background-color 0.5s, color 0.5s;
-}

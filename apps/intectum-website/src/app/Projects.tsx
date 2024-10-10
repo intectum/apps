@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { FC, ReactNode, useState } from 'react';
 
-import { Button, Panel } from 'apps-web';
+import { Button, Link, Panel } from 'apps-web';
 
 import { Project } from '../common/types';
 import ProjectModal from '../components/ProjectModal';

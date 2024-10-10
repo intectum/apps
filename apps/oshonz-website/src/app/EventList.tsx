@@ -45,7 +45,6 @@ const EventList: FC<Props> = ({ events }) =>
             </div>
             <div>
               <Button
-                theme="main"
                 invert
                 onClick={() => setEvent(event)}
               >

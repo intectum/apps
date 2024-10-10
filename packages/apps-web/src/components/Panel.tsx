@@ -1,34 +1,26 @@
-'use client';
+import { FC, HTMLAttributes } from 'react';
 
-import { FC, HTMLAttributes, useContext } from 'react';
-
-import { Themeable } from 'apps-core';
+import { Themed } from 'apps-core';
 
 import { classes } from '../classes';
-import { ThemeContext, useThemeStyle } from '../themes';
 
-export type Props = Themeable & HTMLAttributes<HTMLDivElement>;
+export type Props = Themed & HTMLAttributes<HTMLDivElement>;
 
-const Panel: FC<Props> = ({ theme, shade, invert, className, style, ...divProps }) =>
+const Panel: FC<Props> = ({ theme = 'main', shade, invert, className, style, ...divProps }) =>
 {
-  const themeContext = useContext(ThemeContext);
-  const themeStyle = useThemeStyle(theme, shade, invert);
+  const back = invert ? 'front' : (shade ?? 'back');
+  const front = invert ? 'back' : (shade === 'front' ? 'back': 'front');
 
   return (
-    <ThemeContext.Provider
-      value={{
-        theme: theme ?? themeContext.theme,
-        shade: shade === 'unset' ? undefined : shade ?? themeContext.shade,
-        darkMode: invert ? !themeContext.darkMode : themeContext.darkMode,
-        setDarkMode: themeContext.setDarkMode
+    <div
+      className={classes([ 'o-panel', className ])}
+      style={{
+        backgroundColor: theme && `var(--theme-${theme}-${back})`,
+        color: theme && `var(--theme-${theme}-${front})`,
+        ...style
       }}
-    >
-      <div
-        className={classes([ 'c-panel', className ])}
-        style={{ ...themeStyle, ...style }}
-        {...divProps}
-      />
-    </ThemeContext.Provider>
+      {...divProps}
+    />
   );
 };
 

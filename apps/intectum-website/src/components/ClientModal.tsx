@@ -1,8 +1,7 @@
 import { faArrowUpRightFromSquare, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
 import { FC } from 'react';
 
-import { Icon, Modal } from 'apps-web';
+import { Icon, Link, Modal } from 'apps-web';
 
 import { formatMonthYear } from '../common/dates';
 import { Client, cvUrl } from '../common/types';
@@ -23,14 +22,9 @@ const ClientModal: FC<Props> = ({ client, onDismiss }) =>
           <Link href={`/projects?client=${client.slug}`} title="Projects">
             <Icon icon={faFolderOpen} />
           </Link>
-          <a
-            href={client.link.url}
-            title={client.link.title ?? 'Website'}
-            target="_blank"
-            referrerPolicy="no-referrer"
-          >
+          <Link href={client.link.url} title={client.link.title ?? 'Website'}>
             <Icon icon={faArrowUpRightFromSquare} />
-          </a>
+          </Link>
         </div>
         <div className="u-text-large">{client.position}</div>
       </div>
@@ -48,7 +42,7 @@ const ClientModal: FC<Props> = ({ client, onDismiss }) =>
         <>
           <h5>Reference</h5>
           <p>
-            {client.reference}. See <a href={cvUrl} target="_blank" rel="noreferrer">my full CV</a> for contact details.
+            {client.reference}. See <Link href={cvUrl}>my full CV</Link> for contact details.
           </p>
         </>
       }

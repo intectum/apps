@@ -26,6 +26,8 @@
   height: 150px;
 
   display: flex;
+  flex-direction: column;
+  gap: var(--spacer);
 
   padding-right: var(--spacer);
 }

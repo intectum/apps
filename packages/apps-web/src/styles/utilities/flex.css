@@ -9,10 +9,22 @@
   flex-direction: column;
 }
 
+.u-fc--reversed
+{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .u-fr
 {
   display: flex;
   flex-direction: row;
+}
+
+.u-fr--reversed
+{
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .u-center

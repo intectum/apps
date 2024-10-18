@@ -10,11 +10,12 @@ import { ThemeContext, useThemeStyle } from '../themes';
 export type Props =
 {
   clear?: boolean;
-  circle?: Size | boolean;
+  size?: Size;
+  circle?: boolean;
   square?: boolean;
 } & Themeable & ButtonHTMLAttributes<HTMLButtonElement>
 
-const Button: FC<PropsWithChildren<Props>> = ({ theme, shade, invert, clear, circle, square, children, className, style, ...buttonProps }) =>
+const Button: FC<PropsWithChildren<Props>> = ({ theme, shade, invert, clear, size, circle, square, children, className, style, ...buttonProps }) =>
 {
   const themeContext = useContext(ThemeContext);
   const themeStyle = useThemeStyle(theme, shade, invert);
@@ -32,8 +33,9 @@ const Button: FC<PropsWithChildren<Props>> = ({ theme, shade, invert, clear, cir
         type="button"
         className={classes([
           'c-button',
+          !circle && size && `c-button--${size}`,
           circle && 'c-circle',
-          typeof circle === 'string' && `c-circle--${circle}`,
+          circle && size && `c-circle--${size}`,
           !circle && !square && 'u-rounded',
           className
         ])}

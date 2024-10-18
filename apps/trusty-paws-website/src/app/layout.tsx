@@ -4,8 +4,8 @@ import { FC, PropsWithChildren } from 'react';
 import { Panel } from 'apps-web';
 
 import { MainThemeContextProvider } from '../common/themes';
+import Header from '../components/Header';
 import '../styles/index.css';
-import Header from './Header';
 
 export const metadata: Metadata =
 {
@@ -17,7 +17,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) =>
     <body>
       <MainThemeContextProvider>
         <Panel>
-          <Header/>
+          <Header />
           <div className="u-pt--xl">
             {children}
           </div>

@@ -26,3 +26,10 @@
 {
   padding: var(--spacer-sm);
 }
+
+.c-button--large
+{
+  padding: var(--spacer) var(--spacer-lg);
+
+  font-size: 20px;
+}

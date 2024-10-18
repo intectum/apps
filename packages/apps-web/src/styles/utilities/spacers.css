@@ -333,3 +333,33 @@
 {
   padding-bottom: var(--spacer-xl);
 }
+
+.u-gap--none
+{
+  gap: 0;
+}
+
+.u-gap--xs
+{
+  gap: var(--spacer-xs);
+}
+
+.u-gap--sm
+{
+  gap: var(--spacer-sm);
+}
+
+.u-gap
+{
+  gap: var(--spacer);
+}
+
+.u-gap--lg
+{
+  gap: var(--spacer-lg);
+}
+
+.u-gap--xl
+{
+  gap: var(--spacer-xl);
+}

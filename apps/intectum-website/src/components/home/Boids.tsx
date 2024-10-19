@@ -6,8 +6,8 @@ import Victor from 'victor';
 
 import { Button, classes, Icon, Panel } from 'apps-web';
 
-import { updateBoids } from '../common/boids';
-import { Boid } from '../common/types';
+import { updateBoids } from '../../common/boids';
+import { Boid } from '../../common/types';
 
 type SlidingWindowValue<T> =
 {

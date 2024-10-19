@@ -1,14 +1,14 @@
 import { NextPage } from 'next';
 
 import { getClients, getProjects, getSkills } from '../common/data';
+import Boids from '../components/home/Boids';
+import Clients from '../components/home/Clients';
+import Contact from '../components/home/Contact';
+import Intro from '../components/home/Intro';
+import Projects from '../components/home/Projects';
+import Skills from '../components/home/Skills';
+import Title from '../components/home/Title';
 import ScrollAnimationContainer from '../components/ScrollAnimationContainer';
-import Boids from './Boids';
-import Clients from './Clients';
-import Contact from './Contact';
-import Intro from './Intro';
-import Projects from './Projects';
-import Skills from './Skills';
-import Title from './Title';
 
 const Home: NextPage = async () =>
 {

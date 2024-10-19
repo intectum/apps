@@ -4,8 +4,8 @@ import { FC, ReactNode, useState } from 'react';
 
 import { Button, Link, Panel } from 'apps-web';
 
-import { Project } from '../common/types';
-import ProjectModal from '../components/ProjectModal';
+import { Project } from '../../common/types';
+import ProjectModal from '../ProjectModal';
 
 type Props =
 {

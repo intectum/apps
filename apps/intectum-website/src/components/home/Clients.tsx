@@ -4,8 +4,8 @@ import { FC, useState } from 'react';
 
 import { Button, Circle } from 'apps-web';
 
-import { Client } from '../common/types';
-import ClientModal from '../components/ClientModal';
+import { Client } from '../../common/types';
+import ClientModal from '../ClientModal';
 
 type Props =
 {

@@ -2,8 +2,8 @@ import { FC, Fragment } from 'react';
 
 import { classes, Link, Panel } from 'apps-web';
 
-import { Project } from '../common/types';
-import Carousel from '../components/Carousel';
+import { Project } from '../../common/types';
+import Carousel from '../Carousel';
 
 type Props =
 {

@@ -5,9 +5,9 @@ import { FC, FormEvent, useEffect, useRef, useState } from 'react';
 
 import { Button } from 'apps-web';
 
-import { getProjects } from '../../common/data';
-import { Project } from '../../common/types';
-import ProjectModal from '../../components/ProjectModal';
+import { getProjects } from '../common/data';
+import { Project } from '../common/types';
+import ProjectModal from './ProjectModal';
 
 const queryDelay = 2 * 1000; // 2 seconds
 

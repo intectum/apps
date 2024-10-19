@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { Suspense } from 'react';
 
-import ProjectGrid from './ProjectGrid';
+import ProjectGrid from '../../components/ProjectGrid';
 
 const Projects: NextPage = () =>
   <div className="o-container c-projects">

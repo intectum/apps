@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from 'react';
 
 import { Button, Panel } from 'apps-web';
 
-import { Skill, SkillCategory } from '../common/types';
+import { Skill, SkillCategory } from '../../common/types';
 
 type Props =
 {

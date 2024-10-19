@@ -2,8 +2,8 @@ import { NextPage } from 'next';
 
 import { Link, Panel } from 'apps-web';
 
-import Events from './Events';
-import Quote from './Quote';
+import Events from '../components/Events';
+import Quote from '../components/Quote';
 
 const Home: NextPage = () =>
   <div className="o-page o-column">

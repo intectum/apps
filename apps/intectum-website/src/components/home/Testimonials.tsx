@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Carousel from '../components/Carousel';
+import Carousel from '../Carousel';
 
 const Testimonials: FC = () =>
 {

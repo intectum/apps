@@ -15,7 +15,7 @@ const Icon: FC<Props> = ({ size, style, ...fontAwesomeIconProps }) =>
   return (
     <FontAwesomeIcon
       style={{
-        height: size === 'large' ? 48 : 24,
+        height: size === 'large' ? 48 : (size === 'small' ? 12 : 24),
         ...style
       }}
       {...fontAwesomeIconProps}

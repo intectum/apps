@@ -14,7 +14,7 @@ type Props =
 
 const Page: NextPage<Props> = async ({ params: { slug } }) =>
 {
-  const path = slug ? `/${slug.join('/')}` : '/';
+  const path = `/${slug ? slug.join('/') : ''}`;
   const pages = await queryContentful(PageQuery, { path });
 
   const content = pages?.pageCollection?.items[0]?.content;
@@ -23,6 +23,7 @@ const Page: NextPage<Props> = async ({ params: { slug } }) =>
     return `Page content not found: ${path}`;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return <RichText document={content.json} links={content.links as any /* TODO */} />;
 };
 

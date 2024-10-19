@@ -78,6 +78,7 @@ export const PageQuery = graphql(`
                         id
                       }
                       author
+                      link
                       content
                     }
                   }

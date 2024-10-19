@@ -5,14 +5,14 @@ import { Themed } from 'apps-core';
 
 export type Props = Themed & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps> & LinkProps;
 
-const Button: FC<PropsWithChildren<Props>> = ({ theme = 'main', style, ...linkProps }) =>
+const Button: FC<PropsWithChildren<Props>> = ({ theme = 'main', shade = 'accent', style, ...linkProps }) =>
 {
   const external = typeof linkProps.href === 'string' ? !!linkProps.href.match(/^[a-z]+:/)?.length : !!linkProps.href.protocol;
 
   return (
     <NextLink
       style={{
-        color: theme && `var(--theme-${theme}-accent)`,
+        color: theme && `var(--theme-${theme}-${shade})`,
         ...style
       }}
       target={external ? '_blank' : undefined}

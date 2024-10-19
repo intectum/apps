@@ -8,7 +8,7 @@ const Header: FC = () =>
   <header>
     <Panel theme="alt" className="u-fr u-align--center u-justify--space-between u-p--lg">
       <img src="/logo-full.svg" height={60} />
-      <Button theme="alt" invert onClick={() => console.log('book')}>Book</Button>
+      <Button theme="alt" invert href="/#contact-form">Book</Button>
     </Panel>
   </header>;
 

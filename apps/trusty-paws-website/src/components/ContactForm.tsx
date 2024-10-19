@@ -12,7 +12,7 @@ type Props =
 const ContactForm: FC<Props> = ({ contactForm }) =>
   <div className="u-py--xl">
     <div className="o-container o-column">
-      <h2 className="u-text-center">{contactForm.title}</h2>
+      <h2 id="contact-form" className="u-text-center">{contactForm.title}</h2>
       <label>Name</label>
       <input/>
       <label>Email</label>

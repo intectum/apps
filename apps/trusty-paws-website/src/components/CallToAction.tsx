@@ -15,7 +15,15 @@ const CallToAction: FC<Props> = ({ callToAction }) =>
   {
     return (
       <div className="c-call-to-action--compact u-fr u-justify--center">
-        <Button invert size="large" square className="c-button c-button--primary">{callToAction.linkLabel}</Button>
+        <Button
+          invert
+          size="large"
+          square
+          className="c-button c-button--primary"
+          href={callToAction.link ?? undefined}
+        >
+          {callToAction.linkLabel}
+        </Button>
       </div>
     );
   }
@@ -26,7 +34,14 @@ const CallToAction: FC<Props> = ({ callToAction }) =>
         <h2>{callToAction.title}</h2>
         <div>{callToAction.description}</div>
         <div className="u-fr u-justify--center">
-          <Button theme="alt" invert className="c-button c-button--primary">{callToAction.linkLabel}</Button>
+          <Button
+            theme="alt"
+            invert
+            className="c-button c-button--primary"
+            href={callToAction.link ?? undefined}
+          >
+            {callToAction.linkLabel}
+          </Button>
         </div>
       </div>
     </Panel>

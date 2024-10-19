@@ -60,5 +60,5 @@ export const getInstructionUrl = (summary: string) =>
     return 'http://www.osho.com/meditate/active-meditations/no-dimensions-meditation';
   }
 
-  return undefined;
+  return '';
 };

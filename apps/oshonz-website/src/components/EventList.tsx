@@ -3,7 +3,7 @@
 import { DateTime } from 'luxon';
 import { FC, useState } from 'react';
 
-import { Button, Modal, Panel } from 'apps-web';
+import { Button, Link, Modal, Panel } from 'apps-web';
 
 import { getInstructionUrl, getShortAddress } from '../common/data';
 import { Event } from '../common/types';
@@ -44,10 +44,7 @@ const EventList: FC<Props> = ({ events }) =>
               <div>{DateTime.fromISO(event.start).toFormat('EEEE, MMMM d @ h:mm a')}</div>
             </div>
             <div>
-              <Button
-                invert
-                onClick={() => setEvent(event)}
-              >
+              <Button invert onClick={() => setEvent(event)}>
                 Learn more
               </Button>
             </div>
@@ -66,12 +63,12 @@ const EventList: FC<Props> = ({ events }) =>
             }
             {event.summary}
           </h3>
-          <div>{getShortAddress(event.address)} (<a href={ `https://www.google.com/maps?q=${encodeURIComponent(event.address)}` } target="_blank" rel="noreferrer">open map</a>)</div>
+          <div>{getShortAddress(event.address)} (<Link href={ `https://www.google.com/maps?q=${encodeURIComponent(event.address)}`}>open map</Link>)</div>
           <div>{DateTime.fromISO(event.start).toFormat('EEEE, MMMM d @ h:mm a')}</div>
           {getInstructionUrl(event.summary) &&
-            <a href={getInstructionUrl(event.summary)} target="_blank" rel="noreferrer">
+            <Link href={getInstructionUrl(event.summary)}>
               Read the full instructions here
-            </a>
+            </Link>
           }
           {description && <div dangerouslySetInnerHTML={{ __html: description }} />}
         </Modal>

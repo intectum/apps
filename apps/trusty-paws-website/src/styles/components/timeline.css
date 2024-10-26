@@ -34,8 +34,8 @@
 
 .c-timeline__image
 {
-  height: 150px;
-  aspect-ratio: 1;
+  height: 150px !important;
+  width: 150px;
 
   object-fit: contain;
   object-position: left;

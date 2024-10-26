@@ -4,8 +4,9 @@ import { FC, PropsWithChildren } from 'react';
 import { ThemeStyle } from 'apps-web';
 
 import themes from '../common/themes';
+import ClientCommon from '../components/ClientCommon';
 import Header from '../components/Header';
-import '../styles/index.css';
+import ServerCommon from '../components/ServerCommon';
 
 export const metadata: Metadata =
 {
@@ -23,6 +24,8 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) =>
       <ThemeStyle themes={themes} />
     </head>
     <body>
+      <ServerCommon />
+      <ClientCommon />
       <Header />
       <main>
         {children}

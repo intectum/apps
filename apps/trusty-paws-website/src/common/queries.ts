@@ -67,6 +67,7 @@ export const PageQuery = graphql(`
                         title
                         url
                       }
+                      icon
                     }
                   }
                 }

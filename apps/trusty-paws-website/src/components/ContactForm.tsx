@@ -1,7 +1,11 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, useState } from 'react';
+import { renderToString } from 'react-dom/server';
 
 import { Button } from 'apps-web';
 
+import { sendEmail } from '../app/server-actions';
 import { ContactForm as ContactFormType } from '../graphql/types';
 
 type Props =
@@ -10,29 +14,66 @@ type Props =
 };
 
 const ContactForm: FC<Props> = ({ contactForm }) =>
-  <div className="u-py--xl">
-    <div className="o-container o-column">
-      <h2 id="contact-form" className="u-text-center">{contactForm.title}</h2>
-      <label>Name</label>
-      <input/>
-      <label>Email</label>
-      <input type="email"/>
-      <div className="o-row">
-        <div className="o-column u-f1">
-          <label>Start date</label>
-          <input type="date"/>
+{
+  const [ result, setResult ] = useState<boolean>();
+
+  const submit = async (formData: FormData) =>
+  {
+    try
+    {
+      setResult(await sendEmail(
+        'contact-form@trustypawslondon.co.uk',
+        'hello@trustypawslondon.co.uk',
+        `New message from ${formData.get('name')}`,
+        renderToString(
+          <>
+            <p>From: {formData.get('name') as string} ({formData.get('email') as string})</p>
+            <p>Dates: {formData.get('startDate') as string} - {formData.get('endDate') as string}</p>
+            <blockquote>
+              {(formData.get('message') as string)
+                .split('\n')
+                .filter(paragraph => !!paragraph)
+                .map(paragraph => <p>{paragraph}</p>)}
+            </blockquote>
+          </>
+        )
+      ));
+    }
+    catch (err)
+    {
+      console.error(err);
+      setResult(false);
+    }
+  };
+
+  return (
+    <form className="u-py--xl" action={submit}>
+      <div className="o-container o-column">
+        <h2 id="contact-form" className="u-text-center">{contactForm.title}</h2>
+        <label>Name</label>
+        <input name="name" required/>
+        <label>Email</label>
+        <input name="email" type="email" required/>
+        <div className="o-row">
+          <div className="o-column u-f1">
+            <label>Start date</label>
+            <input name="startDate" type="date" required/>
+          </div>
+          <div className="o-column u-f1">
+            <label>End date</label>
+            <input name="endDate" type="date" required/>
+          </div>
         </div>
-        <div className="o-column u-f1">
-          <label>End date</label>
-          <input type="date"/>
+        <label>Message</label>
+        <textarea name="message" rows={10} required/>
+        <div className="o-row u-center">
+          {result === false && <div>Sorry, something went wrong... Try again?</div>}
+          {!result && <Button type="submit" invert>Send</Button>}
+          {result && <div>Message sent!</div>}
         </div>
       </div>
-      <label>Message</label>
-      <textarea rows={10}/>
-      <div className="u-fr u-justify--center">
-        <Button invert className="c-button c-button--primary">Send</Button>
-      </div>
-    </div>
-  </div>;
+    </form>
+  );
+};
 
 export default ContactForm;

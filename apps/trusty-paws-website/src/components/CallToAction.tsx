@@ -19,7 +19,6 @@ const CallToAction: FC<Props> = ({ callToAction }) =>
           invert
           size="large"
           square
-          className="c-button c-button--primary"
           href={callToAction.link ?? undefined}
         >
           {callToAction.linkLabel}
@@ -37,7 +36,6 @@ const CallToAction: FC<Props> = ({ callToAction }) =>
           <Button
             theme="alt"
             invert
-            className="c-button c-button--primary"
             href={callToAction.link ?? undefined}
           >
             {callToAction.linkLabel}

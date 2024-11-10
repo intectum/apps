@@ -4,7 +4,7 @@ import { faFish, faFishFins, faTriangleExclamation, faLock, faLockOpen } from '@
 import { FC, MouseEventHandler, useEffect, useRef, useState } from 'react';
 import Victor from 'victor';
 
-import { Button, classes, Icon, Panel } from 'apps-web';
+import { Button, Icon, Panel } from 'apps-web';
 
 import { updateBoids } from '../../common/boids';
 import { Boid } from '../../common/types';

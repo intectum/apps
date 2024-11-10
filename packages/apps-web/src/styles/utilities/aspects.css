@@ -3,3 +3,9 @@
   aspect-ratio: 1;
   object-fit: cover;
 }
+
+.u-aspect--16-9
+{
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}

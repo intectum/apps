@@ -2,7 +2,7 @@ import { Loader } from '@googlemaps/js-api-loader';
 
 import { Event } from './types';
 
-const loader = new Loader({ apiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY ?? '' });
+const loader = new Loader({ apiKey: process.env.GOOGLE_API_KEY ?? '' });
 
 let geocoding: google.maps.GeocodingLibrary | undefined;
 export const getGeocodingLibrary = async () =>
@@ -29,7 +29,7 @@ export const getMapsLibrary = async () =>
 export const getEvents = async (calendarId: string, maxResults?: number, orderBy?: string, singleEvents?: boolean, timeMin?: string, timeMax?: string) =>
 {
   const searchParams = new URLSearchParams();
-  searchParams.set('key', process.env.NEXT_PUBLIC_GOOGLE_API_KEY ?? '');
+  searchParams.set('key', process.env.GOOGLE_API_KEY ?? '');
   maxResults && searchParams.set('maxResults', String(maxResults));
   orderBy && searchParams.set('orderBy', orderBy);
   singleEvents && searchParams.set('singleEvents', String(singleEvents));

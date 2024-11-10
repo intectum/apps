@@ -35,6 +35,7 @@ const Button: FC<PropsWithChildren<Props>> = ({ theme = 'main', shade, invert, c
     ...elementProps.style
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if ((elementProps as any).href)
   {
     const linkProps = elementProps as NextLinkProps;

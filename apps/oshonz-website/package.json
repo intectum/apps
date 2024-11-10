@@ -1,15 +1,18 @@
 {
   "name": "oshonz-website",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
     "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.8"
   },
   "devDependencies": {
-    "@types/google.maps": "^3.58.0"
+    "@parcel/packager-raw-url": "^2.12.0",
+    "@parcel/transformer-webmanifest": "^2.12.0",
+    "@types/google.maps": "^3.58.0",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
   }
 }

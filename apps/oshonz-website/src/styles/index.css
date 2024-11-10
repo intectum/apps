@@ -1,5 +1,13 @@
-@import 'apps-web/src/styles/index.css';
+@import '../../../../packages/apps-web/src/styles/index.css';
 
-@import 'elements/index.css';
-@import 'objects/index.css';
-@import 'components/index.css';
+@import 'base/variables.css';
+
+@import 'elements/a.css';
+@import 'elements/blockquote.css';
+@import 'elements/body.css';
+@import 'elements/headings.css';
+
+@import 'components/button.css';
+@import 'components/events.css';
+
+@import 'utilities/colors.css';

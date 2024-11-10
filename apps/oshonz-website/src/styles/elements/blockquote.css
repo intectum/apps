@@ -1,6 +1,6 @@
 blockquote
 {
-  border-left: 3px solid var(--theme-accent);
+  border-left: 3px solid var(--color-osho-blue);
   font-size: 18px;
   margin-left: var(--spacer);
   padding-left: var(--spacer);

@@ -9,6 +9,7 @@ This monorepo uses npm workspaces. The following is a list of all the workspaces
 - apps
   - intectum-website: the intectum website
   - oshonz-website: the osho.nz website
+  - trustypawslondon-website: the Trust Paws website
   - vaga-*: components of the Vaga project
 - packages
   - apps-core: core functions
@@ -19,11 +20,15 @@ This monorepo uses npm workspaces. The following is a list of all the workspaces
 
 ## Firebase
 
-The easiest way I found to build Firebase projects within the monorepo that are ready for deployment was to use `ncc` instead of the default `tsc`.
+The easiest way I found to build Firebase projects within the monorepo that are ready for deployment was to use `ncc` instead of the default `tsc`
 
 ## Next.js
 
 The packages used by Next.js apps need to be added to the Next.js config (`next.config.mjs`) by adding the following line: `transpilePackages: [ 'apps-core', 'apps-web' ]`
+
+## Parcel
+
+An empty `package-lock.json` file needs to be added to the root of projects using Parcel so that Parcel knows where the root of the project is within the Monorepo
 
 ## React Native
 

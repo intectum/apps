@@ -1,4 +1,4 @@
-import { getEvents, getGeocodingLibrary } from '../common/google';
+import { getEvents, getGeocodingLibrary } from './google';
 
 export const getGeocodedEvents = async (timeMin?: string, timeMax?: string) =>
 {
@@ -25,40 +25,40 @@ export const getInstructionUrl = (summary: string) =>
 {
   if (summary.toLowerCase().indexOf('chakra breath') !== -1)
   {
-    return 'http://www.osho.com/meditate/active-meditations/chakra-breathing-meditation';
+    return 'https://www.osho.com/meditate/active-meditations/chakra-breathing-meditation';
   }
   else if (summary.toLowerCase().indexOf('chakra sound') !== -1)
   {
-    return 'http://www.osho.com/meditate/active-meditations/chakra-sounds-meditation';
+    return 'https://www.osho.com/meditate/active-meditations/chakra-sounds-meditation';
   }
   else if (summary.toLowerCase().indexOf('devavani') !== -1)
   {
-    return 'http://www.osho.com/meditate/active-meditations/devavani-meditation';
+    return 'https://www.osho.com/meditate/active-meditations/devavani-meditation';
   }
   else if (summary.toLowerCase().indexOf('dynamic') !== -1)
   {
-    return 'http://www.osho.com/meditate/active-meditations/dynamic-meditation';
+    return 'https://www.osho.com/meditate/active-meditations/dynamic-meditation';
   }
   else if (summary.toLowerCase().indexOf('evening meeting') !== -1)
   {
-    return 'http://www.osho.com/meditate/active-meditations/evening-meeting';
+    return 'https://www.osho.com/meditate/active-meditations/evening-meeting';
   }
   else if (summary.toLowerCase().indexOf('kundalini') !== -1)
   {
-    return 'http://www.osho.com/meditate/active-meditations/kundalini-meditation';
+    return 'https://www.osho.com/meditate/active-meditations/kundalini-meditation';
   }
   else if (summary.toLowerCase().indexOf('nadabrahma') !== -1)
   {
-    return 'http://www.osho.com/meditate/active-meditations/nadabrahma-meditation';
+    return 'https://www.osho.com/meditate/active-meditations/nadabrahma-meditation';
   }
   else if (summary.toLowerCase().indexOf('nataraj') !== -1)
   {
-    return 'http://www.osho.com/meditate/active-meditations/nataraj-meditation>';
+    return 'https://www.osho.com/meditate/active-meditations/nataraj-meditation>';
   }
   else if (summary.toLowerCase().indexOf('no dimension') !== -1)
   {
-    return 'http://www.osho.com/meditate/active-meditations/no-dimensions-meditation';
+    return 'https://www.osho.com/meditate/active-meditations/no-dimensions-meditation';
   }
 
-  return '';
+  return undefined;
 };

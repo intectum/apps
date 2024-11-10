@@ -1,0 +1,41 @@
+dialog
+{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 50%;
+  max-width: 600px;
+
+  border: none;
+  padding: 0;
+
+  animation: dialog 0.5s;
+}
+
+@keyframes dialog
+{
+  from
+  {
+    scale: 0.95;
+    opacity: 0;
+  }
+
+  to
+  {
+    scale: 1;
+  }
+}
+
+dialog::backdrop
+{
+  background-color: #0008;
+}
+
+@media screen and (max-width: 767px)
+{
+  dialog
+  {
+    width: calc(100% - var(--spacer-lg) * 2);
+  }
+}

@@ -20,14 +20,14 @@ const Testimonials: FC<Props> = ({ testimonials }) =>
 
   return (
     <Panel theme="alt" className="c-testimonials u-py--xl">
-      <div className="o-container o-row c-testimonials__content u-align--center">
+      <div className="c-testimonials__content u-container u-fr u-gap u-align--center">
         <h2 className="u-f1">{testimonials.title}</h2>
-        <div className="o-column c-testimonials__list c-testimonials__list--left u-f1">
+        <div className="c-testimonials__list c-testimonials__list--left u-fc u-gap u-f1">
           {testimonialsLeft?.map(testimonial =>
             testimonial && <Testimonial key={testimonial.sys.id} testimonial={testimonial} />
           )}
         </div>
-        <div className="o-column c-testimonials__list c-testimonials__list--right u-f1">
+        <div className="c-testimonials__list c-testimonials__list--right u-fc u-gap u-f1">
           {testimonialsRight?.map(testimonial =>
             testimonial && <Testimonial key={testimonial.sys.id} testimonial={testimonial} />
           )}
@@ -45,7 +45,7 @@ type TestimonialProps =
 };
 
 const Testimonial: FC<TestimonialProps> = ({ testimonial }) =>
-  <div className="o-column c-testimonials__testimonial u-p">
+  <div className="c-testimonials__testimonial u-fc u-gap u-p">
     <div className="u-fr u-gap--xs">
       <Icon size="small" icon={faStar} />
       <Icon size="small" icon={faStar} />
@@ -54,7 +54,7 @@ const Testimonial: FC<TestimonialProps> = ({ testimonial }) =>
       <Icon size="small" icon={faStar} />
     </div>
     <blockquote>{testimonial.content}</blockquote>
-    <div className="o-row u-justify--space-between u-align--center">
+    <div className="u-fr u-gap u-justify--space-between u-align--center">
       <div>- {testimonial.author}</div>
       {testimonial.link &&
         <Link theme="alt" shade="front" href={testimonial.link}>

@@ -1,11 +1,11 @@
-.o-container
+.u-container
 {
   max-width: 1200px;
 }
 
 @media screen and (max-width: 1264px)
 {
-  .o-container
+  .u-container
   {
     margin: 0 var(--spacer-lg);
   }
@@ -13,7 +13,7 @@
 
 @media screen and (min-width: 1265px)
 {
-  .o-container
+  .u-container
   {
     margin: 0 auto;
   }

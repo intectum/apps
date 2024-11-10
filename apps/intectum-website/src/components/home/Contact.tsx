@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { Icon, Link } from 'apps-web';
 
 const Contact: FC = () =>
-  <div className="o-container o-column c-home-contact u-center u-text-center">
+  <div className="c-home-contact u-container u-fc u-gap u-center u-text-center">
     <img
       className="c-home-contact__profile"
       src="/images/profile.jpg"
@@ -14,8 +14,8 @@ const Contact: FC = () =>
     />
     <div>Senior developer with 17 years of experience</div>
     <div className="u-text-large">Let's get in touch</div>
-    <div className="o-row u-center u-wrap">
-      <div className="o-row u-center">
+    <div className="u-fr u-gap u-center u-wrap">
+      <div className="u-fr u-gap u-center">
         <Link
           className="u-p"
           href="tel://+447733626352"
@@ -38,7 +38,7 @@ const Contact: FC = () =>
           <Icon icon={faEnvelope} />
         </Link>
       </div>
-      <div className="o-row u-center">
+      <div className="u-fr u-gap u-center">
         <Link
           className="u-p"
           href="https://www.linkedin.com/in/intectum"

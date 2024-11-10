@@ -21,14 +21,14 @@ const Testimonials: FC = () =>
   ];
 
   return (
-    <div className="o-container o-column c-home-testimonials u-center">
+    <div className="c-home-testimonials u-container u-fc u-gap u-center">
       <h2>Testimonials</h2>
       <div className="c-home-testimonials__body">
         <Carousel>
           {quotes.map((quote, index) =>
             <div
               key={index}
-              className="o-column u-center u-text-center u-p--lg"
+              className="u-fc u-gap u-center u-text-center u-p--lg"
             >
               <blockquote className="c-home-testimonial__quote">{quote.body}</blockquote>
               <div>- {quote.credit}</div>

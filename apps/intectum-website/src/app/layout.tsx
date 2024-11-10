@@ -30,7 +30,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) =>
       </div>
       <header>
         <Panel className="u-fr u-justify--space-between u-align--center u-p">
-          <nav className="o-row u-align--center">
+          <nav className="u-fr u-gap u-align--center">
             <Link href="/" title="Home">
               <Circle className="u-small-down">
                 <Logo/>

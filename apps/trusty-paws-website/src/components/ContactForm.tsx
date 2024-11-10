@@ -48,25 +48,25 @@ const ContactForm: FC<Props> = ({ contactForm }) =>
 
   return (
     <form className="u-py--xl" action={submit}>
-      <div className="o-container o-column">
+      <div className="u-container u-fc u-gap">
         <h2 id="contact-form" className="u-text-center">{contactForm.title}</h2>
         <label>Name</label>
         <input name="name" required/>
         <label>Email</label>
         <input name="email" type="email" required/>
-        <div className="o-row">
-          <div className="o-column u-f1">
+        <div className="u-fr u-gap">
+          <div className="u-fc u-gap u-f1">
             <label>Start date</label>
             <input name="startDate" type="date" required/>
           </div>
-          <div className="o-column u-f1">
+          <div className="u-fc u-gap u-f1">
             <label>End date</label>
             <input name="endDate" type="date" required/>
           </div>
         </div>
         <label>Message</label>
         <textarea name="message" rows={10} required/>
-        <div className="o-row u-center">
+        <div className="u-fr u-gap u-center">
           {result === false && <div>Sorry, something went wrong... Try again?</div>}
           {!result && <Button type="submit" invert>Send</Button>}
           {result && <div>Message sent!</div>}

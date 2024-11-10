@@ -4,6 +4,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5
 {
+  font-weight: bold;
   color: var(--theme-main-accent);
 
   transition: color 0.5s;
@@ -14,4 +15,29 @@ h4, .h4,
 h5, .h5
 {
   font-family: PT Serif, serif;
+}
+
+h1, .h1
+{
+  font-size: 42px;
+}
+
+h2, .h2
+{
+  font-size: 36px;
+}
+
+h3, .h3
+{
+  font-size: 28px;
+}
+
+h4, .h4
+{
+  font-size: 24px;
+}
+
+h5, .h5
+{
+  font-size: 20px;
 }

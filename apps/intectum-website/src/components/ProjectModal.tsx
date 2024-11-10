@@ -32,9 +32,9 @@ const ProjectModal: FC<Props> = ({ project, onDismiss }) =>
           alt={project.name}
           loading="lazy"
         />
-        <div className="o-column u-p">
+        <div className="u-fc u-gap u-p">
           <h3>{project.name}</h3>
-          <div className="o-row">
+          <div className="u-fr u-gap">
             {project.client &&
               <Button
                 clear
@@ -53,7 +53,7 @@ const ProjectModal: FC<Props> = ({ project, onDismiss }) =>
             )}
           </div>
           {project.description && <div>{project.description}</div>}
-          <div className="o-row u-wrap">
+          <div className="u-fr u-gap u-wrap">
             {project.skills.map(skill => <div key={skill.slug} className="c-skill">{skill.name}</div>)}
           </div>
         </div>

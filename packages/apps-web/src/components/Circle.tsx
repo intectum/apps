@@ -8,10 +8,9 @@ import Panel, { Props as PanelProps } from './Panel';
 export type Props =
 {
   size?: Size;
-  highlight?: boolean;
 } & PanelProps;
 
-const Circle: FC<Props> = ({ theme = 'main', size, highlight, children, className, style, ...panelProps }) =>
+const Circle: FC<Props> = ({ theme = 'main', size, children, className, style, ...panelProps }) =>
   <Panel
     theme={theme}
     className={classes([ 'c-circle', size && `c-circle--${size}`, className ])}
@@ -22,7 +21,6 @@ const Circle: FC<Props> = ({ theme = 'main', size, highlight, children, classNam
     {...panelProps}
   >
     {children}
-    {highlight && <div className={classes([ 'c-circle__highlight', size && `c-circle__highlight--${size}` ])} />}
   </Panel>;
 
 export default Circle;

@@ -13,14 +13,9 @@
   filter: brightness(75%);
 }
 
-.c-button--minimal
-{
-  padding: 0;
-}
-
 .c-button--small
 {
-  padding: var(--spacer-sm);
+  padding: var(--spacer-xs) var(--spacer-sm);
 }
 
 .c-button--large

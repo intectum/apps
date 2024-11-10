@@ -29,7 +29,7 @@ const CallToAction: FC<Props> = ({ callToAction }) =>
 
   return (
     <Panel theme="alt" className="u-py--xl">
-      <div className="o-container o-column">
+      <div className="u-container u-fc u-gap">
         <h2>{callToAction.title}</h2>
         <div>{callToAction.description}</div>
         <div className="u-fr u-justify--center">

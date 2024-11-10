@@ -49,13 +49,13 @@ const Skills: FC<Props> = ({ skills }) =>
   }, [ category ]);
 
   return (
-    <div className="o-container c-home-skills u-fr u-center">
-      <div className="o-column c-home-skills__detail u-text-center u-m">
+    <div className="c-home-skills u-container u-fr u-center">
+      <div className="c-home-skills__detail u-fc u-gap u-text-center u-m">
         <h2>Toolbox</h2>
         <div className="u-text-large">I have a passion for high quality code that is as simple as possible, learn new tech and concepts very quickly and pay a lot of attention to the details</div>
       </div>
-      <div className="o-column c-home-skills__matrix u-center u-m">
-        <div className="o-row u-center u-wrap">
+      <div className="c-home-skills__matrix u-fc u-gap u-center u-m">
+        <div className="u-center u-fr u-gap u-wrap">
           <Button
             shade={category === 'lang' ? 'accent' : undefined}
             onClick={() => setCategory('lang')}

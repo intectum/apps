@@ -20,8 +20,8 @@ const Clients: FC<Props> = ({ clients }) =>
 
   return (
     <>
-      <div className="o-container c-home-clients">
-        <div className="o-row c-home-clients__body u-center u-m">
+      <div className="c-home-clients u-container">
+        <div className="c-home-clients__body u-fr u-gap u-center u-m">
           <Circle shade="middle" className="o-scroll-animation c-home-clients__outer u-fr u-center u-m">
             {activeClients.map((client, index) =>
               <Button
@@ -46,7 +46,7 @@ const Clients: FC<Props> = ({ clients }) =>
             )}
             <Circle shade="unset" invert className="o-scroll-animation c-home-clients__inner" />
           </Circle>
-          <div className="o-column c-home-clients__detail u-text-center u-m">
+          <div className="c-home-clients__detail u-fc u-gap u-text-center u-m">
             <h2>Clients</h2>
             {/* <div className="u-text-large">Trusted by my clients, many of whom I have partnered with on multiple contracts</div> */}
             <blockquote>

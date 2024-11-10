@@ -1,7 +1,9 @@
 blockquote
 {
-  border-left: 3px solid var(--color-osho-blue);
-  font-size: 18px;
   margin-left: var(--spacer);
+  border-left: 3px solid var(--color-osho-blue);
   padding-left: var(--spacer);
+
+  font-size: 18px;
+  font-style: italic;
 }

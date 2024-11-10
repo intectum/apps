@@ -8,7 +8,7 @@ class OSHOEvents extends HTMLElement
 {
   async connectedCallback()
   {
-    this.className = 'o-row c-events';
+    this.className = 'c-events u-fr u-gap';
     this.innerText = 'Searching for meditations...';
 
     const timeMin = DateTime.now().setZone('Pacific/Auckland').startOf('week').toISO() ?? undefined;
@@ -28,7 +28,7 @@ class OSHOEvents extends HTMLElement
     this.appendChild(eventListContainer);
 
     const eventList = document.createElement('osho-event-list') as OSHOEventList;
-    eventList.className = 'o-column';
+    eventList.className = 'u-fc u-gap';
     eventList.events = events;
     eventListContainer.appendChild(eventList);
 

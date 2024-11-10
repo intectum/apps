@@ -39,24 +39,24 @@ const ThemeSelector: FC = () =>
 
   return (
     <>
-      <div className="o-row c-theme-selector u-align--center">
-        <Button circle className="c-button--minimal" onClick={() => setOpen(!open)} title="Modify theme">
+      <div className="c-theme-selector u-fr u-gap u-align--center">
+        <Button circle className="u-p--none" onClick={() => setOpen(!open)} title="Modify theme">
           <Circle shade="middle" size="small" className="c-theme-selector__primary" />
           <Circle shade="accent" size="small" className="c-theme-selector__accent" />
         </Button>
-        <Button circle className="c-button--minimal" onClick={() => setDarkMode(!darkMode)} title={darkMode ? 'Light mode' : 'Dark mode'}>
+        <Button circle className="u-p--none" onClick={() => setDarkMode(!darkMode)} title={darkMode ? 'Light mode' : 'Dark mode'}>
           <Icon icon={darkMode ? faMoon : faSun}/>
         </Button>
         {open &&
           <>
             <div className="c-theme-selector__backdrop" onClick={() => setOpen(false)} />
-            <Panel invert className="o-row c-theme-selector__dropdown u-rounded u-p--sm">
-              <div className="o-column">
+            <Panel invert className="c-theme-selector__dropdown u-fr u-gap u-rounded u-p--sm">
+              <div className="u-fc u-gap">
                 {themeNames.map(themeName =>
                   <Button
                     key={themeName}
                     circle
-                    className="c-button--minimal"
+                    className="u-p--none"
                     onClick={() => setPrimary(themeName)}
                     title={`Primary color: ${themeName}`}
                   >
@@ -64,12 +64,12 @@ const ThemeSelector: FC = () =>
                   </Button>
                 )}
               </div>
-              <div className="o-column">
+              <div className="u-fc u-gap">
                 {themeNames.map(themeName =>
                   <Button
                     key={themeName}
                     circle
-                    className="c-button--minimal"
+                    className="u-p--none"
                     onClick={() => setAccent(themeName)}
                     title={`Accent color: ${themeName}`}
                   >

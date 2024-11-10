@@ -12,7 +12,7 @@ type Props =
 
 const StepByStep: FC<Props> = ({ stepByStep }) =>
   <div className="u-py--xl">
-    <div className="o-container o-column">
+    <div className="u-container u-fc u-gap">
       <h2>{stepByStep.title}</h2>
       <div>{stepByStep.description}</div>
       <div className="c-timeline">

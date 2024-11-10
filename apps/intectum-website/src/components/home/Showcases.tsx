@@ -11,7 +11,7 @@ type Props =
 };
 
 const Showcases: FC<Props> = ({ showcases }) =>
-  <div className="o-container o-column c-home-showcases u-center">
+  <div className="c-home-showcases u-container u-fc u-gap u-center">
     <h2>Showcases</h2>
     <Carousel>
       {showcases.map((showcase, index) =>
@@ -21,7 +21,7 @@ const Showcases: FC<Props> = ({ showcases }) =>
             className={classes([ 'c-home-showcase__body', !!(index % 2) && 'c-home-showcase__body--reversed' ])}
             style={{ backgroundImage: `url(${showcase.imageUrl})` }}
           >
-            <Panel shade="middle" className="o-column o-scroll-animation c-home-showcase__body__info-1">
+            <Panel shade="middle" className="o-scroll-animation c-home-showcase__body__info-1 u-fc u-gap">
               <div>
                 Inspired by <Link href="https://www.youtube.com/playlist?list=PLFt_AvWsXl0ehjAfLFsp1PGaatzAwo0uK">Sebastian Lague’s Coding Adventures</Link>; this is a navigable, procedurally generated 3D solar system with orbital mechanics. It uses my 'ludo' game engine.
               </div>
@@ -29,7 +29,7 @@ const Showcases: FC<Props> = ({ showcases }) =>
                 More...
               </div>
             </Panel>
-            <Panel shade="middle" className="o-column o-scroll-animation c-home-showcase__body__info-2 u-large-up">
+            <Panel shade="middle" className="o-scroll-animation c-home-showcase__body__info-2 u-fc u-gap u-large-up">
               <h4>Highlights</h4>
               <ul>
                 <li>OpenGL/GLFW renderer.</li>

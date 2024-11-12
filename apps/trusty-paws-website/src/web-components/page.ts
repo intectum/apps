@@ -1,12 +1,7 @@
-import { Document } from '@contentful/rich-text-types';
-
 import { queryContentful } from '../common/contentful';
 import { PageQuery } from '../common/queries';
 import { PageContentLinks } from '../graphql/types';
 import createRichTextElements from '../html-templates/rich-text';
-
-export let pageDoc: Document | undefined = undefined;
-export let pageLinks: PageContentLinks | undefined = undefined;
 
 class TrustyPawsPage extends HTMLElement
 {
@@ -40,9 +35,6 @@ class TrustyPawsPage extends HTMLElement
         this.innerText = `Page content not found for path '${newValue}'`;
         return;
       }
-
-      pageDoc = content.json;
-      pageLinks = content.links as PageContentLinks;
 
       const elements = createRichTextElements(content.json, content.links as PageContentLinks);
       for (const element of elements)

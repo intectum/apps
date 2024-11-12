@@ -7,19 +7,16 @@ const quotes =
   'Meditation simply says how to go withinward: whether there is a soul or not doesn\'t matter; whether there is a God or not doesn\'t matter.'
 ];
 
-class OSHOQuote extends HTMLQuoteElement
+const renderOSHOQuoteHTML = () =>
 {
-  connectedCallback()
-  {
-    const quote = quotes[Math.floor(Math.random() * quotes.length)];
-    const text = document.createTextNode(quote);
-    this.appendChild(text);
+  const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
-    const attribution = document.createElement('div');
-    attribution.className = 'u-ml u-bold';
-    attribution.innerText = '- Osho';
-    this.appendChild(attribution);
-  }
-}
+  return `
+    <blockquote>
+      ${quote}
+      <div class="u-ml u-bold">- Osho</div>
+    </blockquote>
+  `;
+};
 
-customElements.define('osho-quote', OSHOQuote, { extends: 'blockquote' });
+export default renderOSHOQuoteHTML;

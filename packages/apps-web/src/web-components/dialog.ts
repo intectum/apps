@@ -7,7 +7,10 @@ class BasisDialog extends HTMLDialogElement
 
   connectedCallback()
   {
-    this.onclick = event => event.target === this && this.close();
+    this.onclick = event =>
+    {
+      if (event.target === this) this.close();
+    };
 
     const close = document.createElement('button');
     close.title = 'Close';

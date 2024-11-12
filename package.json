@@ -8,6 +8,7 @@
     "packages/vaga-core",
     "apps/intectum-website",
     "apps/oshonz-website",
+    "apps/trusty-paws-firebase",
     "apps/trusty-paws-website",
     "apps/vaga-firebase",
     "apps/vaga-mobile",
@@ -15,6 +16,12 @@
   ],
   "scripts": {
     "lint": "eslint ."
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.1",

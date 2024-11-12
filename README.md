@@ -9,7 +9,7 @@ This monorepo uses npm workspaces. The following is a list of all the workspaces
 - apps
   - intectum-website: the intectum website
   - oshonz-website: the osho.nz website
-  - trustypawslondon-website: the Trust Paws website
+  - trusty-paws-*: components of the Trust Paws project
   - vaga-*: components of the Vaga project
 - packages
   - apps-core: core functions

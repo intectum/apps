@@ -55,7 +55,7 @@
   height: 4px;
   width: 16px;
 
-  background-color: var(--theme-main-front);
+  background-color: var(--color-dark);
 }
 
 .c-timeline__line-point
@@ -64,7 +64,7 @@
   aspect-ratio: 1;
 
   border-radius: 50%;
-  background-color: var(--theme-main-front);
+  background-color: var(--color-dark);
 }
 
 .c-timeline__line-after
@@ -74,5 +74,5 @@
 
   margin-right: calc(var(--spacer-xs));
 
-  background-color: var(--theme-main-front);
+  background-color: var(--color-dark);
 }

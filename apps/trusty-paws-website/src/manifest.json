@@ -1,0 +1,15 @@
+{
+  "short_name": "Trusty Paws",
+  "name": "Trusted local pet sitting in London",
+  "icons": [
+    {
+      "src": "logo-paw.svg",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000",
+  "background_color": "#F4F4ED"
+}

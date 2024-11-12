@@ -24,11 +24,6 @@
   animation: c-testimonials__list 30s alternate-reverse infinite linear;
 }
 
-.c-testimonials__testimonial
-{
-  border: 1px solid var(--theme-alt-front);
-}
-
 @keyframes c-testimonials__list
 {
   0%

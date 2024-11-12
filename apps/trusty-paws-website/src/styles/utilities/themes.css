@@ -1,0 +1,23 @@
+.u-theme--main
+{
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+.u-theme--main-inverted
+{
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.u-theme--blue
+{
+  background-color: var(--color-blue-dark);
+  color: var(--color-light);
+}
+
+.u-theme--blue-inverted
+{
+  background-color: var(--color-light);
+  color: var(--color-blue-dark);
+}

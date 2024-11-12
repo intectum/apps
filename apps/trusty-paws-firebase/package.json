@@ -1,0 +1,19 @@
+{
+  "name": "trusty-paws-firebase",
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist/functions",
+    "build:watch": "ncc build src/index.ts -o dist/functions --watch",
+    "serve": "npm run build && firebase emulators:start",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "dist/functions/index.js",
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}

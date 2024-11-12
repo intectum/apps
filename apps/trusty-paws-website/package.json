@@ -1,14 +1,21 @@
 {
   "name": "trusty-paws-website",
   "scripts": {
-    "dev": "next dev",
-    "build": "graphql-codegen && next build",
-    "start": "next start",
+    "start": "parcel src/index.html",
+    "build": "graphql-codegen && parcel build src/index.html",
     "deploy": "firebase deploy --only hosting",
     "codegen": "graphql-codegen",
     "codegen-watch": "graphql-codegen --watch"
   },
   "dependencies": {
-    "resend": "^4.0.0"
+    "@contentful/rich-text-html-renderer": "^17.0.0",
+    "@contentful/rich-text-types": "^17.0.0",
+    "graphql": "^16.9.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.3",
+    "@graphql-codegen/client-preset": "^4.4.0",
+    "@graphql-codegen/schema-ast": "^4.1.0",
+    "@graphql-codegen/typescript": "^4.1.0"
   }
 }

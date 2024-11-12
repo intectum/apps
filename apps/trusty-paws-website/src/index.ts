@@ -5,4 +5,5 @@ library.add(fas, fab);
 
 import 'apps-web/src/web-components/a.ts';
 
-import './web-components/page.ts';
+import './components/contact-form.ts';
+import './components/page.ts';

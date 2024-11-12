@@ -1,7 +1,7 @@
 import { queryContentful } from '../common/contentful';
 import { PageQuery } from '../common/queries';
 import { PageContentLinks } from '../graphql/types';
-import createRichTextElements from '../html-templates/rich-text';
+import renderRichTextHTML from '../templates/rich-text';
 
 class TrustyPawsPage extends HTMLElement
 {
@@ -36,11 +36,7 @@ class TrustyPawsPage extends HTMLElement
         return;
       }
 
-      const elements = createRichTextElements(content.json, content.links as PageContentLinks);
-      for (const element of elements)
-      {
-        this.appendChild(element);
-      }
+      this.innerHTML = renderRichTextHTML(content.json, content.links as PageContentLinks);
     }
   }
 }

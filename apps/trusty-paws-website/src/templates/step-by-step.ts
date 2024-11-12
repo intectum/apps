@@ -1,6 +1,6 @@
 import { Asset, StepByStep } from '../graphql/types';
 
-const createStepByStepElement = (stepByStep: StepByStep) =>
+const renderStepByStepHTML = (stepByStep: StepByStep) =>
 {
   const stepImageHtml = (image: Asset) =>
     `<img class="c-timeline__image" src="${image.url}" alt="${image.title}" />`;
@@ -8,7 +8,7 @@ const createStepByStepElement = (stepByStep: StepByStep) =>
   const stepIconHtml = (icon: string) =>
     `<i class="c-timeline__image ${icon} fa-8x"></i>`;
 
-  const html = `
+  return `
     <div class="u-py--xl">
       <div class="u-container u-fc u-gap">
         <h2>${stepByStep.title}</h2>
@@ -33,11 +33,6 @@ const createStepByStepElement = (stepByStep: StepByStep) =>
       </div>
     </div>
   `;
-
-  const container = document.createElement('div');
-  container.innerHTML = html;
-
-  return container.firstElementChild as HTMLDivElement;
 };
 
-export default createStepByStepElement;
+export default renderStepByStepHTML;

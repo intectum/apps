@@ -4,13 +4,21 @@ dialog
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  width: 50%;
+  width: calc(100% - var(--spacer-lg) * 2);
   max-width: 600px;
 
   border: none;
   padding: 0;
 
   animation: dialog 0.5s;
+}
+
+@container lg (min-width: 0)
+{
+  dialog
+  {
+    width: 50%;
+  }
 }
 
 @keyframes dialog
@@ -30,12 +38,4 @@ dialog
 dialog::backdrop
 {
   background-color: #0008;
-}
-
-@media screen and (max-width: 767px)
-{
-  dialog
-  {
-    width: calc(100% - var(--spacer-lg) * 2);
-  }
 }

@@ -2,3 +2,13 @@
 {
   min-height: 100vh;
 }
+
+.u-w--full
+{
+  width: 100%;
+}
+
+.u-h--full
+{
+  width: 100%;
+}

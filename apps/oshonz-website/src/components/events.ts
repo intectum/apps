@@ -9,7 +9,6 @@ class OSHOEvents extends HTMLElement
 {
   async connectedCallback()
   {
-    this.className = 'c-events u-fr u-gap';
     this.innerText = 'Searching for meditations...';
 
     const timeMin = DateTime.now().setZone('Pacific/Auckland').startOf('week').toISO() ?? undefined;

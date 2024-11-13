@@ -3,6 +3,7 @@
   max-width: 1200px;
 }
 
+/* 1200 + 2 * var(--spacer-lg) */
 @media screen and (max-width: 1264px)
 {
   .u-container
@@ -11,6 +12,7 @@
   }
 }
 
+/* 1200 + 2 * var(--spacer-lg) + 1 */
 @media screen and (min-width: 1265px)
 {
   .u-container

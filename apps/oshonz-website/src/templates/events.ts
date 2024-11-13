@@ -8,7 +8,7 @@ const renderOSHOEventsHTML = (events: Event[]) => `
     </div>
   </div>
   <div class="u-f1">
-    <div data-events-map="" class="u-aspect--16-9"></div>
+    <div data-section="map" class="u-aspect--16-9"></div>
   </div>
 `;
 

@@ -5,6 +5,6 @@ library.add(faXmark);
 import 'apps-web/src/web-components/a.ts';
 import 'apps-web/src/web-components/dialog.ts';
 
-import './components/event-open.ts';
+import './components/event.ts';
 import './components/events.ts';
 import './components/page.ts';

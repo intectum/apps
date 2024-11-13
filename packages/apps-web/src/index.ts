@@ -13,3 +13,4 @@ export { default as Modal } from './components/Modal';
 export type { Props as ModalProps } from './components/Modal';
 export { default as ThemeStyle } from './components/ThemeStyle';
 export type { Props as ThemeStyleProps } from './components/ThemeStyle';
+export * from './templates';

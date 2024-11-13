@@ -12,3 +12,8 @@ export type Event =
   start: string;
   end: string;
 };
+
+export type State =
+{
+  events?: Event[];
+};

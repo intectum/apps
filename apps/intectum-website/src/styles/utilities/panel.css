@@ -1,0 +1,27 @@
+.u-panel
+{
+  background-color: var(--color-back);
+  color: var(--color-front);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.u-panel--invert
+{
+  background-color: var(--color-front);
+  color: var(--color-back);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.u-panel--middle
+{
+  background-color: var(--color-middle);
+  color: var(--color-front);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.u-panel--accent
+{
+  background-color: var(--color-accent);
+  color: var(--color-front);
+  transition: background-color 0.5s, color 0.5s;
+}

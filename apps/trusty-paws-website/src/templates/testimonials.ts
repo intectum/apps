@@ -1,3 +1,5 @@
+import { mapToHTML } from 'apps-web';
+
 import { Testimonials } from '../graphql/types';
 import renderTestimonialHTML from './testimonial';
 
@@ -19,10 +21,10 @@ const renderTestimonialsHTML = (testimonials: Testimonials) =>
       <div class="c-testimonials__content u-container u-fr u-gap u-align--center">
         <h2 class="u-f1">${testimonials.title}</h2>
         <div class="c-testimonials__list c-testimonials__list--left u-fc u-gap u-f1">
-          ${testimonialsLeft?.map(renderTestimonialHTML).join('')}
+          ${mapToHTML(testimonialsLeft, renderTestimonialHTML)}
         </div>
         <div class="c-testimonials__list c-testimonials__list--right u-fc u-gap u-f1">
-          ${testimonialsRight?.map(renderTestimonialHTML).join('')}
+          ${mapToHTML(testimonialsRight, renderTestimonialHTML)}
         </div>
       </div>
     </div>

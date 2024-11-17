@@ -1,10 +1,13 @@
 {
   "name": "intectum-website",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
     "deploy": "firebase deploy --only hosting"
+  },
+  "staticFiles": {
+    "staticPath": "src/images",
+    "staticOutPath": "images"
   },
   "dependencies": {
     "victor": "^1.1.0"

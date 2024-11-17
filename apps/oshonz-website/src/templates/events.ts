@@ -1,10 +1,12 @@
+import { mapToHTML } from 'apps-web';
+
 import { Event } from '../common/types';
 import renderOSHOEventHTML from './event';
 
 const renderOSHOEventsHTML = (events: Event[]) => `
   <div class="u-f1">
     <div class="u-fc u-gap">
-      ${events.map(event => renderOSHOEventHTML(event)).join('')}
+      ${mapToHTML(events, event => renderOSHOEventHTML(event))}
     </div>
   </div>
   <div class="u-f1">

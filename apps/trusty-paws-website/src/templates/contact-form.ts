@@ -19,8 +19,8 @@ const renderContactFormHTML = (contactForm: ContactForm) => `
         </div>
       </div>
       <label>Message</label>
-      <textarea name="message" rows={10} required></textarea>
-      <div data-action-container="" class="u-fr u-gap u-center">
+      <textarea name="message" rows="10" required></textarea>
+      <div data-section="actions" class="u-fr u-gap u-center">
         <button class="c-button u-rounded u-theme--main-inverted">Send</button>
       </div>
     </div>

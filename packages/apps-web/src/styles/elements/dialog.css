@@ -13,7 +13,7 @@ dialog
   animation: dialog 0.5s;
 }
 
-@container lg (min-width: 0)
+@media screen and (min-width: 768px)
 {
   dialog
   {

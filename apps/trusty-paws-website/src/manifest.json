@@ -5,11 +5,11 @@
     {
       "src": "logo-paw.svg",
       "sizes": "16x16",
-      "type": "image/x-icon"
+      "type": "image/svg+xml"
     }
   ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000",
-  "background_color": "#F4F4ED"
+  "background_color": "#f4f4ed"
 }

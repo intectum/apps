@@ -7,7 +7,7 @@
 {
   position: absolute;
 
-  mask-image: url(/images/theme-primary-mask.svg);
+  mask-image: url(../../images/theme-primary-mask.svg);
   mask-size: 100% 100%;
 }
 
@@ -15,7 +15,7 @@
 {
   position: absolute;
 
-  mask-image: url(/images/theme-accent-mask.svg);
+  mask-image: url(../../images/theme-accent-mask.svg);
   mask-size: 100% 100%;
 }
 

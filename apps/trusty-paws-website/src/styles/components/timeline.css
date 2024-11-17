@@ -39,6 +39,8 @@
 
   object-fit: contain;
   object-position: left;
+
+  font-size: 150px;
 }
 
 .c-timeline__line

@@ -9,7 +9,7 @@ const renderHeroHTML = (hero: Hero) =>
   return `
     <div class="u-theme--${hero.theme ?? 'main'} u-py--xl">
       <div class="u-container ${hero.imageOnLeft ? 'u-fr--reversed' : 'u-fr'} u-gap--xl">
-        <div data-content-container="" class="u-fc u-gap u-justify--center u-f1">
+        <div class="u-fc u-gap u-justify--center u-f1">
           <h1>${hero.title}</h1>
           ${hero.content?.json ? renderRichTextHTML(hero.content.json) : ''}
         </div>

@@ -1,0 +1,110 @@
+.c-boids
+{
+  position: relative;
+  height: calc(100lvh - 80px);
+
+  overflow: clip;
+
+  cursor: url(../../../images/circle-light.svg), auto;
+}
+
+.u-dark-mode .c-boids
+{
+  cursor: url(../../../images/circle-dark.svg), auto;
+}
+
+.c-boids__wave
+{
+  position: absolute;
+  width: 100%;
+  height: 57px;
+
+  background-color: var(--color-accent);
+
+  mask-image: url(../../../images/wave.svg);
+
+  transition: background-color 0.5s;
+}
+
+.c-boids__wave--1
+{
+  top: 0;
+
+  opacity: 0.75;
+
+  animation-name: c-boids__wave--1;
+}
+
+@keyframes c-boids__wave--1
+{
+  0%
+  {
+    mask-position: 0 top;
+  }
+
+  100%
+  {
+    mask-position: 200px top;
+  }
+}
+
+.c-boids__wave--2
+{
+  top: 16px;
+
+  opacity: 0.5;
+
+  animation-name: c-boids__wave--2;
+}
+
+@keyframes c-boids__wave--2
+{
+  0%
+  {
+    mask-position: 75px top;
+  }
+
+  100%
+  {
+    mask-position: 325px top;
+  }
+}
+
+.c-boids__boid
+{
+  position: absolute;
+
+  transition: color 0.5s;
+}
+
+.c-boids__boid--fish
+{
+  color: var(--color-accent);
+}
+
+.c-boids__boid--shark
+{
+  font-size: 192px;
+
+  color: var(--color-middle);
+}
+
+.c-boids__warning
+{
+  position: absolute;
+  left: 50%;
+  top: calc(73px + var(--spacer));
+  transform: translateX(-50%);
+  width: calc(100% - var(--spacer) * 2);
+
+  text-transform: uppercase;
+}
+
+.c-boids__shark-lock
+{
+  position: absolute;
+  right: var(--spacer);
+  bottom: var(--spacer);
+
+  border-radius: 24px;
+}

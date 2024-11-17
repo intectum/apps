@@ -6,14 +6,16 @@ class TrustyPawsContactForm extends HTMLFormElement
     {
       event.preventDefault();
 
-      const nameInput = this.querySelector('[name="name"]') as HTMLInputElement;
-      const emailInput = this.querySelector('[name="email"]') as HTMLInputElement;
-      const startDateInput = this.querySelector('[name="startDate"]') as HTMLInputElement;
-      const endDateInput = this.querySelector('[name="endDate"]') as HTMLInputElement;
-      const messageInput = this.querySelector('[name="message"]') as HTMLTextAreaElement;
-      const actionContainer = this.querySelector('[data-action-container]') as HTMLElement;
+      const actionContainer = this.querySelector<HTMLElement>('[data-section="actions"]');
+      if (!actionContainer) return;
 
-      const messageHtml = messageInput.value
+      const nameInput = this.querySelector<HTMLInputElement>('[name="name"]');
+      const emailInput = this.querySelector<HTMLInputElement>('[name="email"]');
+      const startDateInput = this.querySelector<HTMLInputElement>('[name="startDate"]');
+      const endDateInput = this.querySelector<HTMLInputElement>('[name="endDate"]');
+      const messageInput = this.querySelector<HTMLTextAreaElement>('[name="message"]');
+
+      const messageHtml = messageInput?.value
         .split('\n')
         .filter(paragraph => !!paragraph)
         .map(paragraph => `<p>${paragraph}</p>`)
@@ -31,10 +33,10 @@ class TrustyPawsContactForm extends HTMLFormElement
       fetch('http://localhost:5001/trusty-paws-prod/us-central1/sendEmail', {
         method: 'POST',
         body: JSON.stringify({
-          subject: `New message from ${nameInput.value}`,
+          subject: `New message from ${nameInput?.value}`,
           html: `
-          <p>From: ${nameInput.value} (${emailInput.value})</p>
-          <p>Dates: ${startDateInput.value} - ${endDateInput.value}</p>
+          <p>From: ${nameInput?.value} (${emailInput?.value})</p>
+          <p>Dates: ${startDateInput?.value} - ${endDateInput?.value}</p>
           <blockquote>${messageHtml}</blockquote>
         `
         })

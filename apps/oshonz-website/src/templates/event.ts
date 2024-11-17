@@ -16,7 +16,7 @@ const renderOSHOEventHTML = (event: Event) => `
       <div>${DateTime.fromISO(event.start).toFormat('EEEE, MMMM d @ h:mm a')}</div>
     </div>
     <div>
-      <button data-action="open" class="c-button u-rounded">
+      <button type="button" class="c-button u-rounded" data-action="open">
         Learn more
       </button>
     </div>

@@ -1,49 +1,4 @@
-@media (max-width: 640px)
-{
-  body
-  {
-    container-type: inline-size;
-    container-name: sm -md -lg -xl -xxl;
-  }
-}
-
-@media (min-width: 640px) and (max-width: 768px)
-{
-  body
-  {
-    container-type: inline-size;
-    container-name: sm md -lg -xl -xxl;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px)
-{
-  body
-  {
-    container-type: inline-size;
-    container-name: sm md lg -xl -xxl;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1280px)
-{
-  body
-  {
-    container-type: inline-size;
-    container-name: sm md lg xl -xxl;
-  }
-}
-
-@media (min-width: 1280px)
-{
-  body
-  {
-    container-type: inline-size;
-    container-name: sm md lg xl xxl;
-  }
-}
-
-@container md (min-width: 0)
+@media screen and (min-width: 640px)
 {
   .u-hide-md
   {
@@ -51,7 +6,7 @@
   }
 }
 
-@container lg (min-width: 0)
+@media screen and (min-width: 768px)
 {
   .u-hide-lg
   {
@@ -59,7 +14,7 @@
   }
 }
 
-@container xl (min-width: 0)
+@media screen and (min-width: 1024px)
 {
   .u-hide-xl
   {
@@ -67,7 +22,7 @@
   }
 }
 
-@container xxl (min-width: 0)
+@media screen and (min-width: 1280px)
 {
   .u-hide-xxl
   {
@@ -75,7 +30,7 @@
   }
 }
 
-@container -md (min-width: 0)
+@media screen and (max-width: 640px)
 {
   .u-show-md
   {
@@ -83,7 +38,7 @@
   }
 }
 
-@container -lg (min-width: 0)
+@media screen and (max-width: 768px)
 {
   .u-show-lg
   {
@@ -91,7 +46,7 @@
   }
 }
 
-@container -xl (min-width: 0)
+@media screen and (max-width: 1024px)
 {
   .u-show-xl
   {
@@ -99,7 +54,7 @@
   }
 }
 
-@container -xxl (min-width: 0)
+@media screen and (max-width: 1280px)
 {
   .u-show-xxl
   {

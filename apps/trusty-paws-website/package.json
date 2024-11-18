@@ -1,11 +1,11 @@
 {
   "name": "trusty-paws-website",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "graphql-codegen && parcel build src/index.html",
+    "dev": "ts-node ../../packages/apps-web/src/build/dev.ts",
+    "build": "graphql-codegen && ts-node ../../packages/apps-web/src/build/build.ts",
+    "serve": "http-server --port 5551 -c-1 dist",
     "deploy": "firebase deploy --only hosting",
-    "codegen": "graphql-codegen",
-    "codegen-watch": "graphql-codegen --watch"
+    "codegen": "graphql-codegen"
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^17.0.0",

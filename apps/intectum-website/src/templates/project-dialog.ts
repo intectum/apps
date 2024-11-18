@@ -13,7 +13,6 @@ const renderProjectDialogHTML = (project: Project) =>
         class="c-project-dialog__header"
         src="${project.imageUrl}"
         alt="${project.name}"
-        loading="lazy"
       />
       <div class="u-fc u-gap u-p">
         <h3>${project.name}</h3>

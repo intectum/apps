@@ -1,6 +1,8 @@
+import { enableLiveReload } from 'apps-web';
 import 'apps-web/src/components/a';
 import 'apps-web/src/components/dialog';
 
+import './common/scroll-animations';
 import './components/body';
 import './components/carousel';
 import './components/home/boids';
@@ -11,4 +13,7 @@ import './components/project-dialog';
 import './components/projects/projects';
 import './components/theme-selector';
 
-import './common/scroll-animations';
+if (process.env.NODE_ENV !== 'production')
+{
+  enableLiveReload();
+}

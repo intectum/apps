@@ -1,0 +1,31 @@
+@import '../../../packages/apps-web/src/styles/index.css';
+
+@import 'styles/elements/a.css';
+@import 'styles/elements/blockquote.css';
+@import 'styles/elements/body.css';
+@import 'styles/elements/header.css';
+@import 'styles/elements/headings.css';
+@import 'styles/elements/main.css';
+
+@import 'styles/components/background.css';
+@import 'styles/components/home/boids.css';
+@import 'styles/components/button.css';
+@import 'styles/components/carousel.css';
+@import 'styles/components/client-dialog.css';
+@import 'styles/components/home/clients.css';
+@import 'styles/components/home/contact.css';
+@import 'styles/components/home/intro.css';
+@import 'styles/components/home/projects.css';
+@import 'styles/components/home/showcase.css';
+@import 'styles/components/home/showcases.css';
+@import 'styles/components/home/skills.css';
+@import 'styles/components/home/testimonials.css';
+@import 'styles/components/home/title.css';
+@import 'styles/components/logo.css';
+@import 'styles/components/project-dialog.css';
+@import 'styles/components/project-grid.css';
+@import 'styles/components/skill.css';
+@import 'styles/components/theme-selector.css';
+
+@import 'styles/utilities/panel.css';
+@import 'styles/utilities/scroll-animation.css';

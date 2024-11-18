@@ -1,13 +1,10 @@
 {
   "name": "intectum-website",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "dev": "ts-node ../../packages/apps-web/src/build/dev.ts",
+    "build": "ts-node ../../packages/apps-web/src/build/build.ts",
+    "serve": "http-server --port 5551 -c-1 dist",
     "deploy": "firebase deploy --only hosting"
-  },
-  "staticFiles": {
-    "staticPath": "src/images",
-    "staticOutPath": "images"
   },
   "dependencies": {
     "victor": "^1.1.0"

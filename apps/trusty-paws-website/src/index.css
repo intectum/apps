@@ -1,0 +1,17 @@
+@import '../../../packages/apps-web/src/styles/index.css';
+
+@import 'styles/base/variables.css';
+
+@import 'styles/elements/body.css';
+@import 'styles/elements/header.css';
+@import 'styles/elements/headings.css';
+@import 'styles/elements/html.css';
+@import 'styles/elements/img.css';
+
+@import 'styles/components/call-to-action.css';
+@import 'styles/components/testimonial.css';
+@import 'styles/components/testimonials.css';
+@import 'styles/components/timeline.css';
+
+@import 'styles/utilities/colors.css';
+@import 'styles/utilities/themes.css';

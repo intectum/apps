@@ -2,11 +2,9 @@
   "name": "apps-web",
   "main": "src/index.ts",
   "devDependencies": {
-    "@parcel/packager-raw-url": "^2.12.0",
-    "@parcel/transformer-webmanifest": "^2.12.0",
-    "@parcel/watcher": "^2.4.1",
-    "parcel": "^2.12.0",
-    "parcel-reporter-static-files-copy": "^1.5.3",
-    "process": "^0.11.10"
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.24.0",
+    "http-server": "^14.1.1",
+    "ts-node": "^10.9.2"
   }
 }

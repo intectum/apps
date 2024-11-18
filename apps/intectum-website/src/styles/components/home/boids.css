@@ -5,12 +5,12 @@
 
   overflow: clip;
 
-  cursor: url(../../../images/circle-light.svg), auto;
+  cursor: url(/images/circle-light.svg), auto;
 }
 
 .u-dark-mode .c-boids
 {
-  cursor: url(../../../images/circle-dark.svg), auto;
+  cursor: url(/images/circle-dark.svg), auto;
 }
 
 .c-boids__wave
@@ -21,7 +21,7 @@
 
   background-color: var(--color-accent);
 
-  mask-image: url(../../../images/wave.svg);
+  mask-image: url(/images/wave.svg);
 
   transition: background-color 0.5s;
 }

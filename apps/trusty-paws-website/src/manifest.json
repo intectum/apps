@@ -3,7 +3,7 @@
   "name": "Trusted local pet sitting in London",
   "icons": [
     {
-      "src": "logo-paw.svg",
+      "src": "images/logo-paw.svg",
       "sizes": "16x16",
       "type": "image/svg+xml"
     }

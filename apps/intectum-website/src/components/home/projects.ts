@@ -3,7 +3,7 @@ import { toElement } from 'apps-web';
 import projects from '../../data/projects';
 import renderProjectDialogHTML from '../../templates/project-dialog';
 
-class Projects extends HTMLDivElement
+export class Projects extends HTMLDivElement
 {
   connectedCallback()
   {
@@ -29,4 +29,5 @@ class Projects extends HTMLDivElement
   }
 }
 
-customElements.define('intectum-home-projects', Projects, { extends: 'div' });
+export const defineHomeProjects = () =>
+  customElements.define('intectum-home-projects', Projects, { extends: 'div' });

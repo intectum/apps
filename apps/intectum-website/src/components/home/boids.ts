@@ -1,8 +1,9 @@
 import Victor from 'victor';
 
+import { toElement } from 'apps-web';
+
 import { updateBoids } from '../../common/boids';
 import { Boid } from '../../common/types';
-import { toElement } from 'apps-web';
 
 type SlidingWindowValue<T> =
 {
@@ -17,7 +18,7 @@ const sharkSprintDuration = 3;
 const fishElement = toElement('<i class="c-boids__boid c-boids__boid--fish fa-solid fa-fish u-icon"></i>') as Element;
 const sharkElement = toElement('<i class="c-boids__boid c-boids__boid--shark fa-solid fa-fish-fins"></i>') as Element;
 
-class Boids extends HTMLDivElement
+export class Boids extends HTMLDivElement
 {
   private fish: Boid[] = [];
   private fishDistancesTravelled: number[] = [];
@@ -288,4 +289,5 @@ class Boids extends HTMLDivElement
   }
 }
 
-customElements.define('intectum-home-boids', Boids, { extends: 'div' });
+export const defineHomeBoids = () =>
+  customElements.define('intectum-home-boids', Boids, { extends: 'div' });

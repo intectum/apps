@@ -5,12 +5,10 @@ import { getMapsLibrary } from '../common/google';
 import state from '../common/state';
 import renderOSHOEventsHTML from '../templates/events';
 
-class OSHOEvents extends HTMLElement
+export class OSHOEvents extends HTMLDivElement
 {
   async connectedCallback()
   {
-    this.innerText = 'Searching for meditations...';
-
     const timeMin = DateTime.now().setZone('Pacific/Auckland').startOf('week').toISO() ?? undefined;
     const timeMax = DateTime.now().setZone('Pacific/Auckland').endOf('week').toISO() ?? undefined;
 
@@ -63,4 +61,5 @@ class OSHOEvents extends HTMLElement
   }
 }
 
-customElements.define('osho-events', OSHOEvents);
+export const defineEvents = () =>
+  customElements.define('osho-events', OSHOEvents, { extends: 'div' });

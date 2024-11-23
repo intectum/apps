@@ -1,4 +1,6 @@
-class BasisAnchor extends HTMLAnchorElement
+import { navigate } from '../navigation';
+
+export class BasisAnchor extends HTMLAnchorElement
 {
   static observedAttributes = [ 'href' ];
 
@@ -18,14 +20,12 @@ class BasisAnchor extends HTMLAnchorElement
         this.onclick = event =>
         {
           event.preventDefault();
-          history.pushState({}, '', newValue);
-          window.dispatchEvent(new CustomEvent('pushstate'));
+          navigate(newValue);
         };
       }
     }
   }
 }
 
-customElements.define('basis-a', BasisAnchor, { extends: 'a' });
-
-export default BasisAnchor;
+export const defineBasisAnchor = () =>
+  customElements.define('basis-a', BasisAnchor, { extends: 'a' });

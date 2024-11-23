@@ -1,9 +1,8 @@
 {
   "name": "oshonz-website",
   "scripts": {
-    "dev": "ts-node ../../packages/apps-web/src/build/dev.ts",
-    "build": "ts-node ../../packages/apps-web/src/build/build.ts",
-    "serve": "http-server --port 5551 -c-1 dist",
+    "dev": "ts-node dev.ts",
+    "build": "ts-node build.ts",
     "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {

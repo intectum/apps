@@ -3,7 +3,7 @@ import { toElement } from 'apps-web';
 import state from '../common/state';
 import renderOSHOEventDialogHTML from '../templates/event-dialog';
 
-class OSHOEvent extends HTMLDivElement
+export class OSHOEvent extends HTMLDivElement
 {
   connectedCallback()
   {
@@ -29,4 +29,5 @@ class OSHOEvent extends HTMLDivElement
   }
 }
 
-customElements.define('osho-event', OSHOEvent, { extends: 'div' });
+export const defineEvent = () =>
+  customElements.define('osho-event', OSHOEvent, { extends: 'div' });

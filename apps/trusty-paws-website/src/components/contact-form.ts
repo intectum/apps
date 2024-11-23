@@ -1,4 +1,4 @@
-class TrustyPawsContactForm extends HTMLFormElement
+export class TrustyPawsContactForm extends HTMLFormElement
 {
   connectedCallback()
   {
@@ -47,4 +47,5 @@ class TrustyPawsContactForm extends HTMLFormElement
   }
 }
 
-customElements.define('trusty-paws-contact-form', TrustyPawsContactForm, { extends: 'form' });
+export const defineContactForm = () =>
+  customElements.define('trusty-paws-contact-form', TrustyPawsContactForm, { extends: 'form' });

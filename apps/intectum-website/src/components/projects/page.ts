@@ -8,7 +8,7 @@ import renderProjectDialogHTML from '../../templates/project-dialog';
 
 const queryDelay = 2 * 1000; // 2 seconds
 
-class Projects extends HTMLDivElement
+export class Page extends HTMLDivElement
 {
   private queryTimeout = 0;
 
@@ -116,4 +116,5 @@ class Projects extends HTMLDivElement
   }
 }
 
-customElements.define('intectum-projects-projects', Projects, { extends: 'div' });
+export const defineProjectsPage = () =>
+  customElements.define('intectum-projects-page', Page, { extends: 'div' });

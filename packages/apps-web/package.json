@@ -1,10 +1,9 @@
 {
   "name": "apps-web",
-  "main": "src/index.ts",
+  "main": "common.ts",
   "devDependencies": {
     "dotenv": "^16.4.5",
     "esbuild": "^0.24.0",
-    "http-server": "^14.1.1",
     "ts-node": "^10.9.2"
   }
 }

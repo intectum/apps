@@ -1,9 +1,10 @@
-import { BasisDialog, toElement } from 'apps-web';
+import { toElement } from 'apps-web';
+import { BasisDialog } from 'apps-web/client';
 
 import clients from '../data/clients';
 import renderClientDialogHTML from '../templates/client-dialog';
 
-class ProjectDialog extends BasisDialog
+export class ProjectDialog extends BasisDialog
 {
   connectedCallback()
   {
@@ -31,4 +32,5 @@ class ProjectDialog extends BasisDialog
   }
 }
 
-customElements.define('intectum-project-dialog', ProjectDialog, { extends: 'dialog' });
+export const defineProjectDialog = () =>
+  customElements.define('intectum-project-dialog', ProjectDialog, { extends: 'dialog' });

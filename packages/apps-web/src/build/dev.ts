@@ -1,24 +1,57 @@
+import http from 'http';
+
 import * as esbuild from 'esbuild';
 
 import options from './options';
 
-console.log('staring dev...');
-
-import './clean';
-import './static-files';
-
-esbuild.context({
-  ...options,
-  sourcemap: 'linked',
-}).then(context =>
+export const runDevServer = async () =>
 {
-  console.log('  bundled   dist/index.js');
-  console.log('  bundled   dist/index.css');
+  const context = await esbuild.context({ ...options, sourcemap: 'linked' });
 
   context.watch();
-  context.serve({ servedir: 'dist', port: 5551 });
+  const { host, port } = await context.serve({ servedir: 'dist' });
 
-  console.log('dev running at http://localhost:5551');
+  http.createServer((req, res) =>
+  {
+    const options: http.RequestOptions =
+    {
+      hostname: host,
+      port,
+      path: req.url,
+      method: req.method,
+      headers: req.headers
+    };
+
+    proxy(req, res, options);
+  }).listen(5551);
+
+  console.log('dev server running at http://localhost:5551');
   console.log('  watching  src/index.ts and its dependencies...');
   console.log('  watching  src/index.css and its dependencies...');
-});
+};
+
+const proxy = (req: http.IncomingMessage, res: http.ServerResponse, options: http.RequestOptions) =>
+{
+  const proxyReq = http.request(options, proxyRes =>
+  {
+    if (proxyRes.statusCode === 404)
+    {
+      if (options.path && !options.path.endsWith('html'))
+      {
+        proxy(req, res, { ...options, path: `${options.path}.html` });
+      }
+      else
+      {
+        res.writeHead(404);
+        res.end(`${options.path} not found`);
+      }
+
+      return;
+    }
+
+    res.writeHead(proxyRes.statusCode as number, proxyRes.headers);
+    proxyRes.pipe(res, { end: true });
+  });
+
+  req.pipe(proxyReq, { end: true });
+};

@@ -1,10 +1,15 @@
-import { enableLiveReload } from 'apps-web';
-import 'apps-web/src/components/a';
-import 'apps-web/src/components/dialog';
+import { defineBasisAnchor, defineBasisDialog, enableLiveReload } from 'apps-web/client';
 
-import './components/event';
-import './components/events';
-import './components/page';
+import { defineEvent } from './components/event';
+import { defineEvents } from './components/events';
+import { defineQuote } from './components/quote';
+
+defineBasisAnchor();
+defineBasisDialog();
+
+defineEvent();
+defineEvents();
+defineQuote();
 
 if (process.env.NODE_ENV !== 'production')
 {

@@ -4,12 +4,12 @@ import { mapToHTML } from 'apps-web';
 const themeNames = Object.keys(intectumThemes);
 
 const renderThemeSelectorHTML = () => `
-  <div is="theme-selector" class="c-theme-selector u-fr u-gap u-align--center">
-    <button type="button" class="c-button c-circle u-p--none" title="Modify theme" data-action="open-themes">
-      <div class="c-circle c-circle--small c-theme-selector__primary u-panel--middle"></div>
-      <div class="c-circle c-circle--small c-theme-selector__accent u-panel--accent"></div>
+  <div is="intectum-theme-selector" class="c-theme-selector u-fr u-gap u-align--center">
+    <button type="button" class="c-button c-circle u-panel u-p--none" title="Modify theme" data-action="open-themes">
+      <div class="c-circle c-circle--sm c-theme-selector__primary u-panel--middle"></div>
+      <div class="c-circle c-circle--sm c-theme-selector__accent u-panel--accent"></div>
     </button>
-    <button type="button" class="c-button c-circle u-p--none" title="Dark mode" data-action="toggle-dark-mode">
+    <button type="button" class="c-button c-circle u-panel u-p--none" title="Dark mode" data-action="toggle-dark-mode">
       <i class="fa-solid fa-moon u-icon"></i>
     </button>
     <div data-section="themes" class="c-theme-selector__backdrop" data-action="close-themes"></div>
@@ -18,7 +18,7 @@ const renderThemeSelectorHTML = () => `
         ${mapToHTML(themeNames, themeName => `
           <button
             type="button"
-            class="c-button c-circle u-p--none"
+            class="c-button c-circle u-panel--invert u-p--none"
             title="Primary color: ${themeName}"
             data-action="set-primary"
             data-theme-name="${themeName}"
@@ -34,7 +34,7 @@ const renderThemeSelectorHTML = () => `
         ${mapToHTML(themeNames, themeName => `
           <button
             type="button"
-            class="c-button c-circle u-p--none"
+            class="c-button c-circle u-panel--invert u-p--none"
             title="Accent color: ${themeName}"
             data-action="set-accent"
             data-theme-name="${themeName}"

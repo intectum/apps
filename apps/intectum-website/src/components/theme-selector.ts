@@ -1,18 +1,12 @@
 import { intectumThemes, Theme } from 'apps-core';
 
-class ThemeSelector extends HTMLDivElement
+export class ThemeSelector extends HTMLDivElement
 {
-  private darkMode = true;
-
   connectedCallback()
   {
-    this.setPrimary('stone');
-    this.setAccent('water');
-
-    if (window.matchMedia?.('(prefers-color-scheme: light)').matches)
-    {
-      this.toggleDarkMode();
-    }
+    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    this.setDarkMode(darkModeQuery.matches);
+    darkModeQuery.addEventListener('change', event => this.setDarkMode(event.matches));
 
     const themesAll = this.querySelectorAll<HTMLElement>('[data-section="themes"]');
     for (const themes of themesAll)
@@ -35,7 +29,16 @@ class ThemeSelector extends HTMLDivElement
     const toggleDarkMode = this.querySelector<HTMLButtonElement>('[data-action="toggle-dark-mode"]');
     if (toggleDarkMode)
     {
-      toggleDarkMode.onclick = () => this.toggleDarkMode();
+      toggleDarkMode.onclick = () =>
+      {
+        const colorSchemeManual = document.body.style.getPropertyValue('color-scheme') !== 'light dark';
+        const darkModePreferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const darkModeExplicit = document.body.style.getPropertyValue('color-scheme') === 'dark';
+        const darkMode = colorSchemeManual ? !darkModeExplicit : !darkModePreferred;
+
+        document.body.style.setProperty('color-scheme', darkMode ? 'dark' : 'light');
+        this.setDarkMode(darkMode);
+      };
     }
 
     const closeThemes = this.querySelector<HTMLButtonElement>('[data-action="close-themes"]');
@@ -63,21 +66,15 @@ class ThemeSelector extends HTMLDivElement
     }
   }
 
-  toggleDarkMode()
+  setDarkMode(darkMode: boolean)
   {
-    this.darkMode = !this.darkMode;
-
-    const back = document.body.style.getPropertyValue('--color-back');
-    const front = document.body.style.getPropertyValue('--color-front');
-    document.body.classList.toggle('u-dark-mode', this.darkMode);
-    document.body.style.setProperty('--color-back', front);
-    document.body.style.setProperty('--color-front', back);
+    document.body.classList.toggle('u-dark-mode', darkMode);
 
     const toggleDarkMode = this.querySelector<HTMLButtonElement>('[data-action="toggle-dark-mode"]');
     if (!toggleDarkMode) return;
 
-    toggleDarkMode.title = `${this.darkMode ? 'Light' : 'Dark'} mode`;
-    toggleDarkMode.innerHTML = `<i class="fa-solid ${this.darkMode ? 'fa-moon' : 'fa-sun'} u-icon"></i>`;
+    toggleDarkMode.title = `${darkMode ? 'Light' : 'Dark'} mode`;
+    toggleDarkMode.innerHTML = `<i class="fa-solid ${darkMode ? 'fa-moon' : 'fa-sun'} u-icon"></i>`;
   }
 
   setPrimary(themeName: string)
@@ -85,9 +82,9 @@ class ThemeSelector extends HTMLDivElement
     const theme = intectumThemes[themeName] as Theme | undefined;
     if (!theme) return;
 
-    document.body.style.setProperty('--color-back', this.darkMode ? theme.front : theme.back);
+    document.body.style.setProperty('--color-back', `light-dark(${theme.back}, ${theme.front})`);
     document.body.style.setProperty('--color-middle', theme.middle);
-    document.body.style.setProperty('--color-front', this.darkMode ? theme.back : theme.front);
+    document.body.style.setProperty('--color-front', `light-dark(${theme.front}, ${theme.back})`);
   }
 
   setAccent(themeName: string)
@@ -99,4 +96,5 @@ class ThemeSelector extends HTMLDivElement
   }
 }
 
-customElements.define('theme-selector', ThemeSelector, { extends: 'div' });
+export const defineThemeSelector = () =>
+  customElements.define('intectum-theme-selector', ThemeSelector, { extends: 'div' });

@@ -1,4 +1,4 @@
-class Carousel extends HTMLDivElement
+export class Carousel extends HTMLDivElement
 {
   private slideCount = 0;
   private currentIndex = 0;
@@ -62,4 +62,5 @@ class Carousel extends HTMLDivElement
   }
 }
 
-customElements.define('intectum-carousel', Carousel, { extends: 'div' });
+export const defineCarousel = () =>
+  customElements.define('intectum-carousel', Carousel, { extends: 'div' });

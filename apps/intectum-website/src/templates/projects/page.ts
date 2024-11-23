@@ -1,5 +1,5 @@
-const renderProjectsHTML = () => `
-  <div is="intectum-projects-projects" class="u-container u-py">
+const renderPageHTML = () => `
+  <div is="intectum-projects-page" class="u-container u-py">
     <h1 class="u-text-center">projects</h1>
     <form class="u-text-center u-my">
       <input
@@ -13,4 +13,4 @@ const renderProjectsHTML = () => `
   </div>
 `;
 
-export default renderProjectsHTML;
+export default renderPageHTML;

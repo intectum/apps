@@ -10,7 +10,7 @@ const skillObserver = new IntersectionObserver(entries =>
   }
 });
 
-class Skills extends HTMLDivElement
+export class Skills extends HTMLDivElement
 {
   connectedCallback()
   {
@@ -53,4 +53,5 @@ class Skills extends HTMLDivElement
   }
 }
 
-customElements.define('intectum-home-skills', Skills, { extends: 'div' });
+export const defineHomeSkills = () =>
+  customElements.define('intectum-home-skills', Skills, { extends: 'div' });

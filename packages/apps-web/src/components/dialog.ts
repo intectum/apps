@@ -1,4 +1,4 @@
-class BasisDialog extends HTMLDialogElement
+export class BasisDialog extends HTMLDialogElement
 {
   constructor()
   {
@@ -28,6 +28,5 @@ class BasisDialog extends HTMLDialogElement
   }
 }
 
-customElements.define('basis-dialog', BasisDialog, { extends: 'dialog' });
-
-export default BasisDialog;
+export const defineBasisDialog = () =>
+  customElements.define('basis-dialog', BasisDialog, { extends: 'dialog' });

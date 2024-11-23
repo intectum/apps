@@ -3,7 +3,7 @@ import { toElement } from 'apps-web';
 import clients from '../../data/clients';
 import renderClientDialogHTML from '../../templates/client-dialog';
 
-class Clients extends HTMLDivElement
+export class Clients extends HTMLDivElement
 {
   connectedCallback()
   {
@@ -29,4 +29,5 @@ class Clients extends HTMLDivElement
   }
 }
 
-customElements.define('intectum-home-clients', Clients, { extends: 'div' });
+export const defineHomeClients = () =>
+  customElements.define('intectum-home-clients', Clients, { extends: 'div' });

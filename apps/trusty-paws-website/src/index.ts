@@ -1,8 +1,10 @@
-import { enableLiveReload } from 'apps-web';
-import 'apps-web/src/components/a';
+import { defineBasisAnchor, enableLiveReload } from 'apps-web/client';
 
-import './components/contact-form';
-import './components/page';
+import { defineContactForm } from './components/contact-form';
+
+defineBasisAnchor();
+
+defineContactForm();
 
 if (process.env.NODE_ENV !== 'production')
 {

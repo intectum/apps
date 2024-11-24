@@ -3,11 +3,6 @@
   position: relative;
   height: 50lvh;
 
-  background-size: auto 110%;
-  background-position-x: center;
-  background-position-y: calc(var(--scroll-animation-time) * 200%);
-  background-attachment: fixed;
-
   mask-image: url(/images/showcase-mask.svg);
   mask-size: 100% 100%;
 }
@@ -23,6 +18,16 @@
 .c-home-showcase__body--reversed
 {
   mask-image: url(/images/showcase-mask-reversed.svg);
+}
+
+.c-home-showcase__body__background
+{
+  position: relative;
+  top: calc((var(--scroll-animation-time) - 0.5) * 200%);
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
 }
 
 .c-home-showcase__body__info-1

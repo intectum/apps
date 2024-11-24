@@ -10,10 +10,8 @@ const renderShowcasesHTML = () => `
     <h2>Showcases</h2>
     ${renderCarouselHTML(showcases.map((showcase, index) => `
       <h3 class="u-text-center">${showcase.name}</h3>
-      <div
-        class="${classes([ 'c-home-showcase__body', !!(index % 2) && 'c-home-showcase__body--reversed' ])}"
-        style="background-image: url(${showcase.imageUrl})"
-      >
+      <div class="${classes([ 'c-home-showcase__body', !!(index % 2) && 'c-home-showcase__body--reversed' ])}">
+        <img class="c-home-showcase__body__background" src="${showcase.imageUrl}" alt="${showcase.name}" loading="lazy" />
         <div class="u-scroll-animation c-home-showcase__body__info-1 u-panel--middle u-fc u-gap">
           <div>
             Inspired by <Link href="https://www.youtube.com/playlist?list=PLFt_AvWsXl0ehjAfLFsp1PGaatzAwo0uK">Sebastian Lague’s Coding Adventures</Link>; this is a navigable, procedurally generated 3D solar system with orbital mechanics. It uses my 'ludo' game engine.

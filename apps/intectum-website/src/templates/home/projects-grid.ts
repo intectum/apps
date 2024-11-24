@@ -8,10 +8,17 @@ const renderProjectsGridHTML = (projects: Project[]) => `
       <button
         type="button"
         class="c-button c-home-projects__grid-item u-p--none"
-        style="background-image: url(${project.imageUrl})"
+        title="${project.name}"
         data-action="open-project"
         data-project-slug="${project.slug}"
-      ></button>
+      >
+        <img
+          class="c-home-projects__grid-image"
+          src="${project.imageUrl}"
+          alt="${project.name}"
+          loading="lazy"
+        />
+      </button>
     `)}
   </div>
 `;

@@ -1,4 +1,4 @@
-import { navigate } from '../navigation';
+import { fetchPage, navigate } from '../navigation';
 
 export class BasisAnchor extends HTMLAnchorElement
 {
@@ -17,6 +17,7 @@ export class BasisAnchor extends HTMLAnchorElement
       }
       else
       {
+        fetchPage(newValue);
         this.onclick = event =>
         {
           event.preventDefault();

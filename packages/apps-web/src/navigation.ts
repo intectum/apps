@@ -25,15 +25,26 @@ export const navigate = async (path: string) =>
 
 export const fetchPage = async (path: string, force?: boolean) =>
 {
-  const existingPageHTML = pageCache.get(path);
+  const pagePath = toPagePath(path);
+
+  const existingPageHTML = pageCache.get(pagePath);
   if (existingPageHTML) return existingPageHTML;
 
   if (existingPageHTML === undefined || force)
   {
-    pageCache.set(path, ''); // prevent duplicate requests when not using 'force'
-    const pageResponse = await fetch(`${path === '/' ? '/index' : path}.page.html`);
-    pageCache.set(path, await pageResponse.text());
+    pageCache.set(pagePath, ''); // prevent duplicate requests when not using 'force'
+    const pageResponse = await fetch(pagePath);
+    pageCache.set(pagePath, await pageResponse.text());
   }
 
-  return pageCache.get(path);
+  return pageCache.get(pagePath);
+};
+
+export const toPagePath = (path: string) =>
+{
+  let finalPath = path;
+  if (path.indexOf('?') !== -1) finalPath = finalPath.substring(0, path.indexOf('?'));
+  if (finalPath === '/') finalPath = '/index';
+
+  return `${finalPath}.page.html`;
 };

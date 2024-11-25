@@ -12,7 +12,7 @@ export class OSHOEvent extends HTMLDivElement
 
     openButton.onclick = () =>
     {
-      const eventId = this.getAttribute('data-event-id');
+      const eventId = this.dataset.eventId;
       if (!eventId) return;
 
       const event = state.events?.find(event => event.id === eventId);

@@ -12,7 +12,7 @@ export class Projects extends HTMLDivElement
     {
       openProject.onclick = () =>
       {
-        const projectSlug = openProject.getAttribute('data-project-slug');
+        const projectSlug = openProject.dataset.projectSlug;
         const project = projects.find(theProject => theProject.slug === projectSlug);
         if (project)
         {

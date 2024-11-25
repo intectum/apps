@@ -12,7 +12,7 @@ export class Clients extends HTMLDivElement
     {
       openClient.onclick = () =>
       {
-        const clientSlug = openClient.getAttribute('data-client-slug');
+        const clientSlug = openClient.dataset.clientSlug;
         const client = clients.find(theClient => theClient.slug === clientSlug);
         if (client)
         {

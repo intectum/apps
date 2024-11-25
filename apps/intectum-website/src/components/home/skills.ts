@@ -19,7 +19,7 @@ export class Skills extends HTMLDivElement
     const setCategoryAll = this.querySelectorAll<HTMLButtonElement>('[data-action="set-category"]');
     for (const setCategory of setCategoryAll)
     {
-      setCategory.onclick = () => this.setCategory(setCategory.getAttribute('data-category') ?? '');
+      setCategory.onclick = () => this.setCategory(setCategory.dataset.category ?? '');
     }
   }
 
@@ -46,7 +46,7 @@ export class Skills extends HTMLDivElement
     const setCategoryAll = this.querySelectorAll<HTMLButtonElement>('[data-action="set-category"]');
     for (const setCategory of setCategoryAll)
     {
-      const isActiveCategory = setCategory.getAttribute('data-category') === category;
+      const isActiveCategory = setCategory.dataset.category === category;
       setCategory.classList.toggle('u-panel--accent', isActiveCategory);
       setCategory.classList.toggle('u-panel', !isActiveCategory);
     }

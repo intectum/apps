@@ -56,13 +56,13 @@ export class ThemeSelector extends HTMLDivElement
     const setPrimaryAll = this.querySelectorAll<HTMLElement>('[data-action="set-primary"]');
     for (const setPrimary of setPrimaryAll)
     {
-      setPrimary.onclick = () => this.setPrimary(setPrimary.getAttribute('data-theme-name') ?? '');
+      setPrimary.onclick = () => this.setPrimary(setPrimary.dataset.themeName ?? '');
     }
 
     const setAccentAll = this.querySelectorAll<HTMLElement>('[data-action="set-accent"]');
     for (const setAccent of setAccentAll)
     {
-      setAccent.onclick = () => this.setAccent(setAccent.getAttribute('data-theme-name') ?? '');
+      setAccent.onclick = () => this.setAccent(setAccent.dataset.themeName ?? '');
     }
   }
 

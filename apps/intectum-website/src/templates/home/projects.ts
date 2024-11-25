@@ -8,7 +8,7 @@ const renderProjectsHTML = () => `
       <div class="c-home-projects__detail u-fc u-gap u-text-center u-m">
         <h2>Projects</h2>
         <div class="u-text-large">60+ and counting</div>
-        <div>See all of them <a is="basis-a" href="/projects" title="All projects">here</a></div>
+        <div>Check out all of my <a is="basis-a" href="/projects">projects</a></div>
       </div>
       <div class="c-home-projects__catalog u-scroll-animation u-m" style="--page-count: 3">
         ${renderProjectsPageHTML(0, coverHTML, renderProjectsGridHTML(projects.slice(0, 10)))}

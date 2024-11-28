@@ -1,8 +1,8 @@
 {
   "name": "trusty-paws-website",
   "scripts": {
-    "dev": "ts-node dev.ts",
-    "build": "graphql-codegen && ts-node build.ts",
+    "dev": "ts-node dev",
+    "build": "eslint . && graphql-codegen && ts-node build",
     "deploy": "firebase deploy --only hosting",
     "codegen": "graphql-codegen"
   },

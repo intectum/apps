@@ -1,12 +1,3 @@
-import { clean, runDevServer, copyStaticFiles } from 'apps-web/build';
+import { runDevServer } from 'apps-web/tools';
 
-import { buildPages } from './pages';
-
-(async function()
-{
-  console.log('starting dev...');
-  clean();
-  copyStaticFiles();
-  buildPages();
-  await runDevServer();
-})();
+runDevServer();

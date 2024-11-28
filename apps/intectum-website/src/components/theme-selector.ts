@@ -9,10 +9,6 @@ export class ThemeSelector extends HTMLDivElement
     darkModeQuery.addEventListener('change', event => this.setDarkMode(event.matches));
 
     const themesAll = this.querySelectorAll<HTMLElement>('[data-section="themes"]');
-    for (const themes of themesAll)
-    {
-      themes.style.display = 'none';
-    }
 
     const openThemes = this.querySelector<HTMLButtonElement>('[data-action="open-themes"]');
     if (openThemes)

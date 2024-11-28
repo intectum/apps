@@ -1,4 +1,6 @@
-const renderLayoutHTML = (pageHTML: string) => `
+import { LayoutHTMLRenderer } from 'apps-web';
+
+const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML: string) => `
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -7,13 +9,12 @@ const renderLayoutHTML = (pageHTML: string) => `
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Trusted local pet sitting in London">
 
-      <script src="/index.js" defer=""></script>
       <script src="https://kit.fontawesome.com/cbfad0a2d9.js" crossorigin="anonymous"></script>
       <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Calistoga&display=swap" />
-      <link rel="stylesheet" href="/index.css" />
+      <style>${css}</style>
     </head>
     <body>
       <header>
@@ -25,6 +26,7 @@ const renderLayoutHTML = (pageHTML: string) => `
       <main class="u-theme--main">
         ${pageHTML}
       </main>
+      <script>${js}</script>
     </body>
   </html>
 `;

@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 
-import { getShortAddress } from '../common/data';
-import { Event } from '../common/types';
+import { getShortAddress } from '../../common/data';
+import { Event } from '../../common/types';
 
 const renderOSHOEventHTML = (event: Event) => `
   <div is="osho-event" data-event-id="${event.id}" class="u-fc u-gap u-rounded u-invert u-p">

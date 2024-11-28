@@ -1,6 +1,6 @@
-import renderOSHOQuoteHTML from './quote';
+import { LayoutHTMLRenderer } from 'apps-web';
 
-const renderLayoutHTML = () => `
+const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML: string) => `
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -9,13 +9,12 @@ const renderLayoutHTML = () => `
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="OSHO Information Center: Auckland, New Zealand">
 
-      <script src="/index.js" defer=""></script>
       <script src="https://kit.fontawesome.com/9c65acfa69.js" crossorigin="anonymous"></script>
       <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" />
-      <link rel="stylesheet" href="/index.css" />
+      <style>${css}</style>
     </head>
     <body class="u-cover-screen u-fc u-gap">
       <header class="u-invert">
@@ -26,17 +25,8 @@ const renderLayoutHTML = () => `
         </div>
       </header>
 
-      <main class="u-container u-fc u-f1 u-gap">
-        ${renderOSHOQuoteHTML()}
-        <div class="u-fc u-gap">
-          <h2>OSHO Active Meditations</h2>
-          <p>Everyone is welcome to come and experience OSHO's active meditations! They are designed to help modern people enter into meditation. To learn more, see <a is="basis-a" href="https://www.osho.com/meditation/osho-active-meditations/why-active-meditations">Why active meditations?</a> We host meditations at a few locations so make sure you come to the right one :P</p>
-          <p><strong><em>Please arrive ten minutes before the meditation starts. It is best to join the mailing list (below) so that we can notify you if we have a cancellation.</em></strong></p>
-          <h3>This week's meditations</h3>
-          <div is="osho-events" class="c-events u-fc u-gap">
-            Searching for meditations...
-          </div>
-        </div>
+      <main data-section="page-container" class="u-container u-fc u-f1 u-gap">
+        ${pageHTML}
       </main>
 
       <footer class="u-fc u-gap">
@@ -60,6 +50,7 @@ const renderLayoutHTML = () => `
           </div>
         </div>
       </footer>
+      <script>${js}</script>
     </body>
   </html>
 `;

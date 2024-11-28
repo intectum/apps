@@ -1,7 +1,7 @@
 import { toElement } from 'apps-web';
 
 import state from '../common/state';
-import renderOSHOEventDialogHTML from '../templates/event-dialog';
+import renderOSHOEventDialogHTML from '../templates/index/event-dialog';
 
 export class OSHOEvent extends HTMLDivElement
 {

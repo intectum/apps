@@ -1,4 +1,5 @@
 import { intectumThemes } from 'apps-core';
+import { LayoutHTMLRenderer } from 'apps-web';
 
 import renderLogoHTML from './logo';
 import renderThemeSelectorHTML from './theme-selector';
@@ -11,7 +12,7 @@ const bodyStyle = `
   --color-accent: ${intectumThemes.water.accent};
 `;
 
-const renderLayoutHTML = (pageHTML: string) => `
+const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML: string) => `
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -20,13 +21,12 @@ const renderLayoutHTML = (pageHTML: string) => `
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content="Senior developer with 17 years of experience" />
 
-      <script src="/index.js" defer=""></script>
       <script src="https://kit.fontawesome.com/9c65acfa69.js" crossorigin="anonymous"></script>
       <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|PT+Serif&display=swap" />
-      <link rel="stylesheet" href="/index.css" />
+      <style>${css}</style>
     </head>
     <body class="u-panel" style="${bodyStyle}">
       <div class="c-background u-fc u-center">
@@ -54,6 +54,7 @@ const renderLayoutHTML = (pageHTML: string) => `
       <main data-section="page-container">
         ${pageHTML}
       </main>
+      <script>${js}</script>
     </body>
   </html>
 `;

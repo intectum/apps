@@ -2,10 +2,10 @@ import { addNavigation, defineBasisAnchor, defineBasisDialog, enableLiveReload }
 
 import { activateScrollAnimations } from './common/scroll-animations';
 import { defineCarousel } from './components/carousel';
-import { defineHomeBoids } from './components/home/boids';
-import { defineHomeClients } from './components/home/clients';
-import { defineHomeProjects } from './components/home/projects';
-import { defineHomeSkills } from './components/home/skills';
+import { defineHomeBoids } from './components/index/boids';
+import { defineHomeClients } from './components/index/clients';
+import { defineHomeProjects } from './components/index/projects';
+import { defineHomeSkills } from './components/index/skills';
 import { defineProjectDialog } from './components/project-dialog';
 import { defineProjectsPage } from './components/projects/page';
 import { defineThemeSelector } from './components/theme-selector';

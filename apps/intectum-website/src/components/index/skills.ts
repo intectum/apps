@@ -1,6 +1,6 @@
 import { replaceSelector } from 'apps-web';
 
-import renderSkillsCategoryHTML from '../../templates/home/skills-category';
+import renderSkillsCategoryHTML from '../../templates/index/skills-category';
 
 const skillObserver = new IntersectionObserver(entries =>
 {

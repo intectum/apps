@@ -1,8 +1,8 @@
 {
   "name": "oshonz-website",
   "scripts": {
-    "dev": "ts-node dev.ts",
-    "build": "ts-node build.ts",
+    "dev": "ts-node dev",
+    "build": "eslint . && ts-node build",
     "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {

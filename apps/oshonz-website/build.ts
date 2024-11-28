@@ -1,17 +1,14 @@
-import { bundle, clean, copyStaticFiles } from 'apps-web/build';
+import { build } from 'apps-web/tools';
 
-import { buildPages } from './pages';
+import renderLayoutHTML from './src/templates/layout';
+import renderPageHTML from './src/templates/index/page';
 
 (async function()
 {
   console.log('staring build...');
-  process.env.NODE_ENV = 'production';
   const startTime = performance.now();
 
-  clean();
-  copyStaticFiles();
-  buildPages();
-  await bundle();
+  await build(renderLayoutHTML, { 'index': renderPageHTML });
 
   console.log(`build completed in ${Math.round(performance.now() - startTime)}ms`);
 })();

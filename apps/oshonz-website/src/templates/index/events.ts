@@ -1,6 +1,6 @@
 import { mapToHTML } from 'apps-web';
 
-import { Event } from '../common/types';
+import { Event } from '../../common/types';
 import renderOSHOEventHTML from './event';
 
 const renderOSHOEventsHTML = (events: Event[]) => `

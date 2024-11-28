@@ -1,4 +1,4 @@
-import { fetchPage, navigate } from '../navigation';
+import { fetchPage, navigate } from '../common/navigation';
 
 export class BasisAnchor extends HTMLAnchorElement
 {

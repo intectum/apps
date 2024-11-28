@@ -1,5 +1,5 @@
-import { Event } from '../common/types';
-import { getInstructionUrl, getShortAddress } from '../common/data';
+import { Event } from '../../common/types';
+import { getInstructionUrl, getShortAddress } from '../../common/data';
 import { DateTime } from 'luxon';
 
 const renderOSHOEventDialogHTML = (event: Event) =>

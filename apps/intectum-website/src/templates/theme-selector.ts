@@ -12,8 +12,8 @@ const renderThemeSelectorHTML = () => `
     <button type="button" class="c-button c-circle u-panel u-p--none" title="Dark mode" data-action="toggle-dark-mode">
       <i class="fa-solid fa-moon u-icon"></i>
     </button>
-    <div data-section="themes" class="c-theme-selector__backdrop" data-action="close-themes"></div>
-    <div data-section="themes" class="c-theme-selector__dropdown u-panel--invert u-fr u-gap u-rounded u-p--sm">
+    <div data-section="themes" class="c-theme-selector__backdrop" data-action="close-themes" style="display: none;"></div>
+    <div data-section="themes" class="c-theme-selector__dropdown u-panel--invert u-fr u-gap u-rounded u-p--sm" style="display: none;">
       <div class="u-fc u-gap">
         ${mapToHTML(themeNames, themeName => `
           <button

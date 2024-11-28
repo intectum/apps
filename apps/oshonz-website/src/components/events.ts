@@ -3,7 +3,7 @@ import { DateTime } from 'luxon';
 import { getGeocodedEvents } from '../common/data';
 import { getMapsLibrary } from '../common/google';
 import state from '../common/state';
-import renderOSHOEventsHTML from '../templates/events';
+import renderOSHOEventsHTML from '../templates/index/events';
 
 export class OSHOEvents extends HTMLDivElement
 {

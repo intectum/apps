@@ -20,6 +20,7 @@ const sharkElement = toElement('<i class="c-boids__boid c-boids__boid--shark fa-
 
 export class Boids extends HTMLDivElement
 {
+  private ready = false;
   private fish: Boid[] = [];
   private fishDistancesTravelled: number[] = [];
   private sharks: Boid[] = [];
@@ -31,15 +32,22 @@ export class Boids extends HTMLDivElement
   private mouseSpeed?: number;
   private mouseSpeedSlidingWindow: SlidingWindowValue<number>[] = [];
 
-  private updateFishCallback = this.updateFish.bind(this);
+  private observer = new IntersectionObserver(entries =>
+  {
+    for (const entry of entries)
+    {
+      if (entry.isIntersecting)
+      {
+        this.ready = true;
+        this.playPause();
+      }
+    }
+  });
+
   private playPauseCallback = this.playPause.bind(this);
 
   connectedCallback()
   {
-    this.updateFish();
-    window.addEventListener('resize', this.updateFishCallback);
-
-    this.playPause();
     document.addEventListener('visibilitychange', this.playPauseCallback);
 
     const unlockShark = this.querySelector<HTMLButtonElement>('[data-action="unlock-shark"]');
@@ -79,12 +87,12 @@ export class Boids extends HTMLDivElement
       this.mousePosition = new Victor(event.pageX, event.pageY - (this.offsetTop ?? 0));
       this.mouseSpeed = 1000;
     };
+
+    this.observer.observe(this);
   }
 
   disconnectedCallback()
   {
-    window.removeEventListener('resize', this.updateFishCallback);
-
     cancelAnimationFrame(this.requestId);
     document.removeEventListener('visibilitychange', this.playPauseCallback);
   }
@@ -93,15 +101,16 @@ export class Boids extends HTMLDivElement
   {
     const count = Math.round(this.offsetWidth / 20);
 
-    while (this.fish.length < count)
+    if (this.fish.length < count)
     {
       const bounds = this.bounds();
+      const size = bounds.max.clone().subtract(bounds.min);
 
       const fish: Boid =
       {
         position: new Victor(
-          bounds.min.x + Math.random() * (bounds.max.x - bounds.min.x),
-          bounds.min.y + Math.random() * (bounds.max.y - bounds.min.y)
+          bounds.min.x + Math.random() * size.x,
+          bounds.min.y + Math.random() * size.y
         ),
         velocity: new Victor(Math.random() * 100 - 50, Math.random() * 100 - 50),
         sprinting: false,
@@ -148,6 +157,8 @@ export class Boids extends HTMLDivElement
 
   update(time: number)
   {
+    this.updateFish();
+
     const timeSeconds = time / 1000;
 
     if (!this.time)
@@ -157,7 +168,6 @@ export class Boids extends HTMLDivElement
 
     const deltaTime = timeSeconds - this.time;
     this.time = timeSeconds;
-
 
     this.swim(deltaTime);
 
@@ -169,14 +179,15 @@ export class Boids extends HTMLDivElement
 
   playPause()
   {
-    if (this.time)
+    cancelAnimationFrame(this.requestId);
+
+    if (this.ready && document.visibilityState === 'visible')
     {
-      cancelAnimationFrame(this.requestId);
-      this.time = 0;
+      this.requestId = requestAnimationFrame(time => this.update(time));
     }
     else
     {
-      this.requestId = requestAnimationFrame(time => this.update(time));
+      this.time = 0;
     }
   }
 

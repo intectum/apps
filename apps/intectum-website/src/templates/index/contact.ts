@@ -1,4 +1,11 @@
 import { cvUrl } from '../../common/types';
+import renderPhoneSvg from '../icons/phone';
+import renderWhatsappSvg from '../icons/whatsapp';
+import renderEnvelopeSvg from '../icons/envelope';
+import renderLinkedInSvg from '../icons/linkedin';
+import renderGitHubSvg from '../icons/github';
+import renderStackExchangeSvg from '../icons/stack-exchange';
+import renderFilePdfSvg from '../icons/file-pdf';
 
 const renderContactHTML = () => `
   <div class="c-home-contact u-container u-fc u-gap u-center u-text-center">
@@ -18,7 +25,7 @@ const renderContactHTML = () => `
           href="tel://+447733626352"
           title="Phone (UK)"
         >
-          <i class="fa-solid fa-phone u-icon"></i>
+          ${renderPhoneSvg()}
         </a>
         <a
           is="basis-a"
@@ -26,7 +33,7 @@ const renderContactHTML = () => `
           href="https://wa.me/64226754763"
           title="WhatsApp"
         >
-          <i class="fa-brands fa-whatsapp u-icon"></i>
+          ${renderWhatsappSvg()}
         </a>
         <a
           is="basis-a"
@@ -34,7 +41,7 @@ const renderContactHTML = () => `
           href="mailto:gyan@intectum.nz"
           title="Email"
         >
-          <i class="fa-solid fa-envelope u-icon"></i>
+          ${renderEnvelopeSvg()}
         </a>
       </div>
       <div class="u-fr u-gap u-center">
@@ -44,7 +51,7 @@ const renderContactHTML = () => `
           href="https://www.linkedin.com/in/intectum"
           title="LinkedIn"
         >
-          <i class="fa-brands fa-linkedin u-icon"></i>
+          ${renderLinkedInSvg()}
         </a>
         <a
           is="basis-a"
@@ -52,7 +59,7 @@ const renderContactHTML = () => `
           href="https://github.com/intectum"
           title="GitHub"
         >
-          <i class="fa-brands fa-github u-icon"></i>
+          ${renderGitHubSvg()}
         </a>
         <a
           is="basis-a"
@@ -60,7 +67,7 @@ const renderContactHTML = () => `
           href="https://stackexchange.com/users/389835/gyan"
           title="Stack Exchange"
         >
-          <i class="fa-brands fa-stack-exchange u-icon"></i>
+          ${renderStackExchangeSvg()}
         </a>
       </div>
     </div>
@@ -84,7 +91,7 @@ const renderContactHTML = () => `
       href="${cvUrl}"
       title="Curriculum Vitae Download"
     >
-      <i class="fa-solid fa-file-pdf u-icon u-mr--sm"></i>
+      ${renderFilePdfSvg('u-mr--sm')}
       Curriculum Vitae
     </a>
   </div>

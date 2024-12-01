@@ -1,5 +1,7 @@
 import { mapToHTML } from 'apps-web';
 
+import renderAnglesDownSvg from '../icons/angles-down';
+
 const renderTitleHTML = () => `
   <div data-section="scroll-animation" class="c-home-title u-container u-fc u-center u-text-center">
     <div class="c-home-title__welcome u-text-large">Welcome to</div>
@@ -12,7 +14,7 @@ const renderTitleHTML = () => `
     </h1>
     <div class="c-home-title__scroll-icon u-scroll-animation">
       <div class="c-home-title__scroll-icon__bobbing">
-        <i class="fa-solid fa-angles-down u-icon--lg"></i>
+        ${renderAnglesDownSvg()}
       </div>
     </div>
   </div>

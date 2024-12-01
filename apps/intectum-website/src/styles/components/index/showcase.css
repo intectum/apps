@@ -3,7 +3,7 @@
   position: relative;
   height: 50lvh;
 
-  mask-image: url(/images/showcase-mask.svg);
+  mask-image: url(../../../../static/images/showcase-mask.svg);
   mask-size: 100% 100%;
 }
 
@@ -17,7 +17,7 @@
 
 .c-home-showcase__body--reversed
 {
-  mask-image: url(/images/showcase-mask-reversed.svg);
+  mask-image: url(../../../../static/images/showcase-mask-reversed.svg);
 }
 
 .c-home-showcase__body__background
@@ -37,7 +37,7 @@
 
   padding: calc(var(--spacer) + 6.25lvh) var(--spacer-lg) var(--spacer-lg) var(--spacer);
 
-  mask-image: url(/images/showcase-info-1-mask.svg);
+  mask-image: url(../../../../static/images/showcase-info-1-mask.svg);
   mask-size: 100% 100%;
 
   animation-name: c-home-showcase__body__info-1;
@@ -99,7 +99,7 @@
 
   padding: var(--spacer-lg) var(--spacer) calc(var(--spacer) + 6.25lvh) var(--spacer-lg);
 
-  mask-image: url(/images/showcase-info-2-mask.svg);
+  mask-image: url(../../../../static/images/showcase-info-2-mask.svg);
   mask-size: 100% 100%;
 
   animation-name: c-home-showcase__body__info-2;

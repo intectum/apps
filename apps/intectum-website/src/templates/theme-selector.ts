@@ -1,6 +1,8 @@
 import { intectumThemes } from 'apps-core';
 import { mapToHTML } from 'apps-web';
 
+import renderSunSvg from './icons/sun';
+
 const themeNames = Object.keys(intectumThemes);
 
 const renderThemeSelectorHTML = () => `
@@ -10,7 +12,7 @@ const renderThemeSelectorHTML = () => `
       <div class="c-circle c-circle--sm c-theme-selector__accent u-panel--accent"></div>
     </button>
     <button type="button" class="c-button c-circle u-panel u-p--none" title="Dark mode" data-action="toggle-dark-mode">
-      <i class="fa-solid fa-moon u-icon"></i>
+      ${renderSunSvg()}
     </button>
     <div data-section="themes" class="c-theme-selector__backdrop" data-action="close-themes" style="display: none;"></div>
     <div data-section="themes" class="c-theme-selector__dropdown u-panel--invert u-fr u-gap u-rounded u-p--sm" style="display: none;">

@@ -2,6 +2,8 @@ import { mapToHTML } from 'apps-web';
 
 import { formatMonthYear } from '../common/dates';
 import { Client, cvUrl } from '../common/types';
+import renderArrowUpRightFromSquareSvg from './icons/arrow-up-right-from-square';
+import renderFolderOpenSvg from './icons/folder-open';
 
 const renderClientDialogHTML = (client: Client) => `
   <dialog is="basis-dialog" class="u-panel--invert u-fc u-gap u-p">
@@ -9,10 +11,10 @@ const renderClientDialogHTML = (client: Client) => `
       <img class="c-client-dialog__client-image" src="${client.iconUrl}" alt="${client.name}" />
       <div class="u-fr u-gap">
         <a is="basis-a" href="/projects?client=${client.slug}" title="Projects">
-          <i class="fa-solid fa-folder-open u-icon"></i>
+          ${renderFolderOpenSvg()}
         </a>
         <a is="basis-a" href="${client.link.url}" title="${client.link.title ?? 'Website'}">
-          <i class="fa-solid fa-arrow-up-right-from-square u-icon"></i>
+          ${renderArrowUpRightFromSquareSvg()}
         </a>
       </div>
       <div class="u-text-large">${client.position}</div>

@@ -5,12 +5,12 @@
 
   overflow: clip;
 
-  cursor: url(/images/circle-light.svg), auto;
+  cursor: url(../../../../static/images/circle-light.svg), auto;
 }
 
 .u-dark-mode .c-boids
 {
-  cursor: url(/images/circle-dark.svg), auto;
+  cursor: url(../../../../static/images/circle-dark.svg), auto;
 }
 
 .c-boids__wave
@@ -21,7 +21,7 @@
 
   background-color: var(--color-accent);
 
-  mask-image: url(/images/wave.svg);
+  mask-image: url(../../../../static/images/wave.svg);
 
   transition: background-color 0.5s;
 }
@@ -84,8 +84,6 @@
 
 .c-boids__boid--shark
 {
-  font-size: 192px;
-
   color: var(--color-middle);
 }
 

@@ -2,6 +2,8 @@ import { mapToHTML } from 'apps-web';
 
 import { Project } from '../common/types';
 import skills from '../data/skills';
+import renderArrowUpRightFromSquareSvg from './icons/arrow-up-right-from-square';
+import renderUserTieSvg from './icons/user-tie';
 
 const renderProjectDialogHTML = (project: Project) =>
 {
@@ -24,12 +26,12 @@ const renderProjectDialogHTML = (project: Project) =>
               data-action="open-client"
               data-client-slug="${project.clientSlug}"
             >
-              <i class="fa-solid fa-user-tie u-icon"></i>
+              ${renderUserTieSvg()}
             </button>
           ` : ''}
           ${mapToHTML(project.links, link => `
             <a is="basis-a" href="${link.url}" title="${link.title ?? 'Open'}">
-              <i class="${link.icon ?? 'fa-solid fa-arrow-up-right-from-square'} u-icon"></i>
+              ${renderArrowUpRightFromSquareSvg()}
             </a>
           `)}
         </div>

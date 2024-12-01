@@ -1,5 +1,8 @@
 import { intectumThemes, Theme } from 'apps-core';
 
+import renderMoonSvg from '../templates/icons/moon';
+import renderSunSvg from '../templates/icons/sun';
+
 export class ThemeSelector extends HTMLDivElement
 {
   connectedCallback()
@@ -70,7 +73,7 @@ export class ThemeSelector extends HTMLDivElement
     if (!toggleDarkMode) return;
 
     toggleDarkMode.title = `${darkMode ? 'Light' : 'Dark'} mode`;
-    toggleDarkMode.innerHTML = `<i class="fa-solid ${darkMode ? 'fa-moon' : 'fa-sun'} u-icon"></i>`;
+    toggleDarkMode.innerHTML = darkMode ? renderMoonSvg() : renderSunSvg();
   }
 
   setPrimary(themeName: string)

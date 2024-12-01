@@ -9,7 +9,6 @@ const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML:
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Trusted local pet sitting in London">
 
-      <script src="https://kit.fontawesome.com/cbfad0a2d9.js" crossorigin="anonymous"></script>
       <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

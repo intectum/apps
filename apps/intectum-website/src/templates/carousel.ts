@@ -1,5 +1,8 @@
 import { mapToHTML } from 'apps-web';
 
+import renderAngleLeftSvg from './icons/angle-left';
+import renderAngleRightSvg from './icons/angle-right';
+
 const renderCarouselHTML = (slideHTMLAll: string[]) => `
   <div is="intectum-carousel" class="c-carousel">
     <div class="c-carousel__track">
@@ -24,14 +27,14 @@ const renderCarouselHTML = (slideHTMLAll: string[]) => `
       class="c-button c-circle c-carousel__shift c-carousel__shift--previous u-panel--invert"
       data-action="decrement-index"
     >
-      <i class="fa-solid fa-angle-left u-icon"></i>
+      ${renderAngleLeftSvg()}
     </button>
     <button
       type="button"
       class="c-button c-circle c-carousel__shift c-carousel__shift--next u-panel--invert"
       data-action="increment-index"
     >
-      <i class="fa-solid fa-angle-right u-icon"></i>
+      ${renderAngleRightSvg()}
     </button>
     <div class="u-fr u-gap u-center u-m">
       ${mapToHTML(Array.from(Array(slideHTMLAll.length)), () => `

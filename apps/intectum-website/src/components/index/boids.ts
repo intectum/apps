@@ -4,6 +4,9 @@ import { toElement } from 'apps-web';
 
 import { updateBoids } from '../../common/boids';
 import { Boid } from '../../common/types';
+import renderLockOpenSvg from '../../templates/icons/lock-open';
+import renderFishHTML from '../../templates/index/fish';
+import renderSharkHTML from '../../templates/index/shark';
 
 type SlidingWindowValue<T> =
 {
@@ -15,8 +18,8 @@ const fishMemoryDuration = 1;
 const fishSprintDuration = 5;
 const sharkSprintDuration = 3;
 
-const fishElement = toElement('<i class="c-boids__boid c-boids__boid--fish fa-solid fa-fish u-icon"></i>') as Element;
-const sharkElement = toElement('<i class="c-boids__boid c-boids__boid--shark fa-solid fa-fish-fins"></i>') as Element;
+const fishElement = toElement(renderFishHTML()) as Element;
+const sharkElement = toElement(renderSharkHTML()) as Element;
 
 export class Boids extends HTMLDivElement
 {
@@ -56,8 +59,7 @@ export class Boids extends HTMLDivElement
       unlockShark.onclick = () =>
       {
         this.unlockShark();
-        unlockShark.firstElementChild?.classList.remove('fa-lock');
-        unlockShark.firstElementChild?.classList.add('fa-lock-open');
+        unlockShark.firstElementChild?.replaceWith(toElement(renderLockOpenSvg()) as Element);
       };
     }
 

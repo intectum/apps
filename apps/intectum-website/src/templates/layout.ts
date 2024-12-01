@@ -3,6 +3,7 @@ import { LayoutHTMLRenderer } from 'apps-web';
 
 import renderLogoHTML from './logo';
 import renderThemeSelectorHTML from './theme-selector';
+import renderFolderOpenSvg from './icons/folder-open';
 
 const bodyStyle = `
   color-scheme: light dark;
@@ -21,7 +22,6 @@ const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML:
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content="Senior developer with 17 years of experience" />
 
-      <script src="https://kit.fontawesome.com/9c65acfa69.js" crossorigin="anonymous"></script>
       <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -43,7 +43,7 @@ const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML:
             </a>
             <a is="basis-a" href="/projects" title="Projects">
               <div class="c-circle u-panel u-hide-md">
-                <i class="fa-solid fa-folder-open u-icon"></i>
+                ${renderFolderOpenSvg()}
               </div>
               <div class="u-show-md">projects</div>
             </a>

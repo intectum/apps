@@ -7,7 +7,7 @@ export const addNavigation = () =>
   const pageContainer = document.querySelector('[data-section="page-container"]');
   if (!pageContainer) return;
 
-  pageCache.set(location.pathname, pageContainer.innerHTML);
+  pageCache.set(toPagePath(location.pathname), pageContainer.innerHTML);
 };
 
 export const navigate = async (path: string) =>

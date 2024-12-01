@@ -3,7 +3,8 @@ import http from 'http';
 
 import { bundle } from './bundle';
 
-const mimeTypes: Record<string, string> = {
+const mimeTypes: Record<string, string> =
+{
   'html': 'text/html',
   'ico': 'image/x-icon',
   'jpg': 'image/jpg',

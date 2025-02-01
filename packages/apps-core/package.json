@@ -2,11 +2,9 @@
   "name": "apps-core",
   "main": "src/index.ts",
   "dependencies": {
-    "color-convert": "^2.0.1",
     "luxon": "^3.4.3"
   },
   "devDependencies": {
-    "@types/color-convert": "^2.0.3",
     "@types/luxon": "^3.3.4"
   }
 }

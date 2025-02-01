@@ -7,10 +7,10 @@ import renderFolderOpenSvg from './icons/folder-open';
 
 const bodyStyle = `
   color-scheme: light dark;
-  --color-back: light-dark(${intectumThemes.stone.back}, ${intectumThemes.stone.front});
-  --color-middle: ${intectumThemes.stone.middle};
-  --color-front: light-dark(${intectumThemes.stone.front}, ${intectumThemes.stone.back});
-  --color-accent: ${intectumThemes.water.accent};
+  --color-back: light-dark(${intectumThemes.earth.back}, ${intectumThemes.earth.front});
+  --color-middle: ${intectumThemes.earth.middle};
+  --color-front: light-dark(${intectumThemes.earth.front}, ${intectumThemes.earth.back});
+  --color-accent: ${intectumThemes.earth.accent};
 `;
 
 const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML: string) => `

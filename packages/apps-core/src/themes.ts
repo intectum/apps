@@ -1,13 +1,11 @@
-import { hsv } from 'color-convert';
-
 import { Theme } from './types';
 
 export const createThemeFromHue = (hue: number): Theme =>
   ({
-    back: `#${hsv.hex([ hue, 33, 80 ])}`,
-    middle: `#${hsv.hex([ hue, 33, 53 ])}`,
-    front: `#${hsv.hex([ hue, 33, 20 ])}`,
-    accent: `#${hsv.hex([ hue, 66, 53 ])}`
+    back: `hsl(${hue}, 25%, 85%)`,
+    middle: `hsl(${hue}, 25%, 50%)`,
+    front: `hsl(${hue}, 25%, 15%)`,
+    accent: `hsl(${hue}, 75%, 50%)`
   });
 
 export const intectumThemes: Record<string, Theme> =

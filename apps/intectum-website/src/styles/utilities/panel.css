@@ -22,6 +22,6 @@
 .u-panel--accent
 {
   background-color: var(--color-accent);
-  color: var(--color-front);
+  color: light-dark(var(--color-front), var(--color-back));
   transition: background-color 0.5s, color 0.5s;
 }

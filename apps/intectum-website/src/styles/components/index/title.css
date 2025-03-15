@@ -1,19 +1,18 @@
 .c-home-title
 {
   position: relative;
-  height: 100lvh;
+  height: 100svh;
 }
 
 .c-home-title__welcome
 {
-  position: relative;
-
-  bottom: 42px;
+  margin-bottom: 1lh;
 }
 
 .c-home-title__intectum
 {
   position: fixed;
+  margin-top: 1lh;
 
   font-size: 48px;
 
@@ -216,8 +215,6 @@
 
 .c-home-title__scroll-icon
 {
-  position: absolute;
-  bottom: calc(var(--spacer-lg) + 80px);
   width: 48px;
 
   animation-name: c-home-title__scroll-icon;
@@ -250,11 +247,11 @@
 {
   0%
   {
-    transform: translateY(-8px);
+    transform: translateY(-16px);
   }
 
   100%
   {
-    transform: translateY(8px);
+    transform: translateY(0);
   }
 }

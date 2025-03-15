@@ -4,11 +4,5 @@
     "dev": "ts-node dev",
     "build": "eslint . && ts-node build",
     "deploy": "firebase deploy --only hosting"
-  },
-  "dependencies": {
-    "victor": "^1.1.0"
-  },
-  "devDependencies": {
-    "@types/victor": "^1.1.5"
   }
 }

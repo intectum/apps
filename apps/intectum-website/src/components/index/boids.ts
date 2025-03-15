@@ -1,9 +1,9 @@
-import Victor from 'victor';
 
 import { toElement } from 'apps-web';
 
 import { updateBoids } from '../../common/boids';
-import { Boid } from '../../common/types';
+import { Boid, Vec2 } from '../../common/types';
+import { angle, length, subtractTo, multiplyScalarTo } from '../../common/vectors';
 import renderLockOpenSvg from '../../templates/icons/lock-open';
 import renderFishHTML from '../../templates/index/fish';
 import renderSharkHTML from '../../templates/index/shark';
@@ -31,7 +31,7 @@ export class Boids extends HTMLDivElement
   private requestId = 0;
   private time = 0;
   private mouseClick = false;
-  private mousePosition?: Victor;
+  private mousePosition?: Vec2;
   private mouseSpeed?: number;
   private mouseSpeedSlidingWindow: SlidingWindowValue<number>[] = [];
 
@@ -65,11 +65,11 @@ export class Boids extends HTMLDivElement
 
     this.onmousemove = event =>
     {
-      const newMousePosition = new Victor(event.pageX, event.pageY - (this.offsetTop ?? 0));
+      const newMousePosition: Vec2 = { x: event.pageX, y: event.pageY - (this.offsetTop ?? 0) };
 
       if (this.mousePosition)
       {
-        this.mouseSpeed = (this.mouseSpeed ?? 0) + newMousePosition.clone().subtract(this.mousePosition).magnitude();
+        this.mouseSpeed = (this.mouseSpeed ?? 0) + length(subtractTo(newMousePosition, this.mousePosition));
       }
 
       this.mouseClick = false;
@@ -86,7 +86,7 @@ export class Boids extends HTMLDivElement
     this.onclick = event =>
     {
       this.mouseClick = true;
-      this.mousePosition = new Victor(event.pageX, event.pageY - (this.offsetTop ?? 0));
+      this.mousePosition = { x: event.pageX, y: event.pageY - (this.offsetTop ?? 0) };
       this.mouseSpeed = 1000;
     };
 
@@ -106,15 +106,18 @@ export class Boids extends HTMLDivElement
     if (this.fish.length < count)
     {
       const bounds = this.bounds();
-      const size = bounds.max.clone().subtract(bounds.min);
+      const size = subtractTo(bounds.max, bounds.min);
 
       const fish: Boid =
       {
-        position: new Victor(
-          bounds.min.x + Math.random() * size.x,
-          bounds.min.y + Math.random() * size.y
-        ),
-        velocity: new Victor(Math.random() * 100 - 50, Math.random() * 100 - 50),
+        position: {
+          x: bounds.min.x + Math.random() * size.x,
+          y: bounds.min.y + Math.random() * size.y
+        },
+        velocity: {
+          x: Math.random() * 100 - 50,
+          y: Math.random() * 100 - 50
+        },
         sprinting: false,
         sprintDuration: fishSprintDuration,
         sprintCompletedTime: 0
@@ -142,11 +145,14 @@ export class Boids extends HTMLDivElement
 
     const shark: Boid =
     {
-      position: new Victor(
-        bounds.min.x + Math.random() * (bounds.max.x - bounds.min.x),
-        bounds.max.y + 100
-      ),
-      velocity: new Victor(Math.random() * 100 - 50, Math.random() * -100),
+      position: {
+        x: bounds.min.x + Math.random() * (bounds.max.x - bounds.min.x),
+        y: bounds.max.y + 100
+      },
+      velocity: {
+        x: Math.random() * 100 - 50,
+        y: Math.random() * 100 - 50
+      },
       sprinting: false,
       sprintDuration: sharkSprintDuration,
       sprintCompletedTime: 0
@@ -281,23 +287,23 @@ export class Boids extends HTMLDivElement
       }
 
       const boid = boids[index];
-      distancesTravelled[index] += boid.velocity.clone().multiplyScalar(deltaTime).magnitude();
+      distancesTravelled[index] += length(multiplyScalarTo(boid.velocity, deltaTime));
       const distanceTravelled = distancesTravelled[index];
 
       const tailWagAngle = (Math.sin(distanceTravelled * wagSpeed) * 2 - 1) * wagAngle;
 
       element.style.left = `${boid.position.x}px`;
       element.style.top = `${boid.position.y}px`;
-      element.style.transform = `translate(-50%, -50%) rotate(${boid.velocity.angle() + tailWagAngle}rad)`;
-      element.style.filter = `brightness(${(boid.velocity.magnitude() / sprintSpeed) + 0.5})`;
+      element.style.transform = `translate(-50%, -50%) rotate(${angle(boid.velocity) + tailWagAngle}rad)`;
+      element.style.filter = `brightness(${(length(boid.velocity) / sprintSpeed) + 0.5})`;
     }
   }
 
   bounds()
   {
     return {
-      min: new Victor(0, 200),
-      max: new Victor(this.offsetWidth, this.offsetHeight)
+      min: { x: 0, y: 200 },
+      max: { x: this.offsetWidth, y: this.offsetHeight }
     };
   }
 }

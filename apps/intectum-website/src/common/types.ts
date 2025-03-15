@@ -1,11 +1,9 @@
-import Victor from 'victor';
-
 export const cvUrl = 'https://docs.google.com/document/d/15zjwNuKiEQEht9gHmLw94-1vkTog9jSKBGfKJvu7vJc';
 
 export type Boid =
 {
-  position: Victor;
-  velocity: Victor;
+  position: Vec2;
+  velocity: Vec2;
   sprinting: boolean;
   sprintDuration: number;
   sprintCompletedTime: number;
@@ -67,3 +65,8 @@ export type Skill =
 };
 
 export type SkillCategory = 'back' | 'front' | 'lang' | 'other';
+
+export type Vec2 = {
+  x: number;
+  y: number;
+}

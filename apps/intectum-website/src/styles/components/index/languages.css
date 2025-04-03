@@ -1,0 +1,12 @@
+.c-home-languages
+{
+  height: 100lvh;
+}
+
+@media screen and (max-width: 575px)
+{
+  .c-home-languages
+  {
+    flex-direction: column;
+  }
+}

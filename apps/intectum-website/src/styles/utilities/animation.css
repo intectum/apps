@@ -1,0 +1,17 @@
+.u-pulse
+{
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse
+{
+  from
+  {
+    background-color: transparent;
+  }
+
+  to
+  {
+    background-color: var(--color-middle);
+  }
+}

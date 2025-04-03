@@ -43,9 +43,19 @@
   justify-content: space-between;
 }
 
+.u-align--start
+{
+  align-items: start;
+}
+
 .u-align--center
 {
   align-items: center;
+}
+
+.u-align--end
+{
+  align-items: end;
 }
 
 .u-wrap

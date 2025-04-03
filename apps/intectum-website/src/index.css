@@ -15,6 +15,7 @@
 @import 'styles/components/index/clients.css';
 @import 'styles/components/index/contact.css';
 @import 'styles/components/index/intro.css';
+@import 'styles/components/index/languages.css';
 @import 'styles/components/index/projects.css';
 @import 'styles/components/index/showcase.css';
 @import 'styles/components/index/showcases.css';
@@ -25,7 +26,10 @@
 @import 'styles/components/project-dialog.css';
 @import 'styles/components/project-grid.css';
 @import 'styles/components/skill.css';
+@import 'styles/components/tab-block.css';
 @import 'styles/components/theme-selector.css';
 
+@import 'styles/utilities/animation.css';
+@import 'styles/utilities/code.css';
 @import 'styles/utilities/panel.css';
 @import 'styles/utilities/scroll-animation.css';

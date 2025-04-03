@@ -1,0 +1,16 @@
+.u-g
+{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: auto;
+}
+
+.u-g4
+{
+  grid-column: span 4;
+}
+
+.u-g8
+{
+  grid-column: span 8;
+}

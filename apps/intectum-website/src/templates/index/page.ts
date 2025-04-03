@@ -2,6 +2,7 @@ import renderBoidsHTML from './boids';
 import renderClientsHTML from './clients';
 import renderContactHTML from './contact';
 import renderIntroHTML from './intro';
+import renderLanguagesHTML from './languages';
 import renderProjectsHTML from './projects';
 import renderSkillsHTML from './skills';
 import renderTitleHTML from './title';
@@ -9,6 +10,7 @@ import renderTitleHTML from './title';
 const renderPageHTML = () => `
   ${renderTitleHTML()}
   ${renderIntroHTML()}
+  ${renderLanguagesHTML()}
   ${renderSkillsHTML()}
   ${renderClientsHTML()}
   <!--renderTestimonialsHTML()-->

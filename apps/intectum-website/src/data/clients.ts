@@ -367,6 +367,27 @@ const clients: Client[] =
       }
     ],
     iconUrl: '/images/clients/rush.svg'
+  },
+  {
+    slug: 'wintermute',
+    name: 'Wintermute',
+    active: true,
+    description: 'A leading algorithmic trading firm, focused on harnessing the chaos of digital assets into liquid and efficient markets.',
+    link:
+    {
+      url: 'https://wintemute.com/'
+    },
+    reference: ' Dmitrii Troitskii (Senior Software Engineer)',
+    position: 'Senior Frontend Developer',
+    employmentType: 'contractor',
+    dates:
+    [
+      {
+        startedAt: '2024-10',
+        endedAt: '2025-4'
+      }
+    ],
+    iconUrl: '/images/clients/wintermute.svg'
   }
 ];
 

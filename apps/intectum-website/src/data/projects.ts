@@ -3,6 +3,31 @@ import { Project } from '../common/types';
 const projects: Project[] =
 [
   {
+    slug: 'wintermute',
+    name: 'Wintermute',
+    description: 'Wintermute\'s own website.',
+    imageUrl: '/images/projects/wintermute.png',
+    clientSlug: 'wintermute',
+    links:
+    [
+      {
+        url: 'https://wintermute.com'
+      }
+    ],
+    skillSlugs:
+    [
+      'html-css',
+      'next-js',
+      'react',
+      'typescript'
+    ],
+    dates:
+    {
+      startedAt: '2024-10',
+      endedAt: '2025-04'
+    }
+  },
+  {
     slug: 'popup',
     name: 'POPUP',
     description: 'Bringing creativity, serendipity and connection to virtual gatherings and events.',

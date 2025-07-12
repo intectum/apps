@@ -10,7 +10,7 @@ export const bundle = async (production?: boolean) =>
     outdir: 'dist',
     bundle: true,
     write: false,
-    loader: { '.svg': 'dataurl' },
+    loader: { '.svg': 'dataurl', '.woff2': 'dataurl' },
     define: envToDefine(),
     sourcemap: production ? undefined : 'inline',
     minify: production

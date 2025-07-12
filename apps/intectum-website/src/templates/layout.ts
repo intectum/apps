@@ -21,11 +21,7 @@ const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML:
       <link rel="shortcut icon" href="/images/logo.svg" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content="Senior developer with 17 years of experience" />
-
       <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|PT+Serif&display=swap" />
       <style>${css}</style>
     </head>
     <body class="u-panel" style="${bodyStyle}">

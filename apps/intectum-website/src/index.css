@@ -1,5 +1,7 @@
 @import '../../../packages/apps-web/src/styles/index.css';
 
+@import 'styles/base/fonts.css';
+
 @import 'styles/elements/a.css';
 @import 'styles/elements/blockquote.css';
 @import 'styles/elements/body.css';

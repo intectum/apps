@@ -37,26 +37,6 @@ export class Page extends HTMLDivElement
         this.queryTimeout = window.setTimeout(() => this.updateProjects(), queryDelay);
       };
     }
-
-    const openProjectAll = this.querySelectorAll<HTMLButtonElement>('[data-action="open-project"]');
-    for (const openProject of openProjectAll)
-    {
-      openProject.onclick = () =>
-      {
-        const projectSlug = openProject.dataset.projectSlug;
-        const project = allProjects.find(theProject => theProject.slug === projectSlug);
-        if (project)
-        {
-          const dialog = toElement<HTMLDialogElement>(renderProjectDialogHTML(project));
-          if (!dialog) return;
-
-          this.appendChild(dialog);
-
-          dialog.onclose = () => dialog.remove();
-          dialog.showModal();
-        }
-      };
-    }
   }
 
   updateProjects()
@@ -80,6 +60,26 @@ export class Page extends HTMLDivElement
 
     const projects = this.getProjects(searchParams.get('client') ?? undefined, searchParams.get('q') ?? undefined);
     projectGrid.innerHTML = mapToHTML(projects, renderProjectHTML);
+
+    const openProjectAll = this.querySelectorAll<HTMLButtonElement>('[data-action="open-project"]');
+    for (const openProject of openProjectAll)
+    {
+      openProject.onclick = () =>
+      {
+        const projectSlug = openProject.dataset.projectSlug;
+        const project = allProjects.find(theProject => theProject.slug === projectSlug);
+        if (project)
+        {
+          const dialog = toElement<HTMLDialogElement>(renderProjectDialogHTML(project));
+          if (!dialog) return;
+
+          this.appendChild(dialog);
+
+          dialog.onclose = () => dialog.remove();
+          dialog.showModal();
+        }
+      };
+    }
   }
 
   getProjects(clientSlug?: string, query?: string)

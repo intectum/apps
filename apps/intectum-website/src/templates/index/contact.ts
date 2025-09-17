@@ -38,7 +38,7 @@ const renderContactHTML = () => `
         <a
           is="basis-a"
           class="u-p"
-          href="mailto:gyan@intectum.nz"
+          href="mailto:gyan@intectum.io"
           title="Email"
         >
           ${renderEnvelopeSvg()}

@@ -709,7 +709,7 @@ const projects: Project[] =
     links:
     [
       {
-        url: 'https://intectum.nz'
+        url: 'https://intectum.io'
       },
       {
         url: 'https://github.com/intectum/apps/tree/main/apps/intectum-website',

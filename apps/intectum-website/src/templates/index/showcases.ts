@@ -6,7 +6,7 @@ import renderCarouselHTML from '../carousel';
 const showcases = projects.filter(project => project.name === 'astrum' || project.name === 'ludo');
 
 const renderShowcasesHTML = () => `
-  <div data-section="scroll-animation" class="c-home-showcases u-container u-fc u-gap u-center">
+  <div data-name="scroll-animation" class="c-home-showcases u-container u-fc u-gap u-center">
     <h2>Showcases</h2>
     ${renderCarouselHTML(showcases.map((showcase, index) => `
       <h3 class="u-text-center">${showcase.name}</h3>

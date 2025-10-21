@@ -7,7 +7,7 @@ const activeClients = clients
   .sort((a, b) => a.name.localeCompare(b.name));
 
 const renderClientsHTML = () => `
-  <div is="intectum-home-clients" data-section="scroll-animation" class="c-home-clients u-container" style="--client-count: ${activeClients.length};">
+  <div is="intectum-home-clients" data-name="scroll-animation" class="c-home-clients u-container" style="--client-count: ${activeClients.length};">
     <div class="c-home-clients__body u-fr u-gap u-center u-m">
       <div class="c-circle c-home-clients__outer u-panel--middle u-scroll-animation u-fr u-center u-m">
         ${mapToHTML(activeClients, (client, index) => `

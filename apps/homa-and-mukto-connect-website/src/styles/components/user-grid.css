@@ -1,0 +1,15 @@
+.c-user-grid
+{
+  display: grid;
+  grid-template-columns: auto;
+  column-gap: var(--spacer);
+  row-gap: var(--spacer-lg);
+}
+
+@media screen and (min-width: 1024px)
+{
+  .c-user-grid
+  {
+    grid-template-columns: auto auto;
+  }
+}

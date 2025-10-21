@@ -6,7 +6,7 @@ const renderSkillsHTML = () => `
       <h2>Toolbox</h2>
       <div class="u-text-large">I have a passion for high quality code that is as simple as possible, learn new tech and concepts very quickly and pay a lot of attention to the details</div>
     </div>
-    <div data-section="skills-matrix" class="c-home-skills__matrix u-fc u-gap u-center u-m">
+    <div data-name="skills-matrix" class="c-home-skills__matrix u-fc u-gap u-center u-m">
       <div class="u-center u-fr u-gap u-wrap">
         <button
           type="button"

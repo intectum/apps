@@ -25,19 +25,19 @@ export class Skills extends HTMLDivElement
 
   setCategory(category: string)
   {
-    const skillBarFilledAll = this.querySelectorAll('[data-section="skill-bar-filled"]');
+    const skillBarFilledAll = this.querySelectorAll('[data-name="skill-bar-filled"]');
     for (const skillBarFilled of skillBarFilledAll)
     {
       skillObserver.unobserve(skillBarFilled);
     }
 
-    const skillsMatrix = this.querySelector('[data-section="skills-matrix"]');
+    const skillsMatrix = this.querySelector('[data-name="skills-matrix"]');
     if (skillsMatrix)
     {
-      replaceSelector(skillsMatrix, '[data-section="skill"]', renderSkillsCategoryHTML(category));
+      replaceSelector(skillsMatrix, '[data-name="skill"]', renderSkillsCategoryHTML(category));
     }
 
-    const newSkillBarFilledAll = this.querySelectorAll('[data-section="skill-bar-filled"]');
+    const newSkillBarFilledAll = this.querySelectorAll('[data-name="skill-bar-filled"]');
     for (const newSkillBarFilled of newSkillBarFilledAll)
     {
       skillObserver.observe(newSkillBarFilled);

@@ -18,8 +18,8 @@ const fishMemoryDuration = 1;
 const fishSprintDuration = 5;
 const sharkSprintDuration = 3;
 
-const fishElement = toElement(renderFishHTML()) as Element;
-const sharkElement = toElement(renderSharkHTML()) as Element;
+const fishElement = toElement(renderFishHTML());
+const sharkElement = toElement(renderSharkHTML());
 
 export class Boids extends HTMLDivElement
 {

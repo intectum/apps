@@ -2,7 +2,7 @@ import renderLockSvg from '../icons/lock';
 import renderTriangleExclamationSvg from '../icons/triangle-exclamation';
 
 const renderBoidsHTML = () => `
-  <div is="intectum-home-boids" data-section="scroll-animation" class="c-boids">
+  <div is="intectum-home-boids" data-name="scroll-animation" class="c-boids">
     <div class="c-boids__wave c-boids__wave--1 u-scroll-animation"></div>
     <div class="c-boids__wave c-boids__wave--2 u-scroll-animation"></div>
     <div class="c-boids__warning u-panel--invert u-fr u-center u-rounded u-hide-md u-px u-py--sm">

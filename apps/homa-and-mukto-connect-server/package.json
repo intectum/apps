@@ -1,0 +1,14 @@
+{
+  "name": "homa-and-mukto-connect-server",
+  "scripts": {
+    "start": "ts-node src/index"
+  },
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/busboy": "^1.5.4",
+    "@types/pg": "^8.15.5"
+  }
+}

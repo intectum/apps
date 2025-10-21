@@ -1,5 +1,5 @@
 const renderIntroHTML = () => `
-  <div data-section="scroll-animation" class="c-home-intro u-container u-text-center">
+  <div data-name="scroll-animation" class="c-home-intro u-container u-text-center">
     <div class="h3 c-home-intro__body u-fc u-center">
       <div class="c-home-intro__call-me u-scroll-animation">But you can call me</div>
       <div>

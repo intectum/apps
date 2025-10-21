@@ -17,8 +17,6 @@ export class Projects extends HTMLDivElement
         if (project)
         {
           const dialog = toElement<HTMLDialogElement>(renderProjectDialogHTML(project));
-          if (!dialog) return;
-
           this.appendChild(dialog);
 
           dialog.onclose = () => dialog.remove();

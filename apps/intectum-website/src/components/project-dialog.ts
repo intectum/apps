@@ -20,8 +20,6 @@ export class ProjectDialog extends BasisDialog
         if (client)
         {
           const dialog = toElement<HTMLDialogElement>(renderClientDialogHTML(client));
-          if (!dialog) return;
-
           this.appendChild(dialog);
 
           dialog.onclose = () => dialog.remove();

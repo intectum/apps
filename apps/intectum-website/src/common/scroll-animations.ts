@@ -1,7 +1,7 @@
 export const activateScrollAnimations = () =>
   document.addEventListener('scroll', () =>
   {
-    const containers = document.querySelectorAll<HTMLElement>('[data-section="scroll-animation"]');
+    const containers = document.querySelectorAll<HTMLElement>('[data-name="scroll-animation"]');
     for (const container of containers)
     {
       const scrollTopZero = container.offsetTop - window.innerHeight;

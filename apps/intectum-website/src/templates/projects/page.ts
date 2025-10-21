@@ -9,7 +9,7 @@ const renderPageHTML = () => `
         placeholder="What are you looking for?"
       />
     </form>
-    <div data-section="project-grid" class="c-project-grid__grid"></div>
+    <div data-name="project-grid" class="c-project-grid__grid"></div>
   </div>
 `;
 

@@ -4,7 +4,7 @@ export const addNavigation = () =>
 {
   window.addEventListener('popstate', () => navigate(location.pathname));
 
-  const pageContainer = document.querySelector('[data-section="page-container"]');
+  const pageContainer = document.querySelector('[data-name="page-container"]');
   if (!pageContainer) return;
 
   pageCache.set(toPagePath(location.pathname), pageContainer.innerHTML);
@@ -12,7 +12,7 @@ export const addNavigation = () =>
 
 export const navigate = async (path: string) =>
 {
-  const pageContainer = document.querySelector('[data-section="page-container"]');
+  const pageContainer = document.querySelector('[data-name="page-container"]');
   if (!pageContainer) return;
 
   const pageHTML = await fetchPage(path, true);

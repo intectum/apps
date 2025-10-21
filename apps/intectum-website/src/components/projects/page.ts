@@ -55,7 +55,7 @@ export class Page extends HTMLDivElement
     }
     history.replaceState({}, '', `/projects${searchParams.toString() ? `?${searchParams}` : ''}`);
 
-    const projectGrid = this.querySelector<HTMLDivElement>('[data-section="project-grid"]');
+    const projectGrid = this.querySelector<HTMLDivElement>('[data-name="project-grid"]');
     if (!projectGrid) return;
 
     const projects = this.getProjects(searchParams.get('client') ?? undefined, searchParams.get('q') ?? undefined);
@@ -71,8 +71,6 @@ export class Page extends HTMLDivElement
         if (project)
         {
           const dialog = toElement<HTMLDialogElement>(renderProjectDialogHTML(project));
-          if (!dialog) return;
-
           this.appendChild(dialog);
 
           dialog.onclose = () => dialog.remove();

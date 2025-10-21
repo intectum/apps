@@ -14,8 +14,8 @@ const renderThemeSelectorHTML = () => `
     <button type="button" class="c-button c-circle u-panel u-p--none" title="Dark mode" data-action="toggle-dark-mode">
       ${renderSunSvg()}
     </button>
-    <div data-section="themes" class="c-theme-selector__backdrop" data-action="close-themes" style="display: none;"></div>
-    <div data-section="themes" class="c-theme-selector__dropdown u-panel--invert u-fr u-gap u-rounded u-p--sm" style="display: none;">
+    <div data-name="themes" class="c-theme-selector__backdrop" data-action="close-themes" style="display: none;"></div>
+    <div data-name="themes" class="c-theme-selector__dropdown u-panel--invert u-fr u-gap u-rounded u-p--sm" style="display: none;">
       <div class="u-fc u-gap">
         ${mapToHTML(themeNames, themeName => `
           <button

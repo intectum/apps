@@ -45,7 +45,7 @@ const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML:
         </nav>
         ${renderThemeSelectorHTML()}
       </header>
-      <main data-section="page-container">
+      <main data-name="page-container">
         ${pageHTML}
       </main>
       <script>${js}</script>

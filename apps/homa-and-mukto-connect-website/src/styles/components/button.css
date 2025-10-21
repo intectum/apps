@@ -1,0 +1,52 @@
+.c-button
+{
+  padding: var(--spacer-sm) var(--spacer);
+
+  text-transform: uppercase;
+}
+
+.c-button:hover
+{
+  filter: brightness(90%);
+}
+
+.c-button:active
+{
+  filter: brightness(75%);
+}
+
+.c-button[disabled]
+{
+  opacity: 50%;
+}
+
+.c-button--icon
+{
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.c-button--plain:hover
+{
+  background-color: #ccc;
+  filter: none;
+}
+
+.c-button--primary
+{
+  background-color: var(--color-gold);
+}
+
+.c-button--secondary
+{
+  background-color: var(--color-aqua);
+}
+
+.c-button--danger
+{
+  background-color: orangered;
+}

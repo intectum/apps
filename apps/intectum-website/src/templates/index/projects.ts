@@ -3,7 +3,7 @@ import renderProjectsPageHTML from './projects-page';
 import renderProjectsGridHTML from './projects-grid';
 
 const renderProjectsHTML = () => `
-  <div is="intectum-home-projects" data-section="scroll-animation" class="c-home-projects u-container">
+  <div is="intectum-home-projects" data-name="scroll-animation" class="c-home-projects u-container">
     <div class="c-home-projects__body u-fr u-center">
       <div class="c-home-projects__detail u-fc u-gap u-text-center u-m">
         <h2>Projects</h2>

@@ -2,3 +2,8 @@
 {
   border-radius: var(--border-radius);
 }
+
+.u-rounded--full
+{
+  border-radius: 9999px;
+}

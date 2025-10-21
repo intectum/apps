@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+.u-text-small
+{
+  font-size: 12px;
+}
+
 .u-text-large
 {
   font-size: 20px;
@@ -11,4 +16,9 @@
 .u-bold
 {
   font-weight: bold;
+}
+
+.u-upper
+{
+  text-transform: uppercase;
 }

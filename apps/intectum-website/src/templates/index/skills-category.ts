@@ -23,18 +23,18 @@ const renderSkillsCategoryHTML = (category: string) =>
 
   return `
     ${mapToHTML(skillsInCategory, skill => `
-      <div data-section="skill" class="c-home-skills__skill u-fr">
+      <div data-name="skill" class="c-home-skills__skill u-fr">
         <div class="c-home-skills__skill-name u-panel--invert u-p--xs">${skill.name}</div>
         <div
           class="c-home-skills__skill-bar u-panel--middle u-f1"
           style="--skill-proficiency: ${skill.proficiency};"
         >
-          <div data-section="skill-bar-filled" class="c-home-skills__skill-bar-filled u-panel--accent"></div>
+          <div data-name="skill-bar-filled" class="c-home-skills__skill-bar-filled u-panel--accent"></div>
         </div>
       </div>
     `)}
     ${mapToHTML(Array.from(Array(maxSkillCount - skillsInCategory.length)), () => `
-      <div data-section="skill" class="c-home-skills__skill"></div>
+      <div data-name="skill" class="c-home-skills__skill"></div>
     `)}
   `;
 };

@@ -9,7 +9,7 @@ export const toElement = <T extends Element>(html: string) =>
   const container = document.createElement('div');
   container.innerHTML = html;
 
-  return container.firstElementChild as T | null;
+  return container.firstElementChild as T;
 };
 
 export const toElements = <T extends Element>(html: string) =>

@@ -1,9 +1,15 @@
+import { getToken } from './data';
+
 export const apiFetch = async (input: string | URL | Request, init?: RequestInit) =>
 {
   if (typeof(input) === 'string')
   {
     input = `http://localhost:8000${input}`;
   }
+
+  if (!init) init = {};
+  if (!init.headers) init.headers = {};
+  (init.headers as Record<string, string>).authorization = `Bearer ${getToken()?.accessToken}`;
 
   return fetch(input, init);
 };

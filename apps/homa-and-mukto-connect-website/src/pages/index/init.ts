@@ -5,6 +5,7 @@ import { toElement } from 'apps-web';
 import { init, navigate } from 'apps-web/client';
 import { Address, User } from 'homa-and-mukto-connect-core';
 
+import { apiFetchJson } from '../../common/api';
 import { getUser } from '../../common/data';
 import renderProfileDialogHTML from './profile-dialog';
 import renderUserMarkerHTML from './user-marker';
@@ -31,14 +32,14 @@ init['[data-init="logout"]'] = element =>
 {
   element.addEventListener('click', () =>
   {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     navigate('/login');
   });
 };
 
 init['[data-init="map"]'] = async element =>
 {
-  const user = JSON.parse(localStorage.getItem('user') ?? '{}') as User;
+  const user = getUser();
 
   const mapsLibrary = await importLibrary('maps') as google.maps.MapsLibrary;
   const markerLibrary = await importLibrary('marker') as google.maps.MarkerLibrary;
@@ -56,16 +57,14 @@ init['[data-init="map"]'] = async element =>
     }
   );
 
-  const addressesResponse = await fetch('http://localhost:8000/addresses');
-  const addresses: Address[] = await addressesResponse.json();
+  const addresses = await apiFetchJson<Address[]>('/addresses');
 
   const openUserDialog = async (userIds: number[]) =>
   {
     const params = new URLSearchParams();
     params.append('ids', userIds.join(','));
 
-    const usersResponse = await fetch(`http://localhost:8000/users?${params}`);
-    const users: User[] = await usersResponse.json();
+    const users = await apiFetchJson<User[]>(`/users?${params}`);
 
     const dialog = toElement<HTMLDialogElement>(renderUsersDialogHTML(users));
     document.body.appendChild(dialog);

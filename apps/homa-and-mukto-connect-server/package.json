@@ -4,6 +4,7 @@
     "start": "ts-node src/index"
   },
   "dependencies": {
+    "@node-oauth/oauth2-server": "^5.2.1",
     "busboy": "^1.6.0",
     "pg": "^8.16.3"
   },

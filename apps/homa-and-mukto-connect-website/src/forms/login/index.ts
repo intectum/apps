@@ -1,8 +1,8 @@
 const renderLoginFormHTML = () => `
   <form data-init="login-form" class="u-fc u-gap--lg">
     <div class="u-fc u-gap--sm">
-      <label for="email">Email</label>
-      <input name="email" type="email" required="" />
+      <label for="username">Email</label>
+      <input name="username" type="email" required="" />
     </div>
     <div class="u-fc u-gap--sm">
       <label for="password">Password</label>

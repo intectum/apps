@@ -9,16 +9,20 @@ init['[data-init="login-form"]'] = async element =>
   {
     event.preventDefault();
 
-    const email = element.querySelector('[name="email"]') as HTMLInputElement;
-    const password = element.querySelector('[name="password"]') as HTMLInputElement;
+    const formData = new FormData(element as HTMLFormElement);
 
-    const user = await apiFetchJson<User>('/users/authenticate', {
+    const token = await apiFetchJson<User>('/oauth/token', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ email: email.value, password: password.value })
+      body: new URLSearchParams({
+        'username': formData.get('username') as string,
+        'password': formData.get('password') as string,
+        'grant_type': 'password',
+        'client_id': 'homa-and-mukto-connect',
+        'client_secret': 'secret' // TODO
+      })
     });
 
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', JSON.stringify(token));
     await navigate('/');
   });
 };

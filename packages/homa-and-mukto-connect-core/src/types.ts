@@ -48,6 +48,25 @@ export type Group =
   year: number;
 };
 
+export type Token =
+{
+  access_token: string;
+  access_token_expires_at?: string;
+  refresh_token?: string;
+  refresh_token_expires_at?: string;
+  user_id: number;
+  user?: User;
+};
+
+export type TokenCamelCase =
+{
+  accessToken: string;
+  accessTokenExpiresAt?: string;
+  refreshToken?: string;
+  refreshTokenExpiresAt?: string;
+  user: User;
+};
+
 // Google Cloud
 
 export type GeocodeResponse =

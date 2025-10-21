@@ -1,4 +1,4 @@
-import { Address, Credentials, New, User } from 'homa-and-mukto-connect-core';
+import { Address, New, User } from 'homa-and-mukto-connect-core';
 
 import { update as updateAddress } from './addresses';
 import { Context } from './common/types';
@@ -61,8 +61,9 @@ export const getAll = async (context: Context, params: URLSearchParams) =>
 
 export const create = async (context: Context, user: New<User>, email: string, password: string) =>
 {
+  // TODO encrypt password
   const result = await context.client.query<User>(
-    'INSERT INTO "user" (email, password, name, image, contacts, groups ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id',
+    'INSERT INTO "user" (email, password, name, image, contacts, groups) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id',
     [ email, password, user.name, user.image, user.contacts, user.groups ]
   );
 
@@ -83,15 +84,3 @@ export const update = async (context: Context, user: User) =>
 
 export const remove = async (context: Context, id: number) =>
   context.client.query<User>('DELETE FROM "user" WHERE id = $1', [ id ]);
-
-export const authenticate = async (context: Context, credentials: Credentials): Promise<User | undefined> =>
-{
-  const result = await context.client.query<User>(
-    'SELECT id FROM "user" WHERE email = $1 AND password = $2',
-    [ credentials.email, credentials.password ]
-  );
-
-  if (!result.rows.length) return undefined;
-
-  return get(context, result.rows[0].id);
-};

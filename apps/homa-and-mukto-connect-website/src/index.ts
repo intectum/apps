@@ -14,7 +14,7 @@ defineBasisDialog();
 
 init['[data-init="require-auth"]'] = async () =>
 {
-  if (!localStorage.getItem('user')) await navigate('/login');
+  if (!localStorage.getItem('token')) await navigate('/login');
 };
 
 init['[data-init="remove"]'] = element =>

@@ -2,6 +2,7 @@ import { init, navigate } from 'apps-web/client';
 import { Address, User } from 'homa-and-mukto-connect-core';
 
 import { apiFetch, apiFetchJson } from '../../common/api';
+import { getToken, getUser } from '../../common/data';
 import { geocode } from '../../common/geocoding';
 import { resolveContactsFormData } from '../controls/contacts/init';
 import { resolveGroupsFormData } from '../controls/groups/init';
@@ -12,8 +13,7 @@ init['[data-init="profile-form"]'] = async element =>
 
   remove.addEventListener('click', async () =>
   {
-    const user = JSON.parse(localStorage.getItem('user') ?? '{}') as User;
-    await apiFetch(`/users/${user.id}`, { method: 'DELETE' });
+    await apiFetch(`/users/${getUser().id}`, { method: 'DELETE' });
 
     navigate('/login');
   });
@@ -22,7 +22,7 @@ init['[data-init="profile-form"]'] = async element =>
   {
     event.preventDefault();
 
-    const user = JSON.parse(localStorage.getItem('user') ?? '{}') as User;
+    const user = getUser();
     const formData = new FormData(element as HTMLFormElement);
 
     const address = await geocode(formData.get('address') as string) as Address;
@@ -42,6 +42,8 @@ init['[data-init="profile-form"]'] = async element =>
       body: formData
     });
 
-    localStorage.setItem('user', JSON.stringify(updatedUser));
+    const token = getToken();
+    token.user = updatedUser;
+    localStorage.setItem('token', JSON.stringify(token));
   });
 };

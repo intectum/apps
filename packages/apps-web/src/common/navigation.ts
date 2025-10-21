@@ -1,3 +1,5 @@
+
+import { apply } from './init';
 const pageCache = new Map<string, string>();
 
 export const addNavigation = () =>
@@ -20,6 +22,7 @@ export const navigate = async (path: string) =>
 
   history.pushState({}, '', path);
   pageContainer.innerHTML = pageHTML;
+  for (const element of pageContainer.children) apply(element);
   document.documentElement.scrollTop = 0;
 };
 

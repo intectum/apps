@@ -1,8 +1,9 @@
 import { build } from 'apps-web/tools';
 
-import { default as renderIndexPageHTML } from './src/templates/index/page';
-import { default as renderLoginPageHTML } from './src/templates/login/page';
-import renderLayoutHTML from './src/templates/layout';
+import renderLayoutHTML from './src/layout';
+import { default as renderIndexPageHTML } from './src/pages/index';
+import { default as renderLoginPageHTML } from './src/pages/login';
+import { default as renderRegisterPageHTML } from './src/pages/register';
 
 (async function()
 {
@@ -13,7 +14,8 @@ import renderLayoutHTML from './src/templates/layout';
     renderLayoutHTML,
     {
       'index': renderIndexPageHTML,
-      'login': renderLoginPageHTML
+      'login': renderLoginPageHTML,
+      'register': renderRegisterPageHTML
     }
   );
 

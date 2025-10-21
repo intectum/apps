@@ -63,7 +63,7 @@ export const runDevServer = async () =>
 
     try
     {
-      const pageModulePath = `${process.cwd()}/src/templates${htmlPath}/page`;
+      const pageModulePath = `${process.cwd()}/src/pages${htmlPath}`;
       invalidateModuleRecursive(require.resolve(pageModulePath));
       const { default: renderPageHTML } = await import(pageModulePath);
 
@@ -71,7 +71,7 @@ export const runDevServer = async () =>
       {
         try
         {
-          const layoutModulePath = `${process.cwd()}/src/templates/layout`;
+          const layoutModulePath = `${process.cwd()}/src/layout`;
           invalidateModuleRecursive(require.resolve(layoutModulePath));
           const { default: renderLayoutHTML } = await import(layoutModulePath);
 

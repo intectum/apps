@@ -1,34 +1,41 @@
-import { addNavigation, defineBasisAnchor, defineBasisDialog, enableLiveReload } from 'apps-web/client';
-
-import { defineAddressDropdown } from './components/address-dropdown';
-import { defineAuthenticatedPage } from './components/authenticated-page';
-import { defineDropdown } from './components/dropdown';
-import { defineHomeLogout } from './components/index/logout';
-import { defineHomeMap } from './components/index/map';
-import { defineHomeProfileForm } from './components/index/profile-form';
-import { defineHomeProfileToggle } from './components/index/profile-toggle';
-import { defineLoginForm } from './components/login/form';
-import { defineProfilePhoto } from './components/profile-photo';
-import { defineRegisterContactRow } from './components/register/contact-row';
-import { defineRegisterGroupRow } from './components/register/group-row';
-import { defineRegisterForm } from './components/register/form';
+import {
+  addNavigation,
+  apply,
+  defineBasisAnchor,
+  defineBasisDialog,
+  enableLiveReload,
+  init,
+  navigate
+} from 'apps-web/client';
 
 addNavigation();
 defineBasisAnchor();
 defineBasisDialog();
 
-defineAddressDropdown();
-defineAuthenticatedPage();
-defineDropdown();
-defineHomeLogout();
-defineHomeMap();
-defineHomeProfileForm();
-defineHomeProfileToggle();
-defineLoginForm();
-defineProfilePhoto();
-defineRegisterContactRow();
-defineRegisterGroupRow();
-defineRegisterForm();
+init['[data-init="require-auth"]'] = async () =>
+{
+  if (!localStorage.getItem('user')) await navigate('/login');
+};
+
+init['[data-init="remove"]'] = element =>
+{
+  const removable = element.closest('[data-init="removable"]');
+  if (removable) element.addEventListener('click', () => removable.remove());
+};
+
+import './pages/index/init';
+
+import './forms/login/init';
+import './forms/profile/init';
+import './forms/register/init';
+
+import './forms/controls/address-dropdown/init';
+import './forms/controls/contacts/init';
+import './forms/controls/dropdown/init';
+import './forms/controls/groups/init';
+import './forms/controls/image/init';
+
+apply(document.body);
 
 if (process.env.NODE_ENV !== 'production')
 {

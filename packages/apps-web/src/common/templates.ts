@@ -1,23 +1,31 @@
+import { apply } from './init';
+
 export const classes = (classes: (string | false | null | undefined)[]) =>
   classes.filter(theClass => !!theClass).join(' ') || undefined;
 
 export const mapToHTML = <T>(elements: T[] | undefined, map: (element: T, index: number, array: T[]) => string) =>
   elements?.map((element, index, array) => map(element, index, array).trim()).join('') ?? '';
 
-export const toElement = <T extends Element>(html: string) =>
+export const toElement = <T extends HTMLElement>(html: string) =>
 {
   const container = document.createElement('div');
   container.innerHTML = html;
 
-  return container.firstElementChild as T;
+  const element = container.firstElementChild as T;
+  apply(element);
+
+  return element;
 };
 
-export const toElements = <T extends Element>(html: string) =>
+export const toElements = <T extends HTMLElement>(html: string) =>
 {
   const container = document.createElement('div');
   container.innerHTML = html;
 
-  return Array.from(container.children) as T[];
+  const elements = Array.from(container.children) as T[];
+  for (const element of elements) apply(element);
+
+  return elements;
 };
 
 export const replaceSelector = (parent: Element, selector: string, replacement: Element[] | string) =>

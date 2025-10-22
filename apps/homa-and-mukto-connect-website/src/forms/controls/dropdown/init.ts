@@ -1,6 +1,7 @@
 import { mapToHTML } from 'apps-web';
 import { init } from 'apps-web/client';
 
+import { prepareOptions } from './index';
 import renderDropdownOptionHTML from './option';
 
 init['[data-init="dropdown"]'] = async element =>
@@ -56,10 +57,10 @@ init['[data-init="dropdown"]'] = async element =>
   initOptions(element);
 };
 
-export const setOptions = (element: HTMLElement, options: Record<string, string>) =>
+export const setOptions = (element: HTMLElement, options: Record<string, string> | [string, string][]) =>
 {
   const optionsElement = element.querySelector('[data-name="dropdown-options"]') as HTMLDivElement;
-  optionsElement.innerHTML = mapToHTML(Object.keys(options), key => renderDropdownOptionHTML(key, options[key]));
+  optionsElement.innerHTML = mapToHTML(prepareOptions(options), option => renderDropdownOptionHTML(option[0], option[1]));
 
   initOptions(element);
 };

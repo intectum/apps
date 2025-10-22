@@ -4,10 +4,10 @@ import strings from '../../../common/strings';
 import renderMinusSvg from '../../../icons/minus';
 import renderDropdownControlHTML from '../../controls/dropdown';
 
-const yearOptions: Record<string, string> = {};
+const yearOptions: [string, string][] = [];
 for (let year = new Date().getFullYear(); year >= 2000; year--)
 {
-  yearOptions[year.toString()] = year.toString();
+  yearOptions.push([ year.toString(), year.toString() ]);
 }
 
 const renderGroupRowHTML = (initialValue: Group | undefined, index: number) => `

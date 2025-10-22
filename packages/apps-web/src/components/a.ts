@@ -18,10 +18,10 @@ export class BasisAnchor extends HTMLAnchorElement
       else
       {
         fetchPage(newValue);
-        this.onclick = event =>
+        this.onclick = async event =>
         {
           event.preventDefault();
-          navigate(newValue);
+          await navigate(newValue);
         };
       }
     }

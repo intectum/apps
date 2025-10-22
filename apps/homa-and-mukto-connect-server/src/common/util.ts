@@ -69,7 +69,7 @@ export const getFormBody = <T>(req: IncomingMessage) =>
       });
     });
 
-    busboy.on('finish', async () => resolve(fields as T));
+    busboy.on('finish', () => resolve(fields as T));
 
     req.pipe(busboy);
   });

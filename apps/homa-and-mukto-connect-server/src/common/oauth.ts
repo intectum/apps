@@ -16,10 +16,10 @@ const theClient: Client =
 };
 
 export const token = async (context: Context, req: IncomingMessage) =>
-  createServer(context).token(await toAuthRequest(req), new Response());
+  createServer(context).token(await toAuthRequest(req, true), new Response());
 
 export const authenticate = async (context: Context, req: IncomingMessage) =>
-  createServer(context).authenticate(await toAuthRequest(req), new Response());
+  createServer(context).authenticate(await toAuthRequest(req, false), new Response());
 
 const createServer = (context: Context) =>
   new OAuth2Server({
@@ -110,11 +110,14 @@ const createServer = (context: Context) =>
       }
   });
 
-const toAuthRequest = async (req: IncomingMessage) =>
+const toAuthRequest = async (req: IncomingMessage, getBody: boolean) =>
 {
-  const urlSearchParams = await getURLSearchParamsBody(req);
   const body: Record<string, string> = {};
-  urlSearchParams.forEach((value, key) => body[key] = value);
+  if (getBody)
+  {
+    const urlSearchParams = await getURLSearchParamsBody(req);
+    urlSearchParams.forEach((value, key) => body[key] = value);
+  }
 
   const headers: Record<string, string> = {};
   for (const key of Object.keys(req.headers))

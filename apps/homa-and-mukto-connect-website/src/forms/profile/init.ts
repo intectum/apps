@@ -15,7 +15,7 @@ init['[data-init="profile-form"]'] = async element =>
   {
     await apiFetch(`/users/${getToken()?.user.id}`, { method: 'DELETE' });
 
-    navigate('/login');
+    await navigate('/login');
   });
 
   element.addEventListener('submit', async event =>

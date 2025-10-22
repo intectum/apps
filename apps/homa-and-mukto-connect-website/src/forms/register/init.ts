@@ -14,6 +14,8 @@ init['[data-init="register-form"]'] = async element =>
     const formData = new FormData(element as HTMLFormElement);
 
     const address = await geocode(formData.get('address') as string);
+    if (!address) throw Error('ERRRO!'); // TODO
+
     formData.set('address', JSON.stringify(address));
 
     const image = element.querySelector('[data-name="image"]') as HTMLImageElement;

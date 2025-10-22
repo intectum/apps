@@ -33,10 +33,10 @@ init['[data-init="profile-toggle"]'] = element =>
 
 init['[data-init="logout"]'] = element =>
 {
-  element.addEventListener('click', () =>
+  element.addEventListener('click', async () =>
   {
     localStorage.removeItem('token');
-    navigate('/login');
+    await navigate('/login');
   });
 };
 

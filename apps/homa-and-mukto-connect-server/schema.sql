@@ -1,0 +1,46 @@
+DROP TABLE token;
+DROP TABLE address;
+DROP TABLE "user";
+
+CREATE TABLE token
+(
+  id SERIAL PRIMARY KEY,
+  access_token VARCHAR(100) NOT NULL UNIQUE,
+  access_token_expires_at TIMESTAMP NOT NULL,
+  refresh_token VARCHAR(100) NOT NULL UNIQUE,
+  refresh_token_expires_at TIMESTAMP NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  user_id INTEGER NOT NULL,
+  CONSTRAINT fk_user
+    FOREIGN KEY (user_id)
+      REFERENCES "user"(id)
+      ON DELETE CASCADE
+);
+
+CREATE TABLE "user"
+(
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  name VARCHAR(100) NOT NULL,
+  image VARCHAR NOT NULL,
+  contacts JSONB[] NOT NULL,
+  groups JSONB[] NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE address
+(
+  id SERIAL PRIMARY KEY,
+  latitude NUMERIC(9,6) NOT NULL,
+  longitude NUMERIC(9,6) NOT NULL,
+  meta JSONB,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  user_id INTEGER NOT NULL,
+  CONSTRAINT fk_user
+    FOREIGN KEY (user_id)
+      REFERENCES "user"(id)
+      ON DELETE CASCADE
+);

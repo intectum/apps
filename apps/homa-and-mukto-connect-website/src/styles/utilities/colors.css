@@ -1,3 +1,13 @@
+.u-aqua
+{
+  color: var(--color-aqua);
+}
+
+.u-gold
+{
+  color: var(--color-gold);
+}
+
 .u-bg-aqua
 {
   background-color: var(--color-aqua);

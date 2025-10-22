@@ -7,7 +7,6 @@ import renderImageControlHTML from '../controls/image';
 
 const renderProfileFormHTML = (user: User) => `
   <form data-init="profile-form" class="u-fc u-gap--lg">
-    <h2>Profile</h2>
     <div class="u-fc u-gap--sm">
       <label for="name">Name</label>
       <input name="name" required="" value="${user.name}" />

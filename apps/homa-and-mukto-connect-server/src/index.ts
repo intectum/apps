@@ -11,6 +11,7 @@ import { getAll as getAllAddresses } from './addresses';
 import { Context } from './common/types';
 import { authenticate, token } from './common/oauth';
 import { getFormBody, getJsonBody, respondWithCode, respondWithJson } from './common/util';
+import { create as createPasswordReset, update as updatePasswordReset } from './password-reset';
 import { create as createRegistration, verify as verifyRegistration } from './registrations';
 import { getAll as getAllUsers, remove as removeUser, update as updateUser } from './users';
 
@@ -47,6 +48,23 @@ http.createServer(async (req, res) =>
           respondWithCode(res, 400);
           return;
         }
+      }
+    }
+    else if (url.pathname === '/password-reset')
+    {
+      if (req.method === 'POST')
+      {
+        const { email } = await getFormBody<{ email: string }>(req);
+        await createPasswordReset(context, email);
+        respondWithCode(res, 201);
+        return;
+      }
+      else if (req.method === 'PUT')
+      {
+        const { key, password } = await getFormBody<{ key: string, password: string }>(req);
+        await updatePasswordReset(context, key, password);
+        respondWithCode(res, 200);
+        return;
       }
     }
     else if (url.pathname === '/registrations')

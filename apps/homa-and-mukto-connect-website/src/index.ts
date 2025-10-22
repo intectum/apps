@@ -27,6 +27,8 @@ import './pages/index/init';
 import './pages/register/verify/init';
 
 import './forms/login/init';
+import './forms/password-forgot/init';
+import './forms/password-reset/init';
 import './forms/profile/init';
 import './forms/register/init';
 

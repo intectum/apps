@@ -12,11 +12,11 @@ export const apiFetch = async (input: string | URL | Request, init?: RequestInit
   if (!init.headers) init.headers = {};
 
   const token = getToken();
-  (init.headers as Record<string, string>).authorization = `Bearer ${token.accessToken}`;
+  if (token) (init.headers as Record<string, string>).authorization = `Bearer ${token.accessToken}`;
 
   const response = await fetch(input, init);
 
-  if (response.status === 401 && token.refreshTokenExpiresAt && new Date(token.refreshTokenExpiresAt).getTime() > new Date().getTime())
+  if (response.status === 401 && token?.refreshTokenExpiresAt && new Date(token.refreshTokenExpiresAt).getTime() > new Date().getTime())
   {
     const refreshResponse = await fetch(`${process.env.PUBLIC_API_BASE_URL}/oauth/token`, {
       method: 'POST',

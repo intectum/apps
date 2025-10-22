@@ -1,5 +1,9 @@
 import { TokenCamelCase } from 'homa-and-mukto-connect-core';
 
-export const getToken = () => JSON.parse(localStorage.getItem('token') ?? '{}') as TokenCamelCase;
+export const getToken = () =>
+{
+  const tokenJson = localStorage.getItem('token');
+  if (!tokenJson) return undefined;
 
-export const getUser = () => getToken().user;
+  return JSON.parse(tokenJson) as TokenCamelCase;
+};

@@ -2,7 +2,7 @@ import { init, navigate } from 'apps-web/client';
 import { Address, User } from 'homa-and-mukto-connect-core';
 
 import { apiFetch, apiFetchJson } from '../../common/api';
-import { getToken, getUser } from '../../common/data';
+import { getToken } from '../../common/data';
 import { geocode } from '../../common/geocoding';
 import { resolveContactsFormData } from '../controls/contacts/init';
 import { resolveGroupsFormData } from '../controls/groups/init';
@@ -13,7 +13,7 @@ init['[data-init="profile-form"]'] = async element =>
 
   remove.addEventListener('click', async () =>
   {
-    await apiFetch(`/users/${getUser().id}`, { method: 'DELETE' });
+    await apiFetch(`/users/${getToken()?.user.id}`, { method: 'DELETE' });
 
     navigate('/login');
   });
@@ -22,13 +22,15 @@ init['[data-init="profile-form"]'] = async element =>
   {
     event.preventDefault();
 
-    const user = getUser();
+    const token = getToken();
+    if (!token) return;
+
     const formData = new FormData(element as HTMLFormElement);
 
     const address = await geocode(formData.get('address') as string) as Address;
     if (!address) throw Error('ERRRO!'); // TODO
 
-    if (user.address) address.id = user.address.id;
+    if (token.user.address) address.id = token.user.address.id;
     formData.set('address', JSON.stringify(address));
 
     const image = element.querySelector('[data-name="image"]') as HTMLImageElement;
@@ -37,13 +39,11 @@ init['[data-init="profile-form"]'] = async element =>
     resolveContactsFormData(formData);
     resolveGroupsFormData(formData);
 
-    const updatedUser = await apiFetchJson<User>(`/users/${user.id}`, {
+    token.user = await apiFetchJson<User>(`/users/${token.user.id}`, {
       method: 'PUT',
       body: formData
     });
 
-    const token = getToken();
-    token.user = updatedUser;
     localStorage.setItem('token', JSON.stringify(token));
   });
 };

@@ -6,7 +6,7 @@ import { init, navigate } from 'apps-web/client';
 import { Address, User } from 'homa-and-mukto-connect-core';
 
 import { apiFetchJson } from '../../common/api';
-import { getUser } from '../../common/data';
+import { getToken } from '../../common/data';
 import renderProfileDialogHTML from './profile-dialog';
 import renderUserMarkerHTML from './user-marker';
 import renderUsersDialogHTML from './users-dialog';
@@ -14,13 +14,16 @@ import renderUsersDialogHTML from './users-dialog';
 setOptions({ key: process.env.PUBLIC_GOOGLE_API_KEY ?? '' });
 
 init['[data-init="user-image"]'] = element =>
-  (element as HTMLImageElement).src = getUser().image;
+  (element as HTMLImageElement).src = getToken()?.user.image ?? '';
 
 init['[data-init="profile-toggle"]'] = element =>
 {
   element.addEventListener('click', () =>
   {
-    const dialog = toElement<HTMLDialogElement>(renderProfileDialogHTML(getUser()));
+    const token = getToken();
+    if (!token) return;
+
+    const dialog = toElement<HTMLDialogElement>(renderProfileDialogHTML(token.user));
     document.body.appendChild(dialog);
 
     dialog.onclose = () => dialog.remove();
@@ -39,7 +42,8 @@ init['[data-init="logout"]'] = element =>
 
 init['[data-init="map"]'] = async element =>
 {
-  const user = getUser();
+  const token = getToken();
+  if (!token) return;
 
   const mapsLibrary = await importLibrary('maps') as google.maps.MapsLibrary;
   const markerLibrary = await importLibrary('marker') as google.maps.MarkerLibrary;
@@ -53,13 +57,13 @@ init['[data-init="map"]'] = async element =>
       mapTypeControl: false,
       streetViewControl: false,
       zoom: 10,
-      center: { lat: user.address?.latitude ?? 0, lng: user.address?.longitude ?? 0 }
+      center: { lat: token.user.address?.latitude ?? 0, lng: token.user.address?.longitude ?? 0 }
     }
   );
 
   const addresses = await apiFetchJson<Address[]>('/addresses');
 
-  const openUserDialog = async (userIds: number[]) =>
+  const openUserDialog = async (userIds: string[]) =>
   {
     const params = new URLSearchParams();
     params.append('ids', userIds.join(','));
@@ -98,11 +102,11 @@ init['[data-init="map"]'] = async element =>
     },
     onClusterClick: (_, cluster) =>
     {
-      const userIds: number[] = [];
+      const userIds: string[] = [];
       for (const marker of cluster.markers)
       {
         const element = (marker as google.maps.marker.AdvancedMarkerElement).content as Element;
-        userIds.push(Number(element.attributes.getNamedItem('data-user-id')?.value));
+        userIds.push(element.attributes.getNamedItem('data-user-id')?.value ?? '');
       }
 
       openUserDialog(userIds);

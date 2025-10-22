@@ -36,7 +36,9 @@ export const runDevServer = async () =>
 {
   http.createServer(async (req, res) =>
   {
-    if (req.url === '/live-reload')
+    const url = new URL(req.url ?? '', 'https://dummy');
+
+    if (url.pathname === '/live-reload')
     {
       if (watchRes) watchRes.end();
       watchRes = res.writeHead(200, {
@@ -47,7 +49,7 @@ export const runDevServer = async () =>
       return;
     }
 
-    const staticFilePath = `static${req.url}`;
+    const staticFilePath = `static${url.pathname}`;
     if (fs.existsSync(staticFilePath) && fs.statSync(staticFilePath).isFile())
     {
       res.writeHead(200, {
@@ -58,8 +60,8 @@ export const runDevServer = async () =>
       return;
     }
 
-    const includeLayout = !req.url?.endsWith('.page.html');
-    const htmlPath = req.url === '/' ? '/index' : req.url?.replace(/\.html$/, '').replace(/\.page$/, '');
+    const includeLayout = !url.pathname?.endsWith('.page.html');
+    const htmlPath = url.pathname === '/' ? '/index' : url.pathname?.replace(/\.html$/, '').replace(/\.page$/, '');
 
     try
     {

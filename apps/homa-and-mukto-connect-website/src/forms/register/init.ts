@@ -27,6 +27,6 @@ init['[data-init="register-form"]'] = async element =>
       body: formData
     });
 
-    if (response.ok) await navigate('/login');
+    if (response.ok) await navigate('/register/email');
   });
 };

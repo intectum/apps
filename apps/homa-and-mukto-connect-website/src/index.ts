@@ -24,6 +24,7 @@ init['[data-init="remove"]'] = element =>
 };
 
 import './pages/index/init';
+import './pages/register/verify/init';
 
 import './forms/login/init';
 import './forms/profile/init';

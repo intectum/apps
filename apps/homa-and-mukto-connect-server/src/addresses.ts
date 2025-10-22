@@ -4,7 +4,9 @@ import { Context } from './common/types';
 
 export const getAll = async (context: Context) =>
 {
-  const result = await context.client.query<Address>('SELECT * FROM address');
+  const result = await context.client.query<Address>(
+    'SELECT * FROM address JOIN "user" ON "user".id = address.user_id WHERE "user".status = \'active\''
+  );
 
   return result.rows;
 };

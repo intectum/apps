@@ -1,6 +1,17 @@
 import { IncomingMessage, ServerResponse } from 'node:http';
 
 import Busboy from 'busboy';
+import { createTransport } from 'nodemailer';
+
+export const mailTransporter = createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASSWORD
+  }
+});
 
 const corsHeaders = {
   'access-control-allow-origin': '*',

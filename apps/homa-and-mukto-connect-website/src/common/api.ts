@@ -1,13 +1,11 @@
 import { getToken } from './data';
 import { TokenCamelCase } from 'homa-and-mukto-connect-core';
 
-const baseUrl = 'http://localhost:8000';
-
 export const apiFetch = async (input: string | URL | Request, init?: RequestInit) =>
 {
   if (typeof(input) === 'string')
   {
-    input = `${baseUrl}${input}`;
+    input = `${process.env.PUBLIC_API_BASE_URL}${input}`;
   }
 
   if (!init) init = {};
@@ -20,7 +18,7 @@ export const apiFetch = async (input: string | URL | Request, init?: RequestInit
 
   if (response.status === 401 && token.refreshTokenExpiresAt && new Date(token.refreshTokenExpiresAt).getTime() > new Date().getTime())
   {
-    const refreshResponse = await fetch(`${baseUrl}/oauth/token`, {
+    const refreshResponse = await fetch(`${process.env.PUBLIC_API_BASE_URL}/oauth/token`, {
       method: 'POST',
       body: new URLSearchParams({
         grant_type: 'refresh_token',

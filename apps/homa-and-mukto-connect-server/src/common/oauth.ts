@@ -77,8 +77,8 @@ const createServer = (context: Context) =>
         },
         getUser: async (username, password) =>
         {
-          const result = await context.client.query<{ id: number, password: string }>(
-            'SELECT id, password FROM "user" WHERE email = $1',
+          const result = await context.client.query<{ id: string, password: string }>(
+            'SELECT id, password FROM "user" WHERE email = $1 AND status = \'active\'',
             [ username ]
           );
 

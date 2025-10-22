@@ -5,9 +5,9 @@ import { Address, New, User } from 'homa-and-mukto-connect-core';
 import { update as updateAddress } from './addresses';
 import { Context } from './common/types';
 
-export const get = async (context: Context, id: number) =>
+export const get = async (context: Context, id: string) =>
 {
-  const result = await context.client.query<User & Address & { address_id: number }>(
+  const result = await context.client.query<User & Address & { address_id: string }>(
     'SELECT "user".id, "user".name, "user".image, "user".contacts, "user".groups, address.id as address_id, address.latitude, address.longitude, address.meta FROM "user" LEFT JOIN address ON address.user_id = "user".id WHERE "user".id = $1',
     [ id ]
   );
@@ -46,13 +46,13 @@ export const get = async (context: Context, id: number) =>
 
 export const getAll = async (context: Context, params: URLSearchParams) =>
 {
-  let query = 'SELECT id, name, image, contacts, groups FROM "user"';
+  let query = 'SELECT id, name, image, contacts, groups FROM "user" WHERE status = \'active\'';
   const values: any[] = [];
 
   const ids = params.get('ids')?.split(',');
   if (ids)
   {
-    query += ' WHERE id = ANY ($1)';
+    query += ' AND id = ANY ($1)';
     values.push(ids);
   }
 
@@ -85,5 +85,5 @@ export const update = async (context: Context, user: User) =>
   return get(context, user.id);
 };
 
-export const remove = async (context: Context, id: number) =>
+export const remove = async (context: Context, id: string) =>
   context.client.query<User>('DELETE FROM "user" WHERE id = $1', [ id ]);

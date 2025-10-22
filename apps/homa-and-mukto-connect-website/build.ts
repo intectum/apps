@@ -1,9 +1,12 @@
 import { build } from 'apps-web/tools';
 
 import renderLayoutHTML from './src/layout';
-import { default as renderIndexPageHTML } from './src/pages/index';
-import { default as renderLoginPageHTML } from './src/pages/login';
-import { default as renderRegisterPageHTML } from './src/pages/register';
+import renderIndexPageHTML from './src/pages/index';
+import renderLoginPageHTML from './src/pages/login';
+import renderRegisterPageHTML from './src/pages/register';
+import renderRegisterEmailPageHTML from './src/pages/register/email';
+import renderRegisterReviewPageHTML from './src/pages/register/review';
+import renderRegisterVerifyPageHTML from './src/pages/register/verify';
 
 (async function()
 {
@@ -15,7 +18,10 @@ import { default as renderRegisterPageHTML } from './src/pages/register';
     {
       'index': renderIndexPageHTML,
       'login': renderLoginPageHTML,
-      'register': renderRegisterPageHTML
+      'register': renderRegisterPageHTML,
+      'register/email': renderRegisterEmailPageHTML,
+      'register/review': renderRegisterReviewPageHTML,
+      'register/verify': renderRegisterVerifyPageHTML
     }
   );
 

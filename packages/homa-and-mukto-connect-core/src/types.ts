@@ -1,5 +1,5 @@
 type Record = {
-  id: number;
+  id: string;
   created_at: string;
   updated_at: string;
 };
@@ -14,7 +14,7 @@ export type Address = Record &
     address_components: AddressComponent[];
     formatted_address: string;
   };
-  user_id: number;
+  user_id: string;
 };
 
 export type Credentials =
@@ -54,7 +54,7 @@ export type Token =
   access_token_expires_at?: string;
   refresh_token?: string;
   refresh_token_expires_at?: string;
-  user_id: number;
+  user_id: string;
   user?: User;
 };
 

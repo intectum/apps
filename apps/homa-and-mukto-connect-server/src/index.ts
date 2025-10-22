@@ -5,14 +5,15 @@ import { Pool, types } from 'pg';
 
 import { Registration, User } from 'homa-and-mukto-connect-core';
 
+dotenv.config();
+
 import { getAll as getAllAddresses } from './addresses';
 import { Context } from './common/types';
 import { authenticate, token } from './common/oauth';
-import { getFormBody, respondWithCode, respondWithJson } from './common/util';
-import { create as createRegistration } from './registrations';
+import { getFormBody, getJsonBody, respondWithCode, respondWithJson } from './common/util';
+import { create as createRegistration, verify as verifyRegistration } from './registrations';
 import { getAll as getAllUsers, remove as removeUser, update as updateUser } from './users';
 
-dotenv.config();
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 types.setTypeParser(types.builtins.NUMERIC, (value: any) => parseFloat(value));
 const pool = new Pool();
@@ -32,16 +33,7 @@ http.createServer(async (req, res) =>
 
   try
   {
-    if (url.pathname === '/registrations')
-    {
-      if (req.method === 'POST')
-      {
-        await createRegistration(context, await getFormBody<Registration>(req));
-        respondWithCode(res, 201);
-        return;
-      }
-    }
-    else if (url.pathname === '/oauth/token')
+    if (url.pathname === '/oauth/token')
     {
       if (req.method === 'POST')
       {
@@ -55,6 +47,21 @@ http.createServer(async (req, res) =>
           respondWithCode(res, 400);
           return;
         }
+      }
+    }
+    else if (url.pathname === '/registrations')
+    {
+      if (req.method === 'POST')
+      {
+        await createRegistration(context, await getFormBody<Registration>(req));
+        respondWithCode(res, 201);
+        return;
+      }
+      else if (req.method === 'PUT')
+      {
+        await verifyRegistration(context, await getJsonBody<string>(req));
+        respondWithCode(res, 200);
+        return;
       }
     }
 
@@ -87,7 +94,7 @@ http.createServer(async (req, res) =>
     }
     else if (url.pathname.startsWith('/users/'))
     {
-      const id = Number(url.pathname.substring('/users/'.length));
+      const id = url.pathname.substring('/users/'.length);
       if (id !== context.user?.id)
       {
         respondWithCode(res, 403);

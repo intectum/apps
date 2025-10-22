@@ -1,3 +1,5 @@
+import { hash } from 'bcrypt';
+
 import { Address, New, User } from 'homa-and-mukto-connect-core';
 
 import { update as updateAddress } from './addresses';
@@ -61,10 +63,11 @@ export const getAll = async (context: Context, params: URLSearchParams) =>
 
 export const create = async (context: Context, user: New<User>, email: string, password: string) =>
 {
-  // TODO encrypt password
+  const encryptedPassword = await hash(password, 12);
+
   const result = await context.client.query<User>(
     'INSERT INTO "user" (email, password, name, image, contacts, groups) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id',
-    [ email, password, user.name, user.image, user.contacts, user.groups ]
+    [ email, encryptedPassword, user.name, user.image, user.contacts, user.groups ]
   );
 
   return (await get(context, result.rows[0].id)) as User;

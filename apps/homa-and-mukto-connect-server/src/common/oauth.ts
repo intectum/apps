@@ -1,6 +1,7 @@
 import { IncomingMessage } from 'node:http';
 
 import OAuth2Server, { Client, Request, Response } from '@node-oauth/oauth2-server';
+import { compare } from 'bcrypt';
 
 import { Token, User } from 'homa-and-mukto-connect-core';
 
@@ -66,14 +67,18 @@ const createServer = (context: Context) =>
         },
         getUser: async (username, password) =>
         {
-          const result = await context.client.query<User>(
-            'SELECT id FROM "user" WHERE email = $1 AND password = $2',
-            [ username, password ]
+          const result = await context.client.query<{ id: number, password: string }>(
+            'SELECT id, password FROM "user" WHERE email = $1',
+            [ username ]
           );
 
           if (!result.rows.length) return undefined;
 
-          return getUser(context, result.rows[0].id);
+          const row = result.rows[0];
+
+          if (!(await compare(password, row.password))) return undefined;
+
+          return getUser(context, row.id);
         }
       }
   });

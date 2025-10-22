@@ -1,17 +1,46 @@
 import { getToken } from './data';
+import { TokenCamelCase } from 'homa-and-mukto-connect-core';
+
+const baseUrl = 'http://localhost:8000';
 
 export const apiFetch = async (input: string | URL | Request, init?: RequestInit) =>
 {
   if (typeof(input) === 'string')
   {
-    input = `http://localhost:8000${input}`;
+    input = `${baseUrl}${input}`;
   }
 
   if (!init) init = {};
   if (!init.headers) init.headers = {};
-  (init.headers as Record<string, string>).authorization = `Bearer ${getToken()?.accessToken}`;
 
-  return fetch(input, init);
+  const token = getToken();
+  (init.headers as Record<string, string>).authorization = `Bearer ${token.accessToken}`;
+
+  const response = await fetch(input, init);
+
+  if (response.status === 401 && token.refreshTokenExpiresAt && new Date(token.refreshTokenExpiresAt).getTime() > new Date().getTime())
+  {
+    const refreshResponse = await fetch(`${baseUrl}/oauth/token`, {
+      method: 'POST',
+      body: new URLSearchParams({
+        grant_type: 'refresh_token',
+        client_id: 'homa-and-mukto-connect',
+        client_secret: 'secret', // TODO
+        refresh_token: token.refreshToken ?? ''
+      })
+    });
+
+    if (refreshResponse.ok)
+    {
+      const refreshToken = await refreshResponse.json() as TokenCamelCase;
+      localStorage.setItem('token', JSON.stringify(refreshToken));
+
+      (init.headers as Record<string, string>).authorization = `Bearer ${refreshToken.accessToken}`;
+      return fetch(input, init);
+    }
+  }
+
+  return response;
 };
 
 export const apiFetchJson = async <T>(input: string | URL | Request, init?: RequestInit) =>

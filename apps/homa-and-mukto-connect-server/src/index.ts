@@ -50,9 +50,8 @@ http.createServer(async (req, res) =>
           respondWithJson(res, 201, await token(context, req));
           return;
         }
-        catch (err)
+        catch
         {
-          console.log(err); // TODO temp
           respondWithCode(res, 400);
           return;
         }
@@ -63,52 +62,51 @@ http.createServer(async (req, res) =>
     {
       const token = await authenticate(context, req);
       context.user = token.user as User;
-
-      if (url.pathname === '/addresses')
-      {
-        if (req.method === 'GET')
-        {
-          respondWithJson(res, 200, await getAllAddresses(context));
-          return;
-        }
-      }
-      else if (url.pathname === '/users')
-      {
-        if (req.method === 'GET')
-        {
-          respondWithJson(res, 200, await getAllUsers(context, url.searchParams));
-          return;
-        }
-      }
-      else if (url.pathname.startsWith('/users/'))
-      {
-        const id = Number(url.pathname.substring('/users/'.length));
-        if (id !== context.user?.id)
-        {
-          respondWithCode(res, 403);
-          return;
-        }
-
-        if (req.method === 'DELETE')
-        {
-          await removeUser(context, id);
-          respondWithCode(res, 200);
-          return;
-        }
-        else if (req.method === 'PUT')
-        {
-          const user = await getFormBody<User>(req);
-          user.id = id;
-          respondWithJson(res, 200, await updateUser(context, user));
-          return;
-        }
-      }
     }
-    catch (err)
+    catch
     {
-      console.log(err); // TODO temp
       respondWithCode(res, 401);
       return;
+    }
+
+    if (url.pathname === '/addresses')
+    {
+      if (req.method === 'GET')
+      {
+        respondWithJson(res, 200, await getAllAddresses(context));
+        return;
+      }
+    }
+    else if (url.pathname === '/users')
+    {
+      if (req.method === 'GET')
+      {
+        respondWithJson(res, 200, await getAllUsers(context, url.searchParams));
+        return;
+      }
+    }
+    else if (url.pathname.startsWith('/users/'))
+    {
+      const id = Number(url.pathname.substring('/users/'.length));
+      if (id !== context.user?.id)
+      {
+        respondWithCode(res, 403);
+        return;
+      }
+
+      if (req.method === 'DELETE')
+      {
+        await removeUser(context, id);
+        respondWithCode(res, 200);
+        return;
+      }
+      else if (req.method === 'PUT')
+      {
+        const user = await getFormBody<User>(req);
+        user.id = id;
+        respondWithJson(res, 200, await updateUser(context, user));
+        return;
+      }
     }
 
     respondWithCode(res, 404);

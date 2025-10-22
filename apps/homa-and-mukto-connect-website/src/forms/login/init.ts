@@ -14,11 +14,11 @@ init['[data-init="login-form"]'] = async element =>
     const token = await apiFetchJson<User>('/oauth/token', {
       method: 'POST',
       body: new URLSearchParams({
-        'username': formData.get('username') as string,
-        'password': formData.get('password') as string,
-        'grant_type': 'password',
-        'client_id': 'homa-and-mukto-connect',
-        'client_secret': 'secret' // TODO
+        grant_type: 'password',
+        client_id: 'homa-and-mukto-connect',
+        client_secret: 'secret', // TODO
+        username: formData.get('username') as string,
+        password: formData.get('password') as string
       })
     });
 

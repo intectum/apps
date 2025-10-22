@@ -3,7 +3,7 @@ import { init } from 'apps-web/client';
 import { autocomplete } from '../../../common/places';
 import { setOptions } from '../dropdown/init';
 
-init['[data-init="address-dropdown"]'] = async element =>
+init['[data-init="address-dropdown-control"]'] = async element =>
 {
   const input = element.querySelector('[data-name="dropdown-input"]') as HTMLInputElement;
 

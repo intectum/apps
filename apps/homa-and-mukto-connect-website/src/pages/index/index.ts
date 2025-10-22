@@ -8,7 +8,7 @@ const renderPageHTML = () => `
         <button data-init="profile-toggle" type="button" class="c-button c-button--icon">
           <img data-init="user-image" src="" alt="Me" class="u-rounded--full u-aspect--1" style="width: 32px;" />
         </button>
-        <button data-init="logout" is="hm-home-logout" type="button" class="c-button c-button--icon" style="border: none;">
+        <button data-init="logout" type="button" class="c-button c-button--icon" style="border: none;">
           ${renderArrowRightFromBracketSvg()}
         </button>
       </div>

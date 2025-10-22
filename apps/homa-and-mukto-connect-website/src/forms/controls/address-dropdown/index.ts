@@ -1,7 +1,7 @@
 import renderDropdownControlHTML from '../dropdown';
 
 const renderAddressDropdownControlHTML = (initialValue: string) => `
-  <div is="hm-address-dropdown">
+  <div data-init="address-dropdown-control">
     ${renderDropdownControlHTML('address', initialValue, {}, true, 'e.g. London')}
   </div>
 `;

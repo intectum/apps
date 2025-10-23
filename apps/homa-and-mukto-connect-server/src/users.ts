@@ -53,6 +53,7 @@ export const get = async (context: Context, id: string, full?: boolean) =>
 export const getAll = async (context: Context, params: URLSearchParams) =>
 {
   let query = 'SELECT id, name, image, contacts, groups FROM "user" WHERE status = \'active\'';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const values: any[] = [];
 
   const ids = params.get('ids')?.split(',');

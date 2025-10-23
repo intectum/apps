@@ -1,9 +1,11 @@
+import { toElement } from 'apps-web';
 import { init, navigate } from 'apps-web/client';
 import { Address, User } from 'homa-and-mukto-connect-core';
 
 import { apiFetch, apiFetchJson } from '../../common/api';
 import { getToken } from '../../common/data';
 import { geocode } from '../../common/geocoding';
+import renderDeleteProfileDialogHTML from '../../pages/index/delete-profile-dialog';
 import { resolveContactsFormData } from '../controls/contacts/init';
 import { resolveGroupsFormData } from '../controls/groups/init';
 
@@ -11,11 +13,27 @@ init['[data-init="profile-form"]'] = async element =>
 {
   const remove = element.querySelector('[data-name="remove"]') as HTMLButtonElement;
 
-  remove.addEventListener('click', async () =>
+  remove.addEventListener('click', () =>
   {
-    await apiFetch(`/users/${getToken()?.user.id}`, { method: 'DELETE' });
+    const token = getToken();
+    if (!token) return;
 
-    await navigate('/login');
+    const dialog = toElement<HTMLDialogElement>(renderDeleteProfileDialogHTML());
+    document.body.appendChild(dialog);
+
+    dialog.onclose = () => dialog.remove();
+    dialog.showModal();
+
+    const confirm = dialog.querySelector('[data-name="delete-profile"]') as HTMLButtonElement;
+    confirm.addEventListener('click', async () =>
+    {
+      await apiFetch(`/users/${getToken()?.user.id}`, { method: 'DELETE' });
+
+      await navigate('/login');
+    });
+
+    const cancel = dialog.querySelector('[data-name="delete-profile-cancel"]') as HTMLButtonElement;
+    cancel.addEventListener('click', () => dialog.remove());
   });
 
   element.addEventListener('submit', async event =>

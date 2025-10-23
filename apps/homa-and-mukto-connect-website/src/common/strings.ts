@@ -7,6 +7,11 @@ const strings: Record<string, Record<string, string>> =
     phone: 'Phone',
     whatsapp: 'WhatsApp'
   },
+  forms: {
+    instagramTitle: 'Must not start with @',
+    passwordTitle: 'Must be a minimum of eight characters with at least one letter and one number',
+    phoneTitle: 'Must be an international number starting with a country code and only including numbers and spaces e.g. +1 1232 456 789'
+  },
   groupTypes:
   {
     'consciousness': 'Tantra Consciousness',

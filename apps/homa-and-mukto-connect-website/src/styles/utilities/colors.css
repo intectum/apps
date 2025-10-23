@@ -3,6 +3,11 @@
   color: var(--color-aqua);
 }
 
+.u-danger
+{
+  color: var(--color-danger);
+}
+
 .u-gold
 {
   color: var(--color-gold);

@@ -10,7 +10,7 @@ dotenv.config();
 import { getAll as getAllAddresses } from './addresses';
 import { Context } from './common/types';
 import { authenticate, token } from './common/oauth';
-import { getFormBody, getJsonBody, respondWithCode, respondWithJson } from './common/util';
+import { getBody, respondWithCode, respondWithJson } from './common/util';
 import { create as createPasswordReset, update as updatePasswordReset } from './password-reset';
 import { create as createRegistration, verify as verifyRegistration } from './registrations';
 import { activate as activateUser, getAll as getAllUsers, getReview as getReviewUsers, remove as removeUser, update as updateUser } from './users';
@@ -56,14 +56,14 @@ http.createServer(async (req, res) =>
     {
       if (req.method === 'POST')
       {
-        const { email } = await getFormBody<{ email: string }>(req);
+        const { email } = await getBody<{ email: string }>(req);
         await createPasswordReset(context, email);
         respondWithCode(res, 201);
         return;
       }
       else if (req.method === 'PUT')
       {
-        const { key, password } = await getFormBody<{ key: string, password: string }>(req);
+        const { key, password } = await getBody<{ key: string, password: string }>(req);
         await updatePasswordReset(context, key, password);
         respondWithCode(res, 200);
         return;
@@ -73,13 +73,13 @@ http.createServer(async (req, res) =>
     {
       if (req.method === 'POST')
       {
-        await createRegistration(context, await getFormBody<Registration>(req));
+        await createRegistration(context, await getBody<Registration>(req));
         respondWithCode(res, 201);
         return;
       }
       else if (req.method === 'PUT')
       {
-        await verifyRegistration(context, await getJsonBody<string>(req));
+        await verifyRegistration(context, await getBody<string>(req));
         respondWithCode(res, 200);
         return;
       }
@@ -145,7 +145,7 @@ http.createServer(async (req, res) =>
       }
       else if (req.method === 'PUT')
       {
-        const user = await getFormBody<User>(req);
+        const user = await getBody<User>(req);
         user.id = id;
         respondWithJson(res, 200, await updateUser(context, user));
         return;

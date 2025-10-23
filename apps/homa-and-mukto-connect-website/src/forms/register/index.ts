@@ -1,4 +1,6 @@
+import { passwordRegex } from '../../common/data';
 import renderAddressDropdownControlHTML from '../controls/address-dropdown';
+import strings from '../../common/strings';
 import renderContactsControlHTML from '../controls/contacts';
 import renderGroupsControlHTML from '../controls/groups';
 import renderImageControlHTML from '../controls/image';
@@ -11,7 +13,7 @@ const renderRegisterFormHTML = () => `
     </div>
     <div class="u-fc u-gap--sm">
       <label for="password">Password</label>
-      <input name="password" type="password" required="" />
+      <input name="password" type="password" title="${strings.forms.passwordTitle}" pattern="${passwordRegex}" required="" />
     </div>
     <div class="u-fc u-gap--sm">
       <label for="name">Name</label>

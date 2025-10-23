@@ -48,5 +48,5 @@
 
 .c-button--danger
 {
-  background-color: orangered;
+  background-color: var(--color-danger);
 }

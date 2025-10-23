@@ -112,13 +112,6 @@ const createServer = (context: Context) =>
 
 const toAuthRequest = async (req: IncomingMessage, getBody: boolean) =>
 {
-  const body: Record<string, string> = {};
-  if (getBody)
-  {
-    const urlSearchParams = await getURLSearchParamsBody(req);
-    urlSearchParams.forEach((value, key) => body[key] = value);
-  }
-
   const headers: Record<string, string> = {};
   for (const key of Object.keys(req.headers))
   {
@@ -129,7 +122,7 @@ const toAuthRequest = async (req: IncomingMessage, getBody: boolean) =>
   }
 
   return new Request({
-    body,
+    body: getBody ? await getURLSearchParamsBody(req) : undefined,
     headers,
     method: req.method ?? '',
     query: {}

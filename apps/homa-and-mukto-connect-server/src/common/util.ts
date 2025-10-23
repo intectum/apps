@@ -21,6 +21,17 @@ const corsHeaders = {
 
 const maxFileSize = 5 * 1024 * 1024; // 5MB
 
+export const getBody = <T>(req: IncomingMessage) =>
+{
+  const contentType = req.headers['content-type'];
+
+  if (contentType === 'application/json') return getJsonBody<T>(req);
+  if (contentType === 'application/x-www-form-urlencoded') return getURLSearchParamsBody<T>(req);
+  if (contentType?.startsWith('multipart/form-data')) return getFormBody<T>(req);
+
+  throw new Error('Invalid content type');
+};
+
 export const getFormBody = <T>(req: IncomingMessage) =>
   new Promise<T>((resolve, reject) =>
   {
@@ -83,13 +94,21 @@ export const getJsonBody = <T>(req: IncomingMessage) =>
     req.on('end', () => resolve(JSON.parse(body) as T));
   });
 
-export const getURLSearchParamsBody = (req: IncomingMessage) =>
-  new Promise<URLSearchParams>((resolve, reject) =>
+export const getURLSearchParamsBody = <T>(req: IncomingMessage) =>
+  new Promise<T>((resolve, reject) =>
   {
     const chunks: Uint8Array[] = [];
     req.on('error', reject);
     req.on('data', chunk => chunks.push(chunk));
-    req.on('end', () => resolve(new URLSearchParams(Buffer.concat(chunks).toString('utf8'))));
+    req.on('end', () =>
+    {
+      const urlSearchParams = new URLSearchParams(Buffer.concat(chunks).toString('utf8'));
+
+      const body: Record<string, string> = {};
+      urlSearchParams.forEach((value, key) => body[key] = value);
+
+      resolve(body as T);
+    });
   });
 
 export const respondWithCode = (res: ServerResponse, code: number) =>

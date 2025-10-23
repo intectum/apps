@@ -34,7 +34,7 @@ const renderProfileFormHTML = (user: User) => `
       ${renderGroupsControlHTML(user.groups)}
     </div>
     <button class="c-button c-button--primary">Save</button>
-    <button data-name="remove" type="button" class="c-button c-button--danger">Delete account</button>
+    <button data-name="profile-form-remove" type="button" class="c-button c-button--danger">Delete account</button>
   </form>
 `;
 

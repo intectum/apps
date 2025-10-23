@@ -11,7 +11,7 @@ import { resolveGroupsFormData } from '../controls/groups/init';
 
 init['[data-init="profile-form"]'] = async element =>
 {
-  const remove = element.querySelector('[data-name="remove"]') as HTMLButtonElement;
+  const remove = element.querySelector('[data-name="profile-form-remove"]') as HTMLButtonElement;
 
   remove.addEventListener('click', () =>
   {

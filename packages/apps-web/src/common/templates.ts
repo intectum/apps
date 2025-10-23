@@ -10,22 +10,18 @@ export const toElement = <T extends HTMLElement>(html: string, parentTagName = '
 {
   const container = document.createElement(parentTagName);
   container.innerHTML = html;
+  apply(container);
 
-  const element = container.firstElementChild as T;
-  apply(element);
-
-  return element;
+  return container.firstElementChild as T;
 };
 
 export const toElements = <T extends HTMLElement>(html: string, parentTagName = 'div') =>
 {
   const container = document.createElement(parentTagName);
   container.innerHTML = html;
+  apply(container);
 
-  const elements = Array.from(container.children) as T[];
-  for (const element of elements) apply(element);
-
-  return elements;
+  return Array.from(container.children) as T[];
 };
 
 export const replaceSelector = (parent: Element, selector: string, replacement: Element[] | string) =>

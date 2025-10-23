@@ -49,6 +49,7 @@ init['[data-init="dropdown"]'] = async element =>
       if (option.textContent === input.value)
       {
         value.value = option.getAttribute('data-key') ?? '';
+        value.dispatchEvent(new Event('change'));
         break;
       }
     }

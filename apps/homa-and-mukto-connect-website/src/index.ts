@@ -17,12 +17,6 @@ init['[data-init="require-auth"]'] = async () =>
   if (!localStorage.getItem('token')) await navigate('/login');
 };
 
-init['[data-init="remove"]'] = element =>
-{
-  const removable = element.closest('[data-init="removable"]');
-  if (removable) element.addEventListener('click', () => removable.remove());
-};
-
 import './pages/admin/init';
 import './pages/index/init';
 import './pages/register/verify/init';

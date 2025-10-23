@@ -1,7 +1,8 @@
 import { init, navigate } from 'apps-web/client';
-import { User } from 'homa-and-mukto-connect-core';
+import { Token } from 'homa-and-mukto-connect-core';
 
-import { apiFetchJson } from '../../common/api';
+import { apiFetch } from '../../common/api';
+import { openErrorDialog } from '../../components/error-dialog';
 
 init['[data-init="login-form"]'] = async element =>
 {
@@ -11,7 +12,7 @@ init['[data-init="login-form"]'] = async element =>
 
     const formData = new FormData(element as HTMLFormElement);
 
-    const token = await apiFetchJson<User>('/oauth/token', {
+    const response = await apiFetch('/oauth/token', {
       method: 'POST',
       body: new URLSearchParams({
         grant_type: 'password',
@@ -22,6 +23,13 @@ init['[data-init="login-form"]'] = async element =>
       })
     });
 
+    if (!response.ok)
+    {
+      openErrorDialog(response.statusText);
+      return;
+    }
+
+    const token = await response.json() as Token;
     localStorage.setItem('token', JSON.stringify(token));
     await navigate('/');
   });

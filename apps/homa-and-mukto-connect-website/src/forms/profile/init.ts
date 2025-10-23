@@ -1,10 +1,11 @@
 import { toElement } from 'apps-web';
 import { init, navigate } from 'apps-web/client';
-import { Address, User } from 'homa-and-mukto-connect-core';
+import { Address, FullUser } from 'homa-and-mukto-connect-core';
 
-import { apiFetch, apiFetchJson } from '../../common/api';
+import { apiFetch } from '../../common/api';
 import { getToken } from '../../common/data';
 import { geocode } from '../../common/geocoding';
+import { openErrorDialog } from '../../components/error-dialog';
 import renderDeleteProfileDialogHTML from '../../pages/index/delete-profile-dialog';
 import { resolveContactsFormData } from '../controls/contacts/init';
 import { resolveGroupsFormData } from '../controls/groups/init';
@@ -27,7 +28,12 @@ init['[data-init="profile-form"]'] = async element =>
     const confirm = dialog.querySelector('[data-name="delete-profile"]') as HTMLButtonElement;
     confirm.addEventListener('click', async () =>
     {
-      await apiFetch(`/users/${getToken()?.user.id}`, { method: 'DELETE' });
+      const response = await apiFetch(`/users/${getToken()?.user.id}`, { method: 'DELETE' });
+      if (!response.ok)
+      {
+        openErrorDialog(response.statusText);
+        return;
+      }
 
       await navigate('/login');
     });
@@ -57,11 +63,18 @@ init['[data-init="profile-form"]'] = async element =>
     resolveContactsFormData(formData);
     resolveGroupsFormData(formData);
 
-    token.user = await apiFetchJson<User>(`/users/${token.user.id}`, {
+    const response = await apiFetch(`/users/${token.user.id}`, {
       method: 'PUT',
       body: formData
     });
 
+    if (!response.ok)
+    {
+      openErrorDialog(response.statusText);
+      return;
+    }
+
+    token.user = await response.json() as FullUser;
     localStorage.setItem('token', JSON.stringify(token));
   });
 };

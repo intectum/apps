@@ -2,6 +2,7 @@ import { init, navigate } from 'apps-web/client';
 
 import { apiFetch } from '../../common/api';
 import { geocode } from '../../common/geocoding';
+import { openErrorDialog } from '../../components/error-dialog';
 import { resolveContactsFormData } from '../controls/contacts/init';
 import { resolveGroupsFormData } from '../controls/groups/init';
 
@@ -29,6 +30,12 @@ init['[data-init="register-form"]'] = async element =>
       body: formData
     });
 
-    if (response.ok) await navigate('/register/email');
+    if (!response.ok)
+    {
+      openErrorDialog(response.statusText);
+      return;
+    }
+
+    await navigate('/register/email');
   });
 };

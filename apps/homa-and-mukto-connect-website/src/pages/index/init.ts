@@ -5,8 +5,9 @@ import { toElement } from 'apps-web';
 import { init, navigate } from 'apps-web/client';
 import { Address, User } from 'homa-and-mukto-connect-core';
 
-import { apiFetchJson } from '../../common/api';
+import { apiFetch } from '../../common/api';
 import { getToken } from '../../common/data';
+import { openErrorDialog } from '../../components/error-dialog';
 import renderProfileDialogHTML from './profile-dialog';
 import renderUserMarkerHTML from './user-marker';
 import renderUsersDialogHTML from './users-dialog';
@@ -61,14 +62,28 @@ init['[data-init="map"]'] = async element =>
     }
   );
 
-  const addresses = await apiFetchJson<Address[]>('/addresses');
+  const addressesResponse = await apiFetch('/addresses');
+  if (!addressesResponse.ok)
+  {
+    openErrorDialog(addressesResponse.statusText);
+    return;
+  }
+
+  const addresses = await addressesResponse.json() as Address[];
 
   const openUserDialog = async (userIds: string[]) =>
   {
     const params = new URLSearchParams();
     params.append('ids', userIds.join(','));
 
-    const users = await apiFetchJson<User[]>(`/users?${params}`);
+    const usersResponse = await apiFetch(`/users?${params}`);
+    if (!usersResponse.ok)
+    {
+      openErrorDialog(usersResponse.statusText);
+      return;
+    }
+
+    const users = await usersResponse.json() as User[];
 
     const dialog = toElement<HTMLDialogElement>(renderUsersDialogHTML(users));
     document.body.appendChild(dialog);

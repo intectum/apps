@@ -57,7 +57,7 @@ export type Token =
   refresh_token?: string;
   refresh_token_expires_at?: string;
   user_id: string;
-  user?: User;
+  user?: FullUser;
 };
 
 export type TokenCamelCase =
@@ -66,7 +66,7 @@ export type TokenCamelCase =
   accessTokenExpiresAt?: string;
   refreshToken?: string;
   refreshTokenExpiresAt?: string;
-  user: User;
+  user: FullUser;
 };
 
 // Google Cloud

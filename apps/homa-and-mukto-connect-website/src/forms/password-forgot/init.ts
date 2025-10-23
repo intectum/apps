@@ -1,6 +1,7 @@
 import { init, navigate } from 'apps-web/client';
 
 import { apiFetch } from '../../common/api';
+import { openErrorDialog } from '../../components/error-dialog';
 
 init['[data-init="password-forgot-form"]'] = async element =>
 {
@@ -10,10 +11,16 @@ init['[data-init="password-forgot-form"]'] = async element =>
 
     const formData = new FormData(element as HTMLFormElement);
 
-    await apiFetch('/password-reset', {
+    const response = await apiFetch('/password-reset', {
       method: 'POST',
       body: formData
     });
+
+    if (!response.ok)
+    {
+      openErrorDialog(response.statusText);
+      return;
+    }
 
     await navigate('/login/password/email');
   });

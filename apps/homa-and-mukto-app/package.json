@@ -1,0 +1,11 @@
+{
+  "name": "homa-and-mukto-app",
+  "scripts": {
+    "dev": "ts-node dev",
+    "build": "eslint . && ts-node build"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^2.0.1",
+    "@googlemaps/markerclusterer": "^2.6.2"
+  }
+}

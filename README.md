@@ -7,7 +7,7 @@ This is a monorepo of all of Intectum's internal TypeScript projects. It include
 This monorepo uses npm workspaces. The following is a list of all the workspaces included:
 
 - apps
-  - homa-and-mukto-connect-website: the Homa & Mukto: Connect website
+  - homa-and-mukto-*: components of the Homa & Mukto project
   - intectum-website: the intectum website
   - vaga-*: components of the Vaga project
 - packages
@@ -15,6 +15,7 @@ This monorepo uses npm workspaces. The following is a list of all the workspaces
   - apps-firebase: common firebase functions
   - apps-mobile: common react native components, hooks etc.
   - apps-web: common web functions
+  - homa-and-mukto-core: common functions for the Homa & Mukto project
   - vaga-core: common functions for the Vaga project
 
 ## Firebase

@@ -20,7 +20,7 @@ export const create = async (context: Context, registration: New<Registration>) 
     to: registration.email,
     subject: 'Please verify your email',
     text: `Click this link to verify your email: ${verifyUrl}`,
-    html: `<h1>Verify your email</h1><p>Click this link to verify your email: ${verifyUrl}</p>`
+    html: `<h1>Verify your email</h1><p>Click <a href="${verifyUrl}">this link</a> to verify your email.</p>`
   });
 };
 

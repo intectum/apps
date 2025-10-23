@@ -24,7 +24,7 @@ export const create = async (context: Context, email: string) =>
     to: email,
     subject: 'Reset your password',
     text: `Click this link to reset your password: ${resetUrl}`,
-    html: `<h1>Reset your password</h1><p>Click this link to reset your password: ${resetUrl}</p>`
+    html: `<h1>Reset your password</h1><p>Click <a href="${resetUrl}">this link</a> to reset your password.</p>`
   });
 };
 

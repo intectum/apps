@@ -10,6 +10,7 @@ CREATE TABLE "user"
   email VARCHAR(100) NOT NULL UNIQUE,
   password VARCHAR(100) NOT NULL,
   status VARCHAR(100) NOT NULL DEFAULT 'verify',
+  admin BOOLEAN NOT NULL DEFAULT false,
   name VARCHAR(100) NOT NULL,
   image VARCHAR NOT NULL,
   contacts JSONB[] NOT NULL,

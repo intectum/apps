@@ -6,9 +6,9 @@ export const classes = (classes: (string | false | null | undefined)[]) =>
 export const mapToHTML = <T>(elements: T[] | undefined, map: (element: T, index: number, array: T[]) => string) =>
   elements?.map((element, index, array) => map(element, index, array).trim()).join('') ?? '';
 
-export const toElement = <T extends HTMLElement>(html: string) =>
+export const toElement = <T extends HTMLElement>(html: string, parentTagName = 'div') =>
 {
-  const container = document.createElement('div');
+  const container = document.createElement(parentTagName);
   container.innerHTML = html;
 
   const element = container.firstElementChild as T;
@@ -17,9 +17,9 @@ export const toElement = <T extends HTMLElement>(html: string) =>
   return element;
 };
 
-export const toElements = <T extends HTMLElement>(html: string) =>
+export const toElements = <T extends HTMLElement>(html: string, parentTagName = 'div') =>
 {
-  const container = document.createElement('div');
+  const container = document.createElement(parentTagName);
   container.innerHTML = html;
 
   const elements = Array.from(container.children) as T[];

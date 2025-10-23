@@ -14,9 +14,9 @@ export const mailTransporter = createTransport({
 });
 
 const corsHeaders = {
-  'access-control-allow-origin': '*',
-  'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'access-control-allow-headers': 'authorization, content-type'
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  'Access-Control-Allow-Headers': 'Authorization, Content-Type'
 };
 
 const maxFileSize = 5 * 1024 * 1024; // 5MB
@@ -100,6 +100,6 @@ export const respondWithCode = (res: ServerResponse, code: number) =>
 
 export const respondWithJson = <T>(res: ServerResponse, code: number, data: T) =>
 {
-  res.writeHead(code, { 'content-type': 'application/json', ...corsHeaders });
+  res.writeHead(code, { 'Content-Type': 'application/json', ...corsHeaders });
   res.end(JSON.stringify(data));
 };

@@ -34,6 +34,8 @@ export type User = Record &
   address?: Address;
 };
 
+export type FullUser = User & Credentials & { admin: boolean };
+
 export type Contact =
 {
   type: string;

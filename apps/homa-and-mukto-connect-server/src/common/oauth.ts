@@ -36,7 +36,7 @@ const createServer = (context: Context) =>
 
           const row = result.rows[0];
 
-          const user = await getUser(context, row.user_id);
+          const user = await getUser(context, row.user_id, true);
           if (!user) return undefined;
 
           return {
@@ -59,7 +59,7 @@ const createServer = (context: Context) =>
 
           const row = result.rows[0];
 
-          const user = await getUser(context, row.user_id);
+          const user = await getUser(context, row.user_id, true);
           if (!user) return undefined;
 
           return {
@@ -88,7 +88,7 @@ const createServer = (context: Context) =>
 
           if (!(await compare(password, row.password))) return undefined;
 
-          return getUser(context, row.id);
+          return getUser(context, row.id, true);
         },
         saveToken: async (token, client, user) =>
         {

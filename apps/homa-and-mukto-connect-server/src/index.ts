@@ -3,7 +3,7 @@ import * as http from 'node:http';
 import * as dotenv from 'dotenv';
 import { Pool, types } from 'pg';
 
-import { Registration, User } from 'homa-and-mukto-connect-core';
+import { FullUser, Registration, User } from 'homa-and-mukto-connect-core';
 
 dotenv.config();
 
@@ -13,11 +13,13 @@ import { authenticate, token } from './common/oauth';
 import { getFormBody, getJsonBody, respondWithCode, respondWithJson } from './common/util';
 import { create as createPasswordReset, update as updatePasswordReset } from './password-reset';
 import { create as createRegistration, verify as verifyRegistration } from './registrations';
-import { getAll as getAllUsers, remove as removeUser, update as updateUser } from './users';
+import { activate as activateUser, getAll as getAllUsers, getReview as getReviewUsers, remove as removeUser, update as updateUser } from './users';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 types.setTypeParser(types.builtins.NUMERIC, (value: any) => parseFloat(value));
 const pool = new Pool();
+
+const uuidRexeg = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
 
 http.createServer(async (req, res) =>
 {
@@ -86,7 +88,7 @@ http.createServer(async (req, res) =>
     try
     {
       const token = await authenticate(context, req);
-      context.user = token.user as User;
+      context.user = token.user as FullUser;
     }
     catch
     {
@@ -110,10 +112,26 @@ http.createServer(async (req, res) =>
         return;
       }
     }
-    else if (url.pathname.startsWith('/users/'))
+    else if (url.pathname === '/users/review')
     {
-      const id = url.pathname.substring('/users/'.length);
-      if (id !== context.user?.id)
+      if (!context.user?.admin)
+      {
+        respondWithCode(res, 403);
+        return;
+      }
+
+      if (req.method === 'GET')
+      {
+        respondWithJson(res, 200, await getReviewUsers(context));
+        return;
+      }
+    }
+
+    const userMatch = url.pathname.match(`^/users/(${uuidRexeg})$`);
+    if (userMatch)
+    {
+      const id = userMatch[1];
+      if (!context.user?.admin && id !== context.user?.id)
       {
         respondWithCode(res, 403);
         return;
@@ -130,6 +148,24 @@ http.createServer(async (req, res) =>
         const user = await getFormBody<User>(req);
         user.id = id;
         respondWithJson(res, 200, await updateUser(context, user));
+        return;
+      }
+    }
+
+    const userActivateMatch = url.pathname.match(`^/users/(${uuidRexeg})/activate$`);
+    if (userActivateMatch)
+    {
+      const id = userActivateMatch[1];
+      if (!context.user?.admin)
+      {
+        respondWithCode(res, 403);
+        return;
+      }
+
+      if (req.method === 'POST')
+      {
+        await activateUser(context, id);
+        respondWithCode(res, 200);
         return;
       }
     }

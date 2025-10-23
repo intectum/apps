@@ -12,7 +12,7 @@ export const apiFetch = async (input: string | URL | Request, init?: RequestInit
   if (!init.headers) init.headers = {};
 
   const token = getToken();
-  if (token) (init.headers as Record<string, string>).authorization = `Bearer ${token.accessToken}`;
+  if (token) (init.headers as Record<string, string>).Authorization = `Bearer ${token.accessToken}`;
 
   const response = await fetch(input, init);
 
@@ -33,7 +33,7 @@ export const apiFetch = async (input: string | URL | Request, init?: RequestInit
       const refreshToken = await refreshResponse.json() as TokenCamelCase;
       localStorage.setItem('token', JSON.stringify(refreshToken));
 
-      (init.headers as Record<string, string>).authorization = `Bearer ${refreshToken.accessToken}`;
+      (init.headers as Record<string, string>).Authorization = `Bearer ${refreshToken.accessToken}`;
       return fetch(input, init);
     }
   }

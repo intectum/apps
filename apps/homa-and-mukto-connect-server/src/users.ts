@@ -1,14 +1,14 @@
 import { hash } from 'bcrypt';
 
-import { Address, New, User } from 'homa-and-mukto-connect-core';
+import { Address, FullUser, New, User } from 'homa-and-mukto-connect-core';
 
 import { update as updateAddress } from './addresses';
 import { Context } from './common/types';
 
-export const get = async (context: Context, id: string) =>
+export const get = async (context: Context, id: string, full?: boolean) =>
 {
-  const result = await context.client.query<User & Address & { address_id: string }>(
-    'SELECT "user".id, "user".name, "user".image, "user".contacts, "user".groups, address.id as address_id, address.latitude, address.longitude, address.meta FROM "user" LEFT JOIN address ON address.user_id = "user".id WHERE "user".id = $1',
+  const result = await context.client.query<FullUser & Address & { address_id: string }>(
+    'SELECT "user".id, "user".email, "user".admin, "user".name, "user".image, "user".contacts, "user".groups, address.id as address_id, address.latitude, address.longitude, address.meta FROM "user" LEFT JOIN address ON address.user_id = "user".id WHERE "user".id = $1',
     [ id ]
   );
 
@@ -41,7 +41,13 @@ export const get = async (context: Context, id: string) =>
     };
   }
 
-  return user;
+  if (!full) return user;
+
+  const fullUser = user as FullUser;
+  fullUser.email = row.email;
+  fullUser.admin = row.admin;
+
+  return fullUser;
 };
 
 export const getAll = async (context: Context, params: URLSearchParams) =>
@@ -57,6 +63,13 @@ export const getAll = async (context: Context, params: URLSearchParams) =>
   }
 
   const result = await context.client.query<User>(query, values);
+
+  return result.rows;
+};
+
+export const getReview = async (context: Context) =>
+{
+  const result = await context.client.query<FullUser>('SELECT id, email, name, image, contacts, groups FROM "user" WHERE status = \'review\'');
 
   return result.rows;
 };
@@ -86,4 +99,11 @@ export const update = async (context: Context, user: User) =>
 };
 
 export const remove = async (context: Context, id: string) =>
-  context.client.query<User>('DELETE FROM "user" WHERE id = $1', [ id ]);
+{
+  await context.client.query('DELETE FROM "user" WHERE id = $1', [ id ]);
+};
+
+export const activate = async (context: Context, id: string) =>
+{
+  await context.client.query('UPDATE "user" SET status = \'active\' WHERE id = $1', [ id ]);
+};

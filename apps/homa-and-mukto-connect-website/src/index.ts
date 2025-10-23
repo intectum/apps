@@ -23,6 +23,7 @@ init['[data-init="remove"]'] = element =>
   if (removable) element.addEventListener('click', () => removable.remove());
 };
 
+import './pages/admin/init';
 import './pages/index/init';
 import './pages/register/verify/init';
 

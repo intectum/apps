@@ -1,6 +1,7 @@
 import { build } from 'apps-web/tools';
 
 import renderLayoutHTML from './src/layout';
+import renderAdminPageHTML from './src/pages/admin';
 import renderIndexPageHTML from './src/pages/index';
 import renderLoginPageHTML from './src/pages/login';
 import renderLoginPasswordEmailPageHTML from './src/pages/login/password/email';
@@ -19,6 +20,7 @@ import renderRegisterVerifyPageHTML from './src/pages/register/verify';
   await build(
     renderLayoutHTML,
     {
+      'admin': renderAdminPageHTML,
       'index': renderIndexPageHTML,
       'login': renderLoginPageHTML,
       'login/password/email': renderLoginPasswordEmailPageHTML,

@@ -26,5 +26,17 @@ export const create = async (context: Context, registration: New<Registration>) 
 
 export const verify = async (context: Context, key: string) =>
 {
-  await context.client.query<User>('UPDATE "user" SET status = \'review\' WHERE id = $1 and status = \'verify\'', [ key ]);
+  const result = await context.client.query('UPDATE "user" SET status = \'review\' WHERE id = $1 and status = \'verify\' RETURNING id', [ key ]);
+
+  if (result.rows.length)
+  {
+    const adminUrl = `${process.env.CLIENT_BASE_URL}/admin`;
+
+    await mailTransporter.sendMail({
+      to: process.env.ADMIN_EMAIL,
+      subject: 'A user requires their profile to be reviewed',
+      text: `Open the admin panel here: ${adminUrl}`,
+      html: `<h1>Review required</h1><p>Open the admin panel <a href="${adminUrl}">here</a>.</p>`
+    });
+  }
 };

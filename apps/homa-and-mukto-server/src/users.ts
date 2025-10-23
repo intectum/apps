@@ -4,11 +4,12 @@ import { Address, FullUser, New, User } from 'homa-and-mukto-core';
 
 import { update as updateAddress } from './addresses';
 import { Context } from './common/types';
+import { mailTransporter } from './common/util';
 
-export const get = async (context: Context, id: string, full?: boolean) =>
+export const get = async (context: Context, id: string) =>
 {
   const result = await context.client.query<FullUser & Address & { address_id: string }>(
-    'SELECT "user".id, "user".email, "user".admin, "user".name, "user".image, "user".contacts, "user".groups, address.id as address_id, address.latitude, address.longitude, address.meta FROM "user" LEFT JOIN address ON address.user_id = "user".id WHERE "user".id = $1',
+    'SELECT "user".id, "user".email, "user".status, "user".admin, "user".name, "user".image, "user".contacts, "user".groups, "user".pending, address.id as address_id, address.latitude, address.longitude, address.meta FROM "user" LEFT JOIN address ON address.user_id = "user".id WHERE "user".id = $1',
     [ id ]
   );
 
@@ -16,13 +17,18 @@ export const get = async (context: Context, id: string, full?: boolean) =>
 
   const row = result.rows[0];
 
-  const user: User =
+  const user: FullUser =
   {
     id: row.id,
+    email: row.email,
+    password: '********',
+    status: row.status,
+    admin: row.admin,
     name: row.name,
     image: row.image,
     contacts: row.contacts,
     groups: row.groups,
+    pending: row.pending,
     created_at: '',
     updated_at: ''
   };
@@ -41,13 +47,7 @@ export const get = async (context: Context, id: string, full?: boolean) =>
     };
   }
 
-  if (!full) return user;
-
-  const fullUser = user as FullUser;
-  fullUser.email = row.email;
-  fullUser.admin = row.admin;
-
-  return fullUser;
+  return user;
 };
 
 export const getAll = async (context: Context, params: URLSearchParams) =>
@@ -70,7 +70,7 @@ export const getAll = async (context: Context, params: URLSearchParams) =>
 
 export const getReview = async (context: Context) =>
 {
-  const result = await context.client.query<FullUser>('SELECT id, email, name, image, contacts, groups FROM "user" WHERE status = \'review\'');
+  const result = await context.client.query<FullUser>('SELECT id, email, status, admin, name, image, contacts, groups, pending FROM "user" WHERE status = \'review\' OR pending IS NOT NULL');
 
   return result.rows;
 };
@@ -89,12 +89,33 @@ export const create = async (context: Context, user: New<User>, email: string, p
 
 export const update = async (context: Context, user: User) =>
 {
+  const oldUser = await get(context, user.id) as FullUser;
+  if (!oldUser) throw new Error('User not found');
+
+  let pending: FullUser['pending'] | undefined = undefined;
+  if (user.name !== oldUser.name || user.image !== oldUser.image)
+  {
+    pending = { name: user.name, image: user.image };
+  }
+
   await context.client.query<User>(
-    'UPDATE "user" SET name = $1, image = $2, contacts = $3, groups = $4 WHERE id = $5',
-    [ user.name, user.image, user.contacts, user.groups, user.id ]
+    'UPDATE "user" SET contacts = $1, groups = $2, pending = $3 WHERE id = $4',
+    [ user.contacts, user.groups, pending, user.id ]
   );
 
   if (user.address) await updateAddress(context, user.address);
+
+  if (pending && !oldUser.pending)
+  {
+    const adminUrl = `${process.env.CLIENT_BASE_URL}/admin`;
+
+    await mailTransporter.sendMail({
+      to: process.env.ADMIN_EMAIL,
+      subject: 'A user requires their profile to be reviewed',
+      text: `Open the admin panel here: ${adminUrl}`,
+      html: `<h1>Review required</h1><p>Open the admin panel <a href="${adminUrl}">here</a>.</p>`
+    });
+  }
 
   return get(context, user.id);
 };
@@ -106,5 +127,10 @@ export const remove = async (context: Context, id: string) =>
 
 export const activate = async (context: Context, id: string) =>
 {
-  await context.client.query('UPDATE "user" SET status = \'active\' WHERE id = $1', [ id ]);
+  const user = await get(context, id) as FullUser;
+
+  await context.client.query(
+    'UPDATE "user" SET status = \'active\', name = $1, image = $2, pending = NULL WHERE id = $3',
+    [ user.pending?.name ?? user.name, user.pending?.image ?? user.image, id ]
+  );
 };

@@ -1,7 +1,7 @@
 import renderArrowRightFromBracketSvg from '../../icons/arrow-right-from-bracket';
 
 const renderPageHTML = () => `
-  <div data-init="require-auth" class="u-cover-screen u-fc">
+  <div data-require-auth="" class="u-cover-screen u-fc">
     <header class="u-fr u-justify--space-between u-align--center u-px--lg u-py">
       <div>Homa & Mukto</div>
       <div class="u-fr u-align--center u-gap">

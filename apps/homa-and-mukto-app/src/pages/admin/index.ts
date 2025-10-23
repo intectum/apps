@@ -1,5 +1,5 @@
 const renderPageHTML = () => `
-  <main data-init="admin" class="u-container u-fc u-gap">
+  <main data-require-auth="" data-init="admin" class="u-container u-fc u-gap">
     <h1>Admin</h1>
     <table style="text-align: left;">
       <thead>

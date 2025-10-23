@@ -34,7 +34,16 @@ export type User = Record &
   address?: Address;
 };
 
-export type FullUser = User & Credentials & { admin: boolean };
+export type FullUser = User & Credentials &
+{
+  admin: boolean;
+  status: 'verify' | 'review' | 'active';
+  pending?:
+  {
+    name: string;
+    image: string;
+  };
+};
 
 export type Contact =
 {
@@ -73,19 +82,23 @@ export type TokenCamelCase =
 
 export type GeocodeResponse =
 {
-  results: GeocodeResult[];
+  results:
+  {
+    address_components: AddressComponent[];
+    formatted_address: string;
+    geometry:
+      {
+        bounds: LatLngBounds;
+        location: LatLngShort;
+        location_type: 'APPROXIMATE' | 'GEOMETRIC_CENTER' | 'RANGE_INTERPOLATED' | 'ROOFTOP';
+        viewport: LatLngBounds;
+      };
+    partial_match: boolean;
+    place_id: string;
+    plus_code: string;
+    types: PlaceType[];
+  };
   status: 'INVALID_REQUEST' | 'OK' | 'OVER_DAILY_LIMIT' | 'OVER_QUERY_LIMIT' | 'REQUEST_DENIED' | 'UNKNOWN_ERROR' | 'ZERO_RESULTS';
-};
-
-export type GeocodeResult =
-{
-  address_components: AddressComponent[];
-  formatted_address: string;
-  geometry: Geometry;
-  partial_match: boolean;
-  place_id: string;
-  plus_code: string;
-  types: PlaceType[];
 };
 
 export type AddressComponent =
@@ -93,14 +106,6 @@ export type AddressComponent =
   long_name: string;
   short_name: string;
   types: PlaceType[];
-};
-
-export type Geometry =
-{
-  bounds: LatLngBounds;
-  location: LatLngShort;
-  location_type: LocationType;
-  viewport: LatLngBounds;
 };
 
 export type LatLngBounds =
@@ -115,7 +120,33 @@ export type LatLngShort =
   lng: number;
 };
 
-export type LocationType = 'APPROXIMATE' | 'GEOMETRIC_CENTER' | 'RANGE_INTERPOLATED' | 'ROOFTOP';
+export type PlacesAutocompleteResponse =
+{
+  suggestions:
+  {
+    placePrediction:
+    {
+      place: string;
+      placeId: string;
+      text: AutocompleteText;
+      structuredFormat:
+      {
+        mainText: AutocompleteText;
+        secondaryText: AutocompleteText;
+      };
+      types: PlaceType[];
+    };
+  };
+};
+
+export type AutocompleteText =
+{
+  text: string;
+  matches?:
+  {
+    endOffset: number;
+  };
+};
 
 // There are many more place types, but we only care about these...
 export type PlaceType =
@@ -128,39 +159,3 @@ export type PlaceType =
   'administrative_area_level_7' |
   'country' |
   'locality';
-
-export type PlacesAutocompleteResponse =
-{
-  suggestions: PlacesAutocompleteSuggestion[];
-};
-
-export type PlacesAutocompleteSuggestion =
-{
-  placePrediction: PlacesAutocompletePrediction;
-};
-
-export type PlacesAutocompletePrediction =
-{
-  place: string;
-  placeId: string;
-  text: PlaceAutocompleteText;
-  structuredFormat: PlaceAutocompleteStructuredFormat;
-  types: PlaceType[];
-};
-
-export type PlaceAutocompleteText =
-{
-  text: string;
-  matches?: PlaceAutocompleteMatch[];
-};
-
-export type PlaceAutocompleteMatch =
-{
-  endOffset: number;
-};
-
-export type PlaceAutocompleteStructuredFormat =
-{
-  mainText: PlaceAutocompleteText;
-  secondaryText: PlaceAutocompleteText;
-};

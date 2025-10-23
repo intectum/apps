@@ -9,7 +9,8 @@ init['[data-init="verify-email"]'] = async () =>
 
   const response = await apiFetch('/registrations', {
     method: 'PUT',
-    body: `"${queryParams.get('key')}"`
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(queryParams.get('key'))
   });
 
   if (!response.ok)

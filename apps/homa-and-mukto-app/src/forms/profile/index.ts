@@ -1,19 +1,19 @@
-import { User } from 'homa-and-mukto-core';
+import { FullUser } from 'homa-and-mukto-core';
 
 import renderAddressDropdownControlHTML from '../controls/address-dropdown';
 import renderContactsControlHTML from '../controls/contacts';
 import renderGroupsControlHTML from '../controls/groups';
 import renderImageControlHTML from '../controls/image';
 
-const renderProfileFormHTML = (user: User) => `
+const renderProfileFormHTML = (user: FullUser) => `
   <form data-init="profile-form" class="u-fc u-gap--lg">
     <div class="u-fc u-gap--sm">
       <label for="name">Name</label>
-      <input name="name" required="" value="${user.name}" />
+      <input name="name" required="" value="${user.pending?.name ?? user.name}" />
     </div>
     <div class="u-fc u-gap--sm">
       <label for="image">Photo</label>
-      ${renderImageControlHTML(user.image)}
+      ${renderImageControlHTML(user.pending?.image ?? user.image)}
     </div>
     <div class="u-fc u-gap--sm">
       <div>

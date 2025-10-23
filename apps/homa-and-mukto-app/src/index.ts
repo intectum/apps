@@ -12,7 +12,7 @@ addNavigation();
 defineBasisAnchor();
 defineBasisDialog();
 
-init['[data-init="require-auth"]'] = async () =>
+init['[data-require-auth=""]'] = async () =>
 {
   if (!localStorage.getItem('token')) await navigate('/login');
 };

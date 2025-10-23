@@ -7,6 +7,7 @@ import { getToken } from '../../common/data';
 import { geocode } from '../../common/geocoding';
 import { openErrorDialog } from '../../components/error-dialog';
 import renderDeleteProfileDialogHTML from '../../pages/index/delete-profile-dialog';
+import renderProfileReviewDialogHTML from '../../pages/index/profile-review-dialog';
 import { resolveContactsFormData } from '../controls/contacts/init';
 import { resolveGroupsFormData } from '../controls/groups/init';
 
@@ -76,5 +77,20 @@ init['[data-init="profile-form"]'] = async element =>
 
     token.user = await response.json() as FullUser;
     localStorage.setItem('token', JSON.stringify(token));
+
+    const userImageAll = document.querySelectorAll('[data-init="user-image"]');
+    for (const userImage of userImageAll)
+    {
+      init['[data-init="user-image"]'](userImage as HTMLElement);
+    }
+
+    if (token.user.pending)
+    {
+      const dialog = toElement<HTMLDialogElement>(renderProfileReviewDialogHTML());
+      document.body.appendChild(dialog);
+
+      dialog.onclose = () => dialog.remove();
+      dialog.showModal();
+    }
   });
 };

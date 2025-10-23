@@ -15,7 +15,10 @@ import renderUsersDialogHTML from './users-dialog';
 setOptions({ key: process.env.PUBLIC_GOOGLE_API_KEY ?? '' });
 
 init['[data-init="user-image"]'] = element =>
-  (element as HTMLImageElement).src = getToken()?.user.image ?? '';
+{
+  const token = getToken();
+  (element as HTMLImageElement).src = token?.user.pending?.image ?? token?.user.image ?? '';
+};
 
 init['[data-init="profile-toggle"]'] = element =>
 {

@@ -8,7 +8,6 @@ const mimeTypes: Record<string, string> =
 {
   '': 'text/plain',
   '.html': 'text/html',
-  '.ico': 'image/x-icon',
   '.jpg': 'image/jpeg',
   '.json': 'application/json',
   '.png': 'image/png',
@@ -20,10 +19,6 @@ export type StaticRequestListener = (req: http.IncomingMessage, res: http.Server
 export const staticRequestListener: StaticRequestListener = (req, res, secure, root = 'static') =>
 {
   const filePath = `${root}${toFilePath(toUrl(req, secure))}`;
-
-  const mimeType = mimeTypes[path.extname(filePath)];
-  if (!mimeType) throw new Error(`Mime type not found for extension ${path.extname(filePath)}`);
-
   if (!fs.existsSync(filePath))
   {
     res.writeHead(404);
@@ -31,6 +26,6 @@ export const staticRequestListener: StaticRequestListener = (req, res, secure, r
     return;
   }
 
-  res.writeHead(200, { 'Content-Type': mimeType });
+  res.writeHead(200, { 'Content-Type': mimeTypes[path.extname(filePath)] });
   fs.createReadStream(filePath).pipe(res);
 };

@@ -35,7 +35,7 @@ import './forms/controls/image/init';
 
 applyInit(document.body);
 
-if (process.env.PUBLIC_ENV === 'dev')
+if (process.env.NODE_ENV === 'dev')
 {
   enableLiveReload();
 }

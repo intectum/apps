@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { dirname } from 'path';
 
 import * as dotenv from 'dotenv';
 
@@ -25,6 +26,8 @@ export const build = async (renderLayoutHTML: LayoutHTMLRenderer, renderPagesHTM
   for (const [ path, renderPageHTML ] of Object.entries(renderPagesHTML))
   {
     const pageHTML = await renderPageHTML();
+
+    fs.mkdirSync(`dist/${dirname(path)}`, { recursive: true });
 
     fs.writeFileSync(`dist/${path}.html`, renderLayoutHTML(js, css, pageHTML));
     console.log(`  rendered  dist/${path}.html`);

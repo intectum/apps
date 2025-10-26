@@ -1,4 +1,4 @@
-import { apply } from './init';
+import { applyInit } from './init';
 
 export const classes = (classes: (string | false | null | undefined)[]) =>
   classes.filter(theClass => !!theClass).join(' ') || undefined;
@@ -10,7 +10,7 @@ export const toElement = <T extends HTMLElement>(html: string, parentTagName = '
 {
   const container = document.createElement(parentTagName);
   container.innerHTML = html;
-  apply(container);
+  applyInit(container);
 
   return container.firstElementChild as T;
 };
@@ -19,7 +19,7 @@ export const toElements = <T extends HTMLElement>(html: string, parentTagName = 
 {
   const container = document.createElement(parentTagName);
   container.innerHTML = html;
-  apply(container);
+  applyInit(container);
 
   return Array.from(container.children) as T[];
 };

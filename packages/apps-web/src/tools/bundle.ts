@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv';
 export const bundle = async (production?: boolean) =>
 {
   const result = await esbuild.build({
-    entryPoints: [ 'src/index.ts', 'src/index.css' ],
+    entryPoints: [ 'src/app/index.ts', 'src/app/index.css' ],
     outdir: 'dist',
     bundle: true,
     write: false,

@@ -1,6 +1,6 @@
 export const init: Record<string, (element: HTMLElement) => void> = {};
 
-export const apply = (root: HTMLElement) =>
+export const applyInit = (root: HTMLElement) =>
 {
   for (const key of Object.keys(init))
   {

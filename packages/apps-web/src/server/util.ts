@@ -7,6 +7,8 @@ export const toUrl = (req: http.IncomingMessage, secure: boolean) => new URL(req
 
 export const toFilePath = (url: URL) =>
 {
+  if (url.pathname.startsWith('/.well-known')) return url.pathname; // TODO temp fix
+
   let filePath = `${url.pathname === '/' ? '/index' : url.pathname}`;
   if (!path.extname(url.pathname)) filePath += '.html';
 

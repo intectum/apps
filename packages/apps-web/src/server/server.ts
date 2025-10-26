@@ -67,16 +67,12 @@ export const createServer = (requestListener: RequestListener = appRequestListen
 
   if (process.env.ENVIRONMENT === 'dev')
   {
-    const watch = (event: fs.WatchEventType, filename: string | null) =>
+    fs.watch('.', { recursive: true }, (event: fs.WatchEventType, filename: string | null) =>
     {
       if (!watchRes) return;
       watchRes.write(`event: ${event}\ndata: ${filename}\n\n`);
-    };
+    });
 
-    fs.watch('src/app', { recursive: true }, watch);
-    console.log('  watching src/app folder...');
-
-    fs.watch('static', { recursive: true }, watch);
-    console.log('  watching static folder...');
+    console.log('watching project folder...');
   }
 };

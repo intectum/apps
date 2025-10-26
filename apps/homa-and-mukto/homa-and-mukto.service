@@ -1,0 +1,13 @@
+[Unit]
+Description=Homa & Mukto
+
+[Service]
+ExecStart=/opt/apps/apps/homa-and-mukto/start.sh
+Restart=always
+User=root
+Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+WorkingDirectory=/opt/apps/apps/homa-and-mukto
+
+[Install]
+WantedBy=multi-user.target

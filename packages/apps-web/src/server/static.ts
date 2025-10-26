@@ -1,17 +1,17 @@
 import fs from 'node:fs';
+import http from 'node:http';
 import path from 'node:path';
 
 import { toFilePath, toUrl } from './util';
-import http from 'node:http';
 
 const mimeTypes: Record<string, string> =
 {
+  '': 'text/plain',
   '.html': 'text/html',
   '.jpg': 'image/jpeg',
   '.json': 'application/json',
   '.png': 'image/png',
-  '.svg': 'image/svg+xml',
-  '.woff2': 'font/woff2'
+  '.svg': 'image/svg+xml'
 };
 
 export type StaticRequestListener = (req: http.IncomingMessage, res: http.ServerResponse, secure: boolean, root?: string) => void | Promise<void>;
@@ -21,7 +21,7 @@ export const staticRequestListener: StaticRequestListener = (req, res, secure, r
   const filePath = `${root}${toFilePath(toUrl(req, secure))}`;
 
   const mimeType = mimeTypes[path.extname(filePath)];
-  if (!mimeType) throw new Error('Mime type not found');
+  if (!mimeType) throw new Error(`Mime type not found for extension ${path.extname(filePath)}`);
 
   if (!fs.existsSync(filePath))
   {

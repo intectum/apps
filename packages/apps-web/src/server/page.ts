@@ -3,7 +3,7 @@ import path from 'node:path';
 
 import { bundle } from '../tools/bundle';
 import { staticRequestListener } from './static';
-import { RequestListener, toFilePath, toUrl } from './util';
+import { RequestListener, respond, toFilePath, toUrl } from './util';
 
 const layoutModulePath = `${process.cwd()}/src/app/layout`;
 const responseHeaders = process.env.ENVIRONMENT === 'dev' ? { 'Cache-Control': 'no-store' } : undefined;
@@ -61,8 +61,7 @@ export const pageRequestListener: RequestListener = async (req, res, secure) =>
           fs.writeFileSync(cachedFilePath, layout);
         }
 
-        res.writeHead(200, responseHeaders);
-        res.end(layout);
+        respond(res, 200, layout, 'text/html', responseHeaders);
         return;
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -80,8 +79,7 @@ export const pageRequestListener: RequestListener = async (req, res, secure) =>
       fs.writeFileSync(cachedFilePath, page);
     }
 
-    res.writeHead(200, responseHeaders);
-    res.end(page);
+    respond(res, 200, page, 'text/html', responseHeaders);
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   catch (err: any)
@@ -90,13 +88,11 @@ export const pageRequestListener: RequestListener = async (req, res, secure) =>
     {
       if (process.env.ENVIRONMENT === 'dev')
       {
-        res.writeHead(200, responseHeaders);
-        res.end(errorHTML);
+        respond(res, 200, errorHTML, 'text/html', responseHeaders);
       }
       else
       {
-        res.statusCode = 404;
-        res.end();
+        respond(res, 500);
       }
 
       console.log(err);
@@ -104,8 +100,7 @@ export const pageRequestListener: RequestListener = async (req, res, secure) =>
     }
   }
 
-  res.statusCode = 404;
-  res.end();
+  respond(res, 404);
 };
 
 const invalidateModuleRecursive = (fileName: string) =>

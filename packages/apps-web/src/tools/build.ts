@@ -21,7 +21,7 @@ export const build = async (renderLayoutHTML: LayoutHTMLRenderer, renderPagesHTM
     console.log('  copied    dist/*static files*');
   }
 
-  const { js, css } = await bundle(true);
+  const { js, css } = await bundle();
 
   for (const [ path, renderPageHTML ] of Object.entries(renderPagesHTML))
   {

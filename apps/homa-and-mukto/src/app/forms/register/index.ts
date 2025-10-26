@@ -9,15 +9,15 @@ const renderRegisterFormHTML = () => `
   <form data-init="register-form" class="u-fc u-gap--lg">
     <div class="u-fc u-gap--sm">
       <label for="email">Email</label>
-      <input name="email" type="email" required="" />
+      <input id="email" name="email" type="email" required="" />
     </div>
     <div class="u-fc u-gap--sm">
       <label for="password">Password</label>
-      <input name="password" type="password" title="${strings.forms.passwordTitle}" pattern="${passwordRegex}" required="" />
+      <input id="password" name="password" type="password" title="${strings.forms.passwordTitle}" pattern="${passwordRegex}" required="" />
     </div>
     <div class="u-fc u-gap--sm">
       <label for="name">Name</label>
-      <input name="name" required="" />
+      <input id="name" name="name" required="" />
     </div>
     <div class="u-fc u-gap--sm">
       <label for="image">Photo</label>

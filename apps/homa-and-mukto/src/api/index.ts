@@ -1,6 +1,6 @@
 import { Pool, types } from 'pg';
 
-import { RequestListener, toUrl } from 'apps-web/tools';
+import { RequestListener, respond, toUrl } from 'apps-web/tools';
 
 import { Context, FullUser, Registration, User } from '../common/types';
 import * as addresses from './addresses';
@@ -9,7 +9,7 @@ import * as registrations from './registrations';
 import * as users from './users';
 import { authenticate, token } from './util/oauth';
 import { getBody } from './util/requests';
-import { respondWithCode, respondWithJson } from './util/responses';
+import { respondWithJson } from './util/responses';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 types.setTypeParser(types.builtins.NUMERIC, (value: any) => parseFloat(value));
@@ -21,7 +21,7 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
 {
   if (req.method === 'OPTIONS')
   {
-    respondWithCode(res, 200);
+    respond(res, 200);
     return;
   }
 
@@ -43,7 +43,7 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
         }
         catch
         {
-          respondWithCode(res, 400);
+          respond(res, 400);
           return;
         }
       }
@@ -54,14 +54,14 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       {
         const { email } = await getBody<{ email: string }>(req);
         await passwordResets.create(context, email);
-        respondWithCode(res, 201);
+        respond(res, 201);
         return;
       }
       else if (req.method === 'PUT')
       {
         const { key, password } = await getBody<{ key: string, password: string }>(req);
         await passwordResets.update(context, key, password);
-        respondWithCode(res, 200);
+        respond(res, 200);
         return;
       }
     }
@@ -70,13 +70,13 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       if (req.method === 'POST')
       {
         await registrations.create(context, await getBody<Registration>(req));
-        respondWithCode(res, 201);
+        respond(res, 201);
         return;
       }
       else if (req.method === 'PUT')
       {
         await registrations.verify(context, await getBody<string>(req));
-        respondWithCode(res, 200);
+        respond(res, 200);
         return;
       }
     }
@@ -88,7 +88,7 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
     }
     catch
     {
-      respondWithCode(res, 401);
+      respond(res, 401);
       return;
     }
 
@@ -112,7 +112,7 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
     {
       if (!context.user?.admin)
       {
-        respondWithCode(res, 403);
+        respond(res, 403);
         return;
       }
 
@@ -129,14 +129,14 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       const id = userMatch[1];
       if (!context.user?.admin && id !== context.user?.id)
       {
-        respondWithCode(res, 403);
+        respond(res, 403);
         return;
       }
 
       if (req.method === 'DELETE')
       {
         await users.remove(context, id);
-        respondWithCode(res, 200);
+        respond(res, 200);
         return;
       }
       else if (req.method === 'PUT')
@@ -154,26 +154,26 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       const id = userActivateMatch[1];
       if (!context.user?.admin)
       {
-        respondWithCode(res, 403);
+        respond(res, 403);
         return;
       }
 
       if (req.method === 'POST')
       {
         await users.activate(context, id);
-        respondWithCode(res, 200);
+        respond(res, 200);
         return;
       }
     }
 
-    respondWithCode(res, 404);
+    respond(res, 404);
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   catch (err: any)
   {
     await context.client.query('ROLLBACK');
     console.error(err);
-    respondWithCode(res, 500);
+    respond(res, 500);
   }
   finally
   {

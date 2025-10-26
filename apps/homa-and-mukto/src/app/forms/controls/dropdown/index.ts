@@ -9,7 +9,7 @@ const renderDropdownControlHTML = (name: string, initialValue: string, options: 
 
   return `
     <div data-init="dropdown" class="u-fc" style="position: relative;">
-      <input data-name="dropdown-value" name="${name}" value="${initialValue}" style="display: none;" />
+      <input data-name="dropdown-value" id="${name}" name="${name}" value="${initialValue}" style="display: none;" />
       <input data-name="dropdown-input" value="${arrayOptions.find(option => option[0] === initialValue)?.[1] ?? initialValue}" title="Select a value from the list" placeholder="${placeholder ?? ''}" ${required ? 'required=""' : ''} style="padding-right: 40px;" />
       <div class="u-p--sm" style="position: absolute; right: 0; top: 0; height: 100%; pointer-events: none;">
         ${renderChevronDownSvg()}

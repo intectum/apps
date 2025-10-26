@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 
-import { toFilePath, toUrl } from './util';
+import { respond, toFilePath, toUrl } from './util';
 
 const mimeTypes: Record<string, string> =
 {
@@ -11,7 +11,8 @@ const mimeTypes: Record<string, string> =
   '.jpg': 'image/jpeg',
   '.json': 'application/json',
   '.png': 'image/png',
-  '.svg': 'image/svg+xml'
+  '.svg': 'image/svg+xml',
+  '.txt': 'text/plain'
 };
 
 export type StaticRequestListener = (req: http.IncomingMessage, res: http.ServerResponse, secure: boolean, root?: string) => void | Promise<void>;
@@ -21,11 +22,9 @@ export const staticRequestListener: StaticRequestListener = (req, res, secure, r
   const filePath = `${root}${toFilePath(toUrl(req, secure))}`;
   if (!fs.existsSync(filePath))
   {
-    res.writeHead(404);
-    res.end();
+    respond(res, 404);
     return;
   }
 
-  res.writeHead(200, { 'Content-Type': mimeTypes[path.extname(filePath)] });
-  fs.createReadStream(filePath).pipe(res);
+  respond(res, 200, fs.createReadStream(filePath), mimeTypes[path.extname(filePath)]);
 };

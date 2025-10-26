@@ -4,7 +4,7 @@ import * as https from 'node:https';
 
 import { appRequestListener } from './app';
 import { staticRequestListener } from './static';
-import { RequestListener } from './util';
+import { RequestListener, respond } from './util';
 
 let watchRes: http.ServerResponse | undefined = undefined;
 
@@ -46,8 +46,7 @@ export const createServer = (requestListener: RequestListener = appRequestListen
     {
       if (!req.url?.startsWith('/.well-known/acme-challenge/'))
       {
-        res.writeHead(301, { Location: `https://${process.env.HOST}${req.url}` });
-        res.end();
+        respond(res, 301, undefined, undefined, { Location: `https://${process.env.HOST}${req.url}` });
         return;
       }
 

@@ -8,7 +8,7 @@ const renderProfileFormHTML = (user: FullUser) => `
   <form data-init="profile-form" class="u-fc u-gap--lg">
     <div class="u-fc u-gap--sm">
       <label for="name">Name</label>
-      <input name="name" required="" value="${user.pending?.name ?? user.name}" />
+      <input id="name" name="name" required="" value="${user.pending?.name ?? user.name}" />
     </div>
     <div class="u-fc u-gap--sm">
       <label for="image">Photo</label>

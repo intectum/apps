@@ -3,7 +3,7 @@ import * as esbuild from 'esbuild';
 import fs from 'fs';
 import * as dotenv from 'dotenv';
 
-export const bundle = async (production?: boolean) =>
+export const bundle = async () =>
 {
   const result = await esbuild.build({
     entryPoints: [ 'src/app/index.ts', 'src/app/index.css' ],
@@ -12,8 +12,8 @@ export const bundle = async (production?: boolean) =>
     write: false,
     loader: { '.svg': 'dataurl', '.woff2': 'dataurl' },
     define: envToDefine(),
-    sourcemap: production ? undefined : 'inline',
-    minify: production
+    sourcemap: process.env.ENVIRONMENT === 'dev' ? 'inline' : undefined,
+    minify: process.env.ENVIRONMENT !== 'dev'
   });
 
   return {

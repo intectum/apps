@@ -4,6 +4,7 @@ const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML:
   <!DOCTYPE html>
   <html lang="en">
     <head>
+      <meta charset="UTF-8">
       <title>App - Homa & Mukto</title>
       <link rel="shortcut icon" href="/images/logo.png" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />

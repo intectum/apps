@@ -12,8 +12,8 @@ export const bundle = async () =>
     write: false,
     loader: { '.svg': 'dataurl', '.woff2': 'dataurl' },
     define: envToDefine(),
-    sourcemap: process.env.ENVIRONMENT === 'dev' ? 'inline' : undefined,
-    minify: process.env.ENVIRONMENT !== 'dev'
+    sourcemap: process.env.PUBLIC_ENV === 'dev' ? 'inline' : undefined,
+    minify: process.env.PUBLIC_ENV !== 'dev'
   });
 
   return {

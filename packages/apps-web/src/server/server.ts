@@ -11,7 +11,7 @@ let watchRes: http.ServerResponse | undefined = undefined;
 export const createServer = (requestListener: RequestListener = appRequestListener) =>
 {
   let finalRequestListener = requestListener;
-  if (process.env.ENVIRONMENT === 'dev')
+  if (process.env.PUBLIC_ENV === 'dev')
   {
     finalRequestListener = (req, res, secure) =>
     {
@@ -64,7 +64,7 @@ export const createServer = (requestListener: RequestListener = appRequestListen
     console.log('server running on port 443');
   }
 
-  if (process.env.ENVIRONMENT === 'dev')
+  if (process.env.PUBLIC_ENV === 'dev')
   {
     fs.watch('.', { recursive: true }, (event: fs.WatchEventType, filename: string | null) =>
     {

@@ -6,7 +6,7 @@ import { staticRequestListener } from './static';
 import { RequestListener, respond, toFilePath, toUrl } from './util';
 
 const layoutModulePath = `${process.cwd()}/src/app/layout`;
-const responseHeaders = process.env.ENVIRONMENT === 'dev' ? { 'Cache-Control': 'no-store' } : undefined;
+const responseHeaders = process.env.PUBLIC_ENV === 'dev' ? { 'Cache-Control': 'no-store' } : undefined;
 
 const errorHTML = `
   <!DOCTYPE html>
@@ -31,7 +31,7 @@ export const pageRequestListener: RequestListener = async (req, res, secure) =>
   const url = toUrl(req, secure);
   const filePath = toFilePath(url);
   const cachedFilePath = `page-cache${filePath}`;
-  if (process.env.ENVIRONMENT !== 'dev' && fs.existsSync(cachedFilePath))
+  if (process.env.PUBLIC_ENV !== 'dev' && fs.existsSync(cachedFilePath))
   {
     staticRequestListener(req, res, secure, 'page-cache');
     return;
@@ -42,20 +42,20 @@ export const pageRequestListener: RequestListener = async (req, res, secure) =>
 
   try
   {
-    if (process.env.ENVIRONMENT === 'dev') invalidateModuleRecursive(require.resolve(pageModulePath));
+    if (process.env.PUBLIC_ENV === 'dev') invalidateModuleRecursive(require.resolve(pageModulePath));
     const { default: renderPageHTML } = await import(pageModulePath);
 
     if (includeLayout)
     {
       try
       {
-        if (process.env.ENVIRONMENT === 'dev') invalidateModuleRecursive(require.resolve(layoutModulePath));
+        if (process.env.PUBLIC_ENV === 'dev') invalidateModuleRecursive(require.resolve(layoutModulePath));
         const { default: renderLayoutHTML } = await import(layoutModulePath);
 
         const { js, css } = await bundle();
 
         const layout = renderLayoutHTML(js, css, await renderPageHTML());
-        if (process.env.ENVIRONMENT !== 'dev')
+        if (process.env.PUBLIC_ENV !== 'dev')
         {
           fs.mkdirSync(path.dirname(cachedFilePath), { recursive: true });
           fs.writeFileSync(cachedFilePath, layout);
@@ -73,20 +73,21 @@ export const pageRequestListener: RequestListener = async (req, res, secure) =>
     }
 
     const page = await renderPageHTML();
-    if (process.env.ENVIRONMENT !== 'dev')
+    if (process.env.PUBLIC_ENV !== 'dev')
     {
       fs.mkdirSync(path.dirname(cachedFilePath), { recursive: true });
       fs.writeFileSync(cachedFilePath, page);
     }
 
     respond(res, 200, page, 'text/html', responseHeaders);
+    return;
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   catch (err: any)
   {
     if (err.code !== 'MODULE_NOT_FOUND')
     {
-      if (process.env.ENVIRONMENT === 'dev')
+      if (process.env.PUBLIC_ENV === 'dev')
       {
         respond(res, 200, errorHTML, 'text/html', responseHeaders);
       }

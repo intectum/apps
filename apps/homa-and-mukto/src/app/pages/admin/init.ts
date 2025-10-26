@@ -30,14 +30,23 @@ init['[data-init="admin"]'] = async element =>
     const activate = row.querySelector('[data-name="activate"]') as HTMLButtonElement;
     activate.addEventListener('click', async () =>
     {
-      const response = await apiFetch(`/users/${row.getAttribute('data-id')}/activate`, { method: 'POST' });
-      if (!response.ok)
-      {
-        openErrorDialog(response.statusText);
-        return;
-      }
+      activate.disabled = true;
 
-      row.remove();
+      try
+      {
+        const response = await apiFetch(`/users/${row.getAttribute('data-id')}/activate`, { method: 'POST' });
+        if (!response.ok)
+        {
+          openErrorDialog(response.statusText);
+          return;
+        }
+
+        row.remove();
+      }
+      finally
+      {
+        activate.disabled = false;
+      }
     });
 
     tbody.appendChild(row);

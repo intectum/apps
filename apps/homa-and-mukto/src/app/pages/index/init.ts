@@ -104,7 +104,20 @@ init['[data-init="map"]'] = async element =>
       gmpClickable: true
     });
 
-    marker.addEventListener('click', () => openUserDialog([ address.user_id ]));
+    marker.addEventListener('click', () =>
+    {
+      const markerButton = marker.content as HTMLButtonElement;
+      markerButton.disabled = true;
+
+      try
+      {
+        openUserDialog([ address.user_id ]);
+      }
+      finally
+      {
+        markerButton.disabled = false;
+      }
+    });
 
     markers.push(marker);
   }

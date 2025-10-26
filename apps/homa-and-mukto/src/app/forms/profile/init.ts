@@ -29,68 +29,87 @@ init['[data-init="profile-form"]'] = async element =>
     const confirm = dialog.querySelector('[data-name="delete-profile"]') as HTMLButtonElement;
     confirm.addEventListener('click', async () =>
     {
-      const response = await apiFetch(`/users/${getToken()?.user.id}`, { method: 'DELETE' });
-      if (!response.ok)
-      {
-        openErrorDialog(response.statusText);
-        return;
-      }
+      confirm.disabled = true;
 
-      await navigate('/login');
+      try
+      {
+        const response = await apiFetch(`/users/${getToken()?.user.id}`, { method: 'DELETE' });
+        if (!response.ok)
+        {
+          openErrorDialog(response.statusText);
+          return;
+        }
+
+        await navigate('/login');
+      }
+      finally
+      {
+        confirm.disabled = false;
+      }
     });
 
     const cancel = dialog.querySelector('[data-name="delete-profile-cancel"]') as HTMLButtonElement;
     cancel.addEventListener('click', () => dialog.remove());
   });
 
+  const submitButton = element.querySelector('button') as HTMLButtonElement;
+
   element.addEventListener('submit', async event =>
   {
     event.preventDefault();
+    submitButton.disabled = true;
 
-    const token = getToken();
-    if (!token) return;
-
-    const formData = new FormData(element as HTMLFormElement);
-
-    const address = await geocode(formData.get('address') as string) as Address;
-    if (!address) throw Error('ERRRO!'); // TODO
-
-    if (token.user.address) address.id = token.user.address.id;
-    formData.set('address', JSON.stringify(address));
-
-    const image = element.querySelector('[data-name="image"]') as HTMLImageElement;
-    formData.set('image', image.src);
-
-    resolveContactsFormData(formData);
-    resolveGroupsFormData(formData);
-
-    const response = await apiFetch(`/users/${token.user.id}`, {
-      method: 'PUT',
-      body: formData
-    });
-
-    if (!response.ok)
+    try
     {
-      openErrorDialog(response.statusText);
-      return;
+      const token = getToken();
+      if (!token) return;
+
+      const formData = new FormData(element as HTMLFormElement);
+
+      const address = await geocode(formData.get('address') as string) as Address;
+      if (!address) throw Error('ERRRO!'); // TODO
+
+      if (token.user.address) address.id = token.user.address.id;
+      formData.set('address', JSON.stringify(address));
+
+      const image = element.querySelector('[data-name="image"]') as HTMLImageElement;
+      formData.set('image', image.src);
+
+      resolveContactsFormData(formData);
+      resolveGroupsFormData(formData);
+
+      const response = await apiFetch(`/users/${token.user.id}`, {
+        method: 'PUT',
+        body: formData
+      });
+
+      if (!response.ok)
+      {
+        openErrorDialog(response.statusText);
+        return;
+      }
+
+      token.user = await response.json() as FullUser;
+      localStorage.setItem('token', JSON.stringify(token));
+
+      const userImageAll = document.querySelectorAll('[data-init="user-image"]');
+      for (const userImage of userImageAll)
+      {
+        init['[data-init="user-image"]'](userImage as HTMLElement);
+      }
+
+      if (token.user.pending)
+      {
+        const dialog = toElement<HTMLDialogElement>(renderProfileReviewDialogHTML());
+        document.body.appendChild(dialog);
+
+        dialog.onclose = () => dialog.remove();
+        dialog.showModal();
+      }
     }
-
-    token.user = await response.json() as FullUser;
-    localStorage.setItem('token', JSON.stringify(token));
-
-    const userImageAll = document.querySelectorAll('[data-init="user-image"]');
-    for (const userImage of userImageAll)
+    finally
     {
-      init['[data-init="user-image"]'](userImage as HTMLElement);
-    }
-
-    if (token.user.pending)
-    {
-      const dialog = toElement<HTMLDialogElement>(renderProfileReviewDialogHTML());
-      document.body.appendChild(dialog);
-
-      dialog.onclose = () => dialog.remove();
-      dialog.showModal();
+      submitButton.disabled = false;
     }
   });
 };

@@ -39,20 +39,25 @@ init['[data-init="groups-control-row"]'] = async element =>
 
 export const resolveGroupsFormData = (formData: FormData) =>
 {
+  const rowIds = Array.from(formData.keys())
+    .map(key => key.match(/^group-(\d+)-type$/)?.[1])
+    .filter(rowId => !!rowId)
+    .map(rowId => Number(rowId));
+
   const groups: Group[] = [];
-  for (let index = 0; formData.has(`group-${index}-type`); index++)
+  for (const rowId of rowIds)
   {
     groups.push({
-      type: formData.get(`group-${index}-type`) as string,
-      location: formData.get(`group-${index}-location`) as string,
-      month: Number(formData.get(`group-${index}-month`)),
-      year: Number(formData.get(`group-${index}-year`))
+      type: formData.get(`group-${rowId}-type`) as string,
+      location: formData.get(`group-${rowId}-location`) as string,
+      month: Number(formData.get(`group-${rowId}-month`)),
+      year: Number(formData.get(`group-${rowId}-year`))
     });
 
-    formData.delete(`group-${index}-type`);
-    formData.delete(`group-${index}-location`);
-    formData.delete(`group-${index}-month`);
-    formData.delete(`group-${index}-year`);
+    formData.delete(`group-${rowId}-type`);
+    formData.delete(`group-${rowId}-location`);
+    formData.delete(`group-${rowId}-month`);
+    formData.delete(`group-${rowId}-year`);
   }
   formData.set('groups', JSON.stringify(groups));
 };

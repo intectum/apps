@@ -46,8 +46,8 @@ init['[data-init="contacts-control-row"]'] = async element =>
     }
     else
     {
-      value.title = '';
-      value.pattern = '';
+      value.removeAttribute('title');
+      value.removeAttribute('pattern');
     }
   };
 
@@ -65,16 +65,21 @@ init['[data-init="contacts-control-row"]'] = async element =>
 
 export const resolveContactsFormData = (formData: FormData) =>
 {
+  const rowIds = Array.from(formData.keys())
+    .map(key => key.match(/^contact-(\d+)-type$/)?.[1])
+    .filter(rowId => !!rowId)
+    .map(rowId => Number(rowId));
+
   const contacts: Contact[] = [];
-  for (let index = 0; formData.has(`contact-${index}-type`); index++)
+  for (const rowId of rowIds)
   {
     contacts.push({
-      type: formData.get(`contact-${index}-type`) as string,
-      value: formData.get(`contact-${index}-value`) as string
+      type: formData.get(`contact-${rowId}-type`) as string,
+      value: formData.get(`contact-${rowId}-value`) as string
     });
 
-    formData.delete(`contact-${index}-type`);
-    formData.delete(`contact-${index}-value`);
+    formData.delete(`contact-${rowId}-type`);
+    formData.delete(`contact-${rowId}-value`);
   }
   formData.set('contacts', JSON.stringify(contacts));
 };

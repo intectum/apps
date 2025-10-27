@@ -131,4 +131,16 @@ export const activate = async (context: Context, id: string) =>
     'UPDATE "user" SET status = \'active\', name = $1, image = $2, pending = NULL WHERE id = $3',
     [ user.pending?.name ?? user.name, user.pending?.image ?? user.image, id ]
   );
+
+  if (user.status === 'review')
+  {
+    const loginUrl = `${context.baseUrl}/login`;
+
+    await transporter.sendMail({
+      to: user.email,
+      subject: 'Your profile has been approved',
+      text: `You can now login here: ${loginUrl}`,
+      html: `<h1>Profile approved</h1><p>You can now login <a href="${loginUrl}">here</a>.</p>`
+    });
+  }
 };

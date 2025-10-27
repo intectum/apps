@@ -36,4 +36,8 @@ export const respond = (res: http.ServerResponse, code: number, data?: stream.St
       data.pipe(zlib.createGzip()).pipe(res);
     }
   }
+  else
+  {
+    res.end();
+  }
 };

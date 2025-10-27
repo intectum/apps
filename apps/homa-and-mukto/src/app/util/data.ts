@@ -1,4 +1,4 @@
-import { TokenCamelCase } from '../../common/types';
+import { TokenCamelCase } from '../../types';
 
 export const passwordRegex = '^(?=.*[A-Za-z])(?=.*\\d).{8,}$';
 

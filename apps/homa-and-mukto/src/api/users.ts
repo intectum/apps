@@ -1,6 +1,6 @@
 import { hash } from 'bcrypt';
 
-import { Address, Context, FullUser, New, User } from '../common/types';
+import { Address, Context, FullUser, New, User } from '../types';
 import { update as updateAddress } from './addresses';
 import { transporter } from './util/mail';
 

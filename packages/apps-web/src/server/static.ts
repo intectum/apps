@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 
-import { respond, toFilePath, toUrl } from './util';
+import { respond, toUrl } from './util';
 
 const mimeTypes: Record<string, string> =
 {
@@ -15,16 +15,11 @@ const mimeTypes: Record<string, string> =
   '.txt': 'text/plain'
 };
 
-export type StaticRequestListener = (req: http.IncomingMessage, res: http.ServerResponse, secure: boolean, root?: string) => void | Promise<void>;
-
-export const staticRequestListener: StaticRequestListener = (req, res, secure, root = 'static') =>
+export const staticRequestListener = (req: http.IncomingMessage, res: http.ServerResponse, root = 'static') =>
 {
-  const filePath = `${root}${toFilePath(toUrl(req, secure))}`;
-  if (!fs.existsSync(filePath))
-  {
-    respond(res, 404);
-    return;
-  }
+  const filePath = `${root}${toUrl(req).pathname}`;
+  if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) return false;
 
   respond(res, 200, fs.createReadStream(filePath), mimeTypes[path.extname(filePath)]);
+  return true;
 };

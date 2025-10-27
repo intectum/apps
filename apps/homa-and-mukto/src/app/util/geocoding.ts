@@ -1,4 +1,4 @@
-import { Address, GeocodeResponse, New } from '../../common/types';
+import { Address, GeocodeResponse, New } from '../../types';
 
 export const geocode = async (address: string): Promise<New<Address> | undefined> =>
 {

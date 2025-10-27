@@ -3,7 +3,7 @@ import { IncomingMessage } from 'node:http';
 import OAuth2Server, { Client, Request, Response } from '@node-oauth/oauth2-server';
 import { compare } from 'bcrypt';
 
-import { Context, Token, User } from '../../common/types';
+import { Context, Token, User } from '../../types';
 import { get as getUser } from '../users';
 import { getURLSearchParamsBody } from './requests';
 

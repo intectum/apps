@@ -1,4 +1,4 @@
-import { Address, Context, New } from '../common/types';
+import { Address, Context, New } from '../types';
 
 export const getAll = async (context: Context) =>
 {

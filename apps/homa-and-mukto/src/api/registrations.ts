@@ -1,4 +1,4 @@
-import { Address, Context, New, Registration, User } from '../common/types';
+import { Address, Context, New, Registration, User } from '../types';
 import { create as createAddress } from './addresses';
 import { create as createUser } from './users';
 import { transporter } from './util/mail';

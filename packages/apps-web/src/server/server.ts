@@ -2,33 +2,35 @@ import fs from 'node:fs';
 import * as http from 'node:http';
 import * as https from 'node:https';
 
-import { appRequestListener } from './app';
 import { staticRequestListener } from './static';
-import { RequestListener, respond } from './util';
+import { respond } from './util';
 
 let watchRes: http.ServerResponse | undefined = undefined;
 
-export const createServer = (requestListener: RequestListener = appRequestListener) =>
-{
-  let finalRequestListener = requestListener;
-  if (process.env.NODE_ENV === 'development')
-  {
-    finalRequestListener = (req, res, secure) =>
-    {
-      if (req.url === '/live-reload')
-      {
-        if (watchRes) watchRes.end();
-        watchRes = res.writeHead(200, {
-          'Content-Type': 'text/event-stream',
-          'Cache-Control': 'no-cache',
-          'Connection': 'keep-alive'
-        });
-        return;
-      }
+export type RequestListener = (req: http.IncomingMessage, res: http.ServerResponse, secure?: boolean) => Promise<boolean>;
 
-      requestListener(req, res, secure);
-    };
-  }
+export const createServer = (requestListener: RequestListener) =>
+{
+  const finalRequestListener: RequestListener = async (req, res, secure) =>
+  {
+    if (process.env.NODE_ENV === 'development' && req.url === '/live-reload')
+    {
+      if (watchRes) watchRes.end();
+      watchRes = res.writeHead(200, {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive'
+      });
+      return true;
+    }
+
+    if (!(await requestListener(req, res, secure)))
+    {
+      respond(res, 404);
+    }
+
+    return true;
+  };
 
   const keyPath = `/etc/letsencrypt/live/${process.env.HOST}/privkey.pem`;
   const certPath = `/etc/letsencrypt/live/${process.env.HOST}/fullchain.pem`;
@@ -47,10 +49,10 @@ export const createServer = (requestListener: RequestListener = appRequestListen
       if (!req.url?.startsWith('/.well-known/acme-challenge/'))
       {
         respond(res, 301, undefined, undefined, { Location: `https://${process.env.HOST}${req.url}` });
-        return;
+        return true;
       }
 
-      staticRequestListener(req, res, secure);
+      return staticRequestListener(req, res);
     }).listen(80);
     console.log('redirect server running on port 80');
 

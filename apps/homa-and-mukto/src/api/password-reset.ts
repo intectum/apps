@@ -1,6 +1,6 @@
 import { hash } from 'bcrypt';
 
-import { Context } from '../common/types';
+import { Context } from '../types';
 import { decrypt, encrypt } from './util/crypto';
 import { transporter } from './util/mail';
 

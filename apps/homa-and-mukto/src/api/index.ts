@@ -2,7 +2,7 @@ import { Pool, types } from 'pg';
 
 import { RequestListener, respond, toUrl } from 'apps-web/tools';
 
-import { Context, FullUser, Registration, User } from '../common/types';
+import { Context, FullUser, Registration, User } from '../types';
 import * as addresses from './addresses';
 import * as passwordResets from './password-reset';
 import * as registrations from './registrations';
@@ -22,7 +22,7 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
   if (req.method === 'OPTIONS')
   {
     respond(res, 200);
-    return;
+    return true;
   }
 
   const url = toUrl(req, secure);
@@ -39,12 +39,12 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
         try
         {
           respondWithJson(res, 201, await token(context, req));
-          return;
+          return true;
         }
         catch
         {
           respond(res, 400);
-          return;
+          return true;
         }
       }
     }
@@ -55,14 +55,14 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
         const { email } = await getBody<{ email: string }>(req);
         await passwordResets.create(context, email);
         respond(res, 201);
-        return;
+        return true;
       }
       else if (req.method === 'PUT')
       {
         const { key, password } = await getBody<{ key: string, password: string }>(req);
         await passwordResets.update(context, key, password);
         respond(res, 200);
-        return;
+        return true;
       }
     }
     else if (url.pathname === '/api/registrations')
@@ -71,13 +71,13 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       {
         await registrations.create(context, await getBody<Registration>(req));
         respond(res, 201);
-        return;
+        return true;
       }
       else if (req.method === 'PUT')
       {
         await registrations.verify(context, await getBody<string>(req));
         respond(res, 200);
-        return;
+        return true;
       }
     }
 
@@ -89,7 +89,7 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
     catch
     {
       respond(res, 401);
-      return;
+      return true;
     }
 
     if (url.pathname === '/api/addresses')
@@ -97,7 +97,7 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       if (req.method === 'GET')
       {
         respondWithJson(res, 200, await addresses.getAll(context));
-        return;
+        return true;
       }
     }
     else if (url.pathname === '/api/users')
@@ -105,7 +105,7 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       if (req.method === 'GET')
       {
         respondWithJson(res, 200, await users.getAll(context, url.searchParams));
-        return;
+        return true;
       }
     }
     else if (url.pathname === '/api/users/review')
@@ -113,13 +113,13 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       if (!context.user?.admin)
       {
         respond(res, 403);
-        return;
+        return true;
       }
 
       if (req.method === 'GET')
       {
         respondWithJson(res, 200, await users.getReview(context));
-        return;
+        return true;
       }
     }
 
@@ -130,21 +130,21 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       if (!context.user?.admin && id !== context.user?.id)
       {
         respond(res, 403);
-        return;
+        return true;
       }
 
       if (req.method === 'DELETE')
       {
         await users.remove(context, id);
         respond(res, 200);
-        return;
+        return true;
       }
       else if (req.method === 'PUT')
       {
         const user = await getBody<User>(req);
         user.id = id;
         respondWithJson(res, 200, await users.update(context, user));
-        return;
+        return true;
       }
     }
 
@@ -155,18 +155,18 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       if (!context.user?.admin)
       {
         respond(res, 403);
-        return;
+        return true;
       }
 
       if (req.method === 'POST')
       {
         await users.activate(context, id);
         respond(res, 200);
-        return;
+        return true;
       }
     }
 
-    respond(res, 404);
+    return false;
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   catch (err: any)
@@ -174,6 +174,7 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
     await context.client.query('ROLLBACK');
     console.error(err);
     respond(res, 500);
+    return true;
   }
   finally
   {

@@ -1,4 +1,4 @@
-import { PlacesAutocompleteResponse } from '../../common/types';
+import { PlacesAutocompleteResponse } from '../../types';
 
 export const autocomplete = async (input: string, signal?: AbortSignal) =>
 {

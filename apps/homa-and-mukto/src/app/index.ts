@@ -17,21 +17,20 @@ init['[data-require-auth=""]'] = async () =>
   if (!localStorage.getItem('token')) await navigate('/login');
 };
 
-import './pages/admin/init';
-import './pages/index/init';
-import './pages/register/verify/init';
+import './pages/admin.page.client';
+import './pages/index.page.client';
+import './pages/login.page.client';
+import './pages/login/password/forgot.page.client';
+import './pages/login/password/reset.page.client';
+import './pages/register.page.client';
+import './pages/register/verify.page.client';
 
-import './forms/login/init';
-import './forms/password-forgot/init';
-import './forms/password-reset/init';
-import './forms/profile/init';
-import './forms/register/init';
-
-import './forms/controls/address-dropdown/init';
-import './forms/controls/contacts/init';
-import './forms/controls/dropdown/init';
-import './forms/controls/groups/init';
-import './forms/controls/image/init';
+import './components/address-dropdown.control.client';
+import './components/contacts.control.client';
+import './components/dropdown.control.client';
+import './components/groups.control.client';
+import './components/header.client';
+import './components/image.control.client';
 
 applyInit(document.body);
 

@@ -1,4 +1,4 @@
-import { TokenCamelCase } from '../../common/types';
+import { TokenCamelCase } from '../../types';
 import { getToken } from './data';
 
 export const apiFetch = async (input: string | URL | Request, init?: RequestInit) =>

@@ -93,7 +93,7 @@ init['[data-init="profile-form"]'] = async element =>
     cancel.addEventListener('click', () => dialog.remove());
   });
 
-  const submitButton = element.querySelector('button') as HTMLButtonElement;
+  const submitButton = element.querySelector('[data-name="profile-form-submit"]') as HTMLButtonElement;
 
   element.addEventListener('submit', async event =>
   {

@@ -53,7 +53,7 @@ export const renderProfileDialogHTML = (user: FullUser) => `
         <label>Groups attended</label>
         ${renderGroupsControlHTML(user.groups)}
       </div>
-      <button class="c-button c-button--primary">Save</button>
+      <button data-name="profile-form-submit" class="c-button c-button--primary">Save</button>
       <button data-name="profile-form-remove" type="button" class="c-button c-button--danger">Delete account</button>
     </form>
   </dialog>

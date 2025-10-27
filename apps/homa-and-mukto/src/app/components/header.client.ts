@@ -14,13 +14,7 @@ import {
   renderReviewProfileDialogHTML
 } from './header.template';
 
-init['[data-init="user-image"]'] = element =>
-{
-  const token = getToken();
-  (element as HTMLImageElement).src = token?.user.pending?.image ?? token?.user.image ?? '';
-};
-
-init['[data-init="profile-toggle"]'] = element =>
+init['[data-init="header-profile"]'] = element =>
 {
   element.addEventListener('click', () =>
   {
@@ -33,9 +27,12 @@ init['[data-init="profile-toggle"]'] = element =>
     dialog.onclose = () => dialog.remove();
     dialog.showModal();
   });
+
+  const token = getToken();
+  (element.firstElementChild as HTMLImageElement).src = token?.user.pending?.image ?? token?.user.image ?? '';
 };
 
-init['[data-init="admin"]'] = element =>
+init['[data-init="header-admin"]'] = element =>
 {
   const token = getToken();
   if (!token) return;
@@ -43,7 +40,7 @@ init['[data-init="admin"]'] = element =>
   if (token.user.admin) element.style.display = '';
 };
 
-init['[data-init="logout"]'] = element =>
+init['[data-init="header-logout"]'] = element =>
 {
   element.addEventListener('click', async () =>
   {

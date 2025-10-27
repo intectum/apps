@@ -10,13 +10,13 @@ const renderHeaderHTML = () => `
   <header class="u-fr u-justify--space-between u-align--center u-px--lg u-py">
     <a is="basis-a" href="/">Homa & Mukto</a>
     <div class="u-fr u-align--center u-gap">
-      <button data-init="profile-toggle" type="button" title="Profile" class="c-button c-button--icon">
-        <img data-init="user-image" src="" alt="Me" class="u-rounded--full u-aspect--1" style="width: 32px;" />
+      <button data-init="header-profile" type="button" title="Profile" class="c-button c-button--icon">
+        <img src="" alt="Me" class="u-rounded--full u-aspect--1" style="width: 32px;" />
       </button>
-      <a is="basis-a" data-init="admin" href="/admin" title="Admin" class="c-button c-button--icon" style="display: none; border: none;">
+      <a is="basis-a" data-init="header-admin" href="/admin" title="Admin" class="c-button c-button--icon" style="display: none; border: none;">
         ${renderUserTieSvg()}
       </a>
-      <button data-init="logout" type="button" title="Logout" class="c-button c-button--icon" style="border: none;">
+      <button data-init="header-logout" type="button" title="Logout" class="c-button c-button--icon" style="border: none;">
         ${renderArrowRightFromBracketSvg()}
       </button>
     </div>

@@ -1,7 +1,7 @@
-import * as esbuild from 'esbuild';
+import fs from 'node:fs';
 
-import fs from 'fs';
 import * as dotenv from 'dotenv';
+import * as esbuild from 'esbuild';
 
 export const bundle = async () =>
 {

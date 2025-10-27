@@ -1,10 +1,10 @@
 import fs from 'node:fs';
+import http from 'node:http';
 import path from 'node:path';
 
 import { bundle } from '../tools/bundle';
 import { staticRequestListener } from './static';
 import { respond, toUrl } from './util';
-import http from 'node:http';
 
 const responseHeaders = process.env.NODE_ENV === 'development' ? { 'Cache-Control': 'no-store' } : undefined;
 

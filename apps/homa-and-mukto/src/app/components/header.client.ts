@@ -35,6 +35,14 @@ init['[data-init="profile-toggle"]'] = element =>
   });
 };
 
+init['[data-init="admin"]'] = element =>
+{
+  const token = getToken();
+  if (!token) return;
+
+  if (token.user.admin) element.style.display = '';
+};
+
 init['[data-init="logout"]'] = element =>
 {
   element.addEventListener('click', async () =>

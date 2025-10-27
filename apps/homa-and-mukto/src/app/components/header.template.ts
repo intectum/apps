@@ -1,18 +1,22 @@
 import { FullUser } from '../../types';
+import renderArrowRightFromBracketSvg from '../icons/arrow-right-from-bracket';
+import renderUserTieSvg from '../icons/user-tie';
 import renderAddressDropdownControlHTML from './address-dropdown.control.template';
 import renderContactsControlHTML from './contacts.control.template';
 import renderGroupsControlHTML from './groups.control.template';
 import renderImageControlHTML from './image.control.template';
-import renderArrowRightFromBracketSvg from '../icons/arrow-right-from-bracket';
 
 const renderHeaderHTML = () => `
   <header class="u-fr u-justify--space-between u-align--center u-px--lg u-py">
-    <div>Homa & Mukto</div>
+    <a is="basis-a" href="/">Homa & Mukto</a>
     <div class="u-fr u-align--center u-gap">
-      <button data-init="profile-toggle" type="button" class="c-button c-button--icon">
+      <button data-init="profile-toggle" type="button" title="Profile" class="c-button c-button--icon">
         <img data-init="user-image" src="" alt="Me" class="u-rounded--full u-aspect--1" style="width: 32px;" />
       </button>
-      <button data-init="logout" type="button" class="c-button c-button--icon" style="border: none;">
+      <a is="basis-a" data-init="admin" href="/admin" title="Admin" class="c-button c-button--icon" style="display: none; border: none;">
+        ${renderUserTieSvg()}
+      </a>
+      <button data-init="logout" type="button" title="Logout" class="c-button c-button--icon" style="border: none;">
         ${renderArrowRightFromBracketSvg()}
       </button>
     </div>

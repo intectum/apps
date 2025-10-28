@@ -22,8 +22,14 @@ init['[data-init="image-control"]'] = async element =>
       element.appendChild(toElement('<div data-name="error" class="u-danger">File too large (max 5MB)</div>'));
     }
 
-    const base64 = btoa(String.fromCharCode(...(await file.bytes())));
-    image.src = `data:${file.type};base64,${base64}`;
+    image.src = await new Promise((resolve, reject) =>
+    {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onerror = reject;
+      reader.onload = () => resolve(reader.result as string);
+    });
+
     image.style.display = 'block';
     imageOpen.children[1]?.remove();
   });

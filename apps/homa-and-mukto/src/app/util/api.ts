@@ -14,7 +14,8 @@ export const apiFetch = async (input: string | URL | Request, init?: RequestInit
     if (!init.headers) init.headers = {};
 
     const token = getToken();
-    if (token) (init.headers as Record<string, string>).Authorization = `Bearer ${token.accessToken}`;
+    const searchParams = new URLSearchParams(location.search);
+    (init.headers as Record<string, string>).Authorization = `Bearer ${token?.accessToken ?? searchParams.get('key')}`;
 
     const response = await fetch(input, init);
 

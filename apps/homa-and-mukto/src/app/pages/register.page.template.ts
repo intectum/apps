@@ -1,9 +1,3 @@
-import renderProfileFormHTML from '../components/profile-form.template';
-
-const renderPageHTML = () => `
-  <main class="u-container u-fc u-align--center">
-    ${renderProfileFormHTML('register')}
-  </main>
-`;
+const renderPageHTML = () => '<main data-init="register" class="u-container u-fc u-align--center"></main>';
 
 export default renderPageHTML;

@@ -5,12 +5,12 @@ import { apiFetch } from '../../util/api';
 
 init['[data-init="verify-email"]'] = async () =>
 {
-  const queryParams = new URLSearchParams(window.location.search);
+  const searchParams = new URLSearchParams(window.location.search);
 
   const response = await apiFetch('/registrations', {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(queryParams.get('key'))
+    body: JSON.stringify(searchParams.get('key'))
   });
 
   if (!response.ok)

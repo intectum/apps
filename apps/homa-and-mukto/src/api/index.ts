@@ -9,6 +9,7 @@ import * as addresses from './addresses';
 import * as passwordResets from './password-reset';
 import * as registrations from './registrations';
 import * as users from './users';
+import { decryptKey } from './util/crypto';
 import { authenticate, token } from './util/oauth';
 import { getBody } from './util/requests';
 import { respondWithJson } from './util/responses';
@@ -61,13 +62,6 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
         respond(res, 201);
         return true;
       }
-      else if (req.method === 'PUT')
-      {
-        const { key, password } = await getBody<{ key: string, password: string }>(req);
-        await passwordResets.update(context, key, password);
-        respond(res, 200);
-        return true;
-      }
     }
     else if (url.pathname === '/api/registrations')
     {
@@ -85,15 +79,28 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       }
     }
 
-    try
+    const key = url.searchParams.get('key');
+    if (key)
     {
-      const token = await authenticate(context, req);
-      context.user = token.user as FullUser;
+      context.user = await users.get(context, decryptKey(key));
+      if (!context.user)
+      {
+        respond(res, 401);
+        return true;
+      }
     }
-    catch
+    else
     {
-      respond(res, 401);
-      return true;
+      try
+      {
+        const token = await authenticate(context, req);
+        context.user = token.user as FullUser;
+      }
+      catch
+      {
+        respond(res, 401);
+        return true;
+      }
     }
 
     if (url.pathname === '/api/addresses')
@@ -101,6 +108,16 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       if (req.method === 'GET')
       {
         respondWithJson(res, 200, await addresses.getAll(context));
+        return true;
+      }
+    }
+    else if (url.pathname === '/api/password-reset')
+    {
+      if (req.method === 'PUT')
+      {
+        const { password } = await getBody<{ password: string }>(req);
+        await passwordResets.update(context, password);
+        respond(res, 200);
         return true;
       }
     }
@@ -157,10 +174,10 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       }
     }
 
-    const userActivateMatch = url.pathname.match(`^/api/users/(${uuidRexeg})/activate$`);
-    if (userActivateMatch)
+    const userAcceptMatch = url.pathname.match(`^/api/users/(${uuidRexeg})/accept`);
+    if (userAcceptMatch)
     {
-      const id = userActivateMatch[1];
+      const id = userAcceptMatch[1];
       if (!context.user?.admin)
       {
         respond(res, 403);
@@ -169,7 +186,25 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
 
       if (req.method === 'POST')
       {
-        await users.activate(context, id);
+        await users.accept(context, id);
+        respond(res, 200);
+        return true;
+      }
+    }
+
+    const userDenyMatch = url.pathname.match(`^/api/users/(${uuidRexeg})/deny`);
+    if (userDenyMatch)
+    {
+      const id = userDenyMatch[1];
+      if (!context.user?.admin)
+      {
+        respond(res, 403);
+        return true;
+      }
+
+      if (req.method === 'POST')
+      {
+        await users.deny(context, id);
         respond(res, 200);
         return true;
       }

@@ -2,6 +2,19 @@ import { createCipheriv, createDecipheriv, createHash, randomBytes } from 'crypt
 
 const algorithm = 'aes-256-gcm';
 const keyLength = 32;
+const keyTimeout = 24 * 60 * 60 * 1000; // 1 day
+
+export const encryptKey = (userId: string) => encrypt(`${userId}|${Date.now()}`);
+
+export const decryptKey = (key: string) =>
+{
+  const [ id, timestampString ] = decrypt(key).split('|');
+  const timestamp = Number(timestampString);
+
+  if (isNaN(timestamp) || Date.now() > timestamp + keyTimeout) throw new Error('Invalid or expired timestamp');
+
+  return id;
+};
 
 export const encrypt = (text: string) =>
 {

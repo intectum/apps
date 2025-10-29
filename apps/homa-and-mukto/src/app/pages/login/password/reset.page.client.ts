@@ -14,12 +14,10 @@ init['[data-init="password-reset-form"]'] = async element =>
 
     try
     {
+      const searchParams = new URLSearchParams(window.location.search);
       const formData = new FormData(element as HTMLFormElement);
 
-      const queryParams = new URLSearchParams(window.location.search);
-      formData.set('key', queryParams.get('key') as string);
-
-      const response = await apiFetch('/password-reset', {
+      const response = await apiFetch(`/password-reset?key=${searchParams.get('key')}`, {
         method: 'PUT',
         body: formData
       });

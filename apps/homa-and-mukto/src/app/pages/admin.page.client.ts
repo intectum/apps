@@ -24,18 +24,21 @@ init['[data-init="admin"]'] = async element =>
   {
     const row = toElement(renderAdminRowHTML(user), 'tbody');
 
-    const activate = row.querySelector('[data-name="activate"]') as HTMLButtonElement;
-    activate.addEventListener('click', async () =>
+    const accept = row.querySelector('[data-name="accept"]') as HTMLButtonElement;
+    const deny = row.querySelector('[data-name="deny"]') as HTMLButtonElement;
+
+    accept.addEventListener('click', async () =>
     {
-      activate.disabled = true;
+      accept.disabled = true;
+      deny.disabled = true;
 
       try
       {
         const id = row.getAttribute('data-id');
-        const activateResponse = await apiFetch(`/users/${id}/activate`, { method: 'POST' });
-        if (!activateResponse.ok)
+        const acceptResponse = await apiFetch(`/users/${id}/accept`, { method: 'POST' });
+        if (!acceptResponse.ok)
         {
-          openErrorDialog(activateResponse.statusText);
+          openErrorDialog(acceptResponse.statusText);
           return;
         }
 
@@ -62,7 +65,30 @@ init['[data-init="admin"]'] = async element =>
       }
       finally
       {
-        activate.disabled = false;
+        accept.disabled = false;
+        deny.disabled = false;
+      }
+    });
+
+    deny.addEventListener('click', async () =>
+    {
+      accept.disabled = true;
+      deny.disabled = true;
+
+      try
+      {
+        const id = row.getAttribute('data-id');
+        const denyResponse = await apiFetch(`/users/${id}/deny`, { method: 'POST' });
+        if (!denyResponse.ok)
+        {
+          openErrorDialog(denyResponse.statusText);
+          return;
+        }
+      }
+      finally
+      {
+        accept.disabled = false;
+        deny.disabled = false;
       }
     });
 

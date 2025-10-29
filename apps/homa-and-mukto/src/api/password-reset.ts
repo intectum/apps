@@ -1,10 +1,8 @@
 import { hash } from 'bcrypt';
 
 import { Context } from '../types';
-import { decrypt, encrypt } from './util/crypto';
+import { encryptKey } from './util/crypto';
 import { sendMail } from './util/mail';
-
-const timeout = 60 * 60 * 1000; // 1 hour
 
 export const create = async (context: Context, email: string) =>
 {
@@ -17,28 +15,27 @@ export const create = async (context: Context, email: string) =>
 
   const row = result.rows[0];
 
-  const key = encrypt(`${row.id}|${Date.now()}`);
-  const resetUrl = `${context.baseUrl}/login/password/reset?key=${key}`;
+  const resetUrl = `${context.baseUrl}/login/password/reset?key=${encryptKey(row.id)}`;
 
   sendMail({
     to: email,
     subject: 'Reset your password',
-    text: `Click this link to reset your password: ${resetUrl}`,
-    html: `<h1>Reset your password</h1><p>Click <a href="${resetUrl}">this link</a> to reset your password.</p>`
+    text: `Click this link to reset your password: ${resetUrl}. This link will expire after 1 day.`,
+    html: `<h1>Reset your password</h1><p>Click <a href="${resetUrl}">this link</a> to reset your password. This link will expire after 1 day.</p>`
   });
+
+  if (process.env.NODE_ENV === 'development')
+  {
+    console.log(`Click this link to reset your password: ${resetUrl}. This link will expire after 1 day.`);
+  }
 };
 
-export const update = async (context: Context, key: string, password: string) =>
+export const update = async (context: Context, password: string) =>
 {
-  const [ id, timestampString ] = decrypt(key).split('|');
-  const timestamp = Number(timestampString);
-
-  if (isNaN(timestamp) || Date.now() > timestamp + timeout) throw new Error('Invalid or expired timestamp');
-
   const encryptedPassword = await hash(password, 12);
 
   await context.client.query(
     'UPDATE "user" SET password = $1 WHERE "user".id = $2',
-    [ encryptedPassword, id ]
+    [ encryptedPassword, context.user?.id ]
   );
 };

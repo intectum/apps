@@ -20,8 +20,9 @@ const renderAdminRowHTML = (user: FullUser) => `
     <td class="u-p--sm">
       ${renderGroupsHTML(user.groups)}
     </td>
-    <td class="u-p--sm">
-      <button data-name="activate" type="button" class="c-button c-button--primary">Activate</button>
+    <td class="u-fc u-gap u-p--sm">
+      <button data-name="accept" type="button" class="c-button c-button--primary">Accept</button>
+      <button data-name="deny" type="button" class="c-button c-button--danger">Deny</button>
     </td>
   </tr>
 `;

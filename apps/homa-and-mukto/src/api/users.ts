@@ -6,6 +6,7 @@ import { hash } from 'bcrypt';
 import { Address, Context, FullUser, New, User } from '../types';
 import { update as updateAddress } from './addresses';
 import { sendMail } from './util/mail';
+import { encryptKey } from './util/crypto';
 
 export const get = async (context: Context, id: string) =>
 {
@@ -160,7 +161,7 @@ export const remove = async (context: Context, id: string) =>
   fs.rmSync(user.image.substring(1));
 };
 
-export const activate = async (context: Context, id: string) =>
+export const accept = async (context: Context, id: string) =>
 {
   const user = await get(context, id) as FullUser;
 
@@ -188,6 +189,25 @@ export const activate = async (context: Context, id: string) =>
     {
       fs.rmSync(user.image.substring(1));
     }
+  }
+};
+
+export const deny = async (context: Context, id: string) =>
+{
+  const user = await get(context, id) as FullUser;
+
+  const updateUrl = `${context.baseUrl}/register?id=${id}&key=${encryptKey(id)}`;
+
+  sendMail({
+    to: user.email,
+    subject: 'Your profile has been declined',
+    text: `You can update your profile here: ${updateUrl}. This link will expire after 1 day. If it expires you can request another.`,
+    html: `<h1>Profile declined</h1><p>You can update your profile <a href="${updateUrl}">here</a>. This link will expire after 1 day. If it expires you can request another.</p>`
+  });
+
+  if (process.env.NODE_ENV === 'development')
+  {
+    console.log(`You can update your profile here: ${updateUrl}. This link will expire after 1 day. If it expires you can request another.`);
   }
 };
 

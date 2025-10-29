@@ -43,23 +43,23 @@ export const getFormBody = <T>(req: IncomingMessage) =>
       }
     });
 
-    busboy.on('file', (name, file) =>
+    busboy.on('file', (name, file, info) =>
     {
+      let buffer = Buffer.alloc(0);
+
       file.on('error', reject);
       file.on('data', (data: Buffer) =>
       {
-        if (!fields[name])
-        {
-          fields[name] = Buffer.alloc(0);
-        }
-
-        if (fields[name].length + data.length > maxFileSize)
+        buffer = Buffer.concat([ buffer, data ]);
+        if (buffer.length > maxFileSize)
         {
           file.destroy(new Error('File size exceeded'));
-          return;
         }
-
-        fields[name] = Buffer.concat([ fields[name] as Buffer, data ]);
+      });
+      file.on('end', async () =>
+      {
+        fields[`${name}-buffer`] = buffer;
+        fields[`${name}-filename`] = info.filename;
       });
     });
 

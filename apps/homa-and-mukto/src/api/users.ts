@@ -1,8 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
 import { hash } from 'bcrypt';
 
 import { Address, Context, FullUser, New, User } from '../types';
 import { update as updateAddress } from './addresses';
-import { transporter } from './util/mail';
+import { sendMail } from './util/mail';
 
 export const get = async (context: Context, id: string) =>
 {
@@ -76,24 +79,42 @@ export const getReview = async (context: Context) =>
 export const create = async (context: Context, user: New<User>, email: string, password: string) =>
 {
   const encryptedPassword = await hash(password, 12);
+  const imageFields = getImageFields(user);
+  if (!imageFields) throw new Error('Image not found');
 
-  const result = await context.client.query<User>(
+  const result = await context.client.query<{ id: string }>(
     'INSERT INTO "user" (email, password, name, image, contacts, groups) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id',
-    [ email, encryptedPassword, user.name, user.image, user.contacts, user.groups ]
+    [ email, encryptedPassword, user.name, '/images/logo.png', user.contacts, user.groups ]
   );
+
+  const id = result.rows[0].id;
+  const image = `/user-images/${id}${path.extname(imageFields.fileName)}`;
+
+  await context.client.query<User>(
+    'UPDATE "user" SET image = $1 WHERE id = $2',
+    [ image, id ]
+  );
+
+  fs.writeFileSync(image.substring(1), imageFields.data);
 
   return (await get(context, result.rows[0].id)) as User;
 };
 
 export const update = async (context: Context, user: User) =>
 {
+  const imageFields = getImageFields(user);
+
   const oldUser = await get(context, user.id) as FullUser;
   if (!oldUser) throw new Error('User not found');
 
   let pending: FullUser['pending'] | undefined = undefined;
-  if (user.name !== oldUser.name || user.image !== oldUser.image)
+  if (user.name !== oldUser.name || imageFields)
   {
-    pending = { name: user.name, image: user.image };
+    pending =
+    {
+      name: user.name,
+      image: imageFields ? `/user-images/${user.id}-pending${path.extname(imageFields.fileName)}` : undefined
+    };
   }
 
   await context.client.query<User>(
@@ -107,7 +128,7 @@ export const update = async (context: Context, user: User) =>
   {
     const adminUrl = `${context.baseUrl}/admin`;
 
-    await transporter.sendMail({
+    sendMail({
       to: process.env.ADMIN_EMAIL,
       subject: 'A user requires their profile to be reviewed',
       text: `Open the admin panel here: ${adminUrl}`,
@@ -115,29 +136,66 @@ export const update = async (context: Context, user: User) =>
     });
   }
 
+  if (imageFields && pending?.image)
+  {
+    fs.writeFileSync(pending.image.substring(1), imageFields.data);
+
+    if (oldUser.pending?.image && oldUser.pending.image !== pending.image)
+    {
+      fs.rmSync(oldUser.pending.image.substring(1));
+    }
+  }
+
   return get(context, user.id);
 };
 
 export const remove = async (context: Context, id: string) =>
 {
+  const user = await get(context, id);
+  if (!user) return;
+
   await context.client.query('DELETE FROM "user" WHERE id = $1', [ id ]);
+
+  if (user.pending?.image) fs.rmSync(user.pending.image.substring(1));
+  fs.rmSync(user.image.substring(1));
 };
 
 export const activate = async (context: Context, id: string) =>
 {
   const user = await get(context, id) as FullUser;
 
+  const image = user.pending?.image ? user.pending?.image.replace('-pending', '') : user.image;
+
   await context.client.query(
     'UPDATE "user" SET status = \'active\', name = $1, image = $2, pending = NULL WHERE id = $3',
-    [ user.pending?.name ?? user.name, user.pending?.image ?? user.image, id ]
+    [ user.pending?.name ?? user.name, image, id ]
   );
 
   const loginUrl = `${context.baseUrl}/login`;
 
-  await transporter.sendMail({
+  sendMail({
     to: user.email,
     subject: 'Your profile has been approved',
     text: `You can now login here: ${loginUrl}`,
     html: `<h1>Profile approved</h1><p>You can now login <a href="${loginUrl}">here</a>.</p>`
   });
+
+  if (user.pending?.image)
+  {
+    fs.renameSync(user.pending.image.substring(1), image.substring(1));
+
+    if (user.image !== image)
+    {
+      fs.rmSync(user.image.substring(1));
+    }
+  }
+};
+
+const getImageFields = (user: New<User>): { data: Buffer, fileName: string } | undefined =>
+{
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const imageFields: { 'image-buffer'?: Buffer; 'image-filename'?: string } = user as any;
+  if (!imageFields['image-buffer'] || !imageFields['image-filename']) return undefined;
+
+  return { data: imageFields['image-buffer'], fileName: imageFields['image-filename'] };
 };

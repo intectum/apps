@@ -12,7 +12,7 @@ CREATE TABLE "user"
   status VARCHAR(100) NOT NULL DEFAULT 'verify',
   admin BOOLEAN NOT NULL DEFAULT false,
   name VARCHAR(100) NOT NULL,
-  image VARCHAR NOT NULL,
+  image VARCHAR(100) NOT NULL,
   contacts JSONB[] NOT NULL,
   groups JSONB[] NOT NULL,
   pending JSONB,

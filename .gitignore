@@ -2,6 +2,7 @@
 .idea/
 dist/
 page-cache/
+user-images/
 node_modules/
 
 *.log

@@ -1,8 +1,10 @@
 export const init: Record<string, (element: HTMLElement) => void> = {};
 
-export const applyInit = (root: HTMLElement) =>
+export const applyInit = (root: HTMLElement, keys?: string[]) =>
 {
-  for (const key of Object.keys(init))
+  if (!keys) keys = Object.keys(init);
+
+  for (const key of keys)
   {
     for (const element of root.querySelectorAll(key))
     {

@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+
 import { Pool, types } from 'pg';
 
 import { RequestListener, respond, toUrl } from 'apps-web/tools';
@@ -16,6 +18,8 @@ types.setTypeParser(types.builtins.NUMERIC, (value: any) => parseFloat(value));
 const pool = new Pool();
 
 const uuidRexeg = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
+
+if (!fs.existsSync('user-images')) fs.mkdirSync('user-images');
 
 export const apiRequestListener: RequestListener = async (req, res, secure) =>
 {
@@ -137,6 +141,11 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
       {
         await users.remove(context, id);
         respond(res, 200);
+        return true;
+      }
+      else if (req.method === 'GET')
+      {
+        respondWithJson(res, 200, await users.get(context, id));
         return true;
       }
       else if (req.method === 'PUT')

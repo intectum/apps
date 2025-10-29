@@ -25,6 +25,11 @@ createServer(async (req, res, secure) =>
     return apiRequestListener(req, res, secure);
   }
 
+  if (req.url?.startsWith('/user-images/'))
+  {
+    return staticRequestListener(req, res, '.');
+  }
+
   if (await appRequestListener(req, res, 'src/app/layout.template', pageModules))
   {
     return true;

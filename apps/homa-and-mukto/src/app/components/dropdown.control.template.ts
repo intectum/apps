@@ -3,14 +3,14 @@ import { mapToHTML } from 'apps-web';
 import renderChevronDownSvg from '../icons/chevron-down';
 import renderDropdownOptionHTML from './dropdown.control.option.template';
 
-const renderDropdownControlHTML = (name: string, initialValue: string, options: Record<string, string> | [string, string][], required?: boolean, placeholder?: string) =>
+const renderDropdownControlHTML = (name: string, options: Record<string, string> | [string, string][], initialValue?: string, required?: boolean, placeholder?: string) =>
 {
   const arrayOptions = prepareOptions(options);
 
   return `
     <div data-init="dropdown" class="u-fc" style="position: relative;">
-      <input data-name="dropdown-value" id="${name}" name="${name}" value="${initialValue}" style="display: none;" />
-      <input data-name="dropdown-input" value="${arrayOptions.find(option => option[0] === initialValue)?.[1] ?? initialValue}" title="Select a value from the list" placeholder="${placeholder ?? ''}" ${required ? 'required=""' : ''} style="padding-right: 40px;" />
+      <input data-name="dropdown-value" id="${name}" name="${name}" value="${initialValue ?? ''}" style="display: none;" />
+      <input data-name="dropdown-input" value="${arrayOptions.find(option => option[0] === initialValue)?.[1] ?? initialValue ?? ''}" title="Select a value from the list" placeholder="${placeholder ?? ''}" ${required ? 'required=""' : ''} style="padding-right: 40px;" />
       <div class="u-p--sm" style="position: absolute; right: 0; top: 0; height: 100%; pointer-events: none;">
         ${renderChevronDownSvg()}
       </div>

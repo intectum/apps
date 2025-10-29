@@ -8,6 +8,7 @@ const mimeTypes: Record<string, string> =
 {
   '': 'text/plain',
   '.html': 'text/html',
+  '.jpeg': 'image/jpeg',
   '.jpg': 'image/jpeg',
   '.json': 'application/json',
   '.png': 'image/png',

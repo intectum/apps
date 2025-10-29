@@ -8,7 +8,7 @@ const renderImageControlHTML = (initialValue?: string) => `
         ${initialValue ? '' : renderFolderOpenSvg()}
       </button>
     </div>
-    <input id="image" name="image" type="file" ${initialValue ? '' : 'required=""'} accept="image/*" />
+    <input id="image" name="image" type="file" ${initialValue ? '' : 'required=""'} accept="image/jpeg, image/png" />
   </div>
 `;
 

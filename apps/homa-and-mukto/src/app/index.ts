@@ -8,6 +8,8 @@ import {
   navigate
 } from 'apps-web/client';
 
+import { getToken } from './util/data';
+
 addNavigation();
 defineBasisAnchor();
 defineBasisDialog();
@@ -15,6 +17,12 @@ defineBasisDialog();
 init['[data-require-auth=""]'] = async () =>
 {
   if (!localStorage.getItem('token')) await navigate('/login');
+};
+
+init['[data-init="user-image"]'] = element =>
+{
+  const token = getToken();
+  (element as HTMLImageElement).src = token?.user.pending?.image ?? token?.user.image ?? '';
 };
 
 import './pages/admin.page.client';

@@ -68,12 +68,15 @@ export const createServer = (requestListener: RequestListener) =>
 
   if (process.env.NODE_ENV === 'development')
   {
-    fs.watch('.', { recursive: true }, (event: fs.WatchEventType, filename: string | null) =>
+    const watchListener = (event: fs.WatchEventType, filename: string | null) =>
     {
       if (!watchRes) return;
       watchRes.write(`event: ${event}\ndata: ${filename}\n\n`);
-    });
+    };
 
-    console.log('watching project folder...');
+    fs.watch('src', { recursive: true }, watchListener);
+    console.log('watching src folder...');
+    fs.watch('static', { recursive: true }, watchListener);
+    console.log('watching static folder...');
   }
 };

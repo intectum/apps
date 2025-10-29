@@ -43,8 +43,8 @@ export type FullUser = User & Credentials &
   status: 'verify' | 'review' | 'active';
   pending?:
   {
-    name: string;
-    image: string;
+    name?: string;
+    image?: string;
   };
 };
 

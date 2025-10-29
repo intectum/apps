@@ -13,16 +13,16 @@ const renderGroupRowHTML = (initialValue: Group | undefined, rowId: number) => `
   <div data-name="group" data-init="groups-control-row" class="u-fr u-justify--space-between u-align--center u-gap--sm">
     <div class="u-fr u-f1 u-gap--sm u-wrap">
       <div style="width: 205px;">
-        ${renderDropdownControlHTML(`group-${rowId}-type`, initialValue?.type ?? '', strings.groupTypes, true, 'Choose a group')}
+        ${renderDropdownControlHTML(`group-${rowId}-type`, strings.groupTypes, initialValue?.type ?? '', true, 'Choose a group')}
       </div>
       <div style="width: 180px;">
-        ${renderDropdownControlHTML(`group-${rowId}-location`, initialValue?.location ?? '', strings.groupLocations, true, 'Choose a location')}
+        ${renderDropdownControlHTML(`group-${rowId}-location`, strings.groupLocations, initialValue?.location ?? '', true, 'Choose a location')}
       </div>
       <div style="width: 170px;">
-        ${renderDropdownControlHTML(`group-${rowId}-month`, initialValue?.month.toString() ?? '', strings.months, true, 'Choose a month')}
+        ${renderDropdownControlHTML(`group-${rowId}-month`, strings.months, initialValue?.month.toString() ?? '', true, 'Choose a month')}
       </div>
       <div style="width: 155px;">
-        ${renderDropdownControlHTML(`group-${rowId}-year`, initialValue?.year.toString() ?? '', yearOptions, true, 'Choose a year')}
+        ${renderDropdownControlHTML(`group-${rowId}-year`, yearOptions, initialValue?.year.toString() ?? '', true, 'Choose a year')}
       </div>
     </div>
     <button data-name="groups-control-row-remove" type="button" class="c-button c-button--icon">

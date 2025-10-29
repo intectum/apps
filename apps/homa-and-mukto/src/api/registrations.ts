@@ -1,7 +1,7 @@
 import { Address, Context, New, Registration, User } from '../types';
 import { create as createAddress } from './addresses';
 import { create as createUser } from './users';
-import { transporter } from './util/mail';
+import { sendMail } from './util/mail';
 
 export const create = async (context: Context, registration: New<Registration>) =>
 {
@@ -14,7 +14,7 @@ export const create = async (context: Context, registration: New<Registration>) 
 
   const verifyUrl = `${context.baseUrl}/register/verify?key=${createdUser.id}`;
 
-  await transporter.sendMail({
+  sendMail({
     to: registration.email,
     subject: 'Please verify your email',
     text: `Click this link to verify your email: ${verifyUrl}`,
@@ -30,7 +30,7 @@ export const verify = async (context: Context, key: string) =>
   {
     const adminUrl = `${context.baseUrl}/admin`;
 
-    await transporter.sendMail({
+    sendMail({
       to: process.env.ADMIN_EMAIL,
       subject: 'A user requires their profile to be reviewed',
       text: `Open the admin panel here: ${adminUrl}`,

@@ -6,12 +6,12 @@ import { apiFetch } from '../util/api';
 
 init['[data-init="login-form"]'] = async element =>
 {
-  const submitButton = element.querySelector('button') as HTMLButtonElement;
+  const submit = element.querySelector('button') as HTMLButtonElement;
 
   element.addEventListener('submit', async event =>
   {
     event.preventDefault();
-    submitButton.disabled = true;
+    submit.disabled = true;
 
     try
     {
@@ -40,7 +40,7 @@ init['[data-init="login-form"]'] = async element =>
     }
     finally
     {
-      submitButton.disabled = false;
+      submit.disabled = false;
     }
   });
 };

@@ -2,7 +2,7 @@ import { hash } from 'bcrypt';
 
 import { Context } from '../types';
 import { decrypt, encrypt } from './util/crypto';
-import { transporter } from './util/mail';
+import { sendMail } from './util/mail';
 
 const timeout = 60 * 60 * 1000; // 1 hour
 
@@ -20,7 +20,7 @@ export const create = async (context: Context, email: string) =>
   const key = encrypt(`${row.id}|${Date.now()}`);
   const resetUrl = `${context.baseUrl}/login/password/reset?key=${key}`;
 
-  await transporter.sendMail({
+  sendMail({
     to: email,
     subject: 'Reset your password',
     text: `Click this link to reset your password: ${resetUrl}`,

@@ -143,7 +143,7 @@ export const update = async (context: Context, user: User) =>
 
     if (oldUser.pending?.image && oldUser.pending.image !== pending.image)
     {
-      fs.rmSync(oldUser.pending.image.substring(1));
+      fs.rmSync(oldUser.pending.image.substring(1), { force: true });
     }
   }
 
@@ -157,8 +157,8 @@ export const remove = async (context: Context, id: string) =>
 
   await context.client.query('DELETE FROM "user" WHERE id = $1', [ id ]);
 
-  if (user.pending?.image) fs.rmSync(user.pending.image.substring(1));
-  fs.rmSync(user.image.substring(1));
+  if (user.pending?.image) fs.rmSync(user.pending.image.substring(1), { force: true });
+  fs.rmSync(user.image.substring(1), { force: true });
 };
 
 export const accept = async (context: Context, id: string) =>
@@ -183,11 +183,14 @@ export const accept = async (context: Context, id: string) =>
 
   if (user.pending?.image)
   {
-    fs.renameSync(user.pending.image.substring(1), image.substring(1));
+    if (fs.existsSync(user.pending.image))
+    {
+      fs.renameSync(user.pending.image.substring(1), image.substring(1));
+    }
 
     if (user.image !== image)
     {
-      fs.rmSync(user.image.substring(1));
+      fs.rmSync(user.image.substring(1), { force: true });
     }
   }
 };

@@ -1,7 +1,5 @@
 .c-button
 {
-  padding: var(--spacer-sm) var(--spacer);
-
   text-transform: uppercase;
 }
 

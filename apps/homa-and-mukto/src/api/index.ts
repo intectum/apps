@@ -129,20 +129,6 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
         return true;
       }
     }
-    else if (url.pathname === '/api/users/review')
-    {
-      if (!context.user?.admin)
-      {
-        respond(res, 403);
-        return true;
-      }
-
-      if (req.method === 'GET')
-      {
-        respondWithJson(res, 200, await users.getReview(context));
-        return true;
-      }
-    }
 
     const userMatch = url.pathname.match(`^/api/users/(${uuidRexeg})$`);
     if (userMatch)

@@ -5,14 +5,14 @@ import renderGroupsHTML from '../components/groups.template';
 const renderAdminRowHTML = (user: FullUser) => `
   <tr data-id="${user.id}">
     <td class="u-p--sm">
+      <img src="${user.image}" alt="Photo" class="u-rounded--full u-aspect--1 u-bg-aqua" style="width: 128px; object-fit: cover;" />
+      ${user.pending?.image ? `=> <img src="${user.pending?.image}" alt="Photo" class="u-rounded--full u-aspect--1 u-bg-aqua" style="width: 128px; object-fit: cover;" />` : ''}
+    </td>
+    <td class="u-p--sm">
       ${user.name} ${user.pending?.name ? `=> ${user.pending?.name}` : ''}
     </td>
     <td class="u-p--sm">
       ${user.email}
-    </td>
-    <td class="u-p--sm">
-      <img src="${user.image}" alt="Photo" class="u-rounded--full u-aspect--1 u-bg-aqua" style="width: 128px; object-fit: cover;" />
-      ${user.pending?.image ? `=> <img src="${user.pending?.image}" alt="Photo" class="u-rounded--full u-aspect--1 u-bg-aqua" style="width: 128px; object-fit: cover;" />` : ''}
     </td>
     <td class="u-p--sm">
       ${renderContactsHTML(user.contacts)}
@@ -20,9 +20,15 @@ const renderAdminRowHTML = (user: FullUser) => `
     <td class="u-p--sm">
       ${renderGroupsHTML(user.groups)}
     </td>
-    <td class="u-fc u-gap u-p--sm">
-      <button data-name="accept" type="button" class="c-button c-button--primary">Accept</button>
-      <button data-name="deny" type="button" class="c-button c-button--danger">Deny</button>
+    <td class="u-p--sm">
+      <div class="u-fc u-gap">
+        ${(user.status == 'review' || user.pending) ? `
+          <button data-name="accept" type="button" class="c-button c-button--primary">Accept</button>
+          <button data-name="deny" type="button" class="c-button c-button--danger">Deny</button>
+        ` : `
+          <div class="u-px u-py--sm u-bg-aqua" style="text-transform: uppercase;">${user.status}</div>
+        `}
+      </div>
     </td>
   </tr>
 `;

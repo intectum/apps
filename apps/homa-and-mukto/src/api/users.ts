@@ -54,9 +54,21 @@ export const get = async (context: Context, id: string) =>
 
 export const getAll = async (context: Context, params: URLSearchParams) =>
 {
-  let query = 'SELECT id, name, image, contacts, groups FROM "user" WHERE status = \'active\'';
+  let fields = [ 'id', 'name', 'image', 'contacts', 'groups' ];
+  if (context.user?.admin)
+  {
+    fields = [ ...fields, 'email', 'status', 'admin', 'pending' ];
+  }
+
+  let query = `SELECT ${fields.join(', ')} FROM "user" WHERE true`;
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const values: any[] = [];
+
+  if (!context.user?.admin)
+  {
+    query += ' AND status = \'active\'';
+  }
 
   const ids = params.get('ids')?.split(',');
   if (ids)
@@ -65,14 +77,7 @@ export const getAll = async (context: Context, params: URLSearchParams) =>
     values.push(ids);
   }
 
-  const result = await context.client.query<User>(query, values);
-
-  return result.rows;
-};
-
-export const getReview = async (context: Context) =>
-{
-  const result = await context.client.query<FullUser>('SELECT id, email, status, admin, name, image, contacts, groups, pending FROM "user" WHERE status = \'review\' OR pending IS NOT NULL');
+  const result = await context.client.query<FullUser>(query, values);
 
   return result.rows;
 };

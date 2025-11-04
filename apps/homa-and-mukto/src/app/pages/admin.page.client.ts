@@ -7,25 +7,45 @@ import { getToken } from '../util/data';
 import { apiFetch } from '../util/api';
 import renderAdminRowHTML from './admin.page.row.template';
 
+let users: FullUser[] = [];
+let reviewRequired = false;
+
 init['[data-init="admin"]'] = async element =>
 {
-  const tbody = element.querySelector('tbody') as HTMLTableSectionElement;
-
-  const response = await apiFetch('/users/review');
+  const response = await apiFetch('/users');
   if (!response.ok)
   {
     openErrorDialog(response.statusText);
     return;
   }
 
-  const users = await response.json() as FullUser[];
+  users = await response.json() as FullUser[];
 
-  for (const user of users)
+  const review = element.querySelector('[name="review"]') as HTMLInputElement;
+  review.addEventListener('change', event =>
+  {
+    reviewRequired = (event.target as HTMLInputElement).checked;
+    update(element);
+  });
+
+  update(element);
+};
+
+const update = (element: HTMLElement) =>
+{
+  const tbody = element.querySelector('tbody') as HTMLTableSectionElement;
+  tbody.innerHTML = '';
+
+  const displayUsers = users.filter(user => !reviewRequired || (user.status === 'review' && user.pending));
+  for (const user of displayUsers)
   {
     const row = toElement(renderAdminRowHTML(user), 'tbody');
+    tbody.appendChild(row);
 
-    const accept = row.querySelector('[data-name="accept"]') as HTMLButtonElement;
-    const deny = row.querySelector('[data-name="deny"]') as HTMLButtonElement;
+    const accept = row.querySelector('[data-name="accept"]') as HTMLButtonElement | undefined;
+    const deny = row.querySelector('[data-name="deny"]') as HTMLButtonElement | undefined;
+
+    if (!accept || !deny) return;
 
     accept.addEventListener('click', async () =>
     {
@@ -91,7 +111,5 @@ init['[data-init="admin"]'] = async element =>
         deny.disabled = false;
       }
     });
-
-    tbody.appendChild(row);
   }
 };

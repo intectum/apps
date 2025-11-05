@@ -45,7 +45,7 @@ const update = (element: HTMLElement) =>
     const accept = row.querySelector('[data-name="accept"]') as HTMLButtonElement | undefined;
     const deny = row.querySelector('[data-name="deny"]') as HTMLButtonElement | undefined;
 
-    if (!accept || !deny) return;
+    if (!accept || !deny) continue;
 
     accept.addEventListener('click', async () =>
     {

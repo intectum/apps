@@ -14,7 +14,7 @@ export const addNavigation = () =>
 
 export const navigate = async (path: string) =>
 {
-  const pageContainer = document.querySelector('[data-name="page-container"]');
+  const pageContainer = document.querySelector<HTMLElement>('[data-name="page-container"]');
   if (!pageContainer) return;
 
   const pageHTML = await fetchPage(path, true);
@@ -22,7 +22,7 @@ export const navigate = async (path: string) =>
 
   history.pushState({}, '', path);
   pageContainer.innerHTML = pageHTML;
-  for (const element of pageContainer.children) applyInit(element as HTMLElement);
+  applyInit(pageContainer);
   document.documentElement.scrollTop = 0;
 };
 

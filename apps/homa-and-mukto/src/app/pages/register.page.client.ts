@@ -1,3 +1,4 @@
+import { toElement } from 'apps-web';
 import { init, navigate } from 'apps-web/client';
 
 import { FullUser } from '../../types';
@@ -5,7 +6,6 @@ import { openErrorDialog } from '../components/error-dialog.template';
 import { initProfileForm } from '../components/profile-form.client';
 import { apiFetch } from '../util/api';
 import renderProfileFormHTML from '../components/profile-form.template';
-import { toElement } from 'apps-web';
 
 init['[data-init="register"]'] = async element =>
 {

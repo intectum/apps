@@ -1,0 +1,13 @@
+dialog
+{
+  width: calc(100% - var(--spacer-lg) * 2);
+  max-width: calc(100% - var(--spacer-lg) * 2);
+}
+
+@media screen and (min-width: 768px)
+{
+  dialog
+  {
+    width: calc(100% - var(--spacer-lg) * 2);
+  }
+}

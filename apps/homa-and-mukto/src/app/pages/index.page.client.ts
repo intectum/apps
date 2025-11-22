@@ -2,10 +2,11 @@ import { importLibrary, setOptions } from '@googlemaps/js-api-loader';
 import { MarkerClusterer } from '@googlemaps/markerclusterer';
 
 import { toElement } from 'apps-web';
-import { init } from 'apps-web/client';
+import { init, setState } from 'apps-web/client';
 
-import { Address, User } from '../../types';
+import { Address, AddressComponent } from '../../types';
 import { openErrorDialog } from '../components/error-dialog.template';
+import { addresses, getMatchingAddressComponents } from '../util/addresses';
 import { apiFetch } from '../util/api';
 import { getToken } from '../util/data';
 import renderUserMarkerHTML from './index.page.user-marker.template';
@@ -41,23 +42,12 @@ init['[data-init="map"]'] = async element =>
     return;
   }
 
-  const addresses = await addressesResponse.json() as Address[];
+  addresses.push(...await addressesResponse.json() as Address[]);
 
-  const openUserDialog = async (userIds: string[]) =>
+  const openUserDialog = async (addressComponents: AddressComponent[]) =>
   {
-    const params = new URLSearchParams();
-    params.append('ids', userIds.join(','));
-
-    const usersResponse = await apiFetch(`/users?${params}`);
-    if (!usersResponse.ok)
-    {
-      openErrorDialog(usersResponse.statusText);
-      return;
-    }
-
-    const users = await usersResponse.json() as User[];
-
-    const dialog = toElement<HTMLDialogElement>(renderUsersDialogHTML(users));
+    const dialog = toElement<HTMLDialogElement>(renderUsersDialogHTML());
+    setState(dialog, { addressComponents });
     document.body.appendChild(dialog);
 
     dialog.onclose = () => dialog.remove();
@@ -80,7 +70,7 @@ init['[data-init="map"]'] = async element =>
 
       try
       {
-        openUserDialog([ address.user_id ]);
+        openUserDialog(address.meta?.address_components ?? []);
       }
       finally
       {
@@ -102,14 +92,27 @@ init['[data-init="map"]'] = async element =>
     },
     onClusterClick: (_, cluster) =>
     {
-      const userIds: string[] = [];
+      let commonAddressComponents: AddressComponent[] | undefined = undefined;
+
       for (const marker of cluster.markers)
       {
         const element = (marker as google.maps.marker.AdvancedMarkerElement).content as Element;
-        userIds.push(element.attributes.getNamedItem('data-user-id')?.value ?? '');
+        const userId = element.attributes.getNamedItem('data-user-id')?.value ?? '';
+
+        const address = addresses.find(address => address.user_id === userId);
+        if (!address?.meta) continue;
+
+        if (!commonAddressComponents)
+        {
+          commonAddressComponents = address.meta.address_components;
+        }
+        else
+        {
+          commonAddressComponents = getMatchingAddressComponents(commonAddressComponents, address.meta.address_components);
+        }
       }
 
-      openUserDialog(userIds);
+      openUserDialog(commonAddressComponents ?? []);
     }
   });
 };

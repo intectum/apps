@@ -24,6 +24,31 @@ export const toElements = <T extends HTMLElement>(html: string, parentTagName = 
   return Array.from(container.children) as T[];
 };
 
+export const mergeElementsFromArray = <T>(parent: HTMLElement, array: T[], idAttribute: string, getId: (arrayElement: T) => string, render: (arrayElement: T) => string) =>
+{
+  const elements = new Map<string, Element>();
+  for (const element of parent.children)
+  {
+    elements.set(element.getAttribute(idAttribute) as string, element);
+  }
+
+  for (const arrayElement of array)
+  {
+    const id = getId(arrayElement);
+    if (!elements.has(id))
+    {
+      elements.set(id, toElement(render(arrayElement)));
+    }
+  }
+
+  parent.innerHTML = '';
+  for (const arrayElement of array)
+  {
+    const id = getId(arrayElement);
+    parent.appendChild(elements.get(id) as Element);
+  }
+};
+
 export const replaceSelector = (parent: Element, selector: string, replacement: Element[] | string) =>
 {
   const removeAll = parent.querySelectorAll(selector);

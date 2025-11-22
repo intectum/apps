@@ -27,6 +27,7 @@ init['[data-init="user-image"]'] = element =>
 
 import './pages/admin.page.client';
 import './pages/index.page.client';
+import './pages/index.page.users-dialog.client';
 import './pages/login.page.client';
 import './pages/login/password/forgot.page.client';
 import './pages/login/password/reset.page.client';

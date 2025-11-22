@@ -172,8 +172,7 @@ export const apiRequestListener: RequestListener = async (req, res, secure) =>
 
       if (req.method === 'POST')
       {
-        await users.accept(context, id);
-        respond(res, 200);
+        respondWithJson(res, 200, await users.accept(context, id));
         return true;
       }
     }

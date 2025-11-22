@@ -45,10 +45,10 @@ init['[data-init="map"]'] = async element =>
   addresses.length = 0;
   addresses.push(...await addressesResponse.json() as Address[]);
 
-  const openUserDialog = async (addressComponents: AddressComponent[]) =>
+  const openUserDialog = async (userIds: string[], addressComponents: AddressComponent[]) =>
   {
     const dialog = toElement<HTMLDialogElement>(renderUsersDialogHTML());
-    setState(dialog, { addressComponents });
+    setState(dialog, { userIds, addressComponents });
     document.body.appendChild(dialog);
 
     dialog.onclose = () => dialog.remove();
@@ -71,7 +71,7 @@ init['[data-init="map"]'] = async element =>
 
       try
       {
-        openUserDialog(address.meta?.address_components ?? []);
+        openUserDialog([ address.user_id ], address.meta?.address_components ?? []);
       }
       finally
       {
@@ -93,12 +93,14 @@ init['[data-init="map"]'] = async element =>
     },
     onClusterClick: (_, cluster) =>
     {
+      const userIds: string[] = [];
       let commonAddressComponents: AddressComponent[] | undefined = undefined;
 
       for (const marker of cluster.markers)
       {
         const element = (marker as google.maps.marker.AdvancedMarkerElement).content as Element;
         const userId = element.attributes.getNamedItem('data-user-id')?.value ?? '';
+        userIds.push(userId);
 
         const address = addresses.find(address => address.user_id === userId);
         if (!address?.meta) continue;
@@ -113,7 +115,7 @@ init['[data-init="map"]'] = async element =>
         }
       }
 
-      openUserDialog(commonAddressComponents ?? []);
+      openUserDialog(userIds, commonAddressComponents ?? []);
     }
   });
 };

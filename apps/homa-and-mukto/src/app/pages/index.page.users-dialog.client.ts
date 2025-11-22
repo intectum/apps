@@ -10,14 +10,20 @@ init['[data-init="user-dialog"]'] = async element =>
 {
   element.addEventListener('state', async () =>
   {
-    const state = getState<{ addressComponents: AddressComponent[] }>(element);
+    const state = getState<{ userIds?: string[], addressComponents: AddressComponent[] }>(element);
     if (!state) return;
 
-    const matchingAddresses = addresses.filter(address =>
-      getMatchingAddressComponents(address.meta?.address_components ?? [], state.addressComponents).length === state.addressComponents.length);
-
     const params = new URLSearchParams();
-    params.append('ids', matchingAddresses.map(address => address.user_id).join(','));
+    if (state.userIds)
+    {
+      params.append('ids', state.userIds.join(','));
+    }
+    else
+    {
+      const matchingAddresses = addresses.filter(address =>
+        getMatchingAddressComponents(address.meta?.address_components ?? [], state.addressComponents).length === state.addressComponents.length);
+      params.append('ids', matchingAddresses.map(address => address.user_id).join(','));
+    }
 
     const usersResponse = await apiFetch(`/users?${params}`);
     if (!usersResponse.ok)

@@ -42,6 +42,7 @@ init['[data-init="map"]'] = async element =>
     return;
   }
 
+  addresses.length = 0;
   addresses.push(...await addressesResponse.json() as Address[]);
 
   const openUserDialog = async (addressComponents: AddressComponent[]) =>

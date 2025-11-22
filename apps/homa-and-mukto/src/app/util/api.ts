@@ -1,3 +1,5 @@
+import { navigate } from 'apps-web/client';
+
 import { TokenCamelCase } from '../../types';
 import { getToken } from './data';
 
@@ -19,25 +21,33 @@ export const apiFetch = async (input: string | URL | Request, init?: RequestInit
 
     const response = await fetch(input, init);
 
-    if (response.status === 401 && token?.refreshTokenExpiresAt && new Date(token.refreshTokenExpiresAt).getTime() > new Date().getTime())
+    if (response.status === 401)
     {
-      const refreshResponse = await fetch('/api/oauth/token', {
-        method: 'POST',
-        body: new URLSearchParams({
-          grant_type: 'refresh_token',
-          client_id: 'homa-and-mukto-app',
-          client_secret: 'secret', // TODO
-          refresh_token: token.refreshToken ?? ''
-        })
-      });
-
-      if (refreshResponse.ok)
+      if (token?.refreshTokenExpiresAt && new Date(token.refreshTokenExpiresAt).getTime() > new Date().getTime())
       {
-        const refreshToken = await refreshResponse.json() as TokenCamelCase;
-        localStorage.setItem('token', JSON.stringify(refreshToken));
+        const refreshResponse = await fetch('/api/oauth/token', {
+          method: 'POST',
+          body: new URLSearchParams({
+            grant_type: 'refresh_token',
+            client_id: 'homa-and-mukto-app',
+            client_secret: 'secret', // TODO
+            refresh_token: token.refreshToken ?? ''
+          })
+        });
 
-        (init.headers as Record<string, string>).Authorization = `Bearer ${refreshToken.accessToken}`;
-        return fetch(input, init);
+        if (refreshResponse.ok)
+        {
+          const refreshToken = await refreshResponse.json() as TokenCamelCase;
+          localStorage.setItem('token', JSON.stringify(refreshToken));
+
+          (init.headers as Record<string, string>).Authorization = `Bearer ${refreshToken.accessToken}`;
+          return fetch(input, init);
+        }
+      }
+      else
+      {
+        localStorage.removeItem('token');
+        await navigate('/login');
       }
     }
 

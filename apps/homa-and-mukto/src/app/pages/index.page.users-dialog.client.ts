@@ -1,6 +1,6 @@
 import { getState, init, setState } from 'apps-web/client';
 import { AddressComponent, User } from '../../types';
-import { mergeElementsFromArray, toElements } from 'apps-web';
+import { toArrayElements, toElements } from 'apps-web';
 import { renderUsersDialogAddressHTML, renderUsersDialogUserHTML } from './index.page.users-dialog.template';
 import { addresses, getMatchingAddressComponents } from '../util/addresses';
 import { apiFetch } from '../util/api';
@@ -52,6 +52,6 @@ init['[data-init="user-dialog"]'] = async element =>
     }
 
     const usersElement = element.querySelector('[data-name="user-dialog-users"]') as HTMLElement;
-    mergeElementsFromArray(usersElement, users, 'data-user-id', user => user.id, renderUsersDialogUserHTML);
+    toArrayElements(usersElement, users, 'data-user-id', user => user.id, renderUsersDialogUserHTML);
   });
 };

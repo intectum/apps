@@ -24,7 +24,7 @@ export const toElements = <T extends HTMLElement>(html: string, parentTagName = 
   return Array.from(container.children) as T[];
 };
 
-export const mergeElementsFromArray = <T>(parent: HTMLElement, array: T[], idAttribute: string, getId: (arrayElement: T) => string, render: (arrayElement: T) => string) =>
+export const toArrayElements = <T>(parent: HTMLElement, array: T[], idAttribute: string, getId: (arrayElement: T) => string, render: (arrayElement: T) => string) =>
 {
   const elements = new Map<string, Element>();
   for (const element of parent.children)

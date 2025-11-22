@@ -62,8 +62,6 @@ const update = (element: HTMLElement) =>
           return;
         }
 
-        row.remove();
-
         if (id === getToken()?.user.id)
         {
           const userResponse = await apiFetch(`/users/${id}`);
@@ -82,6 +80,8 @@ const update = (element: HTMLElement) =>
             applyInit(document.body, [ '[data-init="user-image"]' ]);
           }
         }
+
+        applyInit(document.body, [ '[data-init="admin"]' ]);
       }
       finally
       {

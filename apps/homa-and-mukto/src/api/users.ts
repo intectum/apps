@@ -198,6 +198,8 @@ export const accept = async (context: Context, id: string) =>
       fs.rmSync(user.image.substring(1), { force: true });
     }
   }
+
+  return get(context, id);
 };
 
 export const deny = async (context: Context, id: string) =>

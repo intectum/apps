@@ -1,32 +1,33 @@
-@import '../../../packages/apps-web/src/styles/index.css';
+@import '../../../packages/based/src/client/styles/index.css';
 
 @import 'styles/base/fonts.css';
 
 @import 'styles/elements/a.css';
 @import 'styles/elements/blockquote.css';
 @import 'styles/elements/body.css';
+@import 'styles/elements/dialog.css';
 @import 'styles/elements/header.css';
 @import 'styles/elements/headings.css';
 @import 'styles/elements/main.css';
 
 @import 'styles/components/background.css';
-@import 'styles/components/index/boids.css';
+@import 'styles/components/boids.css';
 @import 'styles/components/button.css';
 @import 'styles/components/carousel.css';
 @import 'styles/components/client-dialog.css';
-@import 'styles/components/index/clients.css';
-@import 'styles/components/index/contact.css';
-@import 'styles/components/index/intro.css';
-@import 'styles/components/index/projects.css';
-@import 'styles/components/index/showcase.css';
-@import 'styles/components/index/showcases.css';
-@import 'styles/components/index/skills.css';
-@import 'styles/components/index/testimonials.css';
-@import 'styles/components/index/title.css';
+@import 'styles/components/clients.css';
+@import 'styles/components/contact.css';
+@import 'styles/components/intro.css';
 @import 'styles/components/logo.css';
 @import 'styles/components/project-dialog.css';
 @import 'styles/components/project-grid.css';
+@import 'styles/components/projects.css';
+@import 'styles/components/showcase.css';
+@import 'styles/components/showcases.css';
 @import 'styles/components/skill.css';
+@import 'styles/components/skills.css';
+@import 'styles/components/testimonials.css';
+@import 'styles/components/title.css';
 @import 'styles/components/theme-selector.css';
 
 @import 'styles/utilities/panel.css';

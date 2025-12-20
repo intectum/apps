@@ -5,6 +5,7 @@
     "packages/apps-firebase",
     "packages/apps-mobile",
     "packages/apps-web",
+    "packages/based",
     "packages/vaga-core",
     "apps/homa-and-mukto",
     "apps/intectum-website",

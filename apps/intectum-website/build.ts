@@ -1,21 +1,15 @@
-import { build } from 'apps-web/tools';
+import { build, env } from 'based/tools';
 
-import { default as renderIndexPageHTML } from './src/templates/index/page';
-import renderLayoutHTML from './src/templates/layout';
-import { default as renderProjectsPageHTML } from './src/templates/projects/page';
+import { layoutModule, pageModules } from './modules';
 
 (async function()
 {
+  env(false);
+
   console.log('staring build...');
   const startTime = performance.now();
 
-  await build(
-    renderLayoutHTML,
-    {
-      'index': renderIndexPageHTML,
-      'projects': renderProjectsPageHTML
-    }
-  );
+  await build(layoutModule, pageModules);
 
   console.log(`build completed in ${Math.round(performance.now() - startTime)}ms`);
 })();

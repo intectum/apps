@@ -1,7 +1,7 @@
 {
   "name": "intectum-website",
   "scripts": {
-    "dev": "ts-node dev",
+    "start": "ts-node index",
     "build": "eslint . && ts-node build",
     "deploy": "firebase deploy --only hosting"
   }

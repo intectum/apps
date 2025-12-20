@@ -15,6 +15,7 @@ This monorepo uses npm workspaces. The following is a list of all the workspaces
   - apps-firebase: common firebase functions
   - apps-mobile: common react native components, hooks etc.
   - apps-web: common web functions
+  - based: common foundational package
   - vaga-core: common functions for the Vaga project
 
 ## Firebase

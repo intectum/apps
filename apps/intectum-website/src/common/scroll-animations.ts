@@ -1,7 +1,8 @@
 export const activateScrollAnimations = () =>
-  document.addEventListener('scroll', () =>
+{
+  const updateScrollAnimations = () =>
   {
-    const containers = document.querySelectorAll<HTMLElement>('[data-name="scroll-animation"]');
+    const containers = document.querySelectorAll<HTMLElement>('[data-scroll-animation]');
     for (const container of containers)
     {
       const scrollTopZero = container.offsetTop - window.innerHeight;
@@ -10,4 +11,9 @@ export const activateScrollAnimations = () =>
       container.style.setProperty('--scroll-animation-time', time.toString());
       container.style.setProperty('visibility', time < 0 || time >= 1 ? 'hidden' : 'visible');
     }
-  });
+  };
+
+  updateScrollAnimations();
+
+  document.addEventListener('scroll', updateScrollAnimations);
+};

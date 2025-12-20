@@ -1,0 +1,9 @@
+{
+  "name": "based",
+  "main": "common.ts",
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.24.0",
+    "ts-node": "^10.9.2"
+  }
+}

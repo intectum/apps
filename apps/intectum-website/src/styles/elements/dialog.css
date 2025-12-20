@@ -1,0 +1,34 @@
+dialog
+{
+  width: calc(100% - var(--spacer-lg) * 2);
+  max-width: 600px;
+
+  animation: dialog 0.5s;
+}
+
+@media screen and (min-width: 768px)
+{
+  dialog
+  {
+    width: 50%;
+  }
+}
+
+@keyframes dialog
+{
+  from
+  {
+    scale: 0.95;
+    opacity: 0;
+  }
+
+  to
+  {
+    scale: 1;
+  }
+}
+
+dialog::backdrop
+{
+  backdrop-filter: blur(10px);
+}

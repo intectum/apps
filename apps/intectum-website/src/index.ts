@@ -1,29 +1,23 @@
-import { addNavigation, defineBasisAnchor, defineBasisDialog, enableLiveReload } from 'apps-web/client';
+import { addDialogs, addNavigation, applyInit, enableLiveReload } from 'based/client';
 
 import { activateScrollAnimations } from './common/scroll-animations';
-import { defineCarousel } from './components/carousel';
-import { defineHomeBoids } from './components/index/boids';
-import { defineHomeClients } from './components/index/clients';
-import { defineHomeProjects } from './components/index/projects';
-import { defineHomeSkills } from './components/index/skills';
-import { defineProjectDialog } from './components/project-dialog';
-import { defineProjectsPage } from './components/projects/page';
-import { defineThemeSelector } from './components/theme-selector';
 
+addDialogs();
 addNavigation();
-defineBasisAnchor();
-defineBasisDialog();
 
-defineCarousel();
-defineHomeBoids();
-defineHomeClients();
-defineHomeProjects();
-defineHomeSkills();
-defineProjectDialog();
-defineProjectsPage();
-defineThemeSelector();
+import './pages/projects.client';
+
+import './components/boids.client';
+import './components/carousel.client';
+import './components/clients.client';
+import './components/project-dialog.client';
+import './components/projects.client';
+import './components/skills.client';
+import './components/theme-selector.client';
 
 activateScrollAnimations();
+
+applyInit(document.body);
 
 if (process.env.NODE_ENV !== 'production')
 {

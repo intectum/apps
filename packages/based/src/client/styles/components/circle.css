@@ -1,0 +1,22 @@
+.c-circle
+{
+  width: 48px;
+  aspect-ratio: 1;
+  overflow: hidden;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+}
+
+.c-circle--sm
+{
+  width: 24px;
+}
+
+.c-circle--lg
+{
+  width: 64px;
+}

@@ -1,0 +1,26 @@
+.c-button
+{
+  display: inline-flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: var(--spacer-sm) var(--spacer);
+}
+
+.c-button:hover
+{
+  filter: brightness(75%);
+}
+
+.c-button--small
+{
+  padding: var(--spacer-xs) var(--spacer-sm);
+}
+
+.c-button--large
+{
+  padding: var(--spacer) var(--spacer-lg);
+
+  font-size: 20px;
+}

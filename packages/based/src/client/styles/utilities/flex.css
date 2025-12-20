@@ -1,0 +1,192 @@
+.u-f1
+{
+  flex: 1;
+}
+
+.u-fc
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.u-fc--reversed
+{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.u-fr
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.u-fr--reversed
+{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.u-center
+{
+  justify-content: center;
+  align-items: center;
+}
+
+.u-justify--start
+{
+  justify-content: start;
+}
+
+.u-justify--center
+{
+  justify-content: center;
+}
+
+.u-justify--space-between
+{
+  justify-content: space-between;
+}
+
+.u-align--start
+{
+  align-items: start;
+}
+
+.u-align--center
+{
+  align-items: center;
+}
+
+.u-gap--none
+{
+  gap: 0;
+}
+
+.u-gap--xs
+{
+  gap: var(--spacer-xs);
+}
+
+.u-gap--sm
+{
+  gap: var(--spacer-sm);
+}
+
+.u-gap
+{
+  gap: var(--spacer);
+}
+
+.u-gap--lg
+{
+  gap: var(--spacer-lg);
+}
+
+.u-gap--xl
+{
+  gap: var(--spacer-xl);
+}
+
+.u-wrap
+{
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px)
+{
+  .u-f1-lg
+  {
+    flex: 1;
+  }
+
+  .u-fc-lg
+  {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .u-fc-lg--reversed
+  {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .u-fr-lg
+  {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .u-fr-lg--reversed
+  {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .u-center-lg
+  {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .u-justify-lg--start
+  {
+    justify-content: start;
+  }
+
+  .u-justify-lg--center
+  {
+    justify-content: center;
+  }
+
+  .u-justify-lg--space-between
+  {
+    justify-content: space-between;
+  }
+
+  .u-align-lg--start
+  {
+    align-items: start;
+  }
+
+  .u-align-lg--center
+  {
+    align-items: center;
+  }
+
+  .u-gap-lg--none
+  {
+    gap: 0;
+  }
+
+  .u-gap-lg--xs
+  {
+    gap: var(--spacer-xs);
+  }
+
+  .u-gap-lg--sm
+  {
+    gap: var(--spacer-sm);
+  }
+
+  .u-gap-lg
+  {
+    gap: var(--spacer);
+  }
+
+  .u-gap-lg--lg
+  {
+    gap: var(--spacer-lg);
+  }
+
+  .u-gap-lg--xl
+  {
+    gap: var(--spacer-xl);
+  }
+
+  .u-wrap-lg
+  {
+    flex-wrap: wrap;
+  }
+}

@@ -44,11 +44,11 @@ export const apiFetch = async (input: string | URL | Request, init?: RequestInit
           return fetch(input, init);
         }
       }
-      else
-      {
-        localStorage.removeItem('token');
-        await navigate('/login');
-      }
+
+      localStorage.removeItem('token');
+      await navigate('/login');
+      // TODO something more graceful? This will log an error if the calling code wanted other info from the response
+      return { ok: true } as Response;
     }
 
     return response;

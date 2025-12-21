@@ -1,18 +1,16 @@
 import {
+  addDialogs,
   addNavigation,
   applyInit,
-  defineBasisAnchor,
-  defineBasisDialog,
   enableLiveReload,
   init,
   navigate
-} from 'apps-web/client';
+} from 'based/client';
 
 import { getToken } from './util/data';
 
+addDialogs();
 addNavigation();
-defineBasisAnchor();
-defineBasisDialog();
 
 init['[data-require-auth=""]'] = async () =>
 {

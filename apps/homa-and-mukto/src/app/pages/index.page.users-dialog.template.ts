@@ -1,11 +1,11 @@
-import { mapToHTML } from 'apps-web';
+import { mapToHTML } from 'based';
 
 import { AddressComponent, User } from '../../types';
 import renderContactsHTML from '../components/contacts.template';
 import renderGroupsHTML from '../components/groups.template';
 
 const renderUsersDialogHTML = () => `
-  <dialog data-init="user-dialog" is="basis-dialog" class="u-fc u-align--start u-gap u-p">
+  <dialog data-init="user-dialog" class="u-fc u-align--start u-gap u-p">
     <div data-name="user-dialog-address" class="u-fr u-wrap u-gap--xs"></div>
     <div data-name="user-dialog-users" class="u-fr u-wrap u-gap"></div>
   </dialog>

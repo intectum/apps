@@ -1,22 +1,10 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
-
-import { appRequestListener, createServer, staticRequestListener } from 'apps-web/tools';
+import { appRequestListener, createServer, staticRequestListener } from 'based/server';
+import { env } from 'based/tools';
 
 import { apiRequestListener } from './api';
+import { layoutModule, pageModules } from './modules';
 
-const pageModules = {
-  '/admin': 'src/app/pages/admin.page.template',
-  '/index': 'src/app/pages/index.page.template',
-  '/login': 'src/app/pages/login.page.template',
-  '/login/password/email': 'src/app/pages/login/password/email.page.template',
-  '/login/password/forgot': 'src/app/pages/login/password/forgot.page.template',
-  '/login/password/reset': 'src/app/pages/login/password/reset.page.template',
-  '/register': 'src/app/pages/register.page.template',
-  '/register/email': 'src/app/pages/register/email.page.template',
-  '/register/review': 'src/app/pages/register/review.page.template',
-  '/register/verify': 'src/app/pages/register/verify.page.template'
-};
+env(true);
 
 createServer(async (req, res, secure) =>
 {
@@ -30,7 +18,7 @@ createServer(async (req, res, secure) =>
     return staticRequestListener(req, res, '.');
   }
 
-  if (await appRequestListener(req, res, 'src/app/layout.template', pageModules))
+  if (await appRequestListener(req, res, layoutModule, pageModules, [ 'src/app/index.ts', 'src/app/index.css' ]))
   {
     return true;
   }

@@ -1,5 +1,4 @@
-import { toElement } from 'apps-web';
-import { applyInit, init, navigate } from 'apps-web/client';
+import { applyInit, init, navigate, toElement } from 'based/client';
 
 import { FullUser } from '../../types';
 import { getToken } from '../util/data';

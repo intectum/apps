@@ -1,4 +1,4 @@
-import { navigate } from 'apps-web/client';
+import { navigate } from 'based/client';
 
 import { TokenCamelCase } from '../../types';
 import { getToken } from './data';

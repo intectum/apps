@@ -1,4 +1,4 @@
-import { init, navigate } from 'apps-web/client';
+import { init, navigate } from 'based/client';
 
 import { Token } from '../../types';
 import { openErrorDialog } from '../components/error-dialog.template';

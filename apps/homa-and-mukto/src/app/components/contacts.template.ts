@@ -1,4 +1,4 @@
-import { mapToHTML } from 'apps-web';
+import { mapToHTML } from 'based';
 
 import { Contact } from '../../types';
 import renderEnvelopeSvg from '../icons/envelope';
@@ -8,7 +8,7 @@ import renderWhatsappSvg from '../icons/whatsapp';
 
 const renderContactsHTML = (contacts: Contact[]) =>
   mapToHTML(contacts, contact => `
-    <a is="basis-a" href="${toLink(contact)}" class="u-fr u-gap--sm">
+    <a href="${toLink(contact)}" class="u-fr u-gap--sm">
       ${icons[contact.type]}
       <div>${contact.value}</div>
     </a>

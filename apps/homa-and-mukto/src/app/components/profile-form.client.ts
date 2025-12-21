@@ -1,5 +1,4 @@
-import { toElement } from 'apps-web';
-import { navigate } from 'apps-web/client';
+import { navigate, toElement } from 'based/client';
 
 import { Address, User } from '../../types';
 import { apiFetch } from '../util/api';

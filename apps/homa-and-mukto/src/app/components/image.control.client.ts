@@ -1,5 +1,4 @@
-import { init } from 'apps-web/client';
-import { toElement } from 'apps-web';
+import { init, toElement } from 'based/client';
 
 const maxFileSize = 5 * 1024 * 1024; // 5MB
 

@@ -1,5 +1,4 @@
-import { toElement } from 'apps-web';
-import { applyInit, init } from 'apps-web/client';
+import { applyInit, init, toElement } from 'based/client';
 
 import { FullUser } from '../../types';
 import { openErrorDialog } from '../components/error-dialog.template';

@@ -1,4 +1,4 @@
-import { init } from 'apps-web/client';
+import { init } from 'based/client';
 
 import { autocomplete } from '../util/places';
 import { setOptions } from './dropdown.control.client';

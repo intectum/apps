@@ -1,4 +1,4 @@
-import { mapToHTML } from 'apps-web';
+import { mapToHTML } from 'based';
 
 import { Contact } from '../../types';
 import renderPlusSvg from '../icons/plus';

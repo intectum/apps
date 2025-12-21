@@ -1,10 +1,10 @@
-import { getState, init, setState } from 'apps-web/client';
+import { getState, init, setState, toArrayElements, toElements } from 'based/client';
+
 import { AddressComponent, User } from '../../types';
-import { toArrayElements, toElements } from 'apps-web';
+import { openErrorDialog } from '../components/error-dialog.template';
 import { renderUsersDialogAddressHTML, renderUsersDialogUserHTML } from './index.page.users-dialog.template';
 import { addresses, getMatchingAddressComponents } from '../util/addresses';
 import { apiFetch } from '../util/api';
-import { openErrorDialog } from '../components/error-dialog.template';
 
 init['[data-init="user-dialog"]'] = async element =>
 {

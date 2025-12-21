@@ -7,7 +7,7 @@ env(true);
 
 createServer(async (req, res) =>
 {
-  if (await appRequestListener(req, res, layoutModule, pageModules))
+  if (await appRequestListener(req, res, layoutModule, pageModules, [ 'src/index.ts', 'src/index.css' ]))
   {
     return true;
   }

@@ -1,5 +1,4 @@
-import { toElement } from 'apps-web';
-import { init } from 'apps-web/client';
+import { init, toElement } from 'based/client';
 
 import { Group } from '../../types';
 import renderGroupRowHTML from './groups.control.row.template';

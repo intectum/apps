@@ -1,4 +1,4 @@
-import { LayoutHTMLRenderer } from 'apps-web';
+import { LayoutHTMLRenderer } from 'based';
 
 const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML: string) => `
   <!DOCTYPE html>

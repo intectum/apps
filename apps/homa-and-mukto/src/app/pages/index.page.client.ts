@@ -1,8 +1,7 @@
 import { importLibrary, setOptions } from '@googlemaps/js-api-loader';
 import { MarkerClusterer } from '@googlemaps/markerclusterer';
 
-import { toElement } from 'apps-web';
-import { init, setState } from 'apps-web/client';
+import { init, setState, toElement } from 'based/client';
 
 import { Address, AddressComponent } from '../../types';
 import { openErrorDialog } from '../components/error-dialog.template';

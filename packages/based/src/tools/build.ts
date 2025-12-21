@@ -3,7 +3,7 @@ import { dirname } from 'node:path';
 
 import { bundle } from './bundle';
 
-export const build = async (layoutModule: string, pageModules: Record<string, string>) =>
+export const build = async (layoutModule: string, pageModules: Record<string, string>, bundleEntryPoints: string[]) =>
 {
   fs.rmSync('dist', { recursive: true, force: true });
   fs.mkdirSync('dist');
@@ -17,7 +17,7 @@ export const build = async (layoutModule: string, pageModules: Record<string, st
 
   const { default: renderLayoutHTML } = await import(`${process.cwd()}/${layoutModule}`);
 
-  const { js, css } = await bundle();
+  const { js, css } = await bundle(bundleEntryPoints);
 
   for (const [ path, pageModule ] of Object.entries(pageModules))
   {

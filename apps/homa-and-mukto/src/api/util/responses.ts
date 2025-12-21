@@ -1,6 +1,6 @@
 import { ServerResponse } from 'node:http';
 
-import { respond } from 'apps-web/src/server/util';
+import { respond } from 'based/server';
 
 export const respondWithJson = <T>(res: ServerResponse, code: number, data: T) =>
 {

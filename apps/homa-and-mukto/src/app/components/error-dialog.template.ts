@@ -1,7 +1,7 @@
-import { toElement } from 'apps-web';
+import { toElement } from 'based/client';
 
 const renderErrorDialogHTML = (error: string) => `
-  <dialog is="basis-dialog" class="u-fc u-gap u-p">
+  <dialog class="u-fc u-gap u-p">
     <h2>Oops, something went wrong</h2>
     <div>${error}</div>
   </dialog>

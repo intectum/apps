@@ -1,5 +1,5 @@
-import { mapToHTML } from 'apps-web';
-import { init } from 'apps-web/client';
+import { mapToHTML } from 'based';
+import { init } from 'based/client';
 
 import { prepareOptions } from './dropdown.control.template';
 import renderDropdownOptionHTML from './dropdown.control.option.template';

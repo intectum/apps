@@ -1,4 +1,4 @@
-import { mapToHTML } from 'apps-web';
+import { mapToHTML } from 'based';
 
 import renderChevronDownSvg from '../icons/chevron-down';
 import renderDropdownOptionHTML from './dropdown.control.option.template';

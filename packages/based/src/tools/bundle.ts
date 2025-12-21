@@ -4,10 +4,10 @@ import * as esbuild from 'esbuild';
 
 import { env } from './env';
 
-export const bundle = async () =>
+export const bundle = async (entryPoints: string[]) =>
 {
   const result = await esbuild.build({
-    entryPoints: [ 'src/index.ts', 'src/index.css' ],
+    entryPoints,
     outdir: 'dist',
     bundle: true,
     write: false,

@@ -26,7 +26,7 @@ const errorHTML = `
 
 fs.rmSync('page-cache', { recursive: true, force: true });
 
-export const appRequestListener = async (req: http.IncomingMessage, res: http.ServerResponse, layoutModule: string, pageModules: Record<string, string>) =>
+export const appRequestListener = async (req: http.IncomingMessage, res: http.ServerResponse, layoutModule: string, pageModules: Record<string, string>, bundleEntryPoints: string[]) =>
 {
   const url = toUrl(req);
   const pathname = normalizePathname(url.pathname);
@@ -56,7 +56,7 @@ export const appRequestListener = async (req: http.IncomingMessage, res: http.Se
         if (process.env.NODE_ENV === 'development') invalidateModuleRecursive(require.resolve(layoutModulePath));
         const { default: renderLayoutHTML } = await import(layoutModulePath);
 
-        const { js, css } = await bundle();
+        const { js, css } = await bundle(bundleEntryPoints);
 
         const layout = renderLayoutHTML(js, css, await renderPageHTML(pagePath));
         if (process.env.NODE_ENV !== 'development')

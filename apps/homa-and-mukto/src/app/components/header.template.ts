@@ -4,7 +4,7 @@ import renderUserTieSvg from '../icons/user-tie';
 import renderProfileFormHTML from './profile-form.template';
 
 const renderHeaderHTML = () => `
-  <header class="u-fr u-justify--space-between u-align--center u-px--lg u-py">
+  <header class="u-fr u-justify--space-between u-align--center u-px--lg u-py" style="border-bottom: 2px solid var(--color-dark);">
     <a href="/">Homa & Mukto</a>
     <div class="u-fr u-align--center u-gap">
       <button data-init="header-profile" type="button" title="Profile" class="c-button c-button--icon">
@@ -21,14 +21,14 @@ const renderHeaderHTML = () => `
 `;
 
 export const renderProfileDialogHTML = (user: FullUser) => `
-  <dialog class="u-p">
+  <dialog class="c-card">
     <h2>Profile</h2>
     ${renderProfileFormHTML('header', user)}
   </dialog>
 `;
 
 export const renderDeleteProfileDialogHTML = () => `
-  <dialog class="u-fc u-gap u-p">
+  <dialog class="c-card u-fc u-gap">
     <h2>Delete account</h2>
     <div>Are you sure you want to delete your account?</div>
     <div class="u-fr u-gap">
@@ -39,7 +39,7 @@ export const renderDeleteProfileDialogHTML = () => `
 `;
 
 export const renderReviewProfileDialogHTML = () => `
-  <dialog class="u-fc u-gap u-p">
+  <dialog class="c-card u-fc u-gap">
     <h2>We're reviewing your profile...</h2>
     <div>To ensure everyone's safety on the platform, we will now review your profile to verify that your updated name and/or photo are appropriate.</div>
   </dialog>

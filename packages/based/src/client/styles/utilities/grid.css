@@ -1,0 +1,17 @@
+.u-g
+{
+  display: grid;
+}
+
+.u-g--1-2
+{
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media screen and (min-width: 768px)
+{
+  .u-g--1-2
+  {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

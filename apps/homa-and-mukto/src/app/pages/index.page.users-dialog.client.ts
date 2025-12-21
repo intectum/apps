@@ -35,6 +35,9 @@ init['[data-init="user-dialog"]'] = async element =>
     const users = await usersResponse.json() as User[];
     users.sort((a, b) => a.name.localeCompare(b.name));
 
+    const titleElement = element.querySelector('[data-name="user-dialog-title"]') as Element;
+    titleElement.innerHTML = `Friends in ${state.addressComponents[0].long_name}`;
+
     const addressElement = element.querySelector('[data-name="user-dialog-address"]') as Element;
     addressElement.innerHTML = '';
 

@@ -5,8 +5,8 @@ import renderGroupsHTML from '../components/groups.template';
 const renderAdminRowHTML = (user: FullUser) => `
   <tr data-id="${user.id}">
     <td class="u-p--sm">
-      <img src="${user.image}" alt="Photo" class="u-rounded--full u-aspect--1 u-bg-aqua" style="width: 128px; object-fit: cover;" />
-      ${user.pending?.image ? `=> <img src="${user.pending?.image}" alt="Photo" class="u-rounded--full u-aspect--1 u-bg-aqua" style="width: 128px; object-fit: cover;" />` : ''}
+      <img src="${user.image}" alt="Photo" class="u-rounded--full u-aspect--1 u-bg-blue-light" style="width: 128px; object-fit: cover;" />
+      ${user.pending?.image ? `=> <img src="${user.pending?.image}" alt="Photo" class="u-rounded--full u-aspect--1 u-bg-blue-light" style="width: 128px; object-fit: cover;" />` : ''}
     </td>
     <td class="u-p--sm">
       ${user.name} ${user.pending?.name ? `=> ${user.pending?.name}` : ''}
@@ -26,7 +26,7 @@ const renderAdminRowHTML = (user: FullUser) => `
           <button data-name="accept" type="button" class="c-button c-button--primary">Accept</button>
           <button data-name="deny" type="button" class="c-button c-button--danger">Deny</button>
         ` : `
-          <div class="u-px u-py--sm u-bg-aqua" style="text-transform: uppercase;">${user.status}</div>
+          <div class="u-px u-py--sm u-bg-blue-light u-light" style="font-family: 'Gilroy Extra Bold', sans-serif; text-transform: uppercase;">${user.status}</div>
         `}
       </div>
     </td>

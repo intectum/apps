@@ -3,9 +3,24 @@
   color: var(--color-aqua);
 }
 
-.u-danger
+.u-dark
 {
-  color: var(--color-danger);
+  color: var(--color-dark);
+}
+
+.u-blue
+{
+  color: var(--color-blue);
+}
+
+.u-blue-light
+{
+  color: var(--color-blue-light);
+}
+
+.u-blue-dark
+{
+  color: var(--color-blue-dark);
 }
 
 .u-gold
@@ -13,12 +28,72 @@
   color: var(--color-gold);
 }
 
+.u-light
+{
+  color: var(--color-light);
+}
+
+.u-orange
+{
+  color: var(--color-orange);
+}
+
+.u-yellow
+{
+  color: var(--color-yellow);
+}
+
+.u-yellow-light
+{
+  color: var(--color-yellow-light);
+}
+
 .u-bg-aqua
 {
   background-color: var(--color-aqua);
 }
 
+.u-bg-dark
+{
+  background-color: var(--color-dark);
+}
+
+.u-bg-blue
+{
+  background-color: var(--color-blue);
+}
+
+.u-bg-blue-light
+{
+  background-color: var(--color-blue-light);
+}
+
+.u-bg-blue-dark
+{
+  background-color: var(--color-blue-dark);
+}
+
 .u-bg-gold
 {
   background-color: var(--color-gold);
+}
+
+.u-bg-light
+{
+  background-color: var(--color-light);
+}
+
+.u-bg-orange
+{
+  background-color: var(--color-orange);
+}
+
+.u-bg-yellow
+{
+  background-color: var(--color-yellow);
+}
+
+.u-bg-yellow-light
+{
+  background-color: var(--color-yellow-light);
 }

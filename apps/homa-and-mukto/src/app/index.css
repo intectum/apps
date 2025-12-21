@@ -1,9 +1,13 @@
 @import '../../../../packages/based/src/client/styles/index.css';
 
+@import './styles/base/fonts.css';
 @import './styles/base/variables.css';
 
+@import './styles/elements/body.css';
 @import './styles/elements/dialog.css';
+@import './styles/elements/headings.css';
 
 @import './styles/components/button.css';
+@import './styles/components/card.css';
 
 @import './styles/utilities/colors.css';

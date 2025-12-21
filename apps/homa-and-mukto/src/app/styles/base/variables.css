@@ -1,6 +1,13 @@
 :root
 {
-  --color-aqua: #42d4d2;
-  --color-danger: orangered;
+  --color-aqua: #98cecd;
+  --color-dark: #000000;
+  --color-blue: #3e68b1;
+  --color-blue-light: #2f99cd;
+  --color-blue-dark: #333366;
   --color-gold: #fecc66;
+  --color-light: #ffffff;
+  --color-orange: orangered;
+  --color-yellow: #ffce34;
+  --color-yellow-light: #f8f495;
 }

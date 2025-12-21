@@ -18,7 +18,7 @@ init['[data-init="image-control"]'] = async element =>
 
     if (file.size > maxFileSize)
     {
-      element.appendChild(toElement('<div data-name="error" class="u-danger">File too large (max 5MB)</div>'));
+      element.appendChild(toElement('<div data-name="error" class="u-orange">File too large (max 5MB)</div>'));
     }
 
     image.src = await new Promise((resolve, reject) =>

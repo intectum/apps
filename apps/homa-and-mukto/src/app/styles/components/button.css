@@ -1,5 +1,6 @@
 .c-button
 {
+  font-family: "Gilroy Extra Bold", sans-serif;
   text-transform: uppercase;
 }
 
@@ -41,10 +42,11 @@
 
 .c-button--secondary
 {
-  background-color: var(--color-aqua);
+  background-color: var(--color-blue-light);
+  color: var(--color-light);
 }
 
 .c-button--danger
 {
-  background-color: var(--color-danger);
+  background-color: var(--color-orange);
 }

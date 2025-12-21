@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Gilroy Extra Bold';
+  src: url(../../../../static/fonts/gilroy-extra-bold.otf)
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url(../../../../static/fonts/lato.woff2)
+}

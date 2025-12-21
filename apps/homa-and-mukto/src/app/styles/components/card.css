@@ -1,0 +1,6 @@
+.c-card
+{
+  border: 2px solid var(--color-dark);
+  border-radius: var(--border-radius);
+  padding: var(--spacer);
+}

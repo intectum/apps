@@ -13,6 +13,25 @@ init['[data-init="user-dialog"]'] = async element =>
     const state = getState<{ userIds?: string[], addressComponents: AddressComponent[] }>(element);
     if (!state) return;
 
+    const titleElement = element.querySelector('[data-name="user-dialog-title"]') as Element;
+    titleElement.innerHTML = `Friends in ${state.addressComponents[0].long_name}`;
+
+    const addressElement = element.querySelector('[data-name="user-dialog-address"]') as Element;
+    addressElement.innerHTML = '';
+
+    const addressComponentElements = toElements(renderUsersDialogAddressHTML(state.addressComponents));
+    for (const addressComponentElement of addressComponentElements)
+    {
+      addressElement.appendChild(addressComponentElement);
+      if (addressComponentElement instanceof HTMLButtonElement)
+      {
+        addressComponentElement.addEventListener('click', () =>
+        {
+          setState(element, { addressComponents: state.addressComponents.slice(Number(addressComponentElement.getAttribute('data-address-index'))) });
+        });
+      }
+    }
+
     const params = new URLSearchParams();
     if (state.userIds)
     {
@@ -34,25 +53,6 @@ init['[data-init="user-dialog"]'] = async element =>
 
     const users = await usersResponse.json() as User[];
     users.sort((a, b) => a.name.localeCompare(b.name));
-
-    const titleElement = element.querySelector('[data-name="user-dialog-title"]') as Element;
-    titleElement.innerHTML = `Friends in ${state.addressComponents[0].long_name}`;
-
-    const addressElement = element.querySelector('[data-name="user-dialog-address"]') as Element;
-    addressElement.innerHTML = '';
-
-    const addressComponentElements = toElements(renderUsersDialogAddressHTML(state.addressComponents));
-    for (const addressComponentElement of addressComponentElements)
-    {
-      addressElement.appendChild(addressComponentElement);
-      if (addressComponentElement instanceof HTMLButtonElement)
-      {
-        addressComponentElement.addEventListener('click', () =>
-        {
-          setState(element, { addressComponents: state.addressComponents.slice(Number(addressComponentElement.getAttribute('data-address-index'))) });
-        });
-      }
-    }
 
     const usersElement = element.querySelector('[data-name="user-dialog-users"]') as HTMLElement;
     toArrayElements(usersElement, users, 'data-user-id', user => user.id, renderUsersDialogUserHTML);

@@ -10,4 +10,5 @@
 @import './styles/components/button.css';
 @import './styles/components/card.css';
 
+@import './styles/utilities/animations.css';
 @import './styles/utilities/colors.css';

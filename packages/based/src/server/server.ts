@@ -76,7 +76,11 @@ export const createServer = (requestListener: RequestListener) =>
 
     fs.watch('src', { recursive: true }, watchListener);
     console.log('watching src folder...');
-    fs.watch('static', { recursive: true }, watchListener);
-    console.log('watching static folder...');
+
+    if (fs.existsSync('static'))
+    {
+      fs.watch('static', { recursive: true }, watchListener);
+      console.log('watching static folder...');
+    }
   }
 };

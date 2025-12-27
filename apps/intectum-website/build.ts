@@ -9,7 +9,7 @@ import { layoutModule, pageModules } from './modules';
   console.log('staring build...');
   const startTime = performance.now();
 
-  await build(layoutModule, pageModules);
+  await build(layoutModule, pageModules, [ 'src/index.ts', 'src/index.css' ]);
 
   console.log(`build completed in ${Math.round(performance.now() - startTime)}ms`);
 })();

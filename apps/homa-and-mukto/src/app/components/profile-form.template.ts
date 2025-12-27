@@ -29,14 +29,14 @@ const renderProfileFormHTML = (name: string, user?: FullUser) => `
     <div class="u-fc u-gap--sm">
       <div>
         <label for="address">Location</label>
-        <div class="u-text-small">Where can people find you?</div>
+        <div class="u-text-small">Where can friends find you?</div>
       </div>
       ${renderAddressDropdownControlHTML(user?.address?.meta?.formatted_address)}
     </div>
     <div class="u-fc u-gap">
       <div>
         <label>Contact details</label>
-        <div class="u-text-small">How can people get in touch with you?</div>
+        <div class="u-text-small">How can friends get in touch with you?</div>
       </div>
       ${renderContactsControlHTML(user?.contacts)}
     </div>

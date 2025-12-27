@@ -28,6 +28,11 @@
   color: var(--color-gold);
 }
 
+.u-gold2
+{
+  color: var(--color-gold2);
+}
+
 .u-light
 {
   color: var(--color-light);
@@ -76,6 +81,11 @@
 .u-bg-gold
 {
   background-color: var(--color-gold);
+}
+
+.u-bg-gold2
+{
+  background-color: var(--color-gold2);
 }
 
 .u-bg-light

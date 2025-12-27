@@ -3,6 +3,14 @@
   flex: 1;
 }
 
+@media screen and (min-width: 640px)
+{
+  .u-df1
+  {
+    flex: 1;
+  }
+}
+
 .u-fc
 {
   display: flex;
@@ -25,6 +33,20 @@
 {
   display: flex;
   flex-direction: row-reverse;
+}
+
+.u-fc-dfr
+{
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 640px)
+{
+  .u-fc-dfr
+  {
+    flex-direction: row;
+  }
 }
 
 .u-center

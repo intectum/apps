@@ -1,5 +1,6 @@
 import renderBoidsHTML from '../components/boids.template';
 import renderClientsHTML from '../components/clients.template';
+import renderCodingSessionsHTML from '../components/coding-sessions.template';
 import renderContactHTML from '../components/contact.template';
 import renderIntroHTML from '../components/intro.template';
 import renderProjectsHTML from '../components/projects.template';
@@ -9,6 +10,7 @@ import renderTitleHTML from '../components/title.template';
 const renderPageHTML = () => `
   ${renderTitleHTML()}
   ${renderIntroHTML()}
+  ${renderCodingSessionsHTML()}
   ${renderSkillsHTML()}
   ${renderClientsHTML()}
   <!--renderTestimonialsHTML()-->

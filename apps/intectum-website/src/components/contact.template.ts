@@ -1,11 +1,12 @@
 import { cvUrl } from '../common/types';
-import renderPhoneSvg from '../icons/phone';
-import renderWhatsappSvg from '../icons/whatsapp';
 import renderEnvelopeSvg from '../icons/envelope';
-import renderLinkedInSvg from '../icons/linkedin';
-import renderGitHubSvg from '../icons/github';
-import renderStackExchangeSvg from '../icons/stack-exchange';
 import renderFilePdfSvg from '../icons/file-pdf';
+import renderGitHubSvg from '../icons/github';
+import renderLinkedInSvg from '../icons/linkedin';
+import renderPhoneSvg from '../icons/phone';
+import renderStackExchangeSvg from '../icons/stack-exchange';
+import renderWhatsappSvg from '../icons/whatsapp';
+import renderYouTubeSvg from '../icons/youtube';
 
 const renderContactHTML = () => `
   <div class="c-home-contact u-container u-fc u-gap u-center u-text-center">
@@ -20,7 +21,6 @@ const renderContactHTML = () => `
     <div class="u-fr u-gap u-center u-wrap">
       <div class="u-fr u-gap u-center">
         <a
-          is="basis-a"
           class="u-p"
           href="tel://+447733626352"
           title="Phone (UK)"
@@ -28,7 +28,6 @@ const renderContactHTML = () => `
           ${renderPhoneSvg()}
         </a>
         <a
-          is="basis-a"
           class="u-p"
           href="https://wa.me/64226754763"
           title="WhatsApp"
@@ -36,17 +35,22 @@ const renderContactHTML = () => `
           ${renderWhatsappSvg()}
         </a>
         <a
-          is="basis-a"
           class="u-p"
           href="mailto:gyan@intectum.io"
           title="Email"
         >
           ${renderEnvelopeSvg()}
         </a>
+        <a
+          class="u-p"
+          href="https://www.youtube.com/@intectum"
+          title="YouTube"
+        >
+          ${renderYouTubeSvg()}
+        </a>
       </div>
       <div class="u-fr u-gap u-center">
         <a
-          is="basis-a"
           class="u-p"
           href="https://www.linkedin.com/in/intectum"
           title="LinkedIn"
@@ -54,7 +58,6 @@ const renderContactHTML = () => `
           ${renderLinkedInSvg()}
         </a>
         <a
-          is="basis-a"
           class="u-p"
           href="https://github.com/intectum"
           title="GitHub"
@@ -62,7 +65,6 @@ const renderContactHTML = () => `
           ${renderGitHubSvg()}
         </a>
         <a
-          is="basis-a"
           class="u-p"
           href="https://stackexchange.com/users/389835/gyan"
           title="Stack Exchange"
@@ -72,7 +74,6 @@ const renderContactHTML = () => `
       </div>
     </div>
     <a
-      is="basis-a"
       class="u-fr u-center"
       href="https://arc.dev/@premgyan"
       title="arc() Profile"
@@ -86,7 +87,6 @@ const renderContactHTML = () => `
       Certified Remote Developer
     </a>
     <a
-      is="basis-a"
       class="u-fr u-center"
       href="${cvUrl}"
       title="Curriculum Vitae Download"

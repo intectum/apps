@@ -12,10 +12,12 @@
 
 @import 'utilities/aspects.css';
 @import 'utilities/borders.css';
-@import 'utilities/breakpoints.css';
 @import 'utilities/container.css';
 @import 'utilities/flex.css';
 @import 'utilities/grid.css';
 @import 'utilities/sizes.css';
 @import 'utilities/spacers.css';
 @import 'utilities/text.css';
+
+/* This goes last to override any other display settings */
+@import 'utilities/breakpoints.css';

@@ -25,7 +25,7 @@ export const renderUsersDialogAddressHTML = (addressComponents: AddressComponent
 export const renderUsersDialogUserHTML = (user: User) => `
   <div data-user-id="${user.id}" class="c-card u-fc u-fr-lg u-gap">
     <div class="u-fc u-align--center u-gap--sm u-text-center">
-      <img src="${user.image}" alt="Photo" class="u-rounded--full u-aspect--1" style="width: 128px;" loading="lazy" />
+      <img src="${user.image}" alt="Photo" class="u-rounded u-aspect--1" style="width: 200px;" loading="lazy" />
       <h2>${user.name}</h2>
       ${renderContactsHTML(user.contacts)}
     </div>

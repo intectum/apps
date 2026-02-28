@@ -5,8 +5,8 @@ import renderGroupsHTML from '../components/groups.template';
 const renderAdminRowHTML = (user: FullUser) => `
   <tr data-id="${user.id}">
     <td class="u-p--sm">
-      <img src="${user.image}" alt="Photo" class="u-rounded--full u-aspect--1 u-bg-blue-light" style="width: 128px; object-fit: cover;" />
-      ${user.pending?.image ? `=> <img src="${user.pending?.image}" alt="Photo" class="u-rounded--full u-aspect--1 u-bg-blue-light" style="width: 128px; object-fit: cover;" />` : ''}
+      <img src="${user.image}" alt="Photo" class="u-rounded u-aspect--1 u-bg-blue-light" style="width: 200px; object-fit: cover;" />
+      ${user.pending?.image ? `=> <img src="${user.pending?.image}" alt="Photo" class="u-rounded u-aspect--1 u-bg-blue-light" style="width: 200px; object-fit: cover;" />` : ''}
     </td>
     <td class="u-p--sm">
       ${user.name} ${user.pending?.name ? `=> ${user.pending?.name}` : ''}

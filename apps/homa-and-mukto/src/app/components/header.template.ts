@@ -8,7 +8,7 @@ const renderHeaderHTML = () => `
     <a href="/">Homa & Mukto</a>
     <div class="u-fr u-align--center u-gap">
       <button data-init="header-profile" type="button" title="Profile" class="c-button c-button--icon">
-        <img data-init="user-image" src="" alt="Me" class="u-rounded--full u-aspect--1" style="width: 32px;" />
+        <img data-init="user-image" src="" alt="Me" class="u-rounded u-aspect--1" style="width: 32px;" />
       </button>
       <a data-init="header-admin" href="/admin" title="Admin" class="c-button c-button--icon" style="display: none; border: none;">
         ${renderUserTieSvg()}

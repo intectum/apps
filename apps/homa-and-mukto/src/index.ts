@@ -1,10 +1,10 @@
 import { appRequestListener, createServer, staticRequestListener } from 'based/server';
 import { env } from 'based/tools';
 
+env(true);
+
 import { apiRequestListener } from './api';
 import { layoutModule, pageModules } from './modules';
-
-env(true);
 
 createServer(async (req, res, secure) =>
 {

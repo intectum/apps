@@ -50,6 +50,9 @@ init['[data-init="profile-form-header"]'] = async element =>
 
     applyInit(document.body, [ '[data-init="user-image"]' ]);
 
+    const parentDialog = element.closest('dialog');
+    parentDialog?.close();
+
     if (token?.user.pending)
     {
       const dialog = toElement<HTMLDialogElement>(renderReviewProfileDialogHTML());

@@ -188,7 +188,7 @@ export const accept = async (context: Context, id: string) =>
 
   if (user.pending?.image)
   {
-    if (fs.existsSync(user.pending.image))
+    if (fs.existsSync(user.pending.image.substring(1)))
     {
       fs.renameSync(user.pending.image.substring(1), image.substring(1));
     }

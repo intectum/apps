@@ -13,6 +13,7 @@ CREATE TABLE "user"
   admin BOOLEAN NOT NULL DEFAULT false,
   name VARCHAR(100) NOT NULL,
   image VARCHAR(100) NOT NULL,
+  terms_accepted BOOLEAN NOT NULL CHECK (terms_accepted = true),
   contacts JSONB[] NOT NULL,
   groups JSONB[] NOT NULL,
   pending JSONB,

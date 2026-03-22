@@ -21,7 +21,7 @@ const renderHeaderHTML = () => `
 `;
 
 export const renderProfileDialogHTML = (user: FullUser) => `
-  <dialog class="c-card">
+  <dialog class="c-card" style="max-width: 600px;">
     <h2>Profile</h2>
     ${renderProfileFormHTML('header', user)}
   </dialog>

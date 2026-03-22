@@ -11,7 +11,7 @@ import { encryptKey } from './util/crypto';
 export const get = async (context: Context, id: string) =>
 {
   const result = await context.client.query<FullUser & Address & { address_id: string }>(
-    'SELECT "user".id, "user".email, "user".status, "user".admin, "user".name, "user".image, "user".contacts, "user".groups, "user".pending, address.id as address_id, address.latitude, address.longitude, address.meta FROM "user" LEFT JOIN address ON address.user_id = "user".id WHERE "user".id = $1',
+    'SELECT "user".id, "user".email, "user".status, "user".admin, "user".name, "user".image, "user".terms_accepted, "user".contacts, "user".groups, "user".pending, address.id as address_id, address.latitude, address.longitude, address.meta FROM "user" LEFT JOIN address ON address.user_id = "user".id WHERE "user".id = $1',
     [ id ]
   );
 
@@ -28,6 +28,7 @@ export const get = async (context: Context, id: string) =>
     admin: row.admin,
     name: row.name,
     image: row.image,
+    terms_accepted: row.terms_accepted,
     contacts: row.contacts,
     groups: row.groups,
     pending: row.pending,
@@ -57,7 +58,7 @@ export const getAll = async (context: Context, params: URLSearchParams) =>
   let fields = [ 'id', 'name', 'image', 'contacts', 'groups' ];
   if (context.user?.admin)
   {
-    fields = [ ...fields, 'email', 'status', 'admin', 'pending' ];
+    fields = [ ...fields, 'email', 'status', 'admin', 'pending', 'terms_accepted' ];
   }
 
   let query = `SELECT ${fields.join(', ')} FROM "user" WHERE true`;
@@ -89,8 +90,8 @@ export const create = async (context: Context, user: New<User>, email: string, p
   if (!imageFields) throw new Error('Image not found');
 
   const result = await context.client.query<{ id: string }>(
-    'INSERT INTO "user" (email, password, name, image, contacts, groups) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id',
-    [ email, encryptedPassword, user.name, '/images/logo.png', user.contacts, user.groups ]
+    'INSERT INTO "user" (email, password, name, image, terms_accepted, contacts, groups) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id',
+    [ email, encryptedPassword, user.name, '/images/logo.png', user.terms_accepted, user.contacts, user.groups ]
   );
 
   const id = result.rows[0].id;
@@ -124,8 +125,8 @@ export const update = async (context: Context, user: User) =>
   }
 
   await context.client.query<User>(
-    'UPDATE "user" SET contacts = $1, groups = $2, pending = $3 WHERE id = $4',
-    [ user.contacts, user.groups, pending, user.id ]
+    'UPDATE "user" SET terms_accepted = $1, contacts = $2, groups = $3, pending = $4 WHERE id = $5',
+    [ user.terms_accepted, user.contacts, user.groups, pending, user.id ]
   );
 
   if (user.address) await updateAddress(context, user.address);

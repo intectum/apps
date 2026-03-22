@@ -3,6 +3,7 @@ import renderAddressDropdownControlHTML from '../components/address-dropdown.con
 import renderContactsControlHTML from '../components/contacts.control.template';
 import renderImageControlHTML from '../components/image.control.template';
 import renderGroupsControlHTML from '../components/groups.control.template';
+import renderTermsHTML from '../components/terms.template';
 import { passwordRegex } from '../util/data';
 import strings from '../util/strings';
 
@@ -44,6 +45,13 @@ const renderProfileFormHTML = (name: string, user?: FullUser) => `
       <label>Groups attended</label>
       ${renderGroupsControlHTML(user?.groups)}
     </div>
+    <div class="c-card" style="max-height: 300px; overflow: scroll;">
+      ${renderTermsHTML()}
+    </div>
+    <label>
+      <input type="checkbox" name="terms_accepted" ${user?.terms_accepted ? 'checked=""' : ''} value="true" required="">
+      I confirm that I have read and agree to the Platform Participation and Use Agreement.
+    </label>
     <button data-name="profile-form-submit" class="c-button c-button--primary">${user ? 'Save' : 'Register'}</button>
     ${user ? '<button data-name="profile-form-remove" type="button" class="c-button c-button--danger">Delete account</button>' : ''}
   </form>

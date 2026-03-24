@@ -67,9 +67,9 @@ const createServer = (context: Context) =>
             user: user
           };
         },
-        getClient: async (clientId, clientSecret /* TODO */) =>
+        getClient: async (clientId, clientSecret) =>
         {
-          if (clientId === 'homa-and-mukto-app') return theClient;
+          if (clientId === 'homa-and-mukto-app' && clientSecret === '4gzvK35t506ko') return theClient;
 
           return undefined;
         },

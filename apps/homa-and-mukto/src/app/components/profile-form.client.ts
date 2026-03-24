@@ -57,7 +57,11 @@ export const initProfileForm = async (element: HTMLFormElement, user?: User, onS
       const formData = new FormData(element);
 
       const address = await geocode(formData.get('address') as string) as Address;
-      if (!address) throw Error('ERRRO!'); // TODO
+      if (!address)
+      {
+        openErrorDialog("Sorry, something went wrong.");
+        return;
+      }
 
       if (user?.address) address.id = user.address.id;
       formData.set('address', JSON.stringify(address));

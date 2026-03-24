@@ -35,7 +35,7 @@ const update = (element: HTMLElement) =>
   const tbody = element.querySelector('tbody') as HTMLTableSectionElement;
   tbody.innerHTML = '';
 
-  const displayUsers = users.filter(user => !reviewRequired || (user.status === 'review' && user.pending));
+  const displayUsers = users.filter(user => !reviewRequired || (user.status === 'review' || user.pending));
   for (const user of displayUsers)
   {
     const row = toElement(renderAdminRowHTML(user), 'tbody');

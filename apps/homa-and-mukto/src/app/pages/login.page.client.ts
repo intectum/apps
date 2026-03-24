@@ -22,7 +22,7 @@ init['[data-init="login-form"]'] = async element =>
         body: new URLSearchParams({
           grant_type: 'password',
           client_id: 'homa-and-mukto-app',
-          client_secret: 'secret', // TODO
+          client_secret: '4gzvK35t506ko',
           username: formData.get('username') as string,
           password: formData.get('password') as string
         })

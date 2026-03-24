@@ -30,7 +30,7 @@ export const apiFetch = async (input: string | URL | Request, init?: RequestInit
           body: new URLSearchParams({
             grant_type: 'refresh_token',
             client_id: 'homa-and-mukto-app',
-            client_secret: 'secret', // TODO
+            client_secret: '4gzvK35t506ko',
             refresh_token: token.refreshToken ?? ''
           })
         });

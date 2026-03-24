@@ -41,7 +41,7 @@ export const renderDeleteProfileDialogHTML = () => `
 export const renderReviewProfileDialogHTML = () => `
   <dialog class="c-card u-fc u-gap">
     <h2>We're reviewing your profile...</h2>
-    <div>To ensure everyone's safety on the platform, we will now review your profile to verify that your updated name and/or photo are appropriate.</div>
+    <div>We will now review your profile to verify that your updated name and/or photo are appropriate.</div>
   </dialog>
 `;
 

@@ -180,12 +180,56 @@ export const accept = async (context: Context, id: string) =>
 
   const loginUrl = `${context.baseUrl}/login`;
 
-  sendMail({
-    to: user.email,
-    subject: 'Your profile has been approved',
-    text: `You can now login here: ${loginUrl}`,
-    html: `<h1>Profile approved</h1><p>You can now login <a href="${loginUrl}">here</a>.</p>`
-  });
+  if (user.pending)
+  {
+    sendMail({
+      to: user.email,
+      subject: 'Your profile update has been approved',
+      text: `You can now login here: ${loginUrl}`,
+      html: `<h1>Profile update approved</h1><p>You can now login <a href="${loginUrl}">here</a>.`
+    });
+  }
+  else
+  {
+    sendMail({
+      to: user.email,
+      subject: 'Welcome',
+      text: `
+        Welcome Letter
+        It is a joy to welcome you to this space.
+        This platform was created from the wish to support the continuation of the connections formed throughout the trainings and workshops with Homa & Mukto, connections that often remain alive long after the time shared within the group experience.
+        Here, you may find others who have also walked this journey, locate them on the map, and, if you wish, connect to exchange, practice exercises learned during the trainings, reconnect with fellow participants, or simply strengthen bonds within this community.
+        Participation in this space is entirely voluntary, and each person chooses what information they wish to share and how they would like to connect.
+        Our intention is to offer a simple, respectful, and safe environment that facilitates reconnection and potential practice between participants who have previously shared experiences within this work.
+        To preserve the quality and integrity of the community:
+        all profiles are individually reviewed and approved;
+        only individuals who have previously participated in trainings are granted access to the platform;
+        each member is responsible for how they use this space and for the connections they choose to establish.
+        We invite you to participate with presence, responsibility, respect, and awareness, so that this space may support genuine encounters, conscious practice, and the continuation of each person’s path.
+        You can now login here: ${loginUrl}
+        With care,
+        Homa & Mukto Team
+      `,
+      html: `
+        <h1>Welcome Letter</h1>
+        <p>It is a joy to welcome you to this space.</p>
+        <p>This platform was created from the wish to support the continuation of the connections formed throughout the trainings and workshops with Homa & Mukto, connections that often remain alive long after the time shared within the group experience.</p>
+        <p>Here, you may find others who have also walked this journey, locate them on the map, and, if you wish, connect to exchange, practice exercises learned during the trainings, reconnect with fellow participants, or simply strengthen bonds within this community.</p>
+        <p>Participation in this space is entirely voluntary, and each person chooses what information they wish to share and how they would like to connect.</p>
+        <p>Our intention is to offer a simple, respectful, and safe environment that facilitates reconnection and potential practice between participants who have previously shared experiences within this work.</p>
+        <p>To preserve the quality and integrity of the community:</p>
+        <ul>
+          <li>all profiles are individually reviewed and approved;</li>
+          <li>only individuals who have previously participated in trainings are granted access to the platform;</li>
+          <li>each member is responsible for how they use this space and for the connections they choose to establish.</li>
+        </ul>
+        <p>We invite you to participate with presence, responsibility, respect, and awareness, so that this space may support genuine encounters, conscious practice, and the continuation of each person’s path.</p>
+        <p>You can now login <a href="${loginUrl}">here</a>.</p>
+        <p>With care,<br />
+        <strong>Homa & Mukto Team</strong></p>
+      `
+    });
+  }
 
   if (user.pending?.image)
   {

@@ -1,6 +1,7 @@
 const renderPageHTML = () => `
   <main class="u-container u-cover-screen u-fc u-center">
     <form data-init="login-form" class="c-card u-fc u-gap--lg">
+      <img src="/images/logo-vertical.png" alt="Homa & Mukto" style="width: 200px; align-self: center;" />
       <div class="u-fc u-gap--sm">
         <label for="username">Email</label>
         <input id="username" name="username" type="email" required="" />

@@ -3,7 +3,7 @@ import { MarkerClusterer } from '@googlemaps/markerclusterer';
 
 import { init, setState, toElement } from 'based/client';
 
-import { Address, AddressComponent } from '../../types';
+import { Address, AddressComponent, FullUser } from '../../types';
 import { openErrorDialog } from '../components/error-dialog.template';
 import { addresses, getMatchingAddressComponents } from '../util/addresses';
 import { apiFetch } from '../util/api';
@@ -55,6 +55,8 @@ init['[data-init="map"]'] = async element =>
   };
 
   const markers: google.maps.marker.AdvancedMarkerElement[] = [];
+  let currentUserMarker: google.maps.marker.AdvancedMarkerElement | undefined = undefined;
+
   for (const address of addresses)
   {
     const marker = new markerLibrary.AdvancedMarkerElement({
@@ -77,6 +79,11 @@ init['[data-init="map"]'] = async element =>
         markerButton.disabled = false;
       }
     });
+
+    if (address.user_id === token.user.id)
+    {
+      currentUserMarker = marker;
+    }
 
     markers.push(marker);
   }
@@ -115,6 +122,25 @@ init['[data-init="map"]'] = async element =>
       }
 
       openUserDialog(userIds, commonAddressComponents ?? []);
+    }
+  });
+
+  document.addEventListener('user-updated', (event: Event) =>
+  {
+    const user = (event as CustomEvent<FullUser>).detail;
+    if (!user.address) return;
+
+    for (const address of addresses)
+    {
+      if (address.user_id === token.user.id)
+      {
+        Object.assign(address, user.address);
+      }
+    }
+
+    if (currentUserMarker)
+    {
+      currentUserMarker.position = { lat: user.address.latitude, lng: user.address.longitude };
     }
   });
 };

@@ -1,4 +1,4 @@
-import { applyInit, init, navigate, toElement } from 'based/client';
+import { init, navigate, toElement } from 'based/client';
 
 import { FullUser } from '../../types';
 import { getToken } from '../util/data';
@@ -46,9 +46,9 @@ init['[data-init="profile-form-header"]'] = async element =>
     {
       token.user = await response.json() as FullUser;
       localStorage.setItem('token', JSON.stringify(token));
-    }
 
-    applyInit(document.body, [ '[data-init="user-image"]' ]);
+      document.dispatchEvent(new CustomEvent('user-updated', { detail: token.user }));
+    }
 
     const parentDialog = element.closest('dialog');
     parentDialog?.close();

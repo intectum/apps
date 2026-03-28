@@ -19,8 +19,14 @@ init['[data-require-auth=""]'] = async () =>
 
 init['[data-init="user-image"]'] = element =>
 {
-  const token = getToken();
-  (element as HTMLImageElement).src = token?.user.pending?.image ?? token?.user.image ?? '';
+  const updateImage = () =>
+  {
+    const token = getToken();
+    (element as HTMLImageElement).src = token?.user.pending?.image ?? token?.user.image ?? '';
+  };
+
+  updateImage();
+  document.addEventListener('user-updated', updateImage);
 };
 
 import './pages/admin.page.client';

@@ -76,7 +76,7 @@ const update = (element: HTMLElement) =>
             token.user = await userResponse.json() as FullUser;
             localStorage.setItem('token', JSON.stringify(token));
 
-            applyInit(document.body, [ '[data-init="user-image"]' ]);
+            document.dispatchEvent(new CustomEvent('user-updated', { detail: token.user }));
           }
         }
 

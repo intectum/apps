@@ -1,6 +1,7 @@
 import { FullUser } from '../../types';
 import renderAddressDropdownControlHTML from '../components/address-dropdown.control.template';
 import renderContactsControlHTML from '../components/contacts.control.template';
+import renderDropdownControlHTML from '../components/dropdown.control.template';
 import renderImageControlHTML from '../components/image.control.template';
 import renderGroupsControlHTML from '../components/groups.control.template';
 import renderTermsHTML from '../components/terms.template';
@@ -29,15 +30,22 @@ const renderProfileFormHTML = (name: string, user?: FullUser) => `
     </div>
     <div class="u-fc u-gap--sm">
       <div>
+        <label for="gender">Gender</label>
+        <div class="u-text-small" style="opacity: 50%;">This is just used to help friends search for you</div>
+      </div>
+      ${renderDropdownControlHTML('gender', strings.gender, user?.gender)}
+    </div>
+    <div class="u-fc u-gap--sm">
+      <div>
         <label for="address">Location</label>
-        <div class="u-text-small">Where can friends find you?</div>
+        <div class="u-text-small" style="opacity: 50%;">Where can friends find you?</div>
       </div>
       ${renderAddressDropdownControlHTML(user?.address?.meta?.formatted_address)}
     </div>
     <div class="u-fc u-gap">
       <div>
         <label>Contact details</label>
-        <div class="u-text-small">How can friends get in touch with you?</div>
+        <div class="u-text-small" style="opacity: 50%;">How can friends get in touch with you?</div>
       </div>
       ${renderContactsControlHTML(user?.contacts)}
     </div>

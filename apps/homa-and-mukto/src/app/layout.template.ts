@@ -8,7 +8,7 @@ const renderLayoutHTML: LayoutHTMLRenderer = (js: string, css: string, pageHTML:
       <title>App - Homa & Mukto</title>
       <link rel="shortcut icon" href="/images/logo.png" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="description" content="Connect with participants from Homa & Mukto's groups and trainings" />
+      <meta name="description" content="Connect with participants from trainings, groups, and programs facilitated by Homa & Mukto." />
       <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
       <style>${css}</style>
     </head>

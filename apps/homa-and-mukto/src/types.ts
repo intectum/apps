@@ -32,6 +32,7 @@ export type User = Record &
 {
   name: string;
   image: string;
+  gender?: string;
   terms_accepted: boolean;
   contacts: Contact[];
   groups: Group[];

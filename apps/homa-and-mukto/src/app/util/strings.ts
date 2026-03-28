@@ -12,6 +12,13 @@ const strings: Record<string, Record<string, string>> =
     passwordTitle: 'Must be a minimum of eight characters with at least one letter and one number',
     phoneTitle: 'Must be an international number starting with a country code and only including numbers and spaces e.g. +1 1232 456 789'
   },
+  gender:
+  {
+    '': 'Prefer not to say',
+    'female': 'Female',
+    'male': 'Male',
+    'non-binary': 'Non-binary'
+  },
   groupTypes:
   {
     'consciousness': 'Tantra Consciousness',
@@ -22,8 +29,15 @@ const strings: Record<string, Record<string, string>> =
   groupLocations:
   {
     'bali': 'Bali',
+    'berlin': 'Berlin',
+    'broughton-hall': 'Broughton Hall',
+    'chiang-mai': 'Chiang Mai',
+    'cirali': 'Cirali',
     'osheanic': 'Osheanic',
-    'osho-afroz': 'OSHO Afroz'
+    'osho-afroz': 'OSHO Afroz',
+    'pune': 'Pune',
+    'sao-paulo': 'São Paulo',
+    'sardinia': 'Sardinia'
   },
   months:
   {

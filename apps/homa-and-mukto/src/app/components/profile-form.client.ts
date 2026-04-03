@@ -59,7 +59,7 @@ export const initProfileForm = async (element: HTMLFormElement, user?: User, onS
       const address = await geocode(formData.get('address') as string) as Address;
       if (!address)
       {
-        openErrorDialog("Sorry, something went wrong.");
+        openErrorDialog('Sorry, something went wrong.');
         return;
       }
 

@@ -1,6 +1,7 @@
 import { init, toElement } from 'based/client';
 
 import { Group } from '../../types';
+import strings from '../util/strings';
 import renderGroupRowHTML from './groups.control.row.template';
 
 init['[data-init="groups-control"]'] = async element =>
@@ -25,6 +26,35 @@ init['[data-init="groups-control"]'] = async element =>
 
 init['[data-init="groups-control-row"]'] = async element =>
 {
+  const locationValue = element.querySelector('input[id$="location"]');
+
+  const updateTextInput = () =>
+  {
+    let textInput = element.querySelector(`#${locationValue.id}-text`);
+    const showTextInput = !Object.keys(strings.groupLocations).includes(locationValue.value);
+    if (showTextInput)
+    {
+      if (!textInput)
+      {
+        textInput = document.createElement('input');
+        textInput.id = `${locationValue.id}-text`;
+        textInput.placeholder = 'Enter a Location';
+        textInput.value = locationValue.value;
+        textInput.addEventListener('input', event => locationValue.value = event.target.value);
+        locationValue.parentElement.appendChild(textInput);
+
+        locationValue.nextElementSibling.value = 'Other';
+      }
+    }
+    else
+    {
+      textInput?.remove();
+    }
+  };
+
+  updateTextInput();
+  locationValue.addEventListener('change', updateTextInput);
+
   const remove = element.querySelector('[data-name="groups-control-row-remove"]') as HTMLButtonElement;
 
   remove.addEventListener('click', () =>

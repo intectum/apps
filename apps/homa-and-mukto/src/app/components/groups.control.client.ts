@@ -28,21 +28,23 @@ init['[data-init="groups-control-row"]'] = async element =>
 {
   const locationValue = element.querySelector('input[id$="location"]');
 
-  const updateTextInput = () =>
+  const updateTextInput = (init?: boolean) =>
   {
     let textInput = element.querySelector(`#${locationValue.id}-text`);
-    const showTextInput = !Object.keys(strings.groupLocations).includes(locationValue.value);
+    const showTextInput = !Object.keys(strings.groupLocations).includes(locationValue.value) && !(init && locationValue.value === '');
     if (showTextInput)
     {
       if (!textInput)
       {
         textInput = document.createElement('input');
         textInput.id = `${locationValue.id}-text`;
-        textInput.placeholder = 'Enter a Location';
-        textInput.value = locationValue.value;
+        textInput.placeholder = 'Enter a location';
+        textInput.value = init ? locationValue.value : '';
+        textInput.required = true;
         textInput.addEventListener('input', event => locationValue.value = event.target.value);
         locationValue.parentElement.appendChild(textInput);
 
+        locationValue.value = init ? locationValue.value : '';
         locationValue.nextElementSibling.value = 'Other';
       }
     }
@@ -52,8 +54,8 @@ init['[data-init="groups-control-row"]'] = async element =>
     }
   };
 
-  updateTextInput();
-  locationValue.addEventListener('change', updateTextInput);
+  updateTextInput(true);
+  locationValue.addEventListener('change', () => updateTextInput());
 
   const remove = element.querySelector('[data-name="groups-control-row-remove"]') as HTMLButtonElement;
 

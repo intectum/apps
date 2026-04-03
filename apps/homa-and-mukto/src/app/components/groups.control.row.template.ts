@@ -16,7 +16,7 @@ const renderGroupRowHTML = (initialValue: Group | undefined, rowId: number) => `
         ${renderDropdownControlHTML(`group-${rowId}-type`, strings.groupTypes, initialValue?.type ?? '', true, 'Choose a group')}
       </div>
       <div style="width: 180px;">
-        ${renderDropdownControlHTML(`group-${rowId}-location`, { ...strings.groupLocations, '': 'Other' }, initialValue?.location ?? '', true, 'Choose a location')}
+        ${renderDropdownControlHTML(`group-${rowId}-location`, { ...strings.groupLocations, 'other': 'Other' }, initialValue?.location ?? '', true, 'Choose a location')}
       </div>
       <div style="width: 170px;">
         ${renderDropdownControlHTML(`group-${rowId}-month`, strings.months, initialValue?.month.toString() ?? '', true, 'Choose a month')}

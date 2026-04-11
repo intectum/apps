@@ -12,9 +12,16 @@ import { getToken } from './util/data';
 addDialogs();
 addNavigation();
 
-init['[data-require-auth=""]'] = async () =>
+init['[data-require-auth=""]'] = async (element) =>
 {
-  if (!localStorage.getItem('token')) await navigate('/login');
+  if (localStorage.getItem('token'))
+  {
+    element.style.visibility = 'visible';
+  }
+  else
+  {
+    await navigate('/login');
+  }
 };
 
 init['[data-init="user-image"]'] = element =>

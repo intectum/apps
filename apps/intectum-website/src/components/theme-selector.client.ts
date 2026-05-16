@@ -10,7 +10,7 @@ init['[data-name="theme-selector"]'] = element =>
   {
     document.body.classList.toggle('u-dark-mode', darkMode);
 
-    const toggleDarkMode = element.querySelector<HTMLButtonElement>('[data-action="toggle-dark-mode"]');
+    const toggleDarkMode = element.querySelector<HTMLButtonElement>('[data-name="toggle-dark-mode"]');
     if (!toggleDarkMode) return;
 
     toggleDarkMode.title = `${darkMode ? 'Light' : 'Dark'} mode`;

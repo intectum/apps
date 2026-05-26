@@ -1,5 +1,5 @@
 import { Group } from '../../types';
-import renderMinusSvg from '../icons/minus';
+import renderTrashSvg from '../icons/trash';
 import strings from '../util/strings';
 import renderDropdownControlHTML from './dropdown.control.template';
 
@@ -12,21 +12,21 @@ for (let year = new Date().getFullYear(); year >= 2000; year--)
 const renderGroupRowHTML = (initialValue: Group | undefined, rowId: number) => `
   <div data-name="group" data-init="groups-control-row" class="u-fr u-justify--space-between u-align--center u-gap--sm">
     <div class="u-fr u-f1 u-gap--sm u-wrap">
-      <div style="width: 205px;">
+      <div class="u-f1">
         ${renderDropdownControlHTML(`group-${rowId}-type`, strings.groupTypes, initialValue?.type ?? '', true, 'Choose a group')}
       </div>
-      <div style="width: 180px;">
+      <div class="u-f1">
         ${renderDropdownControlHTML(`group-${rowId}-location`, { ...strings.groupLocations, 'other': 'Other' }, initialValue?.location ?? '', true, 'Choose a location')}
       </div>
-      <div style="width: 170px;">
+      <div class="u-f1">
         ${renderDropdownControlHTML(`group-${rowId}-month`, strings.months, initialValue?.month.toString() ?? '', true, 'Choose a month')}
       </div>
-      <div style="width: 155px;">
+      <div class="u-f1">
         ${renderDropdownControlHTML(`group-${rowId}-year`, yearOptions, initialValue?.year.toString() ?? '', true, 'Choose a year')}
       </div>
     </div>
     <button data-name="groups-control-row-remove" type="button" class="c-button c-button--icon">
-      ${renderMinusSvg()}
+      ${renderTrashSvg()}
     </button>
   </div>
 `;

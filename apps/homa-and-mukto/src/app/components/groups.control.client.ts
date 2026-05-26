@@ -26,11 +26,11 @@ init['[data-init="groups-control"]'] = async element =>
 
 init['[data-init="groups-control-row"]'] = async element =>
 {
-  const locationValue = element.querySelector('input[id$="location"]');
+  const locationValue = element.querySelector<HTMLInputElement>('input[id$="location"]')!;
 
   const updateTextInput = (init?: boolean) =>
   {
-    let textInput = element.querySelector(`#${locationValue.id}-text`);
+    let textInput = element.querySelector<HTMLInputElement>(`#${locationValue.id}-text`);
     const showTextInput = !Object.keys(strings.groupLocations).includes(locationValue.value) && !(init && locationValue.value === '');
     if (showTextInput)
     {
@@ -41,11 +41,11 @@ init['[data-init="groups-control-row"]'] = async element =>
         textInput.placeholder = 'Enter a location';
         textInput.value = init ? locationValue.value : '';
         textInput.required = true;
-        textInput.addEventListener('input', event => locationValue.value = event.target.value);
-        locationValue.parentElement.appendChild(textInput);
+        textInput.addEventListener('input', event => locationValue.value = (event.target as HTMLInputElement).value);
+        locationValue.parentElement?.appendChild(textInput);
 
         locationValue.value = init ? locationValue.value : '';
-        locationValue.nextElementSibling.value = 'Other';
+        (locationValue.nextElementSibling as HTMLInputElement).value = 'Other';
       }
     }
     else
@@ -61,9 +61,10 @@ init['[data-init="groups-control-row"]'] = async element =>
 
   remove.addEventListener('click', () =>
   {
+    const groups = element.closest('[data-init="groups-control"]');
     element.remove();
 
-    const groupAll = element.closest('[data-init="groups-control"]')?.querySelectorAll('[data-name="group"]') ?? [];
+    const groupAll = groups?.querySelectorAll('[data-name="group"]') ?? [];
     if (groupAll.length === 1) groupAll[0].querySelector('[data-name="groups-control-row-remove"]')?.setAttribute('disabled', '');
   });
 };

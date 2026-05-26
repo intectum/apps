@@ -53,10 +53,12 @@ init['[data-init="contacts-control-row"]'] = async element =>
   type.addEventListener('change', () => applyPattern());
   remove.addEventListener('click', () =>
   {
+    const contacts = element.closest('[data-init="contacts-control"]');
     element.remove();
 
-    const contactAll = element.closest('[data-init="contacts-control"]')?.querySelectorAll('[data-name="contact"]') ?? [];
+    const contactAll = contacts?.querySelectorAll('[data-name="contact"]') ?? [];
     if (contactAll.length === 1) contactAll[0].querySelector('[data-name="contacts-control-row-remove"]')?.setAttribute('disabled', '');
+
   });
 
   applyPattern();

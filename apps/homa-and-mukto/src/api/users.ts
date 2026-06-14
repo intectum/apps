@@ -91,7 +91,7 @@ export const create = async (context: Context, user: New<User>, email: string, p
   if (!imageFields) throw new Error('Image not found');
 
   const result = await context.client.query<{ id: string }>(
-    'INSERT INTO "user" (email, password, name, image, gender, terms_accepted, contacts, groups) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id',
+    'INSERT INTO "user" (email, password, name, image, gender, terms_accepted, contacts, groups) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id',
     [ email, encryptedPassword, user.name, '/images/logo.png', user.gender, user.terms_accepted, user.contacts, user.groups ]
   );
 

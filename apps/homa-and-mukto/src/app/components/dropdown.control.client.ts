@@ -34,11 +34,16 @@ init['[data-init="dropdown"]'] = async element =>
       }
     }
 
+    let matchFound = exactMatch;
     for (const option of options.children)
     {
       const searchMatch = option.textContent.toLowerCase().includes(input.value.toLowerCase());
       (option as HTMLElement).style.display = exactMatch || searchMatch ? '' : 'none';
+
+      if (searchMatch) matchFound = true;
     }
+
+    options.querySelector<HTMLElement>('[data-key="[no-match]"]')!.style.display = matchFound ? 'none' : '';
   });
 
   input.addEventListener('change', () =>
@@ -80,6 +85,12 @@ const initOptions = (element: HTMLElement) =>
       input.value = option.textContent;
       input.dispatchEvent(new Event('change'));
     });
+
+    const htmlOption = option as HTMLElement;
+    if (htmlOption.dataset["key"] === "[no-match]")
+    {
+      htmlOption.style.display = "none";
+    }
   }
 
   input.pattern = values.join('|');

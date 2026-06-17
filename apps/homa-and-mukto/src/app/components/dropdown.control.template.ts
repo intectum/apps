@@ -23,13 +23,20 @@ const renderDropdownControlHTML = (name: string, options: Record<string, string>
 
 export const prepareOptions = (options: Record<string, string> | [string, string][]) =>
 {
-  if (Array.isArray(options)) return options;
-
-  const arrayOptions: [string, string][] = [];
-  for (const key of Object.keys(options))
+  let arrayOptions: [string, string][] = [];
+  if (Array.isArray(options))
   {
-    arrayOptions.push([ key, options[key] ]);
+    arrayOptions = options;
   }
+  else
+  {
+    for (const key of Object.keys(options))
+    {
+      arrayOptions.push([ key, options[key] ]);
+    }
+  }
+
+  arrayOptions.push([ "[no-match]", "No matches found" ]);
 
   return arrayOptions;
 };

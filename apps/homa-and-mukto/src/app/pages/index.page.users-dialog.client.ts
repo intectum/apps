@@ -14,7 +14,7 @@ init['[data-init="user-dialog"]'] = async element =>
     if (!state) return;
 
     const titleElement = element.querySelector('[data-name="user-dialog-title"]') as Element;
-    titleElement.innerHTML = `Friends in ${state.addressComponents[0].long_name}`;
+    titleElement.innerHTML = `Friends in ${state.addressComponents[0]?.long_name ?? 'Planet Earth'}`;
 
     const addressElement = element.querySelector('[data-name="user-dialog-address"]') as Element;
     addressElement.innerHTML = '';

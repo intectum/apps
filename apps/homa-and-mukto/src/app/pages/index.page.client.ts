@@ -44,6 +44,16 @@ init['[data-init="map"]'] = async element =>
   addresses.length = 0;
   addresses.push(...await addressesResponse.json() as Address[]);
 
+  for (const address of addresses)
+  {
+    if (address.meta)
+    {
+      address.meta.address_components =
+        address.meta.address_components.filter(addressComponent =>
+          !(addressComponent.types as string[]).includes('postal_code'));
+    }
+  }
+
   const openUserDialog = async (userIds: string[], addressComponents: AddressComponent[]) =>
   {
     const dialog = toElement<HTMLDialogElement>(renderUsersDialogHTML());

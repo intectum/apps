@@ -35,6 +35,7 @@ const strings: Record<string, Record<string, string>> =
     'cirali': 'Cirali',
     'osheanic': 'Osheanic',
     'osho-afroz': 'OSHO Afroz',
+    'portugal': 'Portugal',
     'pune': 'Pune',
     'sao-paulo': 'São Paulo',
     'sardinia': 'Sardinia'

@@ -1,6 +1,6 @@
 import { init, toElement } from 'based/client';
 
-const maxFileSize = 5 * 1024 * 1024; // 5MB
+const maxFileSize = 25 * 1024 * 1024; // 25MB
 
 init['[data-init="image-control"]'] = async element =>
 {
@@ -8,7 +8,9 @@ init['[data-init="image-control"]'] = async element =>
   const imageOpen = element.querySelector('[data-name="image-open"]') as HTMLButtonElement;
   const image = element.querySelector('[data-name="image"]') as HTMLImageElement;
 
-  imageInput.addEventListener('change', async event =>
+  let imageUrl: string | undefined;
+
+  imageInput.addEventListener('change', event =>
   {
     const file = (event.target as HTMLInputElement).files?.[0];
     if (!file) return;
@@ -18,19 +20,16 @@ init['[data-init="image-control"]'] = async element =>
 
     if (file.size > maxFileSize)
     {
-      element.appendChild(toElement('<div data-name="error" class="u-orange">File too large (max 5MB)</div>'));
+      element.appendChild(toElement('<div data-name="error" class="u-orange">File too large (max 25MB)</div>'));
+      return;
     }
 
-    image.src = await new Promise((resolve, reject) =>
-    {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onerror = reject;
-      reader.onload = () => resolve(reader.result as string);
-    });
+    if (imageUrl) URL.revokeObjectURL(imageUrl);
+    imageUrl = URL.createObjectURL(file);
 
+    image.src = imageUrl;
     image.style.display = 'block';
-    imageOpen.children[1]?.remove();
+    while (imageOpen.children.length > 1) imageOpen.lastElementChild?.remove();
   });
 
   imageOpen.addEventListener('click', () => imageInput.click());

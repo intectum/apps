@@ -10,7 +10,7 @@ const renderImageControlHTML = (initialValue?: string) => `
           <div>Choose a photo</div>
         `}
       </button>
-      <input id="image" name="image" type="file" ${initialValue ? '' : 'required=""'} accept="image/jpeg, image/png" />
+      <input id="image" name="image" type="file" ${initialValue ? '' : 'required=""'} accept="image/*" />
     </div>
   </div>
 `;

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
-import path from 'node:path';
 
 import { hash } from 'bcrypt';
+import sharp from 'sharp';
 
 import { Address, Context, FullUser, New, User } from '../types';
 import { update as updateAddress } from './addresses';
@@ -96,14 +96,14 @@ export const create = async (context: Context, user: New<User>, email: string, p
   );
 
   const id = result.rows[0].id;
-  const image = `/user-images/${id}${path.extname(imageFields.fileName)}`;
+  const image = `/user-images/${id}.jpg`;
 
   await context.client.query<User>(
     'UPDATE "user" SET image = $1 WHERE id = $2',
     [ image, id ]
   );
 
-  fs.writeFileSync(image.substring(1), imageFields.data);
+  fs.writeFileSync(image.substring(1), await processImage(imageFields.data));
 
   return (await get(context, result.rows[0].id)) as User;
 };
@@ -111,6 +111,7 @@ export const create = async (context: Context, user: New<User>, email: string, p
 export const update = async (context: Context, user: User) =>
 {
   const imageFields = getImageFields(user);
+  const processedImage = imageFields ? await processImage(imageFields.data) : undefined;
 
   const oldUser = await get(context, user.id) as FullUser;
   if (!oldUser) throw new Error('User not found');
@@ -121,7 +122,7 @@ export const update = async (context: Context, user: User) =>
     pending =
     {
       name: user.name,
-      image: imageFields ? `/user-images/${user.id}-pending${path.extname(imageFields.fileName)}` : undefined
+      image: imageFields ? `/user-images/${user.id}-pending.jpg` : undefined
     };
   }
 
@@ -144,9 +145,9 @@ export const update = async (context: Context, user: User) =>
     });
   }
 
-  if (imageFields && pending?.image)
+  if (processedImage && pending?.image)
   {
-    fs.writeFileSync(pending.image.substring(1), imageFields.data);
+    fs.writeFileSync(pending.image.substring(1), processedImage);
 
     if (oldUser.pending?.image && oldUser.pending.image !== pending.image)
     {
@@ -275,3 +276,10 @@ const getImageFields = (user: New<User>): { data: Buffer, fileName: string } | u
 
   return { data: imageFields['image-buffer'], fileName: imageFields['image-filename'] };
 };
+
+const processImage = (data: Buffer): Promise<Buffer> =>
+  sharp(data)
+    .rotate()
+    .resize(1024, 1024, { fit: 'inside', withoutEnlargement: true })
+    .jpeg({ quality: 85 })
+    .toBuffer();

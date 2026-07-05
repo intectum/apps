@@ -75,19 +75,9 @@ init['[data-init="map"]'] = async element =>
       gmpClickable: true
     });
 
-    marker.addEventListener('click', () =>
+    marker.addListener('click', () =>
     {
-      const markerButton = marker.content as HTMLButtonElement;
-      markerButton.disabled = true;
-
-      try
-      {
-        openUserDialog([ address.user_id ], address.meta?.address_components ?? []);
-      }
-      finally
-      {
-        markerButton.disabled = false;
-      }
+      openUserDialog([ address.user_id ], address.meta?.address_components ?? []);
     });
 
     if (address.user_id === token.user.id)
@@ -104,7 +94,8 @@ init['[data-init="map"]'] = async element =>
     renderer: {
       render: cluster => new markerLibrary.AdvancedMarkerElement({
         position: cluster.position,
-        content: toElement(renderUserMarkerHTML(cluster.count))
+        content: toElement(renderUserMarkerHTML(cluster.count)),
+        gmpClickable: true
       })
     },
     onClusterClick: (_, cluster) =>

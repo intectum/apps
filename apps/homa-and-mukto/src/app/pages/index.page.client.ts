@@ -25,6 +25,7 @@ init['[data-init="map"]'] = async element =>
     element,
     {
       mapId: '8925320d55c5e8fbaa00df39',
+      gestureHandling: "greedy",
       cameraControl: false,
       fullscreenControl: false,
       mapTypeControl: false,

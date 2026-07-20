@@ -1,11 +1,16 @@
 import { FullUser } from '../../types';
 import renderArrowRightFromBracketSvg from '../icons/arrow-right-from-bracket';
+import renderArrowUpRightFromSquare from '../icons/arrow-up-right-from-square';
 import renderUserTieSvg from '../icons/user-tie';
 import renderProfileFormHTML from './profile-form.template';
 
 const renderHeaderHTML = () => `
   <header class="u-fr u-justify--space-between u-align--center u-px--lg u-py" style="border-bottom: 2px solid var(--color-dark);">
     <a href="/"><img src="/images/logo-horizontal.png" alt="Homa & Mukto" style="height: 32px;" /></a>
+    <a href="https://homaandmukto.com/groups" class="u-show-md u-fr u-align--center u-gap--sm" style="text-decoration: underline;">
+      ${renderArrowUpRightFromSquare()}
+      Upcoming groups
+    </a>
     <div class="u-fr u-align--center u-gap">
       <button data-init="header-profile" type="button" title="Profile" class="c-button c-button--icon">
         <img data-init="user-image" src="" alt="Me" class="u-rounded u-aspect--1" style="width: 32px;" />

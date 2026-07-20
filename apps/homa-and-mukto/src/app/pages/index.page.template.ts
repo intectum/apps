@@ -1,3 +1,4 @@
+import renderFooterHTML from '../components/footer.template';
 import renderHeaderHTML from '../components/header.template';
 
 const renderPageHTML = () => `
@@ -6,6 +7,7 @@ const renderPageHTML = () => `
     <main class="u-fc u-f1">
       <div data-init="map" class="u-f1"></div>
     </main>
+    ${renderFooterHTML()}
   </div>
 `;
 

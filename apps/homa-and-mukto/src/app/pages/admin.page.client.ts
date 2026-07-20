@@ -1,4 +1,4 @@
-import { applyInit, init, toElement } from 'based/client';
+import { init, toElement } from 'based/client';
 
 import { FullUser } from '../../types';
 import { openErrorDialog } from '../components/error-dialog.template';
@@ -9,7 +9,7 @@ import renderAdminRowHTML from './admin.page.row.template';
 let users: FullUser[] = [];
 let reviewRequired = false;
 
-init['[data-init="admin"]'] = async element =>
+const refresh = async (element: HTMLElement) =>
 {
   const response = await apiFetch('/users');
   if (!response.ok)
@@ -19,7 +19,11 @@ init['[data-init="admin"]'] = async element =>
   }
 
   users = await response.json() as FullUser[];
+  update(element);
+};
 
+init['[data-init="admin"]'] = async element =>
+{
   const review = element.querySelector('[name="review"]') as HTMLInputElement;
   review.addEventListener('change', event =>
   {
@@ -27,7 +31,7 @@ init['[data-init="admin"]'] = async element =>
     update(element);
   });
 
-  update(element);
+  await refresh(element);
 };
 
 const update = (element: HTMLElement) =>
@@ -35,7 +39,10 @@ const update = (element: HTMLElement) =>
   const tbody = element.querySelector('tbody') as HTMLTableSectionElement;
   tbody.innerHTML = '';
 
-  const displayUsers = users.filter(user => !reviewRequired || (user.status === 'review' || user.pending));
+  const displayUsers = users
+    .filter(user => !reviewRequired || (user.status === 'review' || user.pending))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
   for (const user of displayUsers)
   {
     const row = toElement(renderAdminRowHTML(user), 'tbody');
@@ -80,7 +87,7 @@ const update = (element: HTMLElement) =>
           }
         }
 
-        applyInit(document.body, [ '[data-init="admin"]' ]);
+        await refresh(element);
       }
       finally
       {
@@ -103,6 +110,8 @@ const update = (element: HTMLElement) =>
           openErrorDialog(denyResponse.statusText);
           return;
         }
+
+        await refresh(element);
       }
       finally
       {

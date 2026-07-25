@@ -1,0 +1,14 @@
+[Unit]
+Description=intectum (dev)
+
+[Service]
+ExecStart=/opt/apps/apps/intectum-website/start.sh
+Restart=always
+User=root
+Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=PORT=3001
+WorkingDirectory=/opt/apps/apps/intectum-website
+
+[Install]
+WantedBy=multi-user.target
